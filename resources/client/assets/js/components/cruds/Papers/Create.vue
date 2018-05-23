@@ -32,6 +32,17 @@
                                             >
                                 </div>
                                 <div class="form-group">
+                                    <label for="art">Τέχνη</label>
+                                    <v-select
+                                            name="art"
+                                            label="title"
+                                            @input="updateArt"
+                                            :value="item.art"
+                                            :options="artsAll"
+                                            multiple
+                                            />
+                                </div>
+                                <div class="form-group">
                                     <label for="type">Τύπος</label>
                                     <div class="radio">
                                         <label>
@@ -313,18 +324,22 @@ export default {
         }
     },
     computed: {
-        ...mapGetters('PapersSingle', ['item', 'loading', 'usersAll'])
+        ...mapGetters('PapersSingle', ['item', 'loading', 'artsAll', 'usersAll'])
     },
     created() {
+        this.fetchArtsAll(),
         this.fetchUsersAll()
     },
     destroyed() {
         this.resetState()
     },
     methods: {
-        ...mapActions('PapersSingle', ['storeData', 'resetState', 'setTitle', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'uploadDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus', 'fetchUsersAll']),
+        ...mapActions('PapersSingle', ['storeData', 'resetState', 'setTitle', 'setArt', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'uploadDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus', 'fetchArtsAll', 'fetchUsersAll']),
         updateTitle(e) {
             this.setTitle(e.target.value)
+        },
+        updateArt(value) {
+            this.setArt(value)
         },
         updateType(value) {
             this.setType(value)

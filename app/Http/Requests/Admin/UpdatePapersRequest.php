@@ -24,6 +24,7 @@ class UpdatePapersRequest extends FormRequest
     {
         return [
             
+            'art.*' => 'exists:arts,id',
             'email' => 'email',
             'assign.*' => 'exists:users,id',
         ];

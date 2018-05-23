@@ -3,6 +3,7 @@ function initialState() {
         item: {
             id: null,
             title: null,
+            art: [],
             type: null,
             duration: null,
             name: null,
@@ -12,6 +13,7 @@ function initialState() {
             assign: [],
             status: null,
         },
+        artsAll: [],
         usersAll: [],
         
         loading: false,
@@ -21,6 +23,7 @@ function initialState() {
 const getters = {
     item: state => state.item,
     loading: state => state.loading,
+    artsAll: state => state.artsAll,
     usersAll: state => state.usersAll,
     
 }
@@ -48,6 +51,13 @@ const actions = {
                 }
             }
 
+            if (_.isEmpty(state.item.art)) {
+                params.delete('art')
+            } else {
+                for (let index in state.item.art) {
+                    params.set('art['+index+']', state.item.art[index].id)
+                }
+            }
             params.set('uploaded_documents', state.item.uploaded_documents.map(function (item) {
                             return item.id
             }))
@@ -103,6 +113,13 @@ const actions = {
                 }
             }
 
+            if (_.isEmpty(state.item.art)) {
+                params.delete('art')
+            } else {
+                for (let index in state.item.art) {
+                    params.set('art['+index+']', state.item.art[index].id)
+                }
+            }
             params.set('uploaded_documents', state.item.uploaded_documents.map(function (item) {
                             return item.id
             }))
@@ -141,7 +158,14 @@ const actions = {
                 commit('setItem', response.data.data)
             })
 
-        dispatch('fetchUsersAll')
+        dispatch('fetchArtsAll')
+    dispatch('fetchUsersAll')
+    },
+    fetchArtsAll({ commit }) {
+        axios.get('/api/v1/arts')
+            .then(response => {
+                commit('setArtsAll', response.data.data)
+            })
     },
     fetchUsersAll({ commit }) {
         axios.get('/api/v1/users')
@@ -151,6 +175,9 @@ const actions = {
     },
     setTitle({ commit }, value) {
         commit('setTitle', value)
+    },
+    setArt({ commit }, value) {
+        commit('setArt', value)
     },
     setType({ commit }, value) {
         commit('setType', value)
@@ -193,6 +220,9 @@ const mutations = {
     },
     setTitle(state, value) {
         state.item.title = value
+    },
+    setArt(state, value) {
+        state.item.art = value
     },
     setType(state, value) {
         state.item.type = value
@@ -240,6 +270,9 @@ const mutations = {
     },
     setStatus(state, value) {
         state.item.status = value
+    },
+    setArtsAll(state, value) {
+        state.artsAll = value
     },
     setUsersAll(state, value) {
         state.usersAll = value

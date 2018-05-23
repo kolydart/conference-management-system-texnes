@@ -1044,6 +1044,17 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1054,17 +1065,20 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         };
     },
 
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapGetters"])('PapersSingle', ['item', 'loading', 'usersAll'])),
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapGetters"])('PapersSingle', ['item', 'loading', 'artsAll', 'usersAll'])),
     created: function created() {
-        this.fetchUsersAll();
+        this.fetchArtsAll(), this.fetchUsersAll();
     },
     destroyed: function destroyed() {
         this.resetState();
     },
 
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('PapersSingle', ['storeData', 'resetState', 'setTitle', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'uploadDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus', 'fetchUsersAll']), {
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('PapersSingle', ['storeData', 'resetState', 'setTitle', 'setArt', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'uploadDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus', 'fetchArtsAll', 'fetchUsersAll']), {
         updateTitle: function updateTitle(e) {
             this.setTitle(e.target.value);
+        },
+        updateArt: function updateArt(value) {
+            this.setArt(value);
         },
         updateType: function updateType(value) {
             this.setType(value);
@@ -1461,6 +1475,17 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1471,7 +1496,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         };
     },
 
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapGetters"])('PapersSingle', ['item', 'loading', 'usersAll'])),
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapGetters"])('PapersSingle', ['item', 'loading', 'artsAll', 'usersAll'])),
     created: function created() {
         this.fetchData(this.$route.params.id);
     },
@@ -1485,9 +1510,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             this.fetchData(this.$route.params.id);
         }
     },
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('PapersSingle', ['fetchData', 'updateData', 'resetState', 'setTitle', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'uploadDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus']), {
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('PapersSingle', ['fetchData', 'updateData', 'resetState', 'setTitle', 'setArt', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'uploadDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus']), {
         updateTitle: function updateTitle(e) {
             this.setTitle(e.target.value);
+        },
+        updateArt: function updateArt(value) {
+            this.setArt(value);
         },
         updateType: function updateType(value) {
             this.setType(value);
@@ -1650,7 +1678,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            columns: [{ title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' }, { title: 'Τίτλος', field: 'title', sortable: true }, { title: 'Τύπος', field: 'type', sortable: true }, { title: 'Διάρκεια', field: 'duration', sortable: true }, { title: 'Ονοματεπώνυμο', field: 'name', sortable: true }, { title: 'Email', field: 'email', sortable: true }, { title: 'Ιδιότητα', field: 'attribute', sortable: true }, { title: 'Αρχείο', tdComp: __WEBPACK_IMPORTED_MODULE_5__tableComponents_documents_field___default.a, sortable: false }, { title: 'Ανάθεση', field: 'assign', tdComp: __WEBPACK_IMPORTED_MODULE_3__dtmodules_DatatableList___default.a }, { title: 'Status', field: 'status', sortable: true }, { title: 'Actions', tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }],
+            columns: [{ title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' }, { title: 'Τίτλος', field: 'title', sortable: true }, { title: 'Τέχνη', field: 'art', tdComp: __WEBPACK_IMPORTED_MODULE_3__dtmodules_DatatableList___default.a }, { title: 'Τύπος', field: 'type', sortable: true }, { title: 'Διάρκεια', field: 'duration', sortable: true }, { title: 'Ονοματεπώνυμο', field: 'name', sortable: true }, { title: 'Email', field: 'email', sortable: true }, { title: 'Ιδιότητα', field: 'attribute', sortable: true }, { title: 'Αρχείο', tdComp: __WEBPACK_IMPORTED_MODULE_5__tableComponents_documents_field___default.a, sortable: false }, { title: 'Ανάθεση', field: 'assign', tdComp: __WEBPACK_IMPORTED_MODULE_3__dtmodules_DatatableList___default.a }, { title: 'Status', field: 'status', sortable: true }, { title: 'Actions', tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }],
             query: { sort: 'id', order: 'desc' },
             xprops: {
                 module: 'PapersIndex',
@@ -1690,6 +1718,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3514,7 +3550,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -3574,7 +3610,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -3664,7 +3700,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -3739,7 +3775,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -24896,6 +24932,27 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("tr", [
+                            _c("th", [_vm._v("Τέχνη")]),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              _vm._l(_vm.item.art, function(art) {
+                                return _c(
+                                  "span",
+                                  { staticClass: "label label-info" },
+                                  [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(art.title) +
+                                        "\n                                            "
+                                    )
+                                  ]
+                                )
+                              })
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("tr", [
                             _c("th", [_vm._v("Τύπος")]),
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(_vm.item.type))])
@@ -26106,6 +26163,28 @@ var render = function() {
                         })
                       ]),
                       _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "art" } }, [
+                            _vm._v("Τέχνη")
+                          ]),
+                          _vm._v(" "),
+                          _c("v-select", {
+                            attrs: {
+                              name: "art",
+                              label: "title",
+                              value: _vm.item.art,
+                              options: _vm.artsAll,
+                              multiple: ""
+                            },
+                            on: { input: _vm.updateArt }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "type" } }, [
                           _vm._v("Τύπος")
@@ -27038,6 +27117,28 @@ var render = function() {
                           on: { input: _vm.updateTitle }
                         })
                       ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "art" } }, [
+                            _vm._v("Τέχνη")
+                          ]),
+                          _vm._v(" "),
+                          _c("v-select", {
+                            attrs: {
+                              name: "art",
+                              label: "title",
+                              value: _vm.item.art,
+                              options: _vm.artsAll,
+                              multiple: ""
+                            },
+                            on: { input: _vm.updateArt }
+                          })
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "type" } }, [
@@ -30615,6 +30716,7 @@ function initialState() {
         item: {
             id: null,
             title: null,
+            art: [],
             type: null,
             duration: null,
             name: null,
@@ -30624,6 +30726,7 @@ function initialState() {
             assign: [],
             status: null
         },
+        artsAll: [],
         usersAll: [],
 
         loading: false
@@ -30636,6 +30739,9 @@ var getters = {
     },
     loading: function loading(state) {
         return state.loading;
+    },
+    artsAll: function artsAll(state) {
+        return state.artsAll;
     },
     usersAll: function usersAll(state) {
         return state.usersAll;
@@ -30670,14 +30776,21 @@ var actions = {
                 }
             }
 
+            if (_.isEmpty(state.item.art)) {
+                params.delete('art');
+            } else {
+                for (var _index in state.item.art) {
+                    params.set('art[' + _index + ']', state.item.art[_index].id);
+                }
+            }
             params.set('uploaded_documents', state.item.uploaded_documents.map(function (item) {
                 return item.id;
             }));
             if (_.isEmpty(state.item.assign)) {
                 params.delete('assign');
             } else {
-                for (var _index in state.item.assign) {
-                    params.set('assign[' + _index + ']', state.item.assign[_index].id);
+                for (var _index2 in state.item.assign) {
+                    params.set('assign[' + _index2 + ']', state.item.assign[_index2].id);
                 }
             }
 
@@ -30723,14 +30836,21 @@ var actions = {
                 }
             }
 
+            if (_.isEmpty(state.item.art)) {
+                params.delete('art');
+            } else {
+                for (var _index3 in state.item.art) {
+                    params.set('art[' + _index3 + ']', state.item.art[_index3].id);
+                }
+            }
             params.set('uploaded_documents', state.item.uploaded_documents.map(function (item) {
                 return item.id;
             }));
             if (_.isEmpty(state.item.assign)) {
                 params.delete('assign');
             } else {
-                for (var _index2 in state.item.assign) {
-                    params.set('assign[' + _index2 + ']', state.item.assign[_index2].id);
+                for (var _index4 in state.item.assign) {
+                    params.set('assign[' + _index4 + ']', state.item.assign[_index4].id);
                 }
             }
 
@@ -30757,72 +30877,85 @@ var actions = {
             commit('setItem', response.data.data);
         });
 
+        dispatch('fetchArtsAll');
         dispatch('fetchUsersAll');
     },
-    fetchUsersAll: function fetchUsersAll(_ref4) {
+    fetchArtsAll: function fetchArtsAll(_ref4) {
         var commit = _ref4.commit;
+
+        axios.get('/api/v1/arts').then(function (response) {
+            commit('setArtsAll', response.data.data);
+        });
+    },
+    fetchUsersAll: function fetchUsersAll(_ref5) {
+        var commit = _ref5.commit;
 
         axios.get('/api/v1/users').then(function (response) {
             commit('setUsersAll', response.data.data);
         });
     },
-    setTitle: function setTitle(_ref5, value) {
-        var commit = _ref5.commit;
+    setTitle: function setTitle(_ref6, value) {
+        var commit = _ref6.commit;
 
         commit('setTitle', value);
     },
-    setType: function setType(_ref6, value) {
-        var commit = _ref6.commit;
+    setArt: function setArt(_ref7, value) {
+        var commit = _ref7.commit;
+
+        commit('setArt', value);
+    },
+    setType: function setType(_ref8, value) {
+        var commit = _ref8.commit;
 
         commit('setType', value);
     },
-    setDuration: function setDuration(_ref7, value) {
-        var commit = _ref7.commit;
+    setDuration: function setDuration(_ref9, value) {
+        var commit = _ref9.commit;
 
         commit('setDuration', value);
     },
-    setName: function setName(_ref8, value) {
-        var commit = _ref8.commit;
+    setName: function setName(_ref10, value) {
+        var commit = _ref10.commit;
 
         commit('setName', value);
     },
-    setEmail: function setEmail(_ref9, value) {
-        var commit = _ref9.commit;
+    setEmail: function setEmail(_ref11, value) {
+        var commit = _ref11.commit;
 
         commit('setEmail', value);
     },
-    setAttribute: function setAttribute(_ref10, value) {
-        var commit = _ref10.commit;
+    setAttribute: function setAttribute(_ref12, value) {
+        var commit = _ref12.commit;
 
         commit('setAttribute', value);
     },
-    uploadDocument: function uploadDocument(_ref11, value) {
-        var commit = _ref11.commit;
+    uploadDocument: function uploadDocument(_ref13, value) {
+        var commit = _ref13.commit;
 
         commit('setDocument', value);
     },
-    destroyDocument: function destroyDocument(_ref12, value) {
-        var commit = _ref12.commit;
+    destroyDocument: function destroyDocument(_ref14, value) {
+        var commit = _ref14.commit;
 
         commit('removeDocument', value);
     },
-    destroyUploadedDocument: function destroyUploadedDocument(_ref13, value) {
-        var commit = _ref13.commit;
+    destroyUploadedDocument: function destroyUploadedDocument(_ref15, value) {
+        var commit = _ref15.commit;
 
         commit('removeUploadedDocument', value);
     },
-    setAssign: function setAssign(_ref14, value) {
-        var commit = _ref14.commit;
+    setAssign: function setAssign(_ref16, value) {
+        var commit = _ref16.commit;
 
         commit('setAssign', value);
     },
-    setStatus: function setStatus(_ref15, value) {
-        var commit = _ref15.commit;
+    setStatus: function setStatus(_ref17, value) {
+        var commit = _ref17.commit;
 
         commit('setStatus', value);
     },
-    resetState: function resetState(_ref16) {
-        var commit = _ref16.commit;
+    resetState: function resetState(_ref18) {
+        var commit = _ref18.commit;
 
         commit('resetState');
     }
@@ -30834,6 +30967,9 @@ var mutations = {
     },
     setTitle: function setTitle(state, value) {
         state.item.title = value;
+    },
+    setArt: function setArt(state, value) {
+        state.item.art = value;
     },
     setType: function setType(state, value) {
         state.item.type = value;
@@ -30881,6 +31017,9 @@ var mutations = {
     },
     setStatus: function setStatus(state, value) {
         state.item.status = value;
+    },
+    setArtsAll: function setArtsAll(state, value) {
+        state.artsAll = value;
     },
     setUsersAll: function setUsersAll(state, value) {
         state.usersAll = value;

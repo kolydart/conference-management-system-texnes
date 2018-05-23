@@ -69,6 +69,7 @@ export default {
             columns: [
                 { title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' },
                 { title: 'Τίτλος', field: 'title', sortable: true },
+                { title: 'Τέχνη', field: 'art', tdComp: DatatableList },
                 { title: 'Τύπος', field: 'type', sortable: true },
                 { title: 'Διάρκεια', field: 'duration', sortable: true },
                 { title: 'Ονοματεπώνυμο', field: 'name', sortable: true },

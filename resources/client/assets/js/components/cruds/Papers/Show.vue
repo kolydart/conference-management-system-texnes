@@ -30,6 +30,14 @@
                                             <td>{{ item.title }}</td>
                                             </tr>
                                         <tr>
+                                            <th>Τέχνη</th>
+                                            <td>
+                                                <span class="label label-info" v-for="art in item.art">
+                                                    {{ art.title }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <th>Τύπος</th>
                                             <td>{{ item.type }}</td>
                                             </tr>

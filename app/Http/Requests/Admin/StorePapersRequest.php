@@ -23,6 +23,7 @@ class StorePapersRequest extends FormRequest
     public function rules()
     {
         return [
+            'art.*' => 'exists:arts,id',
             'email' => 'email',
             'assign.*' => 'exists:users,id',
         ];
