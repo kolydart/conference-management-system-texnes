@@ -10,6 +10,10 @@ import ArtsIndex from '../components/cruds/Arts/Index.vue'
 import ArtsCreate from '../components/cruds/Arts/Create.vue'
 import ArtsShow from '../components/cruds/Arts/Show.vue'
 import ArtsEdit from '../components/cruds/Arts/Edit.vue'
+import JudgementsIndex from '../components/cruds/Judgements/Index.vue'
+import JudgementsCreate from '../components/cruds/Judgements/Create.vue'
+import JudgementsShow from '../components/cruds/Judgements/Show.vue'
+import JudgementsEdit from '../components/cruds/Judgements/Edit.vue'
 import UsersIndex from '../components/cruds/Users/Index.vue'
 import UsersCreate from '../components/cruds/Users/Create.vue'
 import UsersShow from '../components/cruds/Users/Show.vue'
@@ -35,6 +39,10 @@ const routes = [
     { path: '/arts/create', component: ArtsCreate, name: 'arts.create' },
     { path: '/arts/:id', component: ArtsShow, name: 'arts.show' },
     { path: '/arts/:id/edit', component: ArtsEdit, name: 'arts.edit' },
+    { path: '/judgements', component: JudgementsIndex, name: 'judgements.index' },
+    { path: '/judgements/create', component: JudgementsCreate, name: 'judgements.create' },
+    { path: '/judgements/:id', component: JudgementsShow, name: 'judgements.show' },
+    { path: '/judgements/:id/edit', component: JudgementsEdit, name: 'judgements.edit' },
     { path: '/users', component: UsersIndex, name: 'users.index' },
     { path: '/users/create', component: UsersCreate, name: 'users.create' },
     { path: '/users/:id', component: UsersShow, name: 'users.show' },

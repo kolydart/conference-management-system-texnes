@@ -1,10 +1,10 @@
 <?php
 namespace App\Http\Requests\Admin;
 
-use App\Paper;
+use App\Judgement;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePapersRequest extends FormRequest
+class UpdateJudgementsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,6 +23,6 @@ class StorePapersRequest extends FormRequest
      */
     public function rules()
     {
-        return Paper::storeValidation($this);
+        return Judgement::updateValidation($this);
     }
 }

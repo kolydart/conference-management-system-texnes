@@ -7,7 +7,7 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
-                    <form @submit.prevent="submitForm">
+                    <form @submit.prevent="submitForm" novalidate>
                         <div class="box">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Edit</h3>
@@ -237,16 +237,24 @@
                                             @change="updateDocument"
                                             multiple="multiple"
                                     >
-                                    <ul v-if="item.documents || item.uploaded_documents" class="list-unstyled">
-                                        <li v-for="document in item.uploaded_documents">
+                                    <ul v-if="item.document || item.uploaded_document" class="list-unstyled">
+                                        <li v-for="document in item.uploaded_document">
                                             {{ document.file_name }}
-                                            <span><a href="#" @click="removeDocuments($event, document.id);"
-                                                     class="btn btn-xs btn-danger">Remove file</a> </span>
+                                            <button class="btn btn-xs btn-danger"
+                                                    type="button"
+                                                    @click="removeUploadedDocument($event, document.id);"
+                                            >
+                                                Remove file
+                                            </button>
                                         </li>
-                                        <li v-for="(document, index) in item.documents">
+                                        <li v-for="(document, index) in item.document">
                                             {{ document.name }}
-                                            <span><a href="#" @click="removeUploadedDocument($event, index);"
-                                                     class="btn btn-xs btn-danger">Remove file</a> </span>
+                                            <button class="btn btn-xs btn-danger"
+                                                    type="button"
+                                                    @click="removeDocument($event, index);"
+                                            >
+                                                Remove file
+                                            </button>
                                         </li>
                                     </ul>
                                 </div>
@@ -345,7 +353,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions('PapersSingle', ['fetchData', 'updateData', 'resetState', 'setTitle', 'setArt', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'uploadDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus']),
+        ...mapActions('PapersSingle', ['fetchData', 'updateData', 'resetState', 'setTitle', 'setArt', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'setDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus']),
         updateTitle(e) {
             this.setTitle(e.target.value)
         },
@@ -367,44 +375,43 @@ export default {
         updateAttribute(value) {
             this.setAttribute(value)
         },
-        
-            removeDocument(e, id) {
-                this.$swal({
-                    title: 'Are you sure?',
-                    text: "To fully delete the file submit the form.",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'Delete',
-                    confirmButtonColor: '#dd4b39',
-                    focusCancel: true,
-                    reverseButtons: true
-                }).then(result => {
-                    if (typeof result.dismiss === "undefined") {
-                        this.destroyDocument(id);
-                    }
-                })
-            },
-            updateDocument(e) {
-                this.uploadDocument(e.target.files);
-                this.$forceUpdate();
-            },
-              removeUploadedDocument (e, id) {
-                this.$swal({
-                  title: 'Are you sure ? ',
-                  text: "To fully delete the file submit the form.",
-                  type: 'warning',
-                  showCancelButton: true,
-                  confirmButtonText: 'Delete',
-                  confirmButtonColor: '#dd4b39',
-                  focusCancel: true,
-                  reverseButtons: true
-                }).
-                then(result => {
-                    if (typeof result.dismiss === "undefined") {
-                        this.destroyUploadedDocument(id);
-                    }
-                })
-              },
+        removeDocument(e, id) {
+            this.$swal({
+                title: 'Are you sure?',
+                text: "To fully delete the file submit the form.",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Delete',
+                confirmButtonColor: '#dd4b39',
+                focusCancel: true,
+                reverseButtons: true
+            }).then(result => {
+                if (typeof result.dismiss === "undefined") {
+                    this.destroyDocument(id);
+                }
+            })
+        },
+        updateDocument(e) {
+            this.setDocument(e.target.files);
+            this.$forceUpdate();
+        },
+        removeUploadedDocument (e, id) {
+        this.$swal({
+          title: 'Are you sure ? ',
+          text: "To fully delete the file submit the form.",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Delete',
+          confirmButtonColor: '#dd4b39',
+          focusCancel: true,
+          reverseButtons: true
+        }).
+        then(result => {
+            if (typeof result.dismiss === "undefined") {
+                this.destroyUploadedDocument(id);
+            }
+        })
+        },
         updateAssign(value) {
             this.setAssign(value)
         },

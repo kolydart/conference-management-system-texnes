@@ -39,6 +39,11 @@ class PermissionSeed extends Seeder
             ['id' => 24, 'title' => 'paper_edit',],
             ['id' => 25, 'title' => 'paper_view',],
             ['id' => 26, 'title' => 'paper_delete',],
+            ['id' => 32, 'title' => 'judgement_access',],
+            ['id' => 33, 'title' => 'judgement_create',],
+            ['id' => 34, 'title' => 'judgement_edit',],
+            ['id' => 35, 'title' => 'judgement_view',],
+            ['id' => 36, 'title' => 'judgement_delete',],
 
         ];
 

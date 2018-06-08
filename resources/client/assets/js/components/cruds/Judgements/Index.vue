@@ -1,7 +1,7 @@
 <template>
     <section class="content-wrapper" style="min-height: 960px;">
         <section class="content-header">
-            <h1>Προτάσεις</h1>
+            <h1>Κρίσεις</h1>
         </section>
 
         <section class="content">
@@ -60,30 +60,24 @@ import DatatableActions from '../../dtmodules/DatatableActions'
 import DatatableSingle from '../../dtmodules/DatatableSingle'
 import DatatableList from '../../dtmodules/DatatableList'
 import DatatableCheckbox from '../../dtmodules/DatatableCheckbox'
-import DatatableDocumentField from './dtmodules/DatatableDocumentField'
+
 
 export default {
     data() {
         return {
             columns: [
                 { title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' },
-                { title: 'Τίτλος', field: 'title', sortable: true },
-                { title: 'Τέχνη', field: 'art', tdComp: DatatableList },
-                { title: 'Τύπος', field: 'type', sortable: true },
-                { title: 'Διάρκεια', field: 'duration', sortable: true },
-                { title: 'Ονοματεπώνυμο', field: 'name', sortable: true },
-                { title: 'Email', field: 'email', sortable: true },
-                { title: 'Ιδιότητα', field: 'attribute', sortable: true },
-                { title: 'Αρχείο', tdComp: DatatableDocumentField, sortable: false },
-                { title: 'Ανάθεση', field: 'assign', tdComp: DatatableList },
-                { title: 'Status', field: 'status', sortable: true },
+                { title: 'Paper', field: 'paper', tdComp: DatatableSingle },
+                { title: 'Judgement', field: 'judgement', sortable: true },
+                { title: 'Comment', field: 'comment', sortable: true },
+                { title: 'Created by', field: 'created_by', tdComp: DatatableSingle },
                 { title: 'Actions', tdComp: DatatableActions, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }
             ],
             query: { sort: 'id', order: 'desc' },
             xprops: {
-                module: 'PapersIndex',
-                route: 'papers',
-                permission_prefix: 'paper_'
+                module: 'JudgementsIndex',
+                route: 'judgements',
+                permission_prefix: 'judgement_'
             }
         }
     },
@@ -95,7 +89,7 @@ export default {
         this.resetState()
     },
     computed: {
-        ...mapGetters('PapersIndex', ['data', 'total', 'loading', 'relationships']),
+        ...mapGetters('JudgementsIndex', ['data', 'total', 'loading', 'relationships']),
     },
     watch: {
         query: {
@@ -106,7 +100,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions('PapersIndex', ['fetchData', 'setQuery', 'resetState']),
+        ...mapActions('JudgementsIndex', ['fetchData', 'setQuery', 'resetState']),
     }
 }
 </script>

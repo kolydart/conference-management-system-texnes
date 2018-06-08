@@ -1,0 +1,10 @@
+<?php
+
+$factory->define(App\Judgement::class, function (Faker\Generator $faker) {
+    return [
+        "paper_id" => factory('App\Paper')->create(),
+        "judgement" => collect(["Approve","Reject",])->random(),
+        "comment" => $faker->name,
+        "created_by_id" => factory('App\User')->create(),
+    ];
+});

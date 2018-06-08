@@ -8,6 +8,7 @@ return [
 		'arts' => [		'title' => 'Τέχνες',		'fields' => [			'title' => 'Τίτλος',		],	],
 		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'document' => 'Αρχείο',			'assign' => 'Ανάθεση',			'status' => 'Status',		],	],
 		'testpaper' => [		'title' => 'Testpaper',		'fields' => [		],	],
+		'judgements' => [		'title' => 'Κρίσεις',		'fields' => [			'paper' => 'Paper',			'judgement' => 'Judgement',			'comment' => 'Comment',			'created-by' => 'Created by',		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',

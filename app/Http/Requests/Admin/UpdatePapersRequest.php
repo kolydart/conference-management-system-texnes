@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Requests\Admin;
 
+use App\Paper;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePapersRequest extends FormRequest
@@ -22,11 +23,6 @@ class UpdatePapersRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            
-            'art.*' => 'exists:arts,id',
-            'email' => 'email',
-            'assign.*' => 'exists:users,id',
-        ];
+        return Paper::updateValidation($this);
     }
 }

@@ -22,27 +22,73 @@ class Paper extends Model implements HasMedia
 {
     use SoftDeletes, HasMediaTrait;
 
+    
     protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'status'];
-    protected $hidden = [];
-    protected $appends = ['uploaded_documents', 'documents_link',];
+    protected $appends = ['document', 'document_link', 'uploaded_document'];
     protected $with = ['media'];
     
-    public function getUploadedDocumentsAttribute()
+
+    public static function storeValidation($request)
     {
-        return $this->getMedia('documents')->keyBy('id');
+        return [
+            'title' => 'max:191|nullable',
+            'art' => 'array|nullable',
+            'art.*' => 'integer|exists:arts,id|max:4294967295|nullable',
+            'type' => 'in:Εισήγηση,Εργαστήριο: βιωματικές δράσεις,Εργαστήριο: καλές πρακτικές|max:191|nullable',
+            'duration' => 'in:20,45,90|max:191|nullable',
+            'name' => 'max:191|nullable',
+            'email' => 'email|max:191|nullable',
+            'attribute' => 'in:Πανεπιστημιακός,Ερευνητής,Μεταπτυχιακός φοιτητής,Εκπαιδευτικός Β/θμιας Εκπ/σης,Εκπαιδευτικός Α/θμιας Εκπ/σης,Καλλιτέχνης,Άλλο|max:191|nullable',
+            'document' => 'nullable',
+            'document.*' => 'file|nullable',
+            'assign' => 'array|nullable',
+            'assign.*' => 'integer|exists:users,id|max:4294967295|nullable',
+            'status' => 'in:Accepted,Rejected,Pending|max:191|nullable'
+        ];
+    }
+
+    public static function updateValidation($request)
+    {
+        return [
+            'title' => 'max:191|nullable',
+            'art' => 'array|nullable',
+            'art.*' => 'integer|exists:arts,id|max:4294967295|nullable',
+            'type' => 'in:Εισήγηση,Εργαστήριο: βιωματικές δράσεις,Εργαστήριο: καλές πρακτικές|max:191|nullable',
+            'duration' => 'in:20,45,90|max:191|nullable',
+            'name' => 'max:191|nullable',
+            'email' => 'email|max:191|nullable',
+            'attribute' => 'in:Πανεπιστημιακός,Ερευνητής,Μεταπτυχιακός φοιτητής,Εκπαιδευτικός Β/θμιας Εκπ/σης,Εκπαιδευτικός Α/θμιας Εκπ/σης,Καλλιτέχνης,Άλλο|max:191|nullable',
+            'document' => 'sometimes',
+            'document.*' => 'file|nullable',
+            'assign' => 'array|nullable',
+            'assign.*' => 'integer|exists:users,id|max:4294967295|nullable',
+            'status' => 'in:Accepted,Rejected,Pending|max:191|nullable'
+        ];
+    }
+
+    
+
+    public function getDocumentAttribute()
+    {
+        return [];
+    }
+
+    public function getUploadedDocumentAttribute()
+    {
+        return $this->getMedia('document')->keyBy('id');
     }
 
     /**
      * @return string
      */
-    public function getDocumentsLinkAttribute()
+    public function getDocumentLinkAttribute()
     {
-        $documents = $this->getMedia('documents');
-        if (! count($documents)) {
-            return '';
+        $document = $this->getMedia('document');
+        if (! count($document)) {
+            return null;
         }
         $html = [];
-        foreach ($documents as $file) {
+        foreach ($document as $file) {
             $html[] = '<a href="' . $file->getUrl() . '" target="_blank">' . $file->file_name . '</a>';
         }
 
@@ -58,5 +104,6 @@ class Paper extends Model implements HasMedia
     {
         return $this->belongsToMany(User::class, 'paper_user');
     }
+    
     
 }

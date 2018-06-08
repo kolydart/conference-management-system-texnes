@@ -2,19 +2,12 @@ function initialState() {
     return {
         item: {
             id: null,
-            title: null,
-            art: [],
-            type: null,
-            duration: null,
-            name: null,
-            email: null,
-            attribute: null,
-            document: [],
-            uploaded_document: [],
-            assign: [],
-            status: null,
+            paper: null,
+            judgement: null,
+            comment: null,
+            created_by: null,
         },
-        artsAll: [],
+        papersAll: [],
         usersAll: [],
         
         loading: false,
@@ -24,7 +17,7 @@ function initialState() {
 const getters = {
     item: state => state.item,
     loading: state => state.loading,
-    artsAll: state => state.artsAll,
+    papersAll: state => state.papersAll,
     usersAll: state => state.usersAll,
     
 }
@@ -52,23 +45,18 @@ const actions = {
                 }
             }
 
-            if (_.isEmpty(state.item.art)) {
-                params.delete('art')
+            if (_.isEmpty(state.item.paper)) {
+                params.set('paper_id', '')
             } else {
-                for (let index in state.item.art) {
-                    params.set('art['+index+']', state.item.art[index].id)
-                }
+                params.set('paper_id', state.item.paper.id)
             }
-            params.set('uploaded_document', state.item.uploaded_document.map(o => o['id']))
-            if (_.isEmpty(state.item.assign)) {
-                params.delete('assign')
+            if (_.isEmpty(state.item.created_by)) {
+                params.set('created_by_id', '')
             } else {
-                for (let index in state.item.assign) {
-                    params.set('assign['+index+']', state.item.assign[index].id)
-                }
+                params.set('created_by_id', state.item.created_by.id)
             }
 
-            axios.post('/api/v1/papers', params)
+            axios.post('/api/v1/judgements', params)
                 .then(response => {
                     commit('resetState')
                     resolve()
@@ -112,23 +100,18 @@ const actions = {
                 }
             }
 
-            if (_.isEmpty(state.item.art)) {
-                params.delete('art')
+            if (_.isEmpty(state.item.paper)) {
+                params.set('paper_id', '')
             } else {
-                for (let index in state.item.art) {
-                    params.set('art['+index+']', state.item.art[index].id)
-                }
+                params.set('paper_id', state.item.paper.id)
             }
-            params.set('uploaded_document', state.item.uploaded_document.map(o => o['id']))
-            if (_.isEmpty(state.item.assign)) {
-                params.delete('assign')
+            if (_.isEmpty(state.item.created_by)) {
+                params.set('created_by_id', '')
             } else {
-                for (let index in state.item.assign) {
-                    params.set('assign['+index+']', state.item.assign[index].id)
-                }
+                params.set('created_by_id', state.item.created_by.id)
             }
 
-            axios.post('/api/v1/papers/' + state.item.id, params)
+            axios.post('/api/v1/judgements/' + state.item.id, params)
                 .then(response => {
                     commit('setItem', response.data.data)
                     resolve()
@@ -150,18 +133,18 @@ const actions = {
         })
     },
     fetchData({ commit, dispatch }, id) {
-        axios.get('/api/v1/papers/' + id)
+        axios.get('/api/v1/judgements/' + id)
             .then(response => {
                 commit('setItem', response.data.data)
             })
 
-        dispatch('fetchArtsAll')
+        dispatch('fetchPapersAll')
     dispatch('fetchUsersAll')
     },
-    fetchArtsAll({ commit }) {
-        axios.get('/api/v1/arts')
+    fetchPapersAll({ commit }) {
+        axios.get('/api/v1/papers')
             .then(response => {
-                commit('setArtsAll', response.data.data)
+                commit('setPapersAll', response.data.data)
             })
     },
     fetchUsersAll({ commit }) {
@@ -170,41 +153,17 @@ const actions = {
                 commit('setUsersAll', response.data.data)
             })
     },
-    setTitle({ commit }, value) {
-        commit('setTitle', value)
+    setPaper({ commit }, value) {
+        commit('setPaper', value)
     },
-    setArt({ commit }, value) {
-        commit('setArt', value)
+    setJudgement({ commit }, value) {
+        commit('setJudgement', value)
     },
-    setType({ commit }, value) {
-        commit('setType', value)
+    setComment({ commit }, value) {
+        commit('setComment', value)
     },
-    setDuration({ commit }, value) {
-        commit('setDuration', value)
-    },
-    setName({ commit }, value) {
-        commit('setName', value)
-    },
-    setEmail({ commit }, value) {
-        commit('setEmail', value)
-    },
-    setAttribute({ commit }, value) {
-        commit('setAttribute', value)
-    },
-    setDocument({ commit }, value) {
-        commit('setDocument', value)
-    },
-    destroyDocument({ commit }, value) {
-        commit('destroyDocument', value)
-    },
-    destroyUploadedDocument({ commit }, value) {
-        commit('destroyUploadedDocument', value)
-    },
-    setAssign({ commit }, value) {
-        commit('setAssign', value)
-    },
-    setStatus({ commit }, value) {
-        commit('setStatus', value)
+    setCreated_by({ commit }, value) {
+        commit('setCreated_by', value)
     },
     resetState({ commit }) {
         commit('resetState')
@@ -215,58 +174,20 @@ const mutations = {
     setItem(state, item) {
         state.item = item
     },
-    setTitle(state, value) {
-        state.item.title = value
+    setPaper(state, value) {
+        state.item.paper = value
     },
-    setArt(state, value) {
-        state.item.art = value
+    setJudgement(state, value) {
+        state.item.judgement = value
     },
-    setType(state, value) {
-        state.item.type = value
+    setComment(state, value) {
+        state.item.comment = value
     },
-    setDuration(state, value) {
-        state.item.duration = value
+    setCreated_by(state, value) {
+        state.item.created_by = value
     },
-    setName(state, value) {
-        state.item.name = value
-    },
-    setEmail(state, value) {
-        state.item.email = value
-    },
-    setAttribute(state, value) {
-        state.item.attribute = value
-    },
-    setDocument(state, value) {
-        for (let i in value) {
-            let document = value[i];
-            if (typeof document === "object") {
-                state.item.document.push(document);
-            }
-        }
-    },
-    destroyDocument(state, value) {
-        for (let i in state.item.document) {
-            if (i == value) {
-                state.item.document.splice(i, 1);
-            }
-        }
-    },
-    destroyUploadedDocument(state, value) {
-        for (let i in state.item.uploaded_document) {
-            let data = state.item.uploaded_document[i];
-            if (data.id === value) {
-                state.item.uploaded_document.splice(i, 1);
-            }
-        }
-    },
-    setAssign(state, value) {
-        state.item.assign = value
-    },
-    setStatus(state, value) {
-        state.item.status = value
-    },
-    setArtsAll(state, value) {
-        state.artsAll = value
+    setPapersAll(state, value) {
+        state.papersAll = value
     },
     setUsersAll(state, value) {
         state.usersAll = value

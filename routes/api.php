@@ -5,6 +5,7 @@ Route::group(['prefix' => '/v1', 'middleware' => ['auth:api'], 'namespace' => 'A
     Route::apiResource('rules', 'RulesController', ['only' => ['index']]);
     Route::apiResource('papers', 'PapersController');
     Route::apiResource('arts', 'ArtsController');
+    Route::apiResource('judgements', 'JudgementsController');
     Route::apiResource('users', 'UsersController');
     Route::apiResource('permissions', 'PermissionsController');
     Route::apiResource('roles', 'RolesController');

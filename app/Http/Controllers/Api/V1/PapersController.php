@@ -17,16 +17,14 @@ class PapersController extends Controller
 {
     public function index()
     {
-        if (! Gate::allows('paper_access')) {
-            return abort(401);
-        }
+        
 
         return new PaperResource(Paper::with(['art', 'assign'])->get());
     }
 
     public function show($id)
     {
-        if (! Gate::allows('paper_view')) {
+        if (Gate::denies('paper_view')) {
             return abort(401);
         }
 
@@ -37,16 +35,16 @@ class PapersController extends Controller
 
     public function store(StorePapersRequest $request)
     {
-        if (! Gate::allows('paper_create')) {
+        if (Gate::denies('paper_create')) {
             return abort(401);
         }
 
         $paper = Paper::create($request->all());
         $paper->art()->sync($request->input('art', []));
         $paper->assign()->sync($request->input('assign', []));
-        if ($request->hasFile('documents')) {
-            foreach ($request->file('documents') as $key => $file) {
-                $paper->addMedia($file)->toMediaCollection('documents');
+        if ($request->hasFile('document')) {
+            foreach ($request->file('document') as $key => $file) {
+                $paper->addMedia($file)->toMediaCollection('document');
             }
         }
 
@@ -57,7 +55,7 @@ class PapersController extends Controller
 
     public function update(UpdatePapersRequest $request, $id)
     {
-        if (! Gate::allows('paper_edit')) {
+        if (Gate::denies('paper_edit')) {
             return abort(401);
         }
 
@@ -65,15 +63,15 @@ class PapersController extends Controller
         $paper->update($request->all());
         $paper->art()->sync($request->input('art', []));
         $paper->assign()->sync($request->input('assign', []));
-        $filesInfo = explode(',', $request->input('uploaded_documents'));
-        foreach ($paper->getMedia('documents') as $file) {
+        $filesInfo = explode(',', $request->input('uploaded_document'));
+        foreach ($paper->getMedia('document') as $file) {
             if (! in_array($file->id, $filesInfo)) {
                 $file->delete();
             }
         }
-        if ($request->hasFile('documents')) {
-            foreach ($request->file('documents') as $key => $file) {
-                $paper->addMedia($file)->toMediaCollection('documents');
+        if ($request->hasFile('document')) {
+            foreach ($request->file('document') as $key => $file) {
+                $paper->addMedia($file)->toMediaCollection('document');
             }
         }
 
@@ -84,7 +82,7 @@ class PapersController extends Controller
 
     public function destroy($id)
     {
-        if (! Gate::allows('paper_delete')) {
+        if (Gate::denies('paper_delete')) {
             return abort(401);
         }
 

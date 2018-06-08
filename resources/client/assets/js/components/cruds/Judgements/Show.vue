@@ -1,7 +1,7 @@
 <template>
     <section class="content-wrapper" style="min-height: 960px;">
         <section class="content-header">
-            <h1>Προτάσεις</h1>
+            <h1>Κρίσεις</h1>
         </section>
 
         <section class="content">
@@ -26,53 +26,29 @@
                                             <td>{{ item.id }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Τίτλος</th>
-                                            <td>{{ item.title }}</td>
-                                            </tr>
-                                        <tr>
-                                            <th>Τέχνη</th>
+                                            <th>Paper</th>
                                             <td>
-                                                <span class="label label-info" v-for="art in item.art">
-                                                    {{ art.title }}
+                                                <span class="label label-info" v-if="item.paper !== null">
+                                                    {{ item.paper.title }}
                                                 </span>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th>Τύπος</th>
-                                            <td>{{ item.type }}</td>
+                                            <th>Judgement</th>
+                                            <td>{{ item.judgement }}</td>
                                             </tr>
                                         <tr>
-                                            <th>Διάρκεια</th>
-                                            <td>{{ item.duration }}</td>
+                                            <th>Comment</th>
+                                            <td>{{ item.comment }}</td>
                                             </tr>
                                         <tr>
-                                            <th>Ονοματεπώνυμο</th>
-                                            <td>{{ item.name }}</td>
-                                            </tr>
-                                        <tr>
-                                            <th>Email</th>
-                                            <td>{{ item.email }}</td>
-                                            </tr>
-                                        <tr>
-                                            <th>Ιδιότητα</th>
-                                            <td>{{ item.attribute }}</td>
-                                            </tr>
-                                        <tr>
-                                            <th>Αρχείο</th>
-                                            <td v-html="item.document_link"></td>
-                                            </tr>
-                                        <tr>
-                                            <th>Ανάθεση</th>
+                                            <th>Created by</th>
                                             <td>
-                                                <span class="label label-info" v-for="assign in item.assign">
-                                                    {{ assign.name }}
+                                                <span class="label label-info" v-if="item.created_by !== null">
+                                                    {{ item.created_by.name }}
                                                 </span>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <th>Status</th>
-                                            <td>{{ item.status }}</td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -102,7 +78,7 @@ export default {
         this.resetState()
     },
     computed: {
-        ...mapGetters('PapersSingle', ['item'])
+        ...mapGetters('JudgementsSingle', ['item'])
     },
     watch: {
         "$route.params.id": function() {
@@ -111,7 +87,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions('PapersSingle', ['fetchData', 'resetState'])
+        ...mapActions('JudgementsSingle', ['fetchData', 'resetState'])
     }
 }
 </script>

@@ -7,6 +7,8 @@ import PapersIndex from './modules/Papers'
 import PapersSingle from './modules/Papers/single'
 import ArtsIndex from './modules/Arts'
 import ArtsSingle from './modules/Arts/single'
+import JudgementsIndex from './modules/Judgements'
+import JudgementsSingle from './modules/Judgements/single'
 import UsersIndex from './modules/Users'
 import UsersSingle from './modules/Users/single'
 import PermissionsIndex from './modules/Permissions'
@@ -27,6 +29,8 @@ export default new Vuex.Store({
         PapersSingle,
         ArtsIndex,
         ArtsSingle,
+        JudgementsIndex,
+        JudgementsSingle,
         UsersIndex,
         UsersSingle,
         PermissionsIndex,
