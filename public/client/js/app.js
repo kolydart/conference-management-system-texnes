@@ -33645,7 +33645,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_eonasdan_bootstrap_datetimepicker_build_css_bootstrap_datetimepicker_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_eonasdan_bootstrap_datetimepicker_build_css_bootstrap_datetimepicker_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__config_ability__ = __webpack_require__("./resources/client/assets/js/config/ability.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__casl_vue__ = __webpack_require__("./node_modules/@casl/vue/index.js");
-throw new Error("Cannot find module \"vue-ckeditor2\"");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_vue_ckeditor2__ = __webpack_require__("./node_modules/vue-ckeditor2/dist/vue-ckeditor2.es.js");
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -33718,7 +33718,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_3_vue_awesome_notifications___default.a, { pos
 Vue.use(__WEBPACK_IMPORTED_MODULE_5_vue_bootstrap_datetimepicker___default.a);
 Vue.use(__WEBPACK_IMPORTED_MODULE_6_vue_sweetalert2__["default"]);
 Vue.use(__WEBPACK_IMPORTED_MODULE_9__casl_vue__["abilitiesPlugin"], __WEBPACK_IMPORTED_MODULE_8__config_ability__["a" /* default */]);
-Vue.use(__WEBPACK_IMPORTED_MODULE_10_vue_ckeditor2___default.a);
+Vue.use(__WEBPACK_IMPORTED_MODULE_10_vue_ckeditor2__["default"]);
 
 Vue.component('back-buttton', __webpack_require__("./resources/client/assets/js/components/BackButton.vue"));
 Vue.component('bootstrap-alert', __webpack_require__("./resources/client/assets/js/components/Alert.vue"));
