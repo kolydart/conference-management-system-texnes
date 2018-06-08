@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Requests\Admin;
 
+use App\Art;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateArtsRequest extends FormRequest
@@ -22,8 +23,6 @@ class UpdateArtsRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            
-        ];
+        return Art::updateValidation($this);
     }
 }

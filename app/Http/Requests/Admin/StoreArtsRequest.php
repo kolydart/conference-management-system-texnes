@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Requests\Admin;
 
+use App\Art;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreArtsRequest extends FormRequest
@@ -22,7 +23,6 @@ class StoreArtsRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-        ];
+        return Art::storeValidation($this);
     }
 }

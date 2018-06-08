@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Requests\Admin;
 
+use App\Permission;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePermissionsRequest extends FormRequest
@@ -22,8 +23,6 @@ class UpdatePermissionsRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            
-        ];
+        return Permission::updateValidation($this);
     }
 }

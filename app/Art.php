@@ -14,8 +14,26 @@ class Art extends Model
 {
     use SoftDeletes;
 
+    
     protected $fillable = ['title'];
-    protected $hidden = [];
+    
+
+    public static function storeValidation($request)
+    {
+        return [
+            'title' => 'max:191|nullable'
+        ];
+    }
+
+    public static function updateValidation($request)
+    {
+        return [
+            'title' => 'max:191|nullable'
+        ];
+    }
+
+    
+
     
     
     

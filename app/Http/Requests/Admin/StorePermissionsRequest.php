@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Requests\Admin;
 
+use App\Permission;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StorePermissionsRequest extends FormRequest
@@ -22,7 +23,6 @@ class StorePermissionsRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-        ];
+        return Permission::storeValidation($this);
     }
 }

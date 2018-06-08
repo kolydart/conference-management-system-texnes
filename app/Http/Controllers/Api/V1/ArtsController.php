@@ -16,16 +16,14 @@ class ArtsController extends Controller
 {
     public function index()
     {
-        if (! Gate::allows('art_access')) {
-            return abort(401);
-        }
+        
 
         return new ArtResource(Art::with([])->get());
     }
 
     public function show($id)
     {
-        if (! Gate::allows('art_view')) {
+        if (Gate::denies('art_view')) {
             return abort(401);
         }
 
@@ -36,7 +34,7 @@ class ArtsController extends Controller
 
     public function store(StoreArtsRequest $request)
     {
-        if (! Gate::allows('art_create')) {
+        if (Gate::denies('art_create')) {
             return abort(401);
         }
 
@@ -51,7 +49,7 @@ class ArtsController extends Controller
 
     public function update(UpdateArtsRequest $request, $id)
     {
-        if (! Gate::allows('art_edit')) {
+        if (Gate::denies('art_edit')) {
             return abort(401);
         }
 
@@ -68,7 +66,7 @@ class ArtsController extends Controller
 
     public function destroy($id)
     {
-        if (! Gate::allows('art_delete')) {
+        if (Gate::denies('art_delete')) {
             return abort(401);
         }
 

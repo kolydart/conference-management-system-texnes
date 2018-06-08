@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Requests\Admin;
 
+use App\User;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateUsersRequest extends FormRequest
@@ -22,10 +23,6 @@ class UpdateUsersRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            
-            'email' => 'email',
-            'role.*' => 'exists:roles,id',
-        ];
+        return User::updateValidation($this);
     }
 }

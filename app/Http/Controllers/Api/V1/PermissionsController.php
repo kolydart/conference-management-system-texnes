@@ -16,7 +16,7 @@ class PermissionsController extends Controller
 {
     public function index()
     {
-        if (! Gate::allows('permission_access')) {
+        if (Gate::denies('permission_access') && Gate::denies('role_access')) {
             return abort(401);
         }
 
@@ -25,7 +25,7 @@ class PermissionsController extends Controller
 
     public function show($id)
     {
-        if (! Gate::allows('permission_view')) {
+        if (Gate::denies('permission_view')) {
             return abort(401);
         }
 
@@ -36,7 +36,7 @@ class PermissionsController extends Controller
 
     public function store(StorePermissionsRequest $request)
     {
-        if (! Gate::allows('permission_create')) {
+        if (Gate::denies('permission_create')) {
             return abort(401);
         }
 
@@ -51,7 +51,7 @@ class PermissionsController extends Controller
 
     public function update(UpdatePermissionsRequest $request, $id)
     {
-        if (! Gate::allows('permission_edit')) {
+        if (Gate::denies('permission_edit')) {
             return abort(401);
         }
 
@@ -68,7 +68,7 @@ class PermissionsController extends Controller
 
     public function destroy($id)
     {
-        if (! Gate::allows('permission_delete')) {
+        if (Gate::denies('permission_delete')) {
             return abort(401);
         }
 
