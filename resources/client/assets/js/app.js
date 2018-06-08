@@ -62,14 +62,14 @@ import VueSweetalert2 from 'vue-sweetalert2'
 import 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css'
 import ability from './config/ability'
 import { abilitiesPlugin } from '@casl/vue'
-import VueCkeditor from 'vue-ckeditor2'
+// import VueCkeditor from 'vue-ckeditor2'
 
 Vue.use(Datatable)
 Vue.use(VueAWN, { position: 'top-right' })
 Vue.use(datePicker)
 Vue.use(VueSweetalert2)
 Vue.use(abilitiesPlugin, ability)
-Vue.use(VueCkeditor)
+// Vue.use(VueCkeditor)
 
 Vue.component('back-buttton', require('./components/BackButton.vue'))
 Vue.component('bootstrap-alert', require('./components/Alert.vue'))
