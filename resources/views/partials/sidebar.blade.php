@@ -18,16 +18,16 @@
                     <span>@lang('quickadmin.papers.title')</span>
                 </router-link>
             </li>
-            <li v-if="$can('art_access')">
-                <router-link :to="{ name: 'arts.index' }">
-                    <i class="fa fa-paint-brush"></i>
-                    <span>@lang('quickadmin.arts.title')</span>
-                </router-link>
-            </li>
             <li v-if="$can('judgement_access')">
                 <router-link :to="{ name: 'judgements.index' }">
                     <i class="fa fa-gavel"></i>
                     <span>@lang('quickadmin.judgements.title')</span>
+                </router-link>
+            </li>
+            <li v-if="$can('art_access')">
+                <router-link :to="{ name: 'arts.index' }">
+                    <i class="fa fa-paint-brush"></i>
+                    <span>@lang('quickadmin.arts.title')</span>
                 </router-link>
             </li>
             <li class="treeview" v-if="$can('user_management_access')">
@@ -55,6 +55,35 @@
                         <router-link :to="{ name: 'roles.index' }">
                             <i class="fa fa-briefcase"></i>
                             <span>@lang('quickadmin.roles.title')</span>
+                        </router-link>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview" v-if="$can('content_management_access')">
+                <a href="#">
+                    <i class="fa fa-book"></i>
+                    <span>@lang('quickadmin.content-management.title')</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li v-if="$can('content_category_access')">
+                        <router-link :to="{ name: 'content_categories.index' }">
+                            <i class="fa fa-folder"></i>
+                            <span>@lang('quickadmin.content-categories.title')</span>
+                        </router-link>
+                    </li>
+                    <li v-if="$can('content_tag_access')">
+                        <router-link :to="{ name: 'content_tags.index' }">
+                            <i class="fa fa-tags"></i>
+                            <span>@lang('quickadmin.content-tags.title')</span>
+                        </router-link>
+                    </li>
+                    <li v-if="$can('content_page_access')">
+                        <router-link :to="{ name: 'content_pages.index' }">
+                            <i class="fa fa-file-o"></i>
+                            <span>@lang('quickadmin.content-pages.title')</span>
                         </router-link>
                     </li>
                 </ul>

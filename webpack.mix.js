@@ -27,8 +27,8 @@ mix.js('resources/client/assets/js/app.js', 'public/client/js')
         'vue-select',
         'vue-sweetalert2',
         '@casl/ability',
-        '@casl/vue'
-        // 'vue-ckeditor2'
+        '@casl/vue',
+        'vue-ckeditor2'
     ])
     .version();
 

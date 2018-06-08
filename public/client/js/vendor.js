@@ -55863,7 +55863,8 @@ __webpack_require__("./node_modules/vue-awesome-notifications/dist/index.js");
 __webpack_require__("./node_modules/vue-select/dist/vue-select.js");
 __webpack_require__("./node_modules/vue-sweetalert2/src/index.js");
 __webpack_require__("./node_modules/@casl/ability/index.js");
-module.exports = __webpack_require__("./node_modules/@casl/vue/index.js");
+__webpack_require__("./node_modules/@casl/vue/index.js");
+(function webpackMissingModule() { throw new Error("Cannot find module \"vue-ckeditor2\""); }());
 
 
 /***/ })
