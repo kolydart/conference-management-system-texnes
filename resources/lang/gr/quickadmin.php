@@ -25,7 +25,7 @@ return [
 	'qa_add_new' => 'Προσθήκη νέου',
 	'qa_are_you_sure' => 'Είστε σίγουροι;',
 	'qa_back_to_list' => 'Επιστροφή στην λίστα',
-	'qa_dashboard' => 'Dashboard',
+	'qa_dashboard' => 'Αρχική',
 	'qa_delete' => 'Διαγραφή',
 	'qa_restore' => 'Επαναφορά',
 	'qa_permadel' => 'Μόνιμη διαγραφή',
@@ -154,5 +154,7 @@ return [
 	'qa_customer' => 'Πελάτης',
 	'qa_select_all' => 'Επιλογή όλων',
 	'qa_deselect_all' => 'Αποεπιλογή όλων',
-	'quickadmin_title' => 'texnes-conference-app',
+	'qa_team-management' => 'Ομάδες',
+	'qa_team-management-singular' => 'Ομάδα',
+	'quickadmin_title' => 'conference-management-system',
 ];
