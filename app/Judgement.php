@@ -9,36 +9,36 @@ use App\Traits\FilterByUser;
  * Class Judgement
  *
  * @package App
+ * @property string $user
  * @property string $paper
  * @property string $judgement
  * @property text $comment
- * @property string $created_by
 */
 class Judgement extends Model
 {
     use SoftDeletes, FilterByUser;
 
     
-    protected $fillable = ['judgement', 'comment', 'paper_id', 'created_by_id'];
+    protected $fillable = ['judgement', 'comment', 'user_id', 'paper_id'];
     
 
     public static function storeValidation($request)
     {
         return [
+            'user_id' => 'integer|exists:users,id|max:4294967295|nullable',
             'paper_id' => 'integer|exists:papers,id|max:4294967295|required',
             'judgement' => 'in:Approve,Neutral,Reject|max:191|required',
-            'comment' => 'max:65535|nullable',
-            'created_by_id' => 'integer|exists:users,id|max:4294967295|nullable'
+            'comment' => 'max:65535|nullable'
         ];
     }
 
     public static function updateValidation($request)
     {
         return [
+            'user_id' => 'integer|exists:users,id|max:4294967295|nullable',
             'paper_id' => 'integer|exists:papers,id|max:4294967295|required',
             'judgement' => 'in:Approve,Neutral,Reject|max:191|required',
-            'comment' => 'max:65535|nullable',
-            'created_by_id' => 'integer|exists:users,id|max:4294967295|nullable'
+            'comment' => 'max:65535|nullable'
         ];
     }
 
@@ -46,14 +46,14 @@ class Judgement extends Model
 
     
     
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    
     public function paper()
     {
         return $this->belongsTo(Paper::class, 'paper_id')->withTrashed();
-    }
-    
-    public function created_by()
-    {
-        return $this->belongsTo(User::class, 'created_by_id');
     }
     
     

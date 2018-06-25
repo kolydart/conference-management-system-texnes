@@ -2,13 +2,13 @@ function initialState() {
     return {
         item: {
             id: null,
+            user: null,
             paper: null,
             judgement: null,
             comment: null,
-            created_by: null,
         },
-        papersAll: [],
         usersAll: [],
+        papersAll: [],
         
         loading: false,
     }
@@ -17,8 +17,8 @@ function initialState() {
 const getters = {
     item: state => state.item,
     loading: state => state.loading,
-    papersAll: state => state.papersAll,
     usersAll: state => state.usersAll,
+    papersAll: state => state.papersAll,
     
 }
 
@@ -45,15 +45,15 @@ const actions = {
                 }
             }
 
+            if (_.isEmpty(state.item.user)) {
+                params.set('user_id', '')
+            } else {
+                params.set('user_id', state.item.user.id)
+            }
             if (_.isEmpty(state.item.paper)) {
                 params.set('paper_id', '')
             } else {
                 params.set('paper_id', state.item.paper.id)
-            }
-            if (_.isEmpty(state.item.created_by)) {
-                params.set('created_by_id', '')
-            } else {
-                params.set('created_by_id', state.item.created_by.id)
             }
 
             axios.post('/api/v1/judgements', params)
@@ -100,15 +100,15 @@ const actions = {
                 }
             }
 
+            if (_.isEmpty(state.item.user)) {
+                params.set('user_id', '')
+            } else {
+                params.set('user_id', state.item.user.id)
+            }
             if (_.isEmpty(state.item.paper)) {
                 params.set('paper_id', '')
             } else {
                 params.set('paper_id', state.item.paper.id)
-            }
-            if (_.isEmpty(state.item.created_by)) {
-                params.set('created_by_id', '')
-            } else {
-                params.set('created_by_id', state.item.created_by.id)
             }
 
             axios.post('/api/v1/judgements/' + state.item.id, params)
@@ -138,8 +138,14 @@ const actions = {
                 commit('setItem', response.data.data)
             })
 
-        dispatch('fetchPapersAll')
-    dispatch('fetchUsersAll')
+        dispatch('fetchUsersAll')
+    dispatch('fetchPapersAll')
+    },
+    fetchUsersAll({ commit }) {
+        axios.get('/api/v1/users')
+            .then(response => {
+                commit('setUsersAll', response.data.data)
+            })
     },
     fetchPapersAll({ commit }) {
         axios.get('/api/v1/papers')
@@ -147,11 +153,8 @@ const actions = {
                 commit('setPapersAll', response.data.data)
             })
     },
-    fetchUsersAll({ commit }) {
-        axios.get('/api/v1/users')
-            .then(response => {
-                commit('setUsersAll', response.data.data)
-            })
+    setUser({ commit }, value) {
+        commit('setUser', value)
     },
     setPaper({ commit }, value) {
         commit('setPaper', value)
@@ -162,9 +165,6 @@ const actions = {
     setComment({ commit }, value) {
         commit('setComment', value)
     },
-    setCreated_by({ commit }, value) {
-        commit('setCreated_by', value)
-    },
     resetState({ commit }) {
         commit('resetState')
     }
@@ -173,6 +173,9 @@ const actions = {
 const mutations = {
     setItem(state, item) {
         state.item = item
+    },
+    setUser(state, value) {
+        state.item.user = value
     },
     setPaper(state, value) {
         state.item.paper = value
@@ -183,14 +186,11 @@ const mutations = {
     setComment(state, value) {
         state.item.comment = value
     },
-    setCreated_by(state, value) {
-        state.item.created_by = value
+    setUsersAll(state, value) {
+        state.usersAll = value
     },
     setPapersAll(state, value) {
         state.papersAll = value
-    },
-    setUsersAll(state, value) {
-        state.usersAll = value
     },
     
     setLoading(state, loading) {
