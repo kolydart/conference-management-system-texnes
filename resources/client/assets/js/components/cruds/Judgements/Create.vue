@@ -50,6 +50,18 @@
                                                     type="radio"
                                                     name="judgement"
                                                     :value="item.judgement"
+                                                    :checked="item.judgement === 'Neutral'"
+                                                    @change="updateJudgement('Neutral')"
+                                                    >
+                                            Neutral
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input
+                                                    type="radio"
+                                                    name="judgement"
+                                                    :value="item.judgement"
                                                     :checked="item.judgement === 'Reject'"
                                                     @change="updateJudgement('Reject')"
                                                     >

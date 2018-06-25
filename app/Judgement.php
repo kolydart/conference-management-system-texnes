@@ -26,7 +26,7 @@ class Judgement extends Model
     {
         return [
             'paper_id' => 'integer|exists:papers,id|max:4294967295|required',
-            'judgement' => 'in:Approve,Reject|max:191|required',
+            'judgement' => 'in:Approve,Neutral,Reject|max:191|required',
             'comment' => 'max:65535|nullable',
             'created_by_id' => 'integer|exists:users,id|max:4294967295|nullable'
         ];
@@ -36,7 +36,7 @@ class Judgement extends Model
     {
         return [
             'paper_id' => 'integer|exists:papers,id|max:4294967295|required',
-            'judgement' => 'in:Approve,Reject|max:191|required',
+            'judgement' => 'in:Approve,Neutral,Reject|max:191|required',
             'comment' => 'max:65535|nullable',
             'created_by_id' => 'integer|exists:users,id|max:4294967295|nullable'
         ];
