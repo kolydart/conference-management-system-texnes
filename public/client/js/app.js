@@ -2320,6 +2320,18 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2371,6 +2383,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2593,7 +2617,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            columns: [{ title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' }, { title: 'Paper', field: 'paper', tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, { title: 'Judgement', field: 'judgement', sortable: true }, { title: 'Comment', field: 'comment', sortable: true }, { title: 'Created by', field: 'created_by', tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, { title: 'Actions', tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }],
+            columns: [{ title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' }, { title: 'User', field: 'user', tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, { title: 'Paper', field: 'paper', tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, { title: 'Judgement', field: 'judgement', sortable: true }, { title: 'Comment', field: 'comment', sortable: true }, { title: 'Actions', tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }],
             query: { sort: 'id', order: 'desc' },
             xprops: {
                 module: 'JudgementsIndex',
@@ -5623,7 +5647,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -5653,7 +5677,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -28118,6 +28142,26 @@ var render = function() {
                               attrs: { type: "radio", name: "judgement" },
                               domProps: {
                                 value: _vm.item.judgement,
+                                checked: _vm.item.judgement === "Neutral"
+                              },
+                              on: {
+                                change: function($event) {
+                                  _vm.updateJudgement("Neutral")
+                                }
+                              }
+                            }),
+                            _vm._v(
+                              "\n                                        Neutral\n                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "radio" }, [
+                          _c("label", [
+                            _c("input", {
+                              attrs: { type: "radio", name: "judgement" },
+                              domProps: {
+                                value: _vm.item.judgement,
                                 checked: _vm.item.judgement === "Reject"
                               },
                               on: {
@@ -28387,6 +28431,26 @@ var render = function() {
                             }),
                             _vm._v(
                               "\n                                        Approve\n                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "radio" }, [
+                          _c("label", [
+                            _c("input", {
+                              attrs: { type: "radio", name: "judgement" },
+                              domProps: {
+                                value: _vm.item.judgement,
+                                checked: _vm.item.judgement === "Neutral"
+                              },
+                              on: {
+                                change: function($event) {
+                                  _vm.updateJudgement("Neutral")
+                                }
+                              }
+                            }),
+                            _vm._v(
+                              "\n                                        Neutral\n                                    "
                             )
                           ])
                         ]),
@@ -29939,6 +30003,26 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("tr", [
+                            _c("th", [_vm._v("User")]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm.item.user !== null
+                                ? _c(
+                                    "span",
+                                    { staticClass: "label label-info" },
+                                    [
+                                      _vm._v(
+                                        "\n                                                " +
+                                          _vm._s(_vm.item.user.name) +
+                                          "\n                                            "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("tr", [
                             _c("th", [_vm._v("Paper")]),
                             _vm._v(" "),
                             _c("td", [
@@ -29968,26 +30052,6 @@ var render = function() {
                             _c("th", [_vm._v("Comment")]),
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(_vm.item.comment))])
-                          ]),
-                          _vm._v(" "),
-                          _c("tr", [
-                            _c("th", [_vm._v("Created by")]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm.item.created_by !== null
-                                ? _c(
-                                    "span",
-                                    { staticClass: "label label-info" },
-                                    [
-                                      _vm._v(
-                                        "\n                                                " +
-                                          _vm._s(_vm.item.created_by.name) +
-                                          "\n                                            "
-                                      )
-                                    ]
-                                  )
-                                : _vm._e()
-                            ])
                           ])
                         ])
                       ]
@@ -37631,8 +37695,8 @@ function initialState() {
     return {
         all: [],
         relationships: {
-            'paper': 'title',
-            'created_by': 'name'
+            'user': 'name',
+            'paper': 'title'
         },
         query: {},
         loading: false
@@ -37738,13 +37802,13 @@ function initialState() {
     return {
         item: {
             id: null,
+            user: null,
             paper: null,
             judgement: null,
-            comment: null,
-            created_by: null
+            comment: null
         },
-        papersAll: [],
         usersAll: [],
+        papersAll: [],
 
         loading: false
     };
@@ -37757,11 +37821,11 @@ var getters = {
     loading: function loading(state) {
         return state.loading;
     },
-    papersAll: function papersAll(state) {
-        return state.papersAll;
-    },
     usersAll: function usersAll(state) {
         return state.usersAll;
+    },
+    papersAll: function papersAll(state) {
+        return state.papersAll;
     }
 
 };
@@ -37793,15 +37857,15 @@ var actions = {
                 }
             }
 
+            if (_.isEmpty(state.item.user)) {
+                params.set('user_id', '');
+            } else {
+                params.set('user_id', state.item.user.id);
+            }
             if (_.isEmpty(state.item.paper)) {
                 params.set('paper_id', '');
             } else {
                 params.set('paper_id', state.item.paper.id);
-            }
-            if (_.isEmpty(state.item.created_by)) {
-                params.set('created_by_id', '');
-            } else {
-                params.set('created_by_id', state.item.created_by.id);
             }
 
             axios.post('/api/v1/judgements', params).then(function (response) {
@@ -37846,15 +37910,15 @@ var actions = {
                 }
             }
 
+            if (_.isEmpty(state.item.user)) {
+                params.set('user_id', '');
+            } else {
+                params.set('user_id', state.item.user.id);
+            }
             if (_.isEmpty(state.item.paper)) {
                 params.set('paper_id', '');
             } else {
                 params.set('paper_id', state.item.paper.id);
-            }
-            if (_.isEmpty(state.item.created_by)) {
-                params.set('created_by_id', '');
-            } else {
-                params.set('created_by_id', state.item.created_by.id);
             }
 
             axios.post('/api/v1/judgements/' + state.item.id, params).then(function (response) {
@@ -37880,42 +37944,42 @@ var actions = {
             commit('setItem', response.data.data);
         });
 
-        dispatch('fetchPapersAll');
         dispatch('fetchUsersAll');
+        dispatch('fetchPapersAll');
     },
-    fetchPapersAll: function fetchPapersAll(_ref4) {
+    fetchUsersAll: function fetchUsersAll(_ref4) {
         var commit = _ref4.commit;
-
-        axios.get('/api/v1/papers').then(function (response) {
-            commit('setPapersAll', response.data.data);
-        });
-    },
-    fetchUsersAll: function fetchUsersAll(_ref5) {
-        var commit = _ref5.commit;
 
         axios.get('/api/v1/users').then(function (response) {
             commit('setUsersAll', response.data.data);
         });
     },
-    setPaper: function setPaper(_ref6, value) {
+    fetchPapersAll: function fetchPapersAll(_ref5) {
+        var commit = _ref5.commit;
+
+        axios.get('/api/v1/papers').then(function (response) {
+            commit('setPapersAll', response.data.data);
+        });
+    },
+    setUser: function setUser(_ref6, value) {
         var commit = _ref6.commit;
+
+        commit('setUser', value);
+    },
+    setPaper: function setPaper(_ref7, value) {
+        var commit = _ref7.commit;
 
         commit('setPaper', value);
     },
-    setJudgement: function setJudgement(_ref7, value) {
-        var commit = _ref7.commit;
+    setJudgement: function setJudgement(_ref8, value) {
+        var commit = _ref8.commit;
 
         commit('setJudgement', value);
     },
-    setComment: function setComment(_ref8, value) {
-        var commit = _ref8.commit;
-
-        commit('setComment', value);
-    },
-    setCreated_by: function setCreated_by(_ref9, value) {
+    setComment: function setComment(_ref9, value) {
         var commit = _ref9.commit;
 
-        commit('setCreated_by', value);
+        commit('setComment', value);
     },
     resetState: function resetState(_ref10) {
         var commit = _ref10.commit;
@@ -37928,6 +37992,9 @@ var mutations = {
     setItem: function setItem(state, item) {
         state.item = item;
     },
+    setUser: function setUser(state, value) {
+        state.item.user = value;
+    },
     setPaper: function setPaper(state, value) {
         state.item.paper = value;
     },
@@ -37937,14 +38004,11 @@ var mutations = {
     setComment: function setComment(state, value) {
         state.item.comment = value;
     },
-    setCreated_by: function setCreated_by(state, value) {
-        state.item.created_by = value;
+    setUsersAll: function setUsersAll(state, value) {
+        state.usersAll = value;
     },
     setPapersAll: function setPapersAll(state, value) {
         state.papersAll = value;
-    },
-    setUsersAll: function setUsersAll(state, value) {
-        state.usersAll = value;
     },
     setLoading: function setLoading(state, loading) {
         state.loading = loading;
