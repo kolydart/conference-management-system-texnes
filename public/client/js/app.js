@@ -414,9 +414,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         this.resetState();
     },
 
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('ArtsSingle', ['storeData', 'resetState', 'setTitle']), {
-        updateTitle: function updateTitle(e) {
-            this.setTitle(e.target.value);
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('ArtsSingle', ['storeData', 'resetState', 'setName']), {
+        updateName: function updateName(e) {
+            this.setName(e.target.value);
         },
         submitForm: function submitForm() {
             var _this = this;
@@ -518,9 +518,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             this.fetchData(this.$route.params.id);
         }
     },
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('ArtsSingle', ['fetchData', 'updateData', 'resetState', 'setTitle']), {
-        updateTitle: function updateTitle(e) {
-            this.setTitle(e.target.value);
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('ArtsSingle', ['fetchData', 'updateData', 'resetState', 'setName']), {
+        updateName: function updateName(e) {
+            this.setName(e.target.value);
         },
         submitForm: function submitForm() {
             var _this = this;
@@ -619,7 +619,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            columns: [{ title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' }, { title: 'Τίτλος', field: 'title', sortable: true }, { title: 'Actions', tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }],
+            columns: [{ title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' }, { title: 'Τίτλος', field: 'name', sortable: true }, { title: 'Actions', tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }],
             query: { sort: 'id', order: 'desc' },
             xprops: {
                 module: 'ArtsIndex',
@@ -1281,6 +1281,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
 
 
 
@@ -1360,6 +1361,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+//
 //
 //
 //
@@ -2617,7 +2619,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            columns: [{ title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' }, { title: 'User', field: 'user', tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, { title: 'Paper', field: 'paper', tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, { title: 'Judgement', field: 'judgement', sortable: true }, { title: 'Comment', field: 'comment', sortable: true }, { title: 'Actions', tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }],
+            columns: [{ title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' }, { title: 'Paper', field: 'paper', tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, { title: 'Judgement', field: 'judgement', sortable: true }, { title: 'Comment', field: 'comment', sortable: true }, { title: 'Actions', tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }],
             query: { sort: 'id', order: 'desc' },
             xprops: {
                 module: 'JudgementsIndex',
@@ -2657,14 +2659,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3818,6 +3812,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5615,7 +5617,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -5660,7 +5662,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -5705,7 +5707,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -5915,7 +5917,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -6065,7 +6067,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -26377,6 +26379,7 @@ var render = function() {
                           _c("vue-ckeditor", {
                             attrs: {
                               name: "page_text",
+                              id: "page_text",
                               value: _vm.item.page_text
                             },
                             on: { input: _vm.updatePage_text }
@@ -26802,6 +26805,7 @@ var render = function() {
                           _c("vue-ckeditor", {
                             attrs: {
                               name: "page_text",
+                              id: "page_text",
                               value: _vm.item.page_text
                             },
                             on: { input: _vm.updatePage_text }
@@ -27484,19 +27488,19 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "box-body" }, [
                       _c("div", { staticClass: "form-group" }, [
-                        _c("label", { attrs: { for: "title" } }, [
-                          _vm._v("Τίτλος")
+                        _c("label", { attrs: { for: "name" } }, [
+                          _vm._v("Τίτλος *")
                         ]),
                         _vm._v(" "),
                         _c("input", {
                           staticClass: "form-control",
                           attrs: {
                             type: "text",
-                            name: "title",
-                            placeholder: "Enter Τίτλος"
+                            name: "name",
+                            placeholder: "Enter Τίτλος *"
                           },
-                          domProps: { value: _vm.item.title },
-                          on: { input: _vm.updateTitle }
+                          domProps: { value: _vm.item.name },
+                          on: { input: _vm.updateName }
                         })
                       ])
                     ]),
@@ -28031,19 +28035,19 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "box-body" }, [
                       _c("div", { staticClass: "form-group" }, [
-                        _c("label", { attrs: { for: "title" } }, [
-                          _vm._v("Τίτλος")
+                        _c("label", { attrs: { for: "name" } }, [
+                          _vm._v("Τίτλος *")
                         ]),
                         _vm._v(" "),
                         _c("input", {
                           staticClass: "form-control",
                           attrs: {
                             type: "text",
-                            name: "title",
-                            placeholder: "Enter Τίτλος"
+                            name: "name",
+                            placeholder: "Enter Τίτλος *"
                           },
-                          domProps: { value: _vm.item.title },
-                          on: { input: _vm.updateTitle }
+                          domProps: { value: _vm.item.name },
+                          on: { input: _vm.updateName }
                         })
                       ])
                     ]),
@@ -29051,7 +29055,7 @@ var render = function() {
                                   [
                                     _vm._v(
                                       "\n                                                " +
-                                        _vm._s(art.title) +
+                                        _vm._s(art.name) +
                                         "\n                                            "
                                     )
                                   ]
@@ -29131,6 +29135,26 @@ var render = function() {
                             _c("th", [_vm._v("Informed")]),
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(_vm.item.informed))])
+                          ]),
+                          _vm._v(" "),
+                          _c("tr", [
+                            _c("th", [_vm._v("Reviews")]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm.item.reviews !== null
+                                ? _c(
+                                    "span",
+                                    { staticClass: "label label-info" },
+                                    [
+                                      _vm._v(
+                                        "\n                                                " +
+                                          _vm._s(_vm.item.reviews.judgement) +
+                                          "\n                                            "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ])
                           ])
                         ])
                       ]
@@ -30331,26 +30355,6 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("tr", [
-                            _c("th", [_vm._v("User")]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm.item.user !== null
-                                ? _c(
-                                    "span",
-                                    { staticClass: "label label-info" },
-                                    [
-                                      _vm._v(
-                                        "\n                                                " +
-                                          _vm._s(_vm.item.user.name) +
-                                          "\n                                            "
-                                      )
-                                    ]
-                                  )
-                                : _vm._e()
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("tr", [
                             _c("th", [_vm._v("Paper")]),
                             _vm._v(" "),
                             _c("td", [
@@ -30714,7 +30718,7 @@ var render = function() {
                           _c("tr", [
                             _c("th", [_vm._v("Τίτλος")]),
                             _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(_vm.item.title))])
+                            _c("td", [_vm._v(_vm._s(_vm.item.name))])
                           ])
                         ])
                       ]
@@ -30830,7 +30834,7 @@ var render = function() {
                           _c("v-select", {
                             attrs: {
                               name: "art",
-                              label: "title",
+                              label: "name",
                               value: _vm.item.art,
                               options: _vm.artsAll,
                               multiple: ""
@@ -31343,7 +31347,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "informed" } }, [
-                          _vm._v("Informed *")
+                          _vm._v("Informed")
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "radio" }, [
@@ -31352,16 +31356,16 @@ var render = function() {
                               attrs: { type: "radio", name: "informed" },
                               domProps: {
                                 value: _vm.item.informed,
-                                checked: _vm.item.informed === " Unaware"
+                                checked: _vm.item.informed === "Unaware"
                               },
                               on: {
                                 change: function($event) {
-                                  _vm.updateInformed(" Unaware")
+                                  _vm.updateInformed("Unaware")
                                 }
                               }
                             }),
                             _vm._v(
-                              "\n                                         Unaware\n                                    "
+                              "\n                                        Unaware\n                                    "
                             )
                           ])
                         ]),
@@ -31372,16 +31376,16 @@ var render = function() {
                               attrs: { type: "radio", name: "informed" },
                               domProps: {
                                 value: _vm.item.informed,
-                                checked: _vm.item.informed === " Informed"
+                                checked: _vm.item.informed === "Informed"
                               },
                               on: {
                                 change: function($event) {
-                                  _vm.updateInformed(" Informed")
+                                  _vm.updateInformed("Informed")
                                 }
                               }
                             }),
                             _vm._v(
-                              "\n                                         Informed\n                                    "
+                              "\n                                        Informed\n                                    "
                             )
                           ])
                         ])
@@ -32235,7 +32239,7 @@ var render = function() {
                           _c("v-select", {
                             attrs: {
                               name: "art",
-                              label: "title",
+                              label: "name",
                               value: _vm.item.art,
                               options: _vm.artsAll,
                               multiple: ""
@@ -32748,7 +32752,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "informed" } }, [
-                          _vm._v("Informed *")
+                          _vm._v("Informed")
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "radio" }, [
@@ -32757,16 +32761,16 @@ var render = function() {
                               attrs: { type: "radio", name: "informed" },
                               domProps: {
                                 value: _vm.item.informed,
-                                checked: _vm.item.informed === " Unaware"
+                                checked: _vm.item.informed === "Unaware"
                               },
                               on: {
                                 change: function($event) {
-                                  _vm.updateInformed(" Unaware")
+                                  _vm.updateInformed("Unaware")
                                 }
                               }
                             }),
                             _vm._v(
-                              "\n                                         Unaware\n                                    "
+                              "\n                                        Unaware\n                                    "
                             )
                           ])
                         ]),
@@ -32777,16 +32781,16 @@ var render = function() {
                               attrs: { type: "radio", name: "informed" },
                               domProps: {
                                 value: _vm.item.informed,
-                                checked: _vm.item.informed === " Informed"
+                                checked: _vm.item.informed === "Informed"
                               },
                               on: {
                                 change: function($event) {
-                                  _vm.updateInformed(" Informed")
+                                  _vm.updateInformed("Informed")
                                 }
                               }
                             }),
                             _vm._v(
-                              "\n                                         Informed\n                                    "
+                              "\n                                        Informed\n                                    "
                             )
                           ])
                         ])
@@ -37140,7 +37144,7 @@ function initialState() {
     return {
         item: {
             id: null,
-            title: null
+            name: null
         },
 
         loading: false
@@ -37249,10 +37253,10 @@ var actions = {
             commit('setItem', response.data.data);
         });
     },
-    setTitle: function setTitle(_ref4, value) {
+    setName: function setName(_ref4, value) {
         var commit = _ref4.commit;
 
-        commit('setTitle', value);
+        commit('setName', value);
     },
     resetState: function resetState(_ref5) {
         var commit = _ref5.commit;
@@ -37265,8 +37269,8 @@ var mutations = {
     setItem: function setItem(state, item) {
         state.item = item;
     },
-    setTitle: function setTitle(state, value) {
-        state.item.title = value;
+    setName: function setName(state, value) {
+        state.item.name = value;
     },
     setLoading: function setLoading(state, loading) {
         state.loading = loading;
@@ -38201,7 +38205,6 @@ function initialState() {
     return {
         all: [],
         relationships: {
-            'user': 'name',
             'paper': 'title'
         },
         query: {},
@@ -38308,12 +38311,10 @@ function initialState() {
     return {
         item: {
             id: null,
-            user: null,
             paper: null,
             judgement: null,
             comment: null
         },
-        usersAll: [],
         papersAll: [],
 
         loading: false
@@ -38326,9 +38327,6 @@ var getters = {
     },
     loading: function loading(state) {
         return state.loading;
-    },
-    usersAll: function usersAll(state) {
-        return state.usersAll;
     },
     papersAll: function papersAll(state) {
         return state.papersAll;
@@ -38363,11 +38361,6 @@ var actions = {
                 }
             }
 
-            if (_.isEmpty(state.item.user)) {
-                params.set('user_id', '');
-            } else {
-                params.set('user_id', state.item.user.id);
-            }
             if (_.isEmpty(state.item.paper)) {
                 params.set('paper_id', '');
             } else {
@@ -38416,11 +38409,6 @@ var actions = {
                 }
             }
 
-            if (_.isEmpty(state.item.user)) {
-                params.set('user_id', '');
-            } else {
-                params.set('user_id', state.item.user.id);
-            }
             if (_.isEmpty(state.item.paper)) {
                 params.set('paper_id', '');
             } else {
@@ -38450,45 +38438,32 @@ var actions = {
             commit('setItem', response.data.data);
         });
 
-        dispatch('fetchUsersAll');
         dispatch('fetchPapersAll');
     },
-    fetchUsersAll: function fetchUsersAll(_ref4) {
+    fetchPapersAll: function fetchPapersAll(_ref4) {
         var commit = _ref4.commit;
-
-        axios.get('/api/v1/users').then(function (response) {
-            commit('setUsersAll', response.data.data);
-        });
-    },
-    fetchPapersAll: function fetchPapersAll(_ref5) {
-        var commit = _ref5.commit;
 
         axios.get('/api/v1/papers').then(function (response) {
             commit('setPapersAll', response.data.data);
         });
     },
-    setUser: function setUser(_ref6, value) {
-        var commit = _ref6.commit;
-
-        commit('setUser', value);
-    },
-    setPaper: function setPaper(_ref7, value) {
-        var commit = _ref7.commit;
+    setPaper: function setPaper(_ref5, value) {
+        var commit = _ref5.commit;
 
         commit('setPaper', value);
     },
-    setJudgement: function setJudgement(_ref8, value) {
-        var commit = _ref8.commit;
+    setJudgement: function setJudgement(_ref6, value) {
+        var commit = _ref6.commit;
 
         commit('setJudgement', value);
     },
-    setComment: function setComment(_ref9, value) {
-        var commit = _ref9.commit;
+    setComment: function setComment(_ref7, value) {
+        var commit = _ref7.commit;
 
         commit('setComment', value);
     },
-    resetState: function resetState(_ref10) {
-        var commit = _ref10.commit;
+    resetState: function resetState(_ref8) {
+        var commit = _ref8.commit;
 
         commit('resetState');
     }
@@ -38498,9 +38473,6 @@ var mutations = {
     setItem: function setItem(state, item) {
         state.item = item;
     },
-    setUser: function setUser(state, value) {
-        state.item.user = value;
-    },
     setPaper: function setPaper(state, value) {
         state.item.paper = value;
     },
@@ -38509,9 +38481,6 @@ var mutations = {
     },
     setComment: function setComment(state, value) {
         state.item.comment = value;
-    },
-    setUsersAll: function setUsersAll(state, value) {
-        state.usersAll = value;
     },
     setPapersAll: function setPapersAll(state, value) {
         state.papersAll = value;
@@ -38542,8 +38511,9 @@ function initialState() {
     return {
         all: [],
         relationships: {
-            'art': 'title',
-            'assign': 'name'
+            'art': 'name',
+            'assign': 'name',
+            'reviews': 'judgement'
         },
         query: {},
         loading: false
@@ -38660,10 +38630,12 @@ function initialState() {
             uploaded_document: [],
             assign: [],
             status: null,
-            informed: null
+            informed: null,
+            reviews: null
         },
         artsAll: [],
         usersAll: [],
+        judgementsAll: [],
 
         loading: false
     };
@@ -38681,6 +38653,9 @@ var getters = {
     },
     usersAll: function usersAll(state) {
         return state.usersAll;
+    },
+    judgementsAll: function judgementsAll(state) {
+        return state.judgementsAll;
     }
 
 };
@@ -38728,6 +38703,11 @@ var actions = {
                 for (var _index2 in state.item.assign) {
                     params.set('assign[' + _index2 + ']', state.item.assign[_index2].id);
                 }
+            }
+            if (_.isEmpty(state.item.reviews)) {
+                params.set('reviews_id', '');
+            } else {
+                params.set('reviews_id', state.item.reviews.id);
             }
 
             axios.post('/api/v1/papers', params).then(function (response) {
@@ -38789,6 +38769,11 @@ var actions = {
                     params.set('assign[' + _index4 + ']', state.item.assign[_index4].id);
                 }
             }
+            if (_.isEmpty(state.item.reviews)) {
+                params.set('reviews_id', '');
+            } else {
+                params.set('reviews_id', state.item.reviews.id);
+            }
 
             axios.post('/api/v1/papers/' + state.item.id, params).then(function (response) {
                 commit('setItem', response.data.data);
@@ -38815,6 +38800,7 @@ var actions = {
 
         dispatch('fetchArtsAll');
         dispatch('fetchUsersAll');
+        dispatch('fetchJudgementsAll');
     },
     fetchArtsAll: function fetchArtsAll(_ref4) {
         var commit = _ref4.commit;
@@ -38830,73 +38816,85 @@ var actions = {
             commit('setUsersAll', response.data.data);
         });
     },
-    setTitle: function setTitle(_ref6, value) {
+    fetchJudgementsAll: function fetchJudgementsAll(_ref6) {
         var commit = _ref6.commit;
+
+        axios.get('/api/v1/judgements').then(function (response) {
+            commit('setJudgementsAll', response.data.data);
+        });
+    },
+    setTitle: function setTitle(_ref7, value) {
+        var commit = _ref7.commit;
 
         commit('setTitle', value);
     },
-    setArt: function setArt(_ref7, value) {
-        var commit = _ref7.commit;
+    setArt: function setArt(_ref8, value) {
+        var commit = _ref8.commit;
 
         commit('setArt', value);
     },
-    setType: function setType(_ref8, value) {
-        var commit = _ref8.commit;
+    setType: function setType(_ref9, value) {
+        var commit = _ref9.commit;
 
         commit('setType', value);
     },
-    setDuration: function setDuration(_ref9, value) {
-        var commit = _ref9.commit;
+    setDuration: function setDuration(_ref10, value) {
+        var commit = _ref10.commit;
 
         commit('setDuration', value);
     },
-    setName: function setName(_ref10, value) {
-        var commit = _ref10.commit;
+    setName: function setName(_ref11, value) {
+        var commit = _ref11.commit;
 
         commit('setName', value);
     },
-    setEmail: function setEmail(_ref11, value) {
-        var commit = _ref11.commit;
+    setEmail: function setEmail(_ref12, value) {
+        var commit = _ref12.commit;
 
         commit('setEmail', value);
     },
-    setAttribute: function setAttribute(_ref12, value) {
-        var commit = _ref12.commit;
+    setAttribute: function setAttribute(_ref13, value) {
+        var commit = _ref13.commit;
 
         commit('setAttribute', value);
     },
-    setDocument: function setDocument(_ref13, value) {
-        var commit = _ref13.commit;
+    setDocument: function setDocument(_ref14, value) {
+        var commit = _ref14.commit;
 
         commit('setDocument', value);
     },
-    destroyDocument: function destroyDocument(_ref14, value) {
-        var commit = _ref14.commit;
+    destroyDocument: function destroyDocument(_ref15, value) {
+        var commit = _ref15.commit;
 
         commit('destroyDocument', value);
     },
-    destroyUploadedDocument: function destroyUploadedDocument(_ref15, value) {
-        var commit = _ref15.commit;
+    destroyUploadedDocument: function destroyUploadedDocument(_ref16, value) {
+        var commit = _ref16.commit;
 
         commit('destroyUploadedDocument', value);
     },
-    setAssign: function setAssign(_ref16, value) {
-        var commit = _ref16.commit;
+    setAssign: function setAssign(_ref17, value) {
+        var commit = _ref17.commit;
 
         commit('setAssign', value);
     },
-    setStatus: function setStatus(_ref17, value) {
-        var commit = _ref17.commit;
+    setStatus: function setStatus(_ref18, value) {
+        var commit = _ref18.commit;
 
         commit('setStatus', value);
     },
-    setInformed: function setInformed(_ref18, value) {
-        var commit = _ref18.commit;
+    setInformed: function setInformed(_ref19, value) {
+        var commit = _ref19.commit;
 
         commit('setInformed', value);
     },
-    resetState: function resetState(_ref19) {
-        var commit = _ref19.commit;
+    setReviews: function setReviews(_ref20, value) {
+        var commit = _ref20.commit;
+
+        commit('setReviews', value);
+    },
+    resetState: function resetState(_ref21) {
+        var commit = _ref21.commit;
 
         commit('resetState');
     }
@@ -38959,11 +38957,17 @@ var mutations = {
     setInformed: function setInformed(state, value) {
         state.item.informed = value;
     },
+    setReviews: function setReviews(state, value) {
+        state.item.reviews = value;
+    },
     setArtsAll: function setArtsAll(state, value) {
         state.artsAll = value;
     },
     setUsersAll: function setUsersAll(state, value) {
         state.usersAll = value;
+    },
+    setJudgementsAll: function setJudgementsAll(state, value) {
+        state.judgementsAll = value;
     },
     setLoading: function setLoading(state, loading) {
         state.loading = loading;

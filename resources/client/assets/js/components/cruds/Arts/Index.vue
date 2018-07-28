@@ -67,7 +67,7 @@ export default {
         return {
             columns: [
                 { title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' },
-                { title: 'Τίτλος', field: 'title', sortable: true },
+                { title: 'Τίτλος', field: 'name', sortable: true },
                 { title: 'Actions', tdComp: DatatableActions, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }
             ],
             query: { sort: 'id', order: 'desc' },

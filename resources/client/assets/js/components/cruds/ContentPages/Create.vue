@@ -57,6 +57,7 @@
                                     <label for="page_text">Κείμενο</label>
                                     <vue-ckeditor
                                             name="page_text"
+                                            :id="'page_text'"
                                             :value="item.page_text"
                                             @input="updatePage_text"
                                     />

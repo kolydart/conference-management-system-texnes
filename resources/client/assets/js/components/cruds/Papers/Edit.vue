@@ -35,7 +35,7 @@
                                     <label for="art">Τέχνη</label>
                                     <v-select
                                             name="art"
-                                            label="title"
+                                            label="name"
                                             @input="updateArt"
                                             :value="item.art"
                                             :options="artsAll"
@@ -309,17 +309,17 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="informed">Informed *</label>
+                                    <label for="informed">Informed</label>
                                     <div class="radio">
                                         <label>
                                             <input
                                                     type="radio"
                                                     name="informed"
                                                     :value="item.informed"
-                                                    :checked="item.informed === ' Unaware'"
-                                                    @change="updateInformed(' Unaware')"
+                                                    :checked="item.informed === 'Unaware'"
+                                                    @change="updateInformed('Unaware')"
                                                     >
-                                             Unaware
+                                            Unaware
                                         </label>
                                     </div>
                                     <div class="radio">
@@ -328,10 +328,10 @@
                                                     type="radio"
                                                     name="informed"
                                                     :value="item.informed"
-                                                    :checked="item.informed === ' Informed'"
-                                                    @change="updateInformed(' Informed')"
+                                                    :checked="item.informed === 'Informed'"
+                                                    @change="updateInformed('Informed')"
                                                     >
-                                             Informed
+                                            Informed
                                         </label>
                                     </div>
                                 </div>

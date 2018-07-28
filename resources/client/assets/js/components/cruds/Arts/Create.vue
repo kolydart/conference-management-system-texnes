@@ -21,14 +21,14 @@
 
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="title">Τίτλος</label>
+                                    <label for="name">Τίτλος *</label>
                                     <input
                                             type="text"
                                             class="form-control"
-                                            name="title"
-                                            placeholder="Enter Τίτλος"
-                                            :value="item.title"
-                                            @input="updateTitle"
+                                            name="name"
+                                            placeholder="Enter Τίτλος *"
+                                            :value="item.name"
+                                            @input="updateName"
                                             >
                                 </div>
                             </div>
@@ -70,9 +70,9 @@ export default {
         this.resetState()
     },
     methods: {
-        ...mapActions('ArtsSingle', ['storeData', 'resetState', 'setTitle']),
-        updateTitle(e) {
-            this.setTitle(e.target.value)
+        ...mapActions('ArtsSingle', ['storeData', 'resetState', 'setName']),
+        updateName(e) {
+            this.setName(e.target.value)
         },
         submitForm() {
             this.storeData()

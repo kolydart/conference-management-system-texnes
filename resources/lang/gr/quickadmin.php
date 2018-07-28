@@ -5,10 +5,20 @@ return [
 		'permissions' => [		'title' => 'Permissions',		'fields' => [			'title' => 'Title',		],	],
 		'roles' => [		'title' => 'Roles',		'fields' => [			'title' => 'Title',			'permission' => 'Permissions',		],	],
 		'users' => [		'title' => 'Κριτές',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',		],	],
-		'arts' => [		'title' => 'Τέχνες',		'fields' => [			'title' => 'Τίτλος',		],	],
-		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'document' => 'Αρχείο',			'assign' => 'Ανάθεση',			'status' => 'Status',			'informed' => 'Informed',		],	],
+		'arts' => [		'title' => 'Τέχνες',		'fields' => [			'name' => 'Τίτλος',		],	],
+		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'document' => 'Αρχείο',			'assign' => 'Ανάθεση',			'status' => 'Status',			'informed' => 'Informed',			'reviews' => 'Reviews',		],	],
 		'testpaper' => [		'title' => 'Testpaper',		'fields' => [		],	],
-		'judgements' => [		'title' => 'Κρίσεις',		'fields' => [			'user' => 'User',			'paper' => 'Paper',			'judgement' => 'Judgement',			'comment' => 'Comment',		],	],
+		'judgements' => [		'title' => 'Κρίσεις',		'fields' => [			'paper' => 'Paper',			'judgement' => 'Judgement',			'comment' => 'Comment',		],	],
+		'content-management' => [		'title' => 'Διαχείριση περιεχομένου',		'fields' => [		],	],
+		'content-categories' => [		'title' => 'Κατηγορίες',		'fields' => [		],	],
+		'content-tags' => [		'title' => 'Ετικέτες',		'fields' => [		],	],
+		'content-pages' => [		'title' => 'Σελίδες',		'fields' => [		],	],
+		'user-actions' => [		'title' => 'Ενέργειες χρηστών',		'created_at' => 'Time',		'fields' => [		],	],
+		'user-actions' => [		'title' => 'Ενέργειες χρηστών',		'created_at' => 'Time',		'fields' => [		],	],
+		'content-management' => [		'title' => 'Διαχείριση περιεχομένου',		'fields' => [		],	],
+		'content-categories' => [		'title' => 'Κατηγορίες',		'fields' => [		],	],
+		'content-tags' => [		'title' => 'Ετικέτες',		'fields' => [		],	],
+		'content-pages' => [		'title' => 'Σελίδες',		'fields' => [		],	],
 		'content-management' => [		'title' => 'Διαχείριση περιεχομένου',		'fields' => [		],	],
 		'content-categories' => [		'title' => 'Κατηγορίες',		'fields' => [			'title' => 'Κατηγορία',			'slug' => 'Slug',		],	],
 		'content-tags' => [		'title' => 'Ετικέτες',		'fields' => [			'title' => 'Ετικέτα',			'slug' => 'Slug',		],	],

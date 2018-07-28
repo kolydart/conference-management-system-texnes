@@ -13,10 +13,7 @@ class ArtSeed extends Seeder
     {
         $items = [
             
-            ['id' => 1, 'title' => 'Μουσική',],
-            ['id' => 2, 'title' => 'Θέατρο',],
-            ['id' => 3, 'title' => 'Χορός',],
-            ['id' => 4, 'title' => 'Κινηματογράφος',],
+            ['id' => 5, 'name' => 'Μουσική',],
 
         ];
 

@@ -20,7 +20,7 @@ class JudgementsController extends Controller
     {
         
 
-        return new JudgementResource(Judgement::with(['user', 'paper'])->get());
+        return new JudgementResource(Judgement::with(['paper'])->get());
     }
 
     public function show($id)
@@ -29,7 +29,7 @@ class JudgementsController extends Controller
             return abort(401);
         }
 
-        $judgement = Judgement::with(['user', 'paper'])->findOrFail($id);
+        $judgement = Judgement::with(['paper'])->findOrFail($id);
 
         return new JudgementResource($judgement);
     }

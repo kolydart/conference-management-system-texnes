@@ -13,8 +13,7 @@ class ContentPageSeed extends Seeder
     {
         $items = [
             
-            ['id' => 1, 'title' => 'Veniam quasi quam sed adipisci molestiae assumenda labore qui animi iure dolore sapiente ea veniam ipsum dolores ipsum', 'page_text' => '<p>Sample text</p>
-', 'excerpt' => 'Porro quos id sit aliquid ut', 'featured_image' => null,],
+            ['id' => 1, 'title' => 'About us', 'page_text' => 'Sample text', 'excerpt' => 'Sample excerpt', 'featured_image' => null,],
 
         ];
 

@@ -9,6 +9,7 @@ $factory->define(App\Paper::class, function (Faker\Generator $faker) {
         "email" => $faker->safeEmail,
         "attribute" => collect(["Πανεπιστημιακός","Ερευνητής","Μεταπτυχιακός φοιτητής","Εκπαιδευτικός Β/θμιας Εκπ/σης","Εκπαιδευτικός Α/θμιας Εκπ/σης","Καλλιτέχνης","Άλλο",])->random(),
         "status" => collect(["Accepted","Rejected","Pending",])->random(),
-        "informed" => collect([" Unaware"," Informed",])->random(),
+        "informed" => collect(["Unaware","Informed",])->random(),
+        "reviews_id" => factory('App\Judgement')->create(),
     ];
 });
