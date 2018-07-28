@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PaperSeedPivot::class);
         $this->call(RoleSeedPivot::class);
         $this->call(UserSeedPivot::class);
+        $this->call(FirstStageFullDumpSeed::class);
 
     }
 }
