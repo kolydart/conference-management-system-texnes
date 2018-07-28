@@ -73,6 +73,10 @@
                                             <th>Status</th>
                                             <td>{{ item.status }}</td>
                                             </tr>
+                                        <tr>
+                                            <th>Informed</th>
+                                            <td>{{ item.informed }}</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>

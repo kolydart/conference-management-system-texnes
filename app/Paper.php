@@ -17,13 +17,14 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
  * @property string $email
  * @property string $attribute
  * @property string $status
+ * @property string $informed
 */
 class Paper extends Model implements HasMedia
 {
     use SoftDeletes, HasMediaTrait;
 
     
-    protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'status'];
+    protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'status', 'informed'];
     protected $appends = ['document', 'document_link', 'uploaded_document'];
     protected $with = ['media'];
     
@@ -43,7 +44,8 @@ class Paper extends Model implements HasMedia
             'document.*' => 'file|nullable',
             'assign' => 'array|nullable',
             'assign.*' => 'integer|exists:users,id|max:4294967295|nullable',
-            'status' => 'in:Accepted,Rejected,Pending|max:191|nullable'
+            'status' => 'in:Accepted,Rejected,Pending|max:191|nullable',
+            'informed' => 'in: Unaware, Informed|max:191|required'
         ];
     }
 
@@ -62,7 +64,8 @@ class Paper extends Model implements HasMedia
             'document.*' => 'file|nullable',
             'assign' => 'array|nullable',
             'assign.*' => 'integer|exists:users,id|max:4294967295|nullable',
-            'status' => 'in:Accepted,Rejected,Pending|max:191|nullable'
+            'status' => 'in:Accepted,Rejected,Pending|max:191|nullable',
+            'informed' => 'in: Unaware, Informed|max:191|required'
         ];
     }
 

@@ -6,7 +6,7 @@ return [
 		'roles' => [		'title' => 'Roles',		'fields' => [			'title' => 'Title',			'permission' => 'Permissions',		],	],
 		'users' => [		'title' => 'Users',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',		],	],
 		'arts' => [		'title' => 'Τέχνες',		'fields' => [			'title' => 'Τίτλος',		],	],
-		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'document' => 'Αρχείο',			'assign' => 'Ανάθεση',			'status' => 'Status',		],	],
+		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'document' => 'Αρχείο',			'assign' => 'Ανάθεση',			'status' => 'Status',			'informed' => 'Informed',		],	],
 		'testpaper' => [		'title' => 'Testpaper',		'fields' => [		],	],
 		'judgements' => [		'title' => 'Κρίσεις',		'fields' => [			'user' => 'User',			'paper' => 'Paper',			'judgement' => 'Judgement',			'comment' => 'Comment',		],	],
 		'content-management' => [		'title' => 'Διαχείριση περιεχομένου',		'fields' => [		],	],

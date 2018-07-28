@@ -77,6 +77,7 @@ export default {
                 { title: 'Αρχείο', tdComp: DatatableDocumentField, sortable: false },
                 { title: 'Ανάθεση', field: 'assign', tdComp: DatatableList },
                 { title: 'Status', field: 'status', sortable: true },
+                { title: 'Informed', field: 'informed', sortable: true },
                 { title: 'Actions', tdComp: DatatableActions, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }
             ],
             query: { sort: 'id', order: 'desc' },

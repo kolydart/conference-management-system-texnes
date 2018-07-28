@@ -308,6 +308,33 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="informed">Informed *</label>
+                                    <div class="radio">
+                                        <label>
+                                            <input
+                                                    type="radio"
+                                                    name="informed"
+                                                    :value="item.informed"
+                                                    :checked="item.informed === ' Unaware'"
+                                                    @change="updateInformed(' Unaware')"
+                                                    >
+                                             Unaware
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input
+                                                    type="radio"
+                                                    name="informed"
+                                                    :value="item.informed"
+                                                    :checked="item.informed === ' Informed'"
+                                                    @change="updateInformed(' Informed')"
+                                                    >
+                                             Informed
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="box-footer">
@@ -348,7 +375,7 @@ export default {
         this.resetState()
     },
     methods: {
-        ...mapActions('PapersSingle', ['storeData', 'resetState', 'setTitle', 'setArt', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'setDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus', 'fetchArtsAll', 'fetchUsersAll']),
+        ...mapActions('PapersSingle', ['storeData', 'resetState', 'setTitle', 'setArt', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'setDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus', 'setInformed', 'fetchArtsAll', 'fetchUsersAll']),
         updateTitle(e) {
             this.setTitle(e.target.value)
         },
@@ -412,6 +439,9 @@ export default {
         },
         updateStatus(value) {
             this.setStatus(value)
+        },
+        updateInformed(value) {
+            this.setInformed(value)
         },
         submitForm() {
             this.storeData()

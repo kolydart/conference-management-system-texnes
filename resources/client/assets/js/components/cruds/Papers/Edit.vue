@@ -308,6 +308,33 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="informed">Informed *</label>
+                                    <div class="radio">
+                                        <label>
+                                            <input
+                                                    type="radio"
+                                                    name="informed"
+                                                    :value="item.informed"
+                                                    :checked="item.informed === ' Unaware'"
+                                                    @change="updateInformed(' Unaware')"
+                                                    >
+                                             Unaware
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input
+                                                    type="radio"
+                                                    name="informed"
+                                                    :value="item.informed"
+                                                    :checked="item.informed === ' Informed'"
+                                                    @change="updateInformed(' Informed')"
+                                                    >
+                                             Informed
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="box-footer">
@@ -353,7 +380,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions('PapersSingle', ['fetchData', 'updateData', 'resetState', 'setTitle', 'setArt', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'setDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus']),
+        ...mapActions('PapersSingle', ['fetchData', 'updateData', 'resetState', 'setTitle', 'setArt', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'setDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus', 'setInformed']),
         updateTitle(e) {
             this.setTitle(e.target.value)
         },
@@ -417,6 +444,9 @@ export default {
         },
         updateStatus(value) {
             this.setStatus(value)
+        },
+        updateInformed(value) {
+            this.setInformed(value)
         },
         submitForm() {
             this.updateData()

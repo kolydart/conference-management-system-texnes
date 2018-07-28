@@ -13,6 +13,7 @@ function initialState() {
             uploaded_document: [],
             assign: [],
             status: null,
+            informed: null,
         },
         artsAll: [],
         usersAll: [],
@@ -206,6 +207,9 @@ const actions = {
     setStatus({ commit }, value) {
         commit('setStatus', value)
     },
+    setInformed({ commit }, value) {
+        commit('setInformed', value)
+    },
     resetState({ commit }) {
         commit('resetState')
     }
@@ -264,6 +268,9 @@ const mutations = {
     },
     setStatus(state, value) {
         state.item.status = value
+    },
+    setInformed(state, value) {
+        state.item.informed = value
     },
     setArtsAll(state, value) {
         state.artsAll = value

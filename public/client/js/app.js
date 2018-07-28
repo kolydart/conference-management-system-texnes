@@ -3087,6 +3087,33 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3105,7 +3132,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         this.resetState();
     },
 
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('PapersSingle', ['storeData', 'resetState', 'setTitle', 'setArt', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'setDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus', 'fetchArtsAll', 'fetchUsersAll']), {
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('PapersSingle', ['storeData', 'resetState', 'setTitle', 'setArt', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'setDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus', 'setInformed', 'fetchArtsAll', 'fetchUsersAll']), {
         updateTitle: function updateTitle(e) {
             this.setTitle(e.target.value);
         },
@@ -3172,6 +3199,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         },
         updateStatus: function updateStatus(value) {
             this.setStatus(value);
+        },
+        updateInformed: function updateInformed(value) {
+            this.setInformed(value);
         },
         submitForm: function submitForm() {
             var _this3 = this;
@@ -3526,6 +3556,33 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3550,7 +3607,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             this.fetchData(this.$route.params.id);
         }
     },
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('PapersSingle', ['fetchData', 'updateData', 'resetState', 'setTitle', 'setArt', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'setDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus']), {
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('PapersSingle', ['fetchData', 'updateData', 'resetState', 'setTitle', 'setArt', 'setType', 'setDuration', 'setName', 'setEmail', 'setAttribute', 'setDocument', 'destroyDocument', 'destroyUploadedDocument', 'setAssign', 'setStatus', 'setInformed']), {
         updateTitle: function updateTitle(e) {
             this.setTitle(e.target.value);
         },
@@ -3617,6 +3674,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         },
         updateStatus: function updateStatus(value) {
             this.setStatus(value);
+        },
+        updateInformed: function updateInformed(value) {
+            this.setInformed(value);
         },
         submitForm: function submitForm() {
             var _this3 = this;
@@ -3718,7 +3778,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            columns: [{ title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' }, { title: 'Τίτλος', field: 'title', sortable: true }, { title: 'Τέχνη', field: 'art', tdComp: __WEBPACK_IMPORTED_MODULE_3__dtmodules_DatatableList___default.a }, { title: 'Τύπος', field: 'type', sortable: true }, { title: 'Διάρκεια', field: 'duration', sortable: true }, { title: 'Ονοματεπώνυμο', field: 'name', sortable: true }, { title: 'Email', field: 'email', sortable: true }, { title: 'Ιδιότητα', field: 'attribute', sortable: true }, { title: 'Αρχείο', tdComp: __WEBPACK_IMPORTED_MODULE_5__dtmodules_DatatableDocumentField___default.a, sortable: false }, { title: 'Ανάθεση', field: 'assign', tdComp: __WEBPACK_IMPORTED_MODULE_3__dtmodules_DatatableList___default.a }, { title: 'Status', field: 'status', sortable: true }, { title: 'Actions', tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }],
+            columns: [{ title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' }, { title: 'Τίτλος', field: 'title', sortable: true }, { title: 'Τέχνη', field: 'art', tdComp: __WEBPACK_IMPORTED_MODULE_3__dtmodules_DatatableList___default.a }, { title: 'Τύπος', field: 'type', sortable: true }, { title: 'Διάρκεια', field: 'duration', sortable: true }, { title: 'Ονοματεπώνυμο', field: 'name', sortable: true }, { title: 'Email', field: 'email', sortable: true }, { title: 'Ιδιότητα', field: 'attribute', sortable: true }, { title: 'Αρχείο', tdComp: __WEBPACK_IMPORTED_MODULE_5__dtmodules_DatatableDocumentField___default.a, sortable: false }, { title: 'Ανάθεση', field: 'assign', tdComp: __WEBPACK_IMPORTED_MODULE_3__dtmodules_DatatableList___default.a }, { title: 'Status', field: 'status', sortable: true }, { title: 'Informed', field: 'informed', sortable: true }, { title: 'Actions', tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }],
             query: { sort: 'id', order: 'desc' },
             xprops: {
                 module: 'PapersIndex',
@@ -3758,6 +3818,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+//
+//
+//
+//
 //
 //
 //
@@ -5722,7 +5786,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -5812,7 +5876,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -5932,7 +5996,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -6052,7 +6116,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -28803,6 +28867,12 @@ var render = function() {
                             _c("th", [_vm._v("Status")]),
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(_vm.item.status))])
+                          ]),
+                          _vm._v(" "),
+                          _c("tr", [
+                            _c("th", [_vm._v("Informed")]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(_vm.item.informed))])
                           ])
                         ])
                       ]
@@ -31011,6 +31081,52 @@ var render = function() {
                             )
                           ])
                         ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "informed" } }, [
+                          _vm._v("Informed *")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "radio" }, [
+                          _c("label", [
+                            _c("input", {
+                              attrs: { type: "radio", name: "informed" },
+                              domProps: {
+                                value: _vm.item.informed,
+                                checked: _vm.item.informed === " Unaware"
+                              },
+                              on: {
+                                change: function($event) {
+                                  _vm.updateInformed(" Unaware")
+                                }
+                              }
+                            }),
+                            _vm._v(
+                              "\n                                         Unaware\n                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "radio" }, [
+                          _c("label", [
+                            _c("input", {
+                              attrs: { type: "radio", name: "informed" },
+                              domProps: {
+                                value: _vm.item.informed,
+                                checked: _vm.item.informed === " Informed"
+                              },
+                              on: {
+                                change: function($event) {
+                                  _vm.updateInformed(" Informed")
+                                }
+                              }
+                            }),
+                            _vm._v(
+                              "\n                                         Informed\n                                    "
+                            )
+                          ])
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
@@ -32367,6 +32483,52 @@ var render = function() {
                             }),
                             _vm._v(
                               "\n                                        Pending\n                                    "
+                            )
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "informed" } }, [
+                          _vm._v("Informed *")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "radio" }, [
+                          _c("label", [
+                            _c("input", {
+                              attrs: { type: "radio", name: "informed" },
+                              domProps: {
+                                value: _vm.item.informed,
+                                checked: _vm.item.informed === " Unaware"
+                              },
+                              on: {
+                                change: function($event) {
+                                  _vm.updateInformed(" Unaware")
+                                }
+                              }
+                            }),
+                            _vm._v(
+                              "\n                                         Unaware\n                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "radio" }, [
+                          _c("label", [
+                            _c("input", {
+                              attrs: { type: "radio", name: "informed" },
+                              domProps: {
+                                value: _vm.item.informed,
+                                checked: _vm.item.informed === " Informed"
+                              },
+                              on: {
+                                change: function($event) {
+                                  _vm.updateInformed(" Informed")
+                                }
+                              }
+                            }),
+                            _vm._v(
+                              "\n                                         Informed\n                                    "
                             )
                           ])
                         ])
@@ -33793,6 +33955,7 @@ Vue.component('bootstrap-alert', __webpack_require__("./resources/client/assets/
 Vue.component('event-hub', __webpack_require__("./resources/client/assets/js/components/EventHub.vue"));
 Vue.component('vue-button-spinner', __webpack_require__("./resources/client/assets/js/components/VueButtonSpinner.vue"));
 Vue.component('v-select', __WEBPACK_IMPORTED_MODULE_4_vue_select___default.a);
+Vue.component('vue-ckeditor', __WEBPACK_IMPORTED_MODULE_10_vue_ckeditor2__["default"]);
 
 moment.updateLocale(window.app_locale, {
     week: {
@@ -38153,7 +38316,8 @@ function initialState() {
             document: [],
             uploaded_document: [],
             assign: [],
-            status: null
+            status: null,
+            informed: null
         },
         artsAll: [],
         usersAll: [],
@@ -38383,8 +38547,13 @@ var actions = {
 
         commit('setStatus', value);
     },
-    resetState: function resetState(_ref18) {
+    setInformed: function setInformed(_ref18, value) {
         var commit = _ref18.commit;
+
+        commit('setInformed', value);
+    },
+    resetState: function resetState(_ref19) {
+        var commit = _ref19.commit;
 
         commit('resetState');
     }
@@ -38443,6 +38612,9 @@ var mutations = {
     },
     setStatus: function setStatus(state, value) {
         state.item.status = value;
+    },
+    setInformed: function setInformed(state, value) {
+        state.item.informed = value;
     },
     setArtsAll: function setArtsAll(state, value) {
         state.artsAll = value;

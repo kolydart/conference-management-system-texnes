@@ -76,6 +76,7 @@ Vue.component('bootstrap-alert', require('./components/Alert.vue'))
 Vue.component('event-hub', require('./components/EventHub.vue'))
 Vue.component('vue-button-spinner', require('./components/VueButtonSpinner.vue'))
 Vue.component('v-select', vSelect)
+Vue.component('vue-ckeditor', VueCkeditor)
 
 moment.updateLocale(window.app_locale, {
     week: {
