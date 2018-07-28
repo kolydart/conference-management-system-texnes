@@ -13,6 +13,7 @@ return [
 		'content-categories' => [		'title' => 'Κατηγορίες',		'fields' => [			'title' => 'Κατηγορία',			'slug' => 'Slug',		],	],
 		'content-tags' => [		'title' => 'Ετικέτες',		'fields' => [			'title' => 'Ετικέτα',			'slug' => 'Slug',		],	],
 		'content-pages' => [		'title' => 'Σελίδες',		'fields' => [			'title' => 'Τίτλος',			'category-id' => 'Κατηγορίες',			'tag-id' => 'Ετικέτες',			'page-text' => 'Κείμενο',			'excerpt' => 'Excerpt',			'featured-image' => 'Εικόνα εμφάνισης',		],	],
+		'user-actions' => [		'title' => 'Ενέργειες χρηστών',		'created_at' => 'Time',		'fields' => [			'user' => 'Χρήστης',			'action' => 'Ενέργεια',			'action-model' => 'Action model',			'action-id' => 'Action id',		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',

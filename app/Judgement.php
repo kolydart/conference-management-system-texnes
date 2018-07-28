@@ -22,6 +22,13 @@ class Judgement extends Model
     protected $fillable = ['judgement', 'comment', 'user_id', 'paper_id'];
     
 
+    public static function boot()
+    {
+        parent::boot();
+
+        Judgement::observe(new \App\Observers\UserActionsObserver);
+    }
+
     public static function storeValidation($request)
     {
         return [

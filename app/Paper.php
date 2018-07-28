@@ -29,6 +29,13 @@ class Paper extends Model implements HasMedia
     protected $with = ['media'];
     
 
+    public static function boot()
+    {
+        parent::boot();
+
+        Paper::observe(new \App\Observers\UserActionsObserver);
+    }
+
     public static function storeValidation($request)
     {
         return [

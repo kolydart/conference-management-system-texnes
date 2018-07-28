@@ -64,6 +64,7 @@ class PermissionSeed extends Seeder
             ['id' => 54, 'title' => 'content_page_edit',],
             ['id' => 55, 'title' => 'content_page_view',],
             ['id' => 56, 'title' => 'content_page_delete',],
+            ['id' => 57, 'title' => 'user_action_access',],
 
         ];
 

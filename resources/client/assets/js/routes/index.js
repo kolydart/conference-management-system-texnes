@@ -38,6 +38,7 @@ import RolesIndex from '../components/cruds/Roles/Index.vue'
 import RolesCreate from '../components/cruds/Roles/Create.vue'
 import RolesShow from '../components/cruds/Roles/Show.vue'
 import RolesEdit from '../components/cruds/Roles/Edit.vue'
+import UserActionsIndex from '../components/cruds/UserActions/Index.vue'
 
 Vue.use(VueRouter)
 
@@ -79,6 +80,7 @@ const routes = [
     { path: '/roles/create', component: RolesCreate, name: 'roles.create' },
     { path: '/roles/:id', component: RolesShow, name: 'roles.show' },
     { path: '/roles/:id/edit', component: RolesEdit, name: 'roles.edit' },
+    { path: '/user-actions', component: UserActionsIndex, name: 'user_actions.index' },
 ]
 
 export default new VueRouter({
