@@ -6,7 +6,7 @@ return [
 		'roles' => [		'title' => 'Roles',		'fields' => [			'title' => 'Title',			'permission' => 'Permissions',		],	],
 		'users' => [		'title' => 'Κριτές',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',		],	],
 		'arts' => [		'title' => 'Τέχνες',		'fields' => [			'name' => 'Τίτλος',		],	],
-		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'document' => 'Αρχείο',			'assign' => 'Ανάθεση',			'status' => 'Status',			'informed' => 'Informed',			'reviews' => 'Reviews',		],	],
+		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'document' => 'Αρχείο',			'assign' => 'Ανάθεση',			'status' => 'Status',			'informed' => 'Informed',			'reviews' => 'Reviews',			'messages' => 'Messages',		],	],
 		'testpaper' => [		'title' => 'Testpaper',		'fields' => [		],	],
 		'judgements' => [		'title' => 'Κρίσεις',		'fields' => [			'paper' => 'Paper',			'judgement' => 'Judgement',			'comment' => 'Comment',		],	],
 		'content-management' => [		'title' => 'Διαχείριση περιεχομένου',		'fields' => [		],	],
@@ -24,6 +24,7 @@ return [
 		'content-tags' => [		'title' => 'Ετικέτες',		'fields' => [			'title' => 'Ετικέτα',			'slug' => 'Slug',		],	],
 		'content-pages' => [		'title' => 'Σελίδες',		'fields' => [			'title' => 'Τίτλος',			'category-id' => 'Κατηγορίες',			'tag-id' => 'Ετικέτες',			'page-text' => 'Κείμενο',			'excerpt' => 'Excerpt',			'featured-image' => 'Εικόνα εμφάνισης',		],	],
 		'user-actions' => [		'title' => 'Ενέργειες χρηστών',		'created_at' => 'Time',		'fields' => [			'user' => 'Χρήστης',			'action' => 'Ενέργεια',			'action-model' => 'Action model',			'action-id' => 'Action id',		],	],
+		'messages' => [		'title' => 'Μηνύματα',		'fields' => [			'paper' => 'Paper',			'address' => 'Address',			'name' => 'Name',			'body' => 'Body',		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',

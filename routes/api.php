@@ -6,10 +6,11 @@ Route::group(['prefix' => '/v1', 'middleware' => ['auth:api'], 'namespace' => 'A
     Route::apiResource('papers', 'PapersController');
     Route::apiResource('judgements', 'JudgementsController');
     Route::apiResource('arts', 'ArtsController');
-    Route::apiResource('users', 'UsersController');
+    Route::apiResource('messages', 'MessagesController');
     Route::apiResource('content-pages', 'ContentPagesController');
     Route::apiResource('content-categories', 'ContentCategoriesController');
     Route::apiResource('content-tags', 'ContentTagsController');
+    Route::apiResource('users', 'UsersController');
     Route::apiResource('permissions', 'PermissionsController');
     Route::apiResource('roles', 'RolesController');
     Route::apiResource('user-actions', 'UserActionsController');

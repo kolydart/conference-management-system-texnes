@@ -9,14 +9,16 @@ import JudgementsIndex from './modules/Judgements'
 import JudgementsSingle from './modules/Judgements/single'
 import ArtsIndex from './modules/Arts'
 import ArtsSingle from './modules/Arts/single'
-import UsersIndex from './modules/Users'
-import UsersSingle from './modules/Users/single'
+import MessagesIndex from './modules/Messages'
+import MessagesSingle from './modules/Messages/single'
 import ContentPagesIndex from './modules/ContentPages'
 import ContentPagesSingle from './modules/ContentPages/single'
 import ContentCategoriesIndex from './modules/ContentCategories'
 import ContentCategoriesSingle from './modules/ContentCategories/single'
 import ContentTagsIndex from './modules/ContentTags'
 import ContentTagsSingle from './modules/ContentTags/single'
+import UsersIndex from './modules/Users'
+import UsersSingle from './modules/Users/single'
 import PermissionsIndex from './modules/Permissions'
 import PermissionsSingle from './modules/Permissions/single'
 import RolesIndex from './modules/Roles'
@@ -38,14 +40,16 @@ export default new Vuex.Store({
         JudgementsSingle,
         ArtsIndex,
         ArtsSingle,
-        UsersIndex,
-        UsersSingle,
+        MessagesIndex,
+        MessagesSingle,
         ContentPagesIndex,
         ContentPagesSingle,
         ContentCategoriesIndex,
         ContentCategoriesSingle,
         ContentTagsIndex,
         ContentTagsSingle,
+        UsersIndex,
+        UsersSingle,
         PermissionsIndex,
         PermissionsSingle,
         RolesIndex,
