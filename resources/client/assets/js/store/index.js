@@ -11,16 +11,16 @@ import ArtsIndex from './modules/Arts'
 import ArtsSingle from './modules/Arts/single'
 import UsersIndex from './modules/Users'
 import UsersSingle from './modules/Users/single'
-import PermissionsIndex from './modules/Permissions'
-import PermissionsSingle from './modules/Permissions/single'
-import RolesIndex from './modules/Roles'
-import RolesSingle from './modules/Roles/single'
+import ContentPagesIndex from './modules/ContentPages'
+import ContentPagesSingle from './modules/ContentPages/single'
 import ContentCategoriesIndex from './modules/ContentCategories'
 import ContentCategoriesSingle from './modules/ContentCategories/single'
 import ContentTagsIndex from './modules/ContentTags'
 import ContentTagsSingle from './modules/ContentTags/single'
-import ContentPagesIndex from './modules/ContentPages'
-import ContentPagesSingle from './modules/ContentPages/single'
+import PermissionsIndex from './modules/Permissions'
+import PermissionsSingle from './modules/Permissions/single'
+import RolesIndex from './modules/Roles'
+import RolesSingle from './modules/Roles/single'
 
 Vue.use(Vuex)
 
@@ -39,16 +39,16 @@ export default new Vuex.Store({
         ArtsSingle,
         UsersIndex,
         UsersSingle,
-        PermissionsIndex,
-        PermissionsSingle,
-        RolesIndex,
-        RolesSingle,
+        ContentPagesIndex,
+        ContentPagesSingle,
         ContentCategoriesIndex,
         ContentCategoriesSingle,
         ContentTagsIndex,
         ContentTagsSingle,
-        ContentPagesIndex,
-        ContentPagesSingle,
+        PermissionsIndex,
+        PermissionsSingle,
+        RolesIndex,
+        RolesSingle,
     },
     strict: debug,
 })

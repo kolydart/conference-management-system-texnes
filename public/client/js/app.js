@@ -26883,7 +26883,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "content-header" }, [
-      _c("h1", [_vm._v("Users")])
+      _c("h1", [_vm._v("Κριτές")])
     ])
   },
   function() {
@@ -27564,7 +27564,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "content-header" }, [
-      _c("h1", [_vm._v("Users")])
+      _c("h1", [_vm._v("Κριτές")])
     ])
   },
   function() {
@@ -28076,7 +28076,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "content-header" }, [
-      _c("h1", [_vm._v("Users")])
+      _c("h1", [_vm._v("Κριτές")])
     ])
   },
   function() {
@@ -31580,7 +31580,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "content-header" }, [
-      _c("h1", [_vm._v("Users")])
+      _c("h1", [_vm._v("Κριτές")])
     ])
   },
   function() {
@@ -36507,46 +36507,46 @@ function subjectName(item) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_cruds_Users_Show_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_cruds_Users_Show_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_cruds_Users_Edit_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Users/Edit.vue");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_cruds_Users_Edit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_cruds_Users_Edit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_cruds_Permissions_Index_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Permissions/Index.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_cruds_Permissions_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_cruds_Permissions_Index_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_cruds_Permissions_Create_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Permissions/Create.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_cruds_Permissions_Create_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_cruds_Permissions_Create_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_cruds_Permissions_Show_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Permissions/Show.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_cruds_Permissions_Show_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_cruds_Permissions_Show_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_cruds_Permissions_Edit_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Permissions/Edit.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_cruds_Permissions_Edit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_cruds_Permissions_Edit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_cruds_Roles_Index_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Roles/Index.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_cruds_Roles_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__components_cruds_Roles_Index_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_cruds_Roles_Create_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Roles/Create.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_cruds_Roles_Create_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__components_cruds_Roles_Create_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_cruds_Roles_Show_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Roles/Show.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_cruds_Roles_Show_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__components_cruds_Roles_Show_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_cruds_Roles_Edit_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Roles/Edit.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_cruds_Roles_Edit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__components_cruds_Roles_Edit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_cruds_ContentCategories_Index_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentCategories/Index.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_cruds_ContentCategories_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__components_cruds_ContentCategories_Index_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_cruds_ContentCategories_Create_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentCategories/Create.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_cruds_ContentCategories_Create_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28__components_cruds_ContentCategories_Create_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_cruds_ContentCategories_Show_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentCategories/Show.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_cruds_ContentCategories_Show_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29__components_cruds_ContentCategories_Show_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_cruds_ContentCategories_Edit_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentCategories/Edit.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_cruds_ContentCategories_Edit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30__components_cruds_ContentCategories_Edit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_cruds_ContentTags_Index_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentTags/Index.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_cruds_ContentTags_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31__components_cruds_ContentTags_Index_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_cruds_ContentTags_Create_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentTags/Create.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_cruds_ContentTags_Create_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32__components_cruds_ContentTags_Create_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_cruds_ContentTags_Show_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentTags/Show.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_cruds_ContentTags_Show_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33__components_cruds_ContentTags_Show_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_cruds_ContentTags_Edit_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentTags/Edit.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_cruds_ContentTags_Edit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34__components_cruds_ContentTags_Edit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_cruds_ContentPages_Index_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentPages/Index.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_cruds_ContentPages_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35__components_cruds_ContentPages_Index_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_cruds_ContentPages_Create_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentPages/Create.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_cruds_ContentPages_Create_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36__components_cruds_ContentPages_Create_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_cruds_ContentPages_Show_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentPages/Show.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_cruds_ContentPages_Show_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37__components_cruds_ContentPages_Show_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_cruds_ContentPages_Edit_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentPages/Edit.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_cruds_ContentPages_Edit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38__components_cruds_ContentPages_Edit_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_cruds_ContentPages_Index_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentPages/Index.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_cruds_ContentPages_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_cruds_ContentPages_Index_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_cruds_ContentPages_Create_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentPages/Create.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_cruds_ContentPages_Create_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_cruds_ContentPages_Create_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_cruds_ContentPages_Show_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentPages/Show.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_cruds_ContentPages_Show_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_cruds_ContentPages_Show_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_cruds_ContentPages_Edit_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentPages/Edit.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_cruds_ContentPages_Edit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_cruds_ContentPages_Edit_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_cruds_ContentCategories_Index_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentCategories/Index.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_cruds_ContentCategories_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__components_cruds_ContentCategories_Index_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_cruds_ContentCategories_Create_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentCategories/Create.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_cruds_ContentCategories_Create_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__components_cruds_ContentCategories_Create_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_cruds_ContentCategories_Show_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentCategories/Show.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_cruds_ContentCategories_Show_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__components_cruds_ContentCategories_Show_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_cruds_ContentCategories_Edit_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentCategories/Edit.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_cruds_ContentCategories_Edit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__components_cruds_ContentCategories_Edit_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_cruds_ContentTags_Index_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentTags/Index.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_cruds_ContentTags_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__components_cruds_ContentTags_Index_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_cruds_ContentTags_Create_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentTags/Create.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_cruds_ContentTags_Create_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28__components_cruds_ContentTags_Create_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_cruds_ContentTags_Show_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentTags/Show.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_cruds_ContentTags_Show_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29__components_cruds_ContentTags_Show_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_cruds_ContentTags_Edit_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/ContentTags/Edit.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_cruds_ContentTags_Edit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30__components_cruds_ContentTags_Edit_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_cruds_Permissions_Index_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Permissions/Index.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_cruds_Permissions_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31__components_cruds_Permissions_Index_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_cruds_Permissions_Create_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Permissions/Create.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_cruds_Permissions_Create_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32__components_cruds_Permissions_Create_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_cruds_Permissions_Show_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Permissions/Show.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_cruds_Permissions_Show_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33__components_cruds_Permissions_Show_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_cruds_Permissions_Edit_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Permissions/Edit.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_cruds_Permissions_Edit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34__components_cruds_Permissions_Edit_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_cruds_Roles_Index_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Roles/Index.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_cruds_Roles_Index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35__components_cruds_Roles_Index_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_cruds_Roles_Create_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Roles/Create.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_cruds_Roles_Create_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36__components_cruds_Roles_Create_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_cruds_Roles_Show_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Roles/Show.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_cruds_Roles_Show_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37__components_cruds_Roles_Show_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_cruds_Roles_Edit_vue__ = __webpack_require__("./resources/client/assets/js/components/cruds/Roles/Edit.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_cruds_Roles_Edit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38__components_cruds_Roles_Edit_vue__);
 
 
 
@@ -36590,7 +36590,7 @@ function subjectName(item) {
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["default"]);
 
-var routes = [{ path: '/change-password', component: __WEBPACK_IMPORTED_MODULE_2__components_ChangePassword_vue___default.a, name: 'auth.change_password' }, { path: '/papers', component: __WEBPACK_IMPORTED_MODULE_3__components_cruds_Papers_Index_vue___default.a, name: 'papers.index' }, { path: '/papers/create', component: __WEBPACK_IMPORTED_MODULE_4__components_cruds_Papers_Create_vue___default.a, name: 'papers.create' }, { path: '/papers/:id', component: __WEBPACK_IMPORTED_MODULE_5__components_cruds_Papers_Show_vue___default.a, name: 'papers.show' }, { path: '/papers/:id/edit', component: __WEBPACK_IMPORTED_MODULE_6__components_cruds_Papers_Edit_vue___default.a, name: 'papers.edit' }, { path: '/judgements', component: __WEBPACK_IMPORTED_MODULE_7__components_cruds_Judgements_Index_vue___default.a, name: 'judgements.index' }, { path: '/judgements/create', component: __WEBPACK_IMPORTED_MODULE_8__components_cruds_Judgements_Create_vue___default.a, name: 'judgements.create' }, { path: '/judgements/:id', component: __WEBPACK_IMPORTED_MODULE_9__components_cruds_Judgements_Show_vue___default.a, name: 'judgements.show' }, { path: '/judgements/:id/edit', component: __WEBPACK_IMPORTED_MODULE_10__components_cruds_Judgements_Edit_vue___default.a, name: 'judgements.edit' }, { path: '/arts', component: __WEBPACK_IMPORTED_MODULE_11__components_cruds_Arts_Index_vue___default.a, name: 'arts.index' }, { path: '/arts/create', component: __WEBPACK_IMPORTED_MODULE_12__components_cruds_Arts_Create_vue___default.a, name: 'arts.create' }, { path: '/arts/:id', component: __WEBPACK_IMPORTED_MODULE_13__components_cruds_Arts_Show_vue___default.a, name: 'arts.show' }, { path: '/arts/:id/edit', component: __WEBPACK_IMPORTED_MODULE_14__components_cruds_Arts_Edit_vue___default.a, name: 'arts.edit' }, { path: '/users', component: __WEBPACK_IMPORTED_MODULE_15__components_cruds_Users_Index_vue___default.a, name: 'users.index' }, { path: '/users/create', component: __WEBPACK_IMPORTED_MODULE_16__components_cruds_Users_Create_vue___default.a, name: 'users.create' }, { path: '/users/:id', component: __WEBPACK_IMPORTED_MODULE_17__components_cruds_Users_Show_vue___default.a, name: 'users.show' }, { path: '/users/:id/edit', component: __WEBPACK_IMPORTED_MODULE_18__components_cruds_Users_Edit_vue___default.a, name: 'users.edit' }, { path: '/permissions', component: __WEBPACK_IMPORTED_MODULE_19__components_cruds_Permissions_Index_vue___default.a, name: 'permissions.index' }, { path: '/permissions/create', component: __WEBPACK_IMPORTED_MODULE_20__components_cruds_Permissions_Create_vue___default.a, name: 'permissions.create' }, { path: '/permissions/:id', component: __WEBPACK_IMPORTED_MODULE_21__components_cruds_Permissions_Show_vue___default.a, name: 'permissions.show' }, { path: '/permissions/:id/edit', component: __WEBPACK_IMPORTED_MODULE_22__components_cruds_Permissions_Edit_vue___default.a, name: 'permissions.edit' }, { path: '/roles', component: __WEBPACK_IMPORTED_MODULE_23__components_cruds_Roles_Index_vue___default.a, name: 'roles.index' }, { path: '/roles/create', component: __WEBPACK_IMPORTED_MODULE_24__components_cruds_Roles_Create_vue___default.a, name: 'roles.create' }, { path: '/roles/:id', component: __WEBPACK_IMPORTED_MODULE_25__components_cruds_Roles_Show_vue___default.a, name: 'roles.show' }, { path: '/roles/:id/edit', component: __WEBPACK_IMPORTED_MODULE_26__components_cruds_Roles_Edit_vue___default.a, name: 'roles.edit' }, { path: '/content-categories', component: __WEBPACK_IMPORTED_MODULE_27__components_cruds_ContentCategories_Index_vue___default.a, name: 'content_categories.index' }, { path: '/content-categories/create', component: __WEBPACK_IMPORTED_MODULE_28__components_cruds_ContentCategories_Create_vue___default.a, name: 'content_categories.create' }, { path: '/content-categories/:id', component: __WEBPACK_IMPORTED_MODULE_29__components_cruds_ContentCategories_Show_vue___default.a, name: 'content_categories.show' }, { path: '/content-categories/:id/edit', component: __WEBPACK_IMPORTED_MODULE_30__components_cruds_ContentCategories_Edit_vue___default.a, name: 'content_categories.edit' }, { path: '/content-tags', component: __WEBPACK_IMPORTED_MODULE_31__components_cruds_ContentTags_Index_vue___default.a, name: 'content_tags.index' }, { path: '/content-tags/create', component: __WEBPACK_IMPORTED_MODULE_32__components_cruds_ContentTags_Create_vue___default.a, name: 'content_tags.create' }, { path: '/content-tags/:id', component: __WEBPACK_IMPORTED_MODULE_33__components_cruds_ContentTags_Show_vue___default.a, name: 'content_tags.show' }, { path: '/content-tags/:id/edit', component: __WEBPACK_IMPORTED_MODULE_34__components_cruds_ContentTags_Edit_vue___default.a, name: 'content_tags.edit' }, { path: '/content-pages', component: __WEBPACK_IMPORTED_MODULE_35__components_cruds_ContentPages_Index_vue___default.a, name: 'content_pages.index' }, { path: '/content-pages/create', component: __WEBPACK_IMPORTED_MODULE_36__components_cruds_ContentPages_Create_vue___default.a, name: 'content_pages.create' }, { path: '/content-pages/:id', component: __WEBPACK_IMPORTED_MODULE_37__components_cruds_ContentPages_Show_vue___default.a, name: 'content_pages.show' }, { path: '/content-pages/:id/edit', component: __WEBPACK_IMPORTED_MODULE_38__components_cruds_ContentPages_Edit_vue___default.a, name: 'content_pages.edit' }];
+var routes = [{ path: '/change-password', component: __WEBPACK_IMPORTED_MODULE_2__components_ChangePassword_vue___default.a, name: 'auth.change_password' }, { path: '/papers', component: __WEBPACK_IMPORTED_MODULE_3__components_cruds_Papers_Index_vue___default.a, name: 'papers.index' }, { path: '/papers/create', component: __WEBPACK_IMPORTED_MODULE_4__components_cruds_Papers_Create_vue___default.a, name: 'papers.create' }, { path: '/papers/:id', component: __WEBPACK_IMPORTED_MODULE_5__components_cruds_Papers_Show_vue___default.a, name: 'papers.show' }, { path: '/papers/:id/edit', component: __WEBPACK_IMPORTED_MODULE_6__components_cruds_Papers_Edit_vue___default.a, name: 'papers.edit' }, { path: '/judgements', component: __WEBPACK_IMPORTED_MODULE_7__components_cruds_Judgements_Index_vue___default.a, name: 'judgements.index' }, { path: '/judgements/create', component: __WEBPACK_IMPORTED_MODULE_8__components_cruds_Judgements_Create_vue___default.a, name: 'judgements.create' }, { path: '/judgements/:id', component: __WEBPACK_IMPORTED_MODULE_9__components_cruds_Judgements_Show_vue___default.a, name: 'judgements.show' }, { path: '/judgements/:id/edit', component: __WEBPACK_IMPORTED_MODULE_10__components_cruds_Judgements_Edit_vue___default.a, name: 'judgements.edit' }, { path: '/arts', component: __WEBPACK_IMPORTED_MODULE_11__components_cruds_Arts_Index_vue___default.a, name: 'arts.index' }, { path: '/arts/create', component: __WEBPACK_IMPORTED_MODULE_12__components_cruds_Arts_Create_vue___default.a, name: 'arts.create' }, { path: '/arts/:id', component: __WEBPACK_IMPORTED_MODULE_13__components_cruds_Arts_Show_vue___default.a, name: 'arts.show' }, { path: '/arts/:id/edit', component: __WEBPACK_IMPORTED_MODULE_14__components_cruds_Arts_Edit_vue___default.a, name: 'arts.edit' }, { path: '/users', component: __WEBPACK_IMPORTED_MODULE_15__components_cruds_Users_Index_vue___default.a, name: 'users.index' }, { path: '/users/create', component: __WEBPACK_IMPORTED_MODULE_16__components_cruds_Users_Create_vue___default.a, name: 'users.create' }, { path: '/users/:id', component: __WEBPACK_IMPORTED_MODULE_17__components_cruds_Users_Show_vue___default.a, name: 'users.show' }, { path: '/users/:id/edit', component: __WEBPACK_IMPORTED_MODULE_18__components_cruds_Users_Edit_vue___default.a, name: 'users.edit' }, { path: '/content-pages', component: __WEBPACK_IMPORTED_MODULE_19__components_cruds_ContentPages_Index_vue___default.a, name: 'content_pages.index' }, { path: '/content-pages/create', component: __WEBPACK_IMPORTED_MODULE_20__components_cruds_ContentPages_Create_vue___default.a, name: 'content_pages.create' }, { path: '/content-pages/:id', component: __WEBPACK_IMPORTED_MODULE_21__components_cruds_ContentPages_Show_vue___default.a, name: 'content_pages.show' }, { path: '/content-pages/:id/edit', component: __WEBPACK_IMPORTED_MODULE_22__components_cruds_ContentPages_Edit_vue___default.a, name: 'content_pages.edit' }, { path: '/content-categories', component: __WEBPACK_IMPORTED_MODULE_23__components_cruds_ContentCategories_Index_vue___default.a, name: 'content_categories.index' }, { path: '/content-categories/create', component: __WEBPACK_IMPORTED_MODULE_24__components_cruds_ContentCategories_Create_vue___default.a, name: 'content_categories.create' }, { path: '/content-categories/:id', component: __WEBPACK_IMPORTED_MODULE_25__components_cruds_ContentCategories_Show_vue___default.a, name: 'content_categories.show' }, { path: '/content-categories/:id/edit', component: __WEBPACK_IMPORTED_MODULE_26__components_cruds_ContentCategories_Edit_vue___default.a, name: 'content_categories.edit' }, { path: '/content-tags', component: __WEBPACK_IMPORTED_MODULE_27__components_cruds_ContentTags_Index_vue___default.a, name: 'content_tags.index' }, { path: '/content-tags/create', component: __WEBPACK_IMPORTED_MODULE_28__components_cruds_ContentTags_Create_vue___default.a, name: 'content_tags.create' }, { path: '/content-tags/:id', component: __WEBPACK_IMPORTED_MODULE_29__components_cruds_ContentTags_Show_vue___default.a, name: 'content_tags.show' }, { path: '/content-tags/:id/edit', component: __WEBPACK_IMPORTED_MODULE_30__components_cruds_ContentTags_Edit_vue___default.a, name: 'content_tags.edit' }, { path: '/permissions', component: __WEBPACK_IMPORTED_MODULE_31__components_cruds_Permissions_Index_vue___default.a, name: 'permissions.index' }, { path: '/permissions/create', component: __WEBPACK_IMPORTED_MODULE_32__components_cruds_Permissions_Create_vue___default.a, name: 'permissions.create' }, { path: '/permissions/:id', component: __WEBPACK_IMPORTED_MODULE_33__components_cruds_Permissions_Show_vue___default.a, name: 'permissions.show' }, { path: '/permissions/:id/edit', component: __WEBPACK_IMPORTED_MODULE_34__components_cruds_Permissions_Edit_vue___default.a, name: 'permissions.edit' }, { path: '/roles', component: __WEBPACK_IMPORTED_MODULE_35__components_cruds_Roles_Index_vue___default.a, name: 'roles.index' }, { path: '/roles/create', component: __WEBPACK_IMPORTED_MODULE_36__components_cruds_Roles_Create_vue___default.a, name: 'roles.create' }, { path: '/roles/:id', component: __WEBPACK_IMPORTED_MODULE_37__components_cruds_Roles_Show_vue___default.a, name: 'roles.show' }, { path: '/roles/:id/edit', component: __WEBPACK_IMPORTED_MODULE_38__components_cruds_Roles_Edit_vue___default.a, name: 'roles.edit' }];
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["default"]({
     mode: 'history',
@@ -36618,16 +36618,16 @@ var routes = [{ path: '/change-password', component: __WEBPACK_IMPORTED_MODULE_2
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__modules_Arts_single__ = __webpack_require__("./resources/client/assets/js/store/modules/Arts/single.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__modules_Users__ = __webpack_require__("./resources/client/assets/js/store/modules/Users/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__modules_Users_single__ = __webpack_require__("./resources/client/assets/js/store/modules/Users/single.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__modules_Permissions__ = __webpack_require__("./resources/client/assets/js/store/modules/Permissions/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__modules_Permissions_single__ = __webpack_require__("./resources/client/assets/js/store/modules/Permissions/single.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__modules_Roles__ = __webpack_require__("./resources/client/assets/js/store/modules/Roles/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__modules_Roles_single__ = __webpack_require__("./resources/client/assets/js/store/modules/Roles/single.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__modules_ContentCategories__ = __webpack_require__("./resources/client/assets/js/store/modules/ContentCategories/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__modules_ContentCategories_single__ = __webpack_require__("./resources/client/assets/js/store/modules/ContentCategories/single.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__modules_ContentTags__ = __webpack_require__("./resources/client/assets/js/store/modules/ContentTags/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__modules_ContentTags_single__ = __webpack_require__("./resources/client/assets/js/store/modules/ContentTags/single.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__modules_ContentPages__ = __webpack_require__("./resources/client/assets/js/store/modules/ContentPages/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__modules_ContentPages_single__ = __webpack_require__("./resources/client/assets/js/store/modules/ContentPages/single.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__modules_ContentPages__ = __webpack_require__("./resources/client/assets/js/store/modules/ContentPages/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__modules_ContentPages_single__ = __webpack_require__("./resources/client/assets/js/store/modules/ContentPages/single.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__modules_ContentCategories__ = __webpack_require__("./resources/client/assets/js/store/modules/ContentCategories/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__modules_ContentCategories_single__ = __webpack_require__("./resources/client/assets/js/store/modules/ContentCategories/single.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__modules_ContentTags__ = __webpack_require__("./resources/client/assets/js/store/modules/ContentTags/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__modules_ContentTags_single__ = __webpack_require__("./resources/client/assets/js/store/modules/ContentTags/single.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__modules_Permissions__ = __webpack_require__("./resources/client/assets/js/store/modules/Permissions/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__modules_Permissions_single__ = __webpack_require__("./resources/client/assets/js/store/modules/Permissions/single.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__modules_Roles__ = __webpack_require__("./resources/client/assets/js/store/modules/Roles/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__modules_Roles_single__ = __webpack_require__("./resources/client/assets/js/store/modules/Roles/single.js");
 
 
 
@@ -36669,16 +36669,16 @@ var debug = "development" !== 'production';
         ArtsSingle: __WEBPACK_IMPORTED_MODULE_10__modules_Arts_single__["a" /* default */],
         UsersIndex: __WEBPACK_IMPORTED_MODULE_11__modules_Users__["a" /* default */],
         UsersSingle: __WEBPACK_IMPORTED_MODULE_12__modules_Users_single__["a" /* default */],
-        PermissionsIndex: __WEBPACK_IMPORTED_MODULE_13__modules_Permissions__["a" /* default */],
-        PermissionsSingle: __WEBPACK_IMPORTED_MODULE_14__modules_Permissions_single__["a" /* default */],
-        RolesIndex: __WEBPACK_IMPORTED_MODULE_15__modules_Roles__["a" /* default */],
-        RolesSingle: __WEBPACK_IMPORTED_MODULE_16__modules_Roles_single__["a" /* default */],
-        ContentCategoriesIndex: __WEBPACK_IMPORTED_MODULE_17__modules_ContentCategories__["a" /* default */],
-        ContentCategoriesSingle: __WEBPACK_IMPORTED_MODULE_18__modules_ContentCategories_single__["a" /* default */],
-        ContentTagsIndex: __WEBPACK_IMPORTED_MODULE_19__modules_ContentTags__["a" /* default */],
-        ContentTagsSingle: __WEBPACK_IMPORTED_MODULE_20__modules_ContentTags_single__["a" /* default */],
-        ContentPagesIndex: __WEBPACK_IMPORTED_MODULE_21__modules_ContentPages__["a" /* default */],
-        ContentPagesSingle: __WEBPACK_IMPORTED_MODULE_22__modules_ContentPages_single__["a" /* default */]
+        ContentPagesIndex: __WEBPACK_IMPORTED_MODULE_13__modules_ContentPages__["a" /* default */],
+        ContentPagesSingle: __WEBPACK_IMPORTED_MODULE_14__modules_ContentPages_single__["a" /* default */],
+        ContentCategoriesIndex: __WEBPACK_IMPORTED_MODULE_15__modules_ContentCategories__["a" /* default */],
+        ContentCategoriesSingle: __WEBPACK_IMPORTED_MODULE_16__modules_ContentCategories_single__["a" /* default */],
+        ContentTagsIndex: __WEBPACK_IMPORTED_MODULE_17__modules_ContentTags__["a" /* default */],
+        ContentTagsSingle: __WEBPACK_IMPORTED_MODULE_18__modules_ContentTags_single__["a" /* default */],
+        PermissionsIndex: __WEBPACK_IMPORTED_MODULE_19__modules_Permissions__["a" /* default */],
+        PermissionsSingle: __WEBPACK_IMPORTED_MODULE_20__modules_Permissions_single__["a" /* default */],
+        RolesIndex: __WEBPACK_IMPORTED_MODULE_21__modules_Roles__["a" /* default */],
+        RolesSingle: __WEBPACK_IMPORTED_MODULE_22__modules_Roles_single__["a" /* default */]
     },
     strict: debug
 }));

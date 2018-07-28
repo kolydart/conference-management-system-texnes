@@ -30,34 +30,11 @@
                     <span>@lang('quickadmin.arts.title')</span>
                 </router-link>
             </li>
-            <li class="treeview" v-if="$can('user_management_access')">
-                <a href="#">
-                    <i class="fa fa-users"></i>
-                    <span>@lang('quickadmin.user-management.title')</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li v-if="$can('user_access')">
-                        <router-link :to="{ name: 'users.index' }">
-                            <i class="fa fa-user"></i>
-                            <span>@lang('quickadmin.users.title')</span>
-                        </router-link>
-                    </li>
-                    <li v-if="$can('permission_access')">
-                        <router-link :to="{ name: 'permissions.index' }">
-                            <i class="fa fa-briefcase"></i>
-                            <span>@lang('quickadmin.permissions.title')</span>
-                        </router-link>
-                    </li>
-                    <li v-if="$can('role_access')">
-                        <router-link :to="{ name: 'roles.index' }">
-                            <i class="fa fa-briefcase"></i>
-                            <span>@lang('quickadmin.roles.title')</span>
-                        </router-link>
-                    </li>
-                </ul>
+            <li v-if="$can('user_access')">
+                <router-link :to="{ name: 'users.index' }">
+                    <i class="fa fa-graduation-cap"></i>
+                    <span>@lang('quickadmin.users.title')</span>
+                </router-link>
             </li>
             <li class="treeview" v-if="$can('content_management_access')">
                 <a href="#">
@@ -68,6 +45,12 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
+                    <li v-if="$can('content_page_access')">
+                        <router-link :to="{ name: 'content_pages.index' }">
+                            <i class="fa fa-file-o"></i>
+                            <span>@lang('quickadmin.content-pages.title')</span>
+                        </router-link>
+                    </li>
                     <li v-if="$can('content_category_access')">
                         <router-link :to="{ name: 'content_categories.index' }">
                             <i class="fa fa-folder"></i>
@@ -80,10 +63,27 @@
                             <span>@lang('quickadmin.content-tags.title')</span>
                         </router-link>
                     </li>
-                    <li v-if="$can('content_page_access')">
-                        <router-link :to="{ name: 'content_pages.index' }">
-                            <i class="fa fa-file-o"></i>
-                            <span>@lang('quickadmin.content-pages.title')</span>
+                </ul>
+            </li>
+            <li class="treeview" v-if="$can('user_management_access')">
+                <a href="#">
+                    <i class="fa fa-users"></i>
+                    <span>@lang('quickadmin.user-management.title')</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li v-if="$can('permission_access')">
+                        <router-link :to="{ name: 'permissions.index' }">
+                            <i class="fa fa-briefcase"></i>
+                            <span>@lang('quickadmin.permissions.title')</span>
+                        </router-link>
+                    </li>
+                    <li v-if="$can('role_access')">
+                        <router-link :to="{ name: 'roles.index' }">
+                            <i class="fa fa-briefcase"></i>
+                            <span>@lang('quickadmin.roles.title')</span>
                         </router-link>
                     </li>
                 </ul>

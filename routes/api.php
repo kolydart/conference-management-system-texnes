@@ -7,9 +7,9 @@ Route::group(['prefix' => '/v1', 'middleware' => ['auth:api'], 'namespace' => 'A
     Route::apiResource('judgements', 'JudgementsController');
     Route::apiResource('arts', 'ArtsController');
     Route::apiResource('users', 'UsersController');
-    Route::apiResource('permissions', 'PermissionsController');
-    Route::apiResource('roles', 'RolesController');
+    Route::apiResource('content-pages', 'ContentPagesController');
     Route::apiResource('content-categories', 'ContentCategoriesController');
     Route::apiResource('content-tags', 'ContentTagsController');
-    Route::apiResource('content-pages', 'ContentPagesController');
+    Route::apiResource('permissions', 'PermissionsController');
+    Route::apiResource('roles', 'RolesController');
 });
