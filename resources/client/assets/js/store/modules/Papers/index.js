@@ -2,8 +2,9 @@ function initialState() {
     return {
         all: [],
         relationships: {
-            'art': 'title',
+            'art': 'name',
             'assign': 'name',
+            'reviews': 'judgement',
         },
         query: {},
         loading: false

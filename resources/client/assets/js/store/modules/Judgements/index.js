@@ -2,7 +2,6 @@ function initialState() {
     return {
         all: [],
         relationships: {
-            'user': 'name',
             'paper': 'title',
         },
         query: {},

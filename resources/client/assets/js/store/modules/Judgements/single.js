@@ -2,12 +2,10 @@ function initialState() {
     return {
         item: {
             id: null,
-            user: null,
             paper: null,
             judgement: null,
             comment: null,
         },
-        usersAll: [],
         papersAll: [],
         
         loading: false,
@@ -17,7 +15,6 @@ function initialState() {
 const getters = {
     item: state => state.item,
     loading: state => state.loading,
-    usersAll: state => state.usersAll,
     papersAll: state => state.papersAll,
     
 }
@@ -45,11 +42,6 @@ const actions = {
                 }
             }
 
-            if (_.isEmpty(state.item.user)) {
-                params.set('user_id', '')
-            } else {
-                params.set('user_id', state.item.user.id)
-            }
             if (_.isEmpty(state.item.paper)) {
                 params.set('paper_id', '')
             } else {
@@ -100,11 +92,6 @@ const actions = {
                 }
             }
 
-            if (_.isEmpty(state.item.user)) {
-                params.set('user_id', '')
-            } else {
-                params.set('user_id', state.item.user.id)
-            }
             if (_.isEmpty(state.item.paper)) {
                 params.set('paper_id', '')
             } else {
@@ -138,23 +125,13 @@ const actions = {
                 commit('setItem', response.data.data)
             })
 
-        dispatch('fetchUsersAll')
-    dispatch('fetchPapersAll')
-    },
-    fetchUsersAll({ commit }) {
-        axios.get('/api/v1/users')
-            .then(response => {
-                commit('setUsersAll', response.data.data)
-            })
+        dispatch('fetchPapersAll')
     },
     fetchPapersAll({ commit }) {
         axios.get('/api/v1/papers')
             .then(response => {
                 commit('setPapersAll', response.data.data)
             })
-    },
-    setUser({ commit }, value) {
-        commit('setUser', value)
     },
     setPaper({ commit }, value) {
         commit('setPaper', value)
@@ -174,9 +151,6 @@ const mutations = {
     setItem(state, item) {
         state.item = item
     },
-    setUser(state, value) {
-        state.item.user = value
-    },
     setPaper(state, value) {
         state.item.paper = value
     },
@@ -185,9 +159,6 @@ const mutations = {
     },
     setComment(state, value) {
         state.item.comment = value
-    },
-    setUsersAll(state, value) {
-        state.usersAll = value
     },
     setPapersAll(state, value) {
         state.papersAll = value

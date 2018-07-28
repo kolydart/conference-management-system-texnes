@@ -14,9 +14,11 @@ function initialState() {
             assign: [],
             status: null,
             informed: null,
+            reviews: null,
         },
         artsAll: [],
         usersAll: [],
+        judgementsAll: [],
         
         loading: false,
     }
@@ -27,6 +29,7 @@ const getters = {
     loading: state => state.loading,
     artsAll: state => state.artsAll,
     usersAll: state => state.usersAll,
+    judgementsAll: state => state.judgementsAll,
     
 }
 
@@ -67,6 +70,11 @@ const actions = {
                 for (let index in state.item.assign) {
                     params.set('assign['+index+']', state.item.assign[index].id)
                 }
+            }
+            if (_.isEmpty(state.item.reviews)) {
+                params.set('reviews_id', '')
+            } else {
+                params.set('reviews_id', state.item.reviews.id)
             }
 
             axios.post('/api/v1/papers', params)
@@ -128,6 +136,11 @@ const actions = {
                     params.set('assign['+index+']', state.item.assign[index].id)
                 }
             }
+            if (_.isEmpty(state.item.reviews)) {
+                params.set('reviews_id', '')
+            } else {
+                params.set('reviews_id', state.item.reviews.id)
+            }
 
             axios.post('/api/v1/papers/' + state.item.id, params)
                 .then(response => {
@@ -158,6 +171,7 @@ const actions = {
 
         dispatch('fetchArtsAll')
     dispatch('fetchUsersAll')
+    dispatch('fetchJudgementsAll')
     },
     fetchArtsAll({ commit }) {
         axios.get('/api/v1/arts')
@@ -169,6 +183,12 @@ const actions = {
         axios.get('/api/v1/users')
             .then(response => {
                 commit('setUsersAll', response.data.data)
+            })
+    },
+    fetchJudgementsAll({ commit }) {
+        axios.get('/api/v1/judgements')
+            .then(response => {
+                commit('setJudgementsAll', response.data.data)
             })
     },
     setTitle({ commit }, value) {
@@ -209,6 +229,9 @@ const actions = {
     },
     setInformed({ commit }, value) {
         commit('setInformed', value)
+    },
+    setReviews({ commit }, value) {
+        commit('setReviews', value)
     },
     resetState({ commit }) {
         commit('resetState')
@@ -272,11 +295,17 @@ const mutations = {
     setInformed(state, value) {
         state.item.informed = value
     },
+    setReviews(state, value) {
+        state.item.reviews = value
+    },
     setArtsAll(state, value) {
         state.artsAll = value
     },
     setUsersAll(state, value) {
         state.usersAll = value
+    },
+    setJudgementsAll(state, value) {
+        state.judgementsAll = value
     },
     
     setLoading(state, loading) {

@@ -2,7 +2,7 @@ function initialState() {
     return {
         item: {
             id: null,
-            title: null,
+            name: null,
         },
         
         
@@ -118,8 +118,8 @@ const actions = {
         
     },
     
-    setTitle({ commit }, value) {
-        commit('setTitle', value)
+    setName({ commit }, value) {
+        commit('setName', value)
     },
     resetState({ commit }) {
         commit('resetState')
@@ -130,8 +130,8 @@ const mutations = {
     setItem(state, item) {
         state.item = item
     },
-    setTitle(state, value) {
-        state.item.title = value
+    setName(state, value) {
+        state.item.name = value
     },
     
     

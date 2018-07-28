@@ -14,16 +14,12 @@ class PaperSeedPivot extends Seeder
         $items = [
             
             2 => [
-                'art' => [1, 2],
-                'assign' => [2, 3],
+                'art' => [5],
+                'assign' => [],
             ],
             3 => [
-                'art' => [2, 3],
-                'assign' => [3],
-            ],
-            4 => [
-                'art' => [2, 3],
-                'assign' => [2],
+                'art' => [5],
+                'assign' => [],
             ],
 
         ];

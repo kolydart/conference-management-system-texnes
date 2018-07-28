@@ -27,7 +27,7 @@
                                         </tr>
                                         <tr>
                                             <th>Τίτλος</th>
-                                            <td>{{ item.title }}</td>
+                                            <td>{{ item.name }}</td>
                                             </tr>
                                         </tbody>
                                     </table>

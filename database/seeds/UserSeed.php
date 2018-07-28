@@ -13,9 +13,7 @@ class UserSeed extends Seeder
     {
         $items = [
             
-            ['id' => 1, 'name' => 'Τάσος Κολυδάς', 'email' => 'sci-texnes-ellinikosxoleio@kolydart.gr', 'password' => '$2y$10$bC0.tC2oJlMpK2PuJNdJu.hriUmJmRjGBFqLY/uYQhC69AFPrYye.', 'remember_token' => '',],
-            ['id' => 2, 'name' => 'Μηνάς Αλεξιάδης', 'email' => 'minalexi@ath.forthnet.gr', 'password' => 'minalexi', 'remember_token' => null,],
-            ['id' => 3, 'name' => 'Ίλια Λακίδου', 'email' => 'ilakidou@theatre.uoa.gr', 'password' => 'ilakidou', 'remember_token' => null,],
+            ['id' => 4, 'name' => 'Test admin, please remove', 'email' => 'n-vue.quickadminpanel.com@gateweb.gr', 'password' => '$2y$10$zn/T/UpEcC3l7jG6RMk/pOL8fL22CIAKdh7gw8Of6QJFzYLGUwKoW', 'remember_token' => null,],
 
         ];
 

@@ -26,14 +26,6 @@
                                             <td>{{ item.id }}</td>
                                         </tr>
                                         <tr>
-                                            <th>User</th>
-                                            <td>
-                                                <span class="label label-info" v-if="item.user !== null">
-                                                    {{ item.user.name }}
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
                                             <th>Paper</th>
                                             <td>
                                                 <span class="label label-info" v-if="item.paper !== null">

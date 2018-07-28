@@ -33,7 +33,7 @@
                                             <th>Τέχνη</th>
                                             <td>
                                                 <span class="label label-info" v-for="art in item.art">
-                                                    {{ art.title }}
+                                                    {{ art.name }}
                                                 </span>
                                             </td>
                                         </tr>
@@ -77,6 +77,14 @@
                                             <th>Informed</th>
                                             <td>{{ item.informed }}</td>
                                             </tr>
+                                        <tr>
+                                            <th>Reviews</th>
+                                            <td>
+                                                <span class="label label-info" v-if="item.reviews !== null">
+                                                    {{ item.reviews.judgement }}
+                                                </span>
+                                            </td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>

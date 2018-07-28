@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * Class Art
  *
  * @package App
- * @property string $title
+ * @property string $name
 */
 class Art extends Model
 {
     use SoftDeletes;
 
     
-    protected $fillable = ['title'];
+    protected $fillable = ['name'];
     
 
     public static function boot()
@@ -28,14 +28,14 @@ class Art extends Model
     public static function storeValidation($request)
     {
         return [
-            'title' => 'max:191|nullable'
+            'name' => 'max:191|required'
         ];
     }
 
     public static function updateValidation($request)
     {
         return [
-            'title' => 'max:191|nullable'
+            'name' => 'max:191|required'
         ];
     }
 

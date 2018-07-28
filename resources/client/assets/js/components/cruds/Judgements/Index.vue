@@ -67,7 +67,6 @@ export default {
         return {
             columns: [
                 { title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' },
-                { title: 'User', field: 'user', tdComp: DatatableSingle },
                 { title: 'Paper', field: 'paper', tdComp: DatatableSingle },
                 { title: 'Judgement', field: 'judgement', sortable: true },
                 { title: 'Comment', field: 'comment', sortable: true },
