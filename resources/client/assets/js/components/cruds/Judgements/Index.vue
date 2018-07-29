@@ -70,6 +70,7 @@ export default {
                 { title: 'Paper', field: 'paper', tdComp: DatatableSingle },
                 { title: 'Judgement', field: 'judgement', sortable: true },
                 { title: 'Comment', field: 'comment', sortable: true },
+                { title: 'User', field: 'user', tdComp: DatatableSingle },
                 { title: 'Actions', tdComp: DatatableActions, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }
             ],
             query: { sort: 'id', order: 'desc' },

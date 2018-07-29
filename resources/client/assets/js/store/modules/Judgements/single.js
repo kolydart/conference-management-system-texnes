@@ -5,8 +5,10 @@ function initialState() {
             paper: null,
             judgement: null,
             comment: null,
+            user: null,
         },
         papersAll: [],
+        usersAll: [],
         
         loading: false,
     }
@@ -16,6 +18,7 @@ const getters = {
     item: state => state.item,
     loading: state => state.loading,
     papersAll: state => state.papersAll,
+    usersAll: state => state.usersAll,
     
 }
 
@@ -46,6 +49,11 @@ const actions = {
                 params.set('paper_id', '')
             } else {
                 params.set('paper_id', state.item.paper.id)
+            }
+            if (_.isEmpty(state.item.user)) {
+                params.set('user_id', '')
+            } else {
+                params.set('user_id', state.item.user.id)
             }
 
             axios.post('/api/v1/judgements', params)
@@ -97,6 +105,11 @@ const actions = {
             } else {
                 params.set('paper_id', state.item.paper.id)
             }
+            if (_.isEmpty(state.item.user)) {
+                params.set('user_id', '')
+            } else {
+                params.set('user_id', state.item.user.id)
+            }
 
             axios.post('/api/v1/judgements/' + state.item.id, params)
                 .then(response => {
@@ -126,11 +139,18 @@ const actions = {
             })
 
         dispatch('fetchPapersAll')
+    dispatch('fetchUsersAll')
     },
     fetchPapersAll({ commit }) {
         axios.get('/api/v1/papers')
             .then(response => {
                 commit('setPapersAll', response.data.data)
+            })
+    },
+    fetchUsersAll({ commit }) {
+        axios.get('/api/v1/users')
+            .then(response => {
+                commit('setUsersAll', response.data.data)
             })
     },
     setPaper({ commit }, value) {
@@ -141,6 +161,9 @@ const actions = {
     },
     setComment({ commit }, value) {
         commit('setComment', value)
+    },
+    setUser({ commit }, value) {
+        commit('setUser', value)
     },
     resetState({ commit }) {
         commit('resetState')
@@ -160,8 +183,14 @@ const mutations = {
     setComment(state, value) {
         state.item.comment = value
     },
+    setUser(state, value) {
+        state.item.user = value
+    },
     setPapersAll(state, value) {
         state.papersAll = value
+    },
+    setUsersAll(state, value) {
+        state.usersAll = value
     },
     
     setLoading(state, loading) {

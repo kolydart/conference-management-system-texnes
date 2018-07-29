@@ -81,6 +81,16 @@
                                             >
                                     </textarea>
                                 </div>
+                                <div class="form-group">
+                                    <label for="user">User *</label>
+                                    <v-select
+                                            name="user"
+                                            label="name"
+                                            @input="updateUser"
+                                            :value="item.user"
+                                            :options="usersAll"
+                                            />
+                                </div>
                             </div>
 
                             <div class="box-footer">
@@ -111,16 +121,17 @@ export default {
         }
     },
     computed: {
-        ...mapGetters('JudgementsSingle', ['item', 'loading', 'papersAll'])
+        ...mapGetters('JudgementsSingle', ['item', 'loading', 'papersAll', 'usersAll'])
     },
     created() {
-        this.fetchPapersAll()
+        this.fetchPapersAll(),
+        this.fetchUsersAll()
     },
     destroyed() {
         this.resetState()
     },
     methods: {
-        ...mapActions('JudgementsSingle', ['storeData', 'resetState', 'setPaper', 'setJudgement', 'setComment', 'fetchPapersAll']),
+        ...mapActions('JudgementsSingle', ['storeData', 'resetState', 'setPaper', 'setJudgement', 'setComment', 'setUser', 'fetchPapersAll', 'fetchUsersAll']),
         updatePaper(value) {
             this.setPaper(value)
         },
@@ -129,6 +140,9 @@ export default {
         },
         updateComment(e) {
             this.setComment(e.target.value)
+        },
+        updateUser(value) {
+            this.setUser(value)
         },
         submitForm() {
             this.storeData()

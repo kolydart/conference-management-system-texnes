@@ -2334,6 +2334,16 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2344,15 +2354,15 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         };
     },
 
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapGetters"])('JudgementsSingle', ['item', 'loading', 'papersAll'])),
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapGetters"])('JudgementsSingle', ['item', 'loading', 'papersAll', 'usersAll'])),
     created: function created() {
-        this.fetchPapersAll();
+        this.fetchPapersAll(), this.fetchUsersAll();
     },
     destroyed: function destroyed() {
         this.resetState();
     },
 
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('JudgementsSingle', ['storeData', 'resetState', 'setPaper', 'setJudgement', 'setComment', 'fetchPapersAll']), {
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('JudgementsSingle', ['storeData', 'resetState', 'setPaper', 'setJudgement', 'setComment', 'setUser', 'fetchPapersAll', 'fetchUsersAll']), {
         updatePaper: function updatePaper(value) {
             this.setPaper(value);
         },
@@ -2361,6 +2371,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         },
         updateComment: function updateComment(e) {
             this.setComment(e.target.value);
+        },
+        updateUser: function updateUser(value) {
+            this.setUser(value);
         },
         submitForm: function submitForm() {
             var _this = this;
@@ -2498,7 +2511,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         };
     },
 
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapGetters"])('JudgementsSingle', ['item', 'loading', 'papersAll'])),
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapGetters"])('JudgementsSingle', ['item', 'loading', 'papersAll', 'usersAll'])),
     created: function created() {
         this.fetchData(this.$route.params.id);
     },
@@ -2512,7 +2525,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             this.fetchData(this.$route.params.id);
         }
     },
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('JudgementsSingle', ['fetchData', 'updateData', 'resetState', 'setPaper', 'setJudgement', 'setComment']), {
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapActions"])('JudgementsSingle', ['fetchData', 'updateData', 'resetState', 'setPaper', 'setJudgement', 'setComment', 'setUser']), {
         updatePaper: function updatePaper(value) {
             this.setPaper(value);
         },
@@ -2619,7 +2632,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            columns: [{ title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' }, { title: 'Paper', field: 'paper', tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, { title: 'Judgement', field: 'judgement', sortable: true }, { title: 'Comment', field: 'comment', sortable: true }, { title: 'Actions', tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }],
+            columns: [{ title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' }, { title: 'Paper', field: 'paper', tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, { title: 'Judgement', field: 'judgement', sortable: true }, { title: 'Comment', field: 'comment', sortable: true }, { title: 'User', field: 'user', tdComp: __WEBPACK_IMPORTED_MODULE_2__dtmodules_DatatableSingle___default.a }, { title: 'Actions', tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }],
             query: { sort: 'id', order: 'desc' },
             xprops: {
                 module: 'JudgementsIndex',
@@ -2659,6 +2672,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6205,7 +6226,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -6340,7 +6361,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -6595,7 +6616,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -29076,7 +29097,28 @@ var render = function() {
                           domProps: { value: _vm.item.comment },
                           on: { input: _vm.updateComment }
                         })
-                      ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "user" } }, [
+                            _vm._v("User *")
+                          ]),
+                          _vm._v(" "),
+                          _c("v-select", {
+                            attrs: {
+                              name: "user",
+                              label: "name",
+                              value: _vm.item.user,
+                              options: _vm.usersAll
+                            },
+                            on: { input: _vm.updateUser }
+                          })
+                        ],
+                        1
+                      )
                     ]),
                     _vm._v(" "),
                     _c(
@@ -31260,6 +31302,26 @@ var render = function() {
                             _c("th", [_vm._v("Comment")]),
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(_vm.item.comment))])
+                          ]),
+                          _vm._v(" "),
+                          _c("tr", [
+                            _c("th", [_vm._v("User")]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm.item.user !== null
+                                ? _c(
+                                    "span",
+                                    { staticClass: "label label-info" },
+                                    [
+                                      _vm._v(
+                                        "\n                                                " +
+                                          _vm._s(_vm.item.user.name) +
+                                          "\n                                            "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ])
                           ])
                         ])
                       ]
@@ -39726,7 +39788,8 @@ function initialState() {
     return {
         all: [],
         relationships: {
-            'paper': 'title'
+            'paper': 'title',
+            'user': 'name'
         },
         query: {},
         loading: false
@@ -39834,9 +39897,11 @@ function initialState() {
             id: null,
             paper: null,
             judgement: null,
-            comment: null
+            comment: null,
+            user: null
         },
         papersAll: [],
+        usersAll: [],
 
         loading: false
     };
@@ -39851,6 +39916,9 @@ var getters = {
     },
     papersAll: function papersAll(state) {
         return state.papersAll;
+    },
+    usersAll: function usersAll(state) {
+        return state.usersAll;
     }
 
 };
@@ -39886,6 +39954,11 @@ var actions = {
                 params.set('paper_id', '');
             } else {
                 params.set('paper_id', state.item.paper.id);
+            }
+            if (_.isEmpty(state.item.user)) {
+                params.set('user_id', '');
+            } else {
+                params.set('user_id', state.item.user.id);
             }
 
             axios.post('/api/v1/judgements', params).then(function (response) {
@@ -39935,6 +40008,11 @@ var actions = {
             } else {
                 params.set('paper_id', state.item.paper.id);
             }
+            if (_.isEmpty(state.item.user)) {
+                params.set('user_id', '');
+            } else {
+                params.set('user_id', state.item.user.id);
+            }
 
             axios.post('/api/v1/judgements/' + state.item.id, params).then(function (response) {
                 commit('setItem', response.data.data);
@@ -39960,6 +40038,7 @@ var actions = {
         });
 
         dispatch('fetchPapersAll');
+        dispatch('fetchUsersAll');
     },
     fetchPapersAll: function fetchPapersAll(_ref4) {
         var commit = _ref4.commit;
@@ -39968,23 +40047,35 @@ var actions = {
             commit('setPapersAll', response.data.data);
         });
     },
-    setPaper: function setPaper(_ref5, value) {
+    fetchUsersAll: function fetchUsersAll(_ref5) {
         var commit = _ref5.commit;
+
+        axios.get('/api/v1/users').then(function (response) {
+            commit('setUsersAll', response.data.data);
+        });
+    },
+    setPaper: function setPaper(_ref6, value) {
+        var commit = _ref6.commit;
 
         commit('setPaper', value);
     },
-    setJudgement: function setJudgement(_ref6, value) {
-        var commit = _ref6.commit;
+    setJudgement: function setJudgement(_ref7, value) {
+        var commit = _ref7.commit;
 
         commit('setJudgement', value);
     },
-    setComment: function setComment(_ref7, value) {
-        var commit = _ref7.commit;
+    setComment: function setComment(_ref8, value) {
+        var commit = _ref8.commit;
 
         commit('setComment', value);
     },
-    resetState: function resetState(_ref8) {
-        var commit = _ref8.commit;
+    setUser: function setUser(_ref9, value) {
+        var commit = _ref9.commit;
+
+        commit('setUser', value);
+    },
+    resetState: function resetState(_ref10) {
+        var commit = _ref10.commit;
 
         commit('resetState');
     }
@@ -40003,8 +40094,14 @@ var mutations = {
     setComment: function setComment(state, value) {
         state.item.comment = value;
     },
+    setUser: function setUser(state, value) {
+        state.item.user = value;
+    },
     setPapersAll: function setPapersAll(state, value) {
         state.papersAll = value;
+    },
+    setUsersAll: function setUsersAll(state, value) {
+        state.usersAll = value;
     },
     setLoading: function setLoading(state, loading) {
         state.loading = loading;

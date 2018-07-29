@@ -12,13 +12,14 @@ use App\Traits\FilterByUser;
  * @property string $paper
  * @property string $judgement
  * @property text $comment
+ * @property string $user
 */
 class Judgement extends Model
 {
     use SoftDeletes, FilterByUser;
 
     
-    protected $fillable = ['judgement', 'comment', 'paper_id'];
+    protected $fillable = ['judgement', 'comment', 'paper_id', 'user_id'];
     
 
     public static function boot()
@@ -33,7 +34,8 @@ class Judgement extends Model
         return [
             'paper_id' => 'integer|exists:papers,id|max:4294967295|required',
             'judgement' => 'in:Approve,Neutral,Reject|max:191|required',
-            'comment' => 'max:65535|nullable'
+            'comment' => 'max:65535|nullable',
+            'user_id' => 'integer|exists:users,id|max:4294967295|required'
         ];
     }
 
@@ -42,7 +44,8 @@ class Judgement extends Model
         return [
             'paper_id' => 'integer|exists:papers,id|max:4294967295|required',
             'judgement' => 'in:Approve,Neutral,Reject|max:191|required',
-            'comment' => 'max:65535|nullable'
+            'comment' => 'max:65535|nullable',
+            'user_id' => 'integer|exists:users,id|max:4294967295|required'
         ];
     }
 
@@ -53,6 +56,11 @@ class Judgement extends Model
     public function paper()
     {
         return $this->belongsTo(Paper::class, 'paper_id')->withTrashed();
+    }
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
     
     
