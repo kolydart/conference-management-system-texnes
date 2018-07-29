@@ -85,6 +85,14 @@
                                                 </span>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <th>Messages</th>
+                                            <td>
+                                                <span class="label label-info" v-if="item.messages !== null">
+                                                    {{ item.messages.body }}
+                                                </span>
+                                            </td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>

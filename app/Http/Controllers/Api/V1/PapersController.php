@@ -19,7 +19,7 @@ class PapersController extends Controller
     {
         
 
-        return new PaperResource(Paper::with(['art', 'assign', 'reviews'])->get());
+        return new PaperResource(Paper::with(['art', 'assign', 'reviews', 'messages'])->get());
     }
 
     public function show($id)
@@ -28,7 +28,7 @@ class PapersController extends Controller
             return abort(401);
         }
 
-        $paper = Paper::with(['art', 'assign', 'reviews'])->findOrFail($id);
+        $paper = Paper::with(['art', 'assign', 'reviews', 'messages'])->findOrFail($id);
 
         return new PaperResource($paper);
     }

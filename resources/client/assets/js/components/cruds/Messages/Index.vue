@@ -1,7 +1,7 @@
 <template>
     <section class="content-wrapper" style="min-height: 960px;">
         <section class="content-header">
-            <h1>Κρίσεις</h1>
+            <h1>Μηνύματα</h1>
         </section>
 
         <section class="content">
@@ -68,16 +68,15 @@ export default {
             columns: [
                 { title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' },
                 { title: 'Paper', field: 'paper', tdComp: DatatableSingle },
-                { title: 'Judgement', field: 'judgement', sortable: true },
-                { title: 'Comment', field: 'comment', sortable: true },
-                { title: 'User', field: 'user', tdComp: DatatableSingle },
+                { title: 'Address', field: 'address', sortable: true },
+                { title: 'Name', field: 'name', sortable: true },
                 { title: 'Actions', tdComp: DatatableActions, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }
             ],
             query: { sort: 'id', order: 'desc' },
             xprops: {
-                module: 'JudgementsIndex',
-                route: 'judgements',
-                permission_prefix: 'judgement_'
+                module: 'MessagesIndex',
+                route: 'messages',
+                permission_prefix: 'message_'
             }
         }
     },
@@ -89,7 +88,7 @@ export default {
         this.resetState()
     },
     computed: {
-        ...mapGetters('JudgementsIndex', ['data', 'total', 'loading', 'relationships']),
+        ...mapGetters('MessagesIndex', ['data', 'total', 'loading', 'relationships']),
     },
     watch: {
         query: {
@@ -100,7 +99,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions('JudgementsIndex', ['fetchData', 'setQuery', 'resetState']),
+        ...mapActions('MessagesIndex', ['fetchData', 'setQuery', 'resetState']),
     }
 }
 </script>

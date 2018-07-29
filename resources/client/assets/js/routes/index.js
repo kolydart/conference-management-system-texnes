@@ -14,10 +14,10 @@ import ArtsIndex from '../components/cruds/Arts/Index.vue'
 import ArtsCreate from '../components/cruds/Arts/Create.vue'
 import ArtsShow from '../components/cruds/Arts/Show.vue'
 import ArtsEdit from '../components/cruds/Arts/Edit.vue'
-import UsersIndex from '../components/cruds/Users/Index.vue'
-import UsersCreate from '../components/cruds/Users/Create.vue'
-import UsersShow from '../components/cruds/Users/Show.vue'
-import UsersEdit from '../components/cruds/Users/Edit.vue'
+import MessagesIndex from '../components/cruds/Messages/Index.vue'
+import MessagesCreate from '../components/cruds/Messages/Create.vue'
+import MessagesShow from '../components/cruds/Messages/Show.vue'
+import MessagesEdit from '../components/cruds/Messages/Edit.vue'
 import ContentPagesIndex from '../components/cruds/ContentPages/Index.vue'
 import ContentPagesCreate from '../components/cruds/ContentPages/Create.vue'
 import ContentPagesShow from '../components/cruds/ContentPages/Show.vue'
@@ -30,6 +30,10 @@ import ContentTagsIndex from '../components/cruds/ContentTags/Index.vue'
 import ContentTagsCreate from '../components/cruds/ContentTags/Create.vue'
 import ContentTagsShow from '../components/cruds/ContentTags/Show.vue'
 import ContentTagsEdit from '../components/cruds/ContentTags/Edit.vue'
+import UsersIndex from '../components/cruds/Users/Index.vue'
+import UsersCreate from '../components/cruds/Users/Create.vue'
+import UsersShow from '../components/cruds/Users/Show.vue'
+import UsersEdit from '../components/cruds/Users/Edit.vue'
 import PermissionsIndex from '../components/cruds/Permissions/Index.vue'
 import PermissionsCreate from '../components/cruds/Permissions/Create.vue'
 import PermissionsShow from '../components/cruds/Permissions/Show.vue'
@@ -56,10 +60,10 @@ const routes = [
     { path: '/arts/create', component: ArtsCreate, name: 'arts.create' },
     { path: '/arts/:id', component: ArtsShow, name: 'arts.show' },
     { path: '/arts/:id/edit', component: ArtsEdit, name: 'arts.edit' },
-    { path: '/users', component: UsersIndex, name: 'users.index' },
-    { path: '/users/create', component: UsersCreate, name: 'users.create' },
-    { path: '/users/:id', component: UsersShow, name: 'users.show' },
-    { path: '/users/:id/edit', component: UsersEdit, name: 'users.edit' },
+    { path: '/messages', component: MessagesIndex, name: 'messages.index' },
+    { path: '/messages/create', component: MessagesCreate, name: 'messages.create' },
+    { path: '/messages/:id', component: MessagesShow, name: 'messages.show' },
+    { path: '/messages/:id/edit', component: MessagesEdit, name: 'messages.edit' },
     { path: '/content-pages', component: ContentPagesIndex, name: 'content_pages.index' },
     { path: '/content-pages/create', component: ContentPagesCreate, name: 'content_pages.create' },
     { path: '/content-pages/:id', component: ContentPagesShow, name: 'content_pages.show' },
@@ -72,6 +76,10 @@ const routes = [
     { path: '/content-tags/create', component: ContentTagsCreate, name: 'content_tags.create' },
     { path: '/content-tags/:id', component: ContentTagsShow, name: 'content_tags.show' },
     { path: '/content-tags/:id/edit', component: ContentTagsEdit, name: 'content_tags.edit' },
+    { path: '/users', component: UsersIndex, name: 'users.index' },
+    { path: '/users/create', component: UsersCreate, name: 'users.create' },
+    { path: '/users/:id', component: UsersShow, name: 'users.show' },
+    { path: '/users/:id/edit', component: UsersEdit, name: 'users.edit' },
     { path: '/permissions', component: PermissionsIndex, name: 'permissions.index' },
     { path: '/permissions/create', component: PermissionsCreate, name: 'permissions.create' },
     { path: '/permissions/:id', component: PermissionsShow, name: 'permissions.show' },

@@ -30,10 +30,10 @@
                     <span>@lang('quickadmin.arts.title')</span>
                 </router-link>
             </li>
-            <li v-if="$can('user_access')">
-                <router-link :to="{ name: 'users.index' }">
-                    <i class="fa fa-graduation-cap"></i>
-                    <span>@lang('quickadmin.users.title')</span>
+            <li v-if="$can('message_access')">
+                <router-link :to="{ name: 'messages.index' }">
+                    <i class="fa fa-envelope-o"></i>
+                    <span>@lang('quickadmin.messages.title')</span>
                 </router-link>
             </li>
             <li class="treeview" v-if="$can('content_management_access')">
@@ -64,6 +64,12 @@
                         </router-link>
                     </li>
                 </ul>
+            </li>
+            <li v-if="$can('user_access')">
+                <router-link :to="{ name: 'users.index' }">
+                    <i class="fa fa-graduation-cap"></i>
+                    <span>@lang('quickadmin.users.title')</span>
+                </router-link>
             </li>
             <li class="treeview" v-if="$can('user_management_access')">
                 <a href="#">

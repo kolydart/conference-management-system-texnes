@@ -3,6 +3,7 @@ function initialState() {
         all: [],
         relationships: {
             'paper': 'title',
+            'user': 'name',
         },
         query: {},
         loading: false

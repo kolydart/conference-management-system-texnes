@@ -111,7 +111,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters('JudgementsSingle', ['item', 'loading', 'papersAll']),
+        ...mapGetters('JudgementsSingle', ['item', 'loading', 'papersAll', 'usersAll']),
     },
     created() {
         this.fetchData(this.$route.params.id)
@@ -126,7 +126,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions('JudgementsSingle', ['fetchData', 'updateData', 'resetState', 'setPaper', 'setJudgement', 'setComment']),
+        ...mapActions('JudgementsSingle', ['fetchData', 'updateData', 'resetState', 'setPaper', 'setJudgement', 'setComment', 'setUser']),
         updatePaper(value) {
             this.setPaper(value)
         },

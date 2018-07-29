@@ -19,13 +19,14 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
  * @property string $status
  * @property string $informed
  * @property string $reviews
+ * @property string $messages
 */
 class Paper extends Model implements HasMedia
 {
     use SoftDeletes, HasMediaTrait;
 
     
-    protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'status', 'informed', 'reviews_id'];
+    protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'status', 'informed', 'reviews_id', 'messages_id'];
     protected $appends = ['document', 'document_link', 'uploaded_document'];
     protected $with = ['media'];
     
@@ -54,7 +55,8 @@ class Paper extends Model implements HasMedia
             'assign.*' => 'integer|exists:users,id|max:4294967295|nullable',
             'status' => 'in:Accepted,Rejected,Pending|max:191|nullable',
             'informed' => 'in:Unaware,Informed|max:191|nullable',
-            'reviews_id' => 'integer|exists:judgements,id|max:4294967295|nullable'
+            'reviews_id' => 'integer|exists:judgements,id|max:4294967295|nullable',
+            'messages_id' => 'integer|exists:messages,id|max:4294967295|nullable'
         ];
     }
 
@@ -75,7 +77,8 @@ class Paper extends Model implements HasMedia
             'assign.*' => 'integer|exists:users,id|max:4294967295|nullable',
             'status' => 'in:Accepted,Rejected,Pending|max:191|nullable',
             'informed' => 'in:Unaware,Informed|max:191|nullable',
-            'reviews_id' => 'integer|exists:judgements,id|max:4294967295|nullable'
+            'reviews_id' => 'integer|exists:judgements,id|max:4294967295|nullable',
+            'messages_id' => 'integer|exists:messages,id|max:4294967295|nullable'
         ];
     }
 
@@ -121,6 +124,11 @@ class Paper extends Model implements HasMedia
     public function reviews()
     {
         return $this->belongsTo(Judgement::class, 'reviews_id')->withTrashed();
+    }
+    
+    public function messages()
+    {
+        return $this->belongsTo(Message::class, 'messages_id')->withTrashed();
     }
     
     

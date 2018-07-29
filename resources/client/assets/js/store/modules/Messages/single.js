@@ -3,12 +3,11 @@ function initialState() {
         item: {
             id: null,
             paper: null,
-            judgement: null,
-            comment: null,
-            user: null,
+            address: null,
+            name: null,
+            body: null,
         },
         papersAll: [],
-        usersAll: [],
         
         loading: false,
     }
@@ -18,7 +17,6 @@ const getters = {
     item: state => state.item,
     loading: state => state.loading,
     papersAll: state => state.papersAll,
-    usersAll: state => state.usersAll,
     
 }
 
@@ -50,13 +48,8 @@ const actions = {
             } else {
                 params.set('paper_id', state.item.paper.id)
             }
-            if (_.isEmpty(state.item.user)) {
-                params.set('user_id', '')
-            } else {
-                params.set('user_id', state.item.user.id)
-            }
 
-            axios.post('/api/v1/judgements', params)
+            axios.post('/api/v1/messages', params)
                 .then(response => {
                     commit('resetState')
                     resolve()
@@ -105,13 +98,8 @@ const actions = {
             } else {
                 params.set('paper_id', state.item.paper.id)
             }
-            if (_.isEmpty(state.item.user)) {
-                params.set('user_id', '')
-            } else {
-                params.set('user_id', state.item.user.id)
-            }
 
-            axios.post('/api/v1/judgements/' + state.item.id, params)
+            axios.post('/api/v1/messages/' + state.item.id, params)
                 .then(response => {
                     commit('setItem', response.data.data)
                     resolve()
@@ -133,13 +121,12 @@ const actions = {
         })
     },
     fetchData({ commit, dispatch }, id) {
-        axios.get('/api/v1/judgements/' + id)
+        axios.get('/api/v1/messages/' + id)
             .then(response => {
                 commit('setItem', response.data.data)
             })
 
         dispatch('fetchPapersAll')
-    dispatch('fetchUsersAll')
     },
     fetchPapersAll({ commit }) {
         axios.get('/api/v1/papers')
@@ -147,23 +134,17 @@ const actions = {
                 commit('setPapersAll', response.data.data)
             })
     },
-    fetchUsersAll({ commit }) {
-        axios.get('/api/v1/users')
-            .then(response => {
-                commit('setUsersAll', response.data.data)
-            })
-    },
     setPaper({ commit }, value) {
         commit('setPaper', value)
     },
-    setJudgement({ commit }, value) {
-        commit('setJudgement', value)
+    setAddress({ commit }, value) {
+        commit('setAddress', value)
     },
-    setComment({ commit }, value) {
-        commit('setComment', value)
+    setName({ commit }, value) {
+        commit('setName', value)
     },
-    setUser({ commit }, value) {
-        commit('setUser', value)
+    setBody({ commit }, value) {
+        commit('setBody', value)
     },
     resetState({ commit }) {
         commit('resetState')
@@ -177,20 +158,17 @@ const mutations = {
     setPaper(state, value) {
         state.item.paper = value
     },
-    setJudgement(state, value) {
-        state.item.judgement = value
+    setAddress(state, value) {
+        state.item.address = value
     },
-    setComment(state, value) {
-        state.item.comment = value
+    setName(state, value) {
+        state.item.name = value
     },
-    setUser(state, value) {
-        state.item.user = value
+    setBody(state, value) {
+        state.item.body = value
     },
     setPapersAll(state, value) {
         state.papersAll = value
-    },
-    setUsersAll(state, value) {
-        state.usersAll = value
     },
     
     setLoading(state, loading) {

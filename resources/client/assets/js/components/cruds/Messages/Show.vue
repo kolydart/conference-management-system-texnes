@@ -1,7 +1,7 @@
 <template>
     <section class="content-wrapper" style="min-height: 960px;">
         <section class="content-header">
-            <h1>Κρίσεις</h1>
+            <h1>Μηνύματα</h1>
         </section>
 
         <section class="content">
@@ -34,21 +34,17 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th>Judgement</th>
-                                            <td>{{ item.judgement }}</td>
+                                            <th>Address</th>
+                                            <td>{{ item.address }}</td>
                                             </tr>
                                         <tr>
-                                            <th>Comment</th>
-                                            <td>{{ item.comment }}</td>
+                                            <th>Name</th>
+                                            <td>{{ item.name }}</td>
                                             </tr>
                                         <tr>
-                                            <th>User</th>
-                                            <td>
-                                                <span class="label label-info" v-if="item.user !== null">
-                                                    {{ item.user.name }}
-                                                </span>
-                                            </td>
-                                        </tr>
+                                            <th>Body</th>
+                                            <td v-html="item.body"></td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -78,7 +74,7 @@ export default {
         this.resetState()
     },
     computed: {
-        ...mapGetters('JudgementsSingle', ['item'])
+        ...mapGetters('MessagesSingle', ['item'])
     },
     watch: {
         "$route.params.id": function() {
@@ -87,7 +83,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions('JudgementsSingle', ['fetchData', 'resetState'])
+        ...mapActions('MessagesSingle', ['fetchData', 'resetState'])
     }
 }
 </script>

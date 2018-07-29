@@ -65,6 +65,11 @@ class PermissionSeed extends Seeder
             ['id' => 89, 'title' => 'content_page_view',],
             ['id' => 90, 'title' => 'content_page_delete',],
             ['id' => 95, 'title' => 'user_action_access',],
+            ['id' => 96, 'title' => 'message_access',],
+            ['id' => 97, 'title' => 'message_create',],
+            ['id' => 98, 'title' => 'message_edit',],
+            ['id' => 99, 'title' => 'message_view',],
+            ['id' => 100, 'title' => 'message_delete',],
 
         ];
 
