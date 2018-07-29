@@ -6525,22 +6525,22 @@ UNLOCK TABLES;
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `role_id`)
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`)
 VALUES
-  (1,'Τάσος Κολυδάς','kolydart@music.uoa.gr','$2y$10$P.WIoQg1fYQ/qlS3D5t6juMEUZC8X5sYsNOaL1g3mJbUfpRVnLEY.','UKVg6HwMWq2ozKzfYrNLMNsoennnpnTOumhAFyGRbgoaT7lC644aWXvHBUOu','2018-05-19 06:37:41','2018-06-06 07:32:49',1),
-  (2,'Ίλια Λακίδου','ilakidou@theatre.uoa.gr','$2y$10$rCKzADm0llMR79TGfyFA6On.Q0Xe1SpIdfZjlHumTF6Cu9hy9SlFi','bSsQ9HwsMZZjsgbbF3hTefBVfNy33DQ7nq6vVZjyd5GrpgCYH85Hb7DIPrha','2018-05-19 06:37:41','2018-05-22 11:00:14',2),
-  (3,'Μηνάς Αλεξιάδης','minasialex@theatre.uoa.gr','$2y$10$/Qrv13q18u47lu2SdHzkheN1sCwvfqL58a/9BmPPqbhp3.9s1VPg.','BBfV4oMSBTmXmTJFD1mrIcqp5fGaCzkQYc9AokiFoOzXzrqGeLz0TvMcBFeM','2018-05-19 06:37:41','2018-07-17 07:43:57',4),
-  (4,'Χριστίνα Αναγνωστοπούλου','chrisa@music.uoa.gr','$2y$10$ekS/1QA10iIAw82UeNvky.QSA49HGEk6nZY3DO8OARG6no9bwMjh.','e3cTqENg6zxUVNbi07bqNgTFuZM06xTuYvO1Q4Klt6cAx4hrIgh4lYwLU3g5','2018-05-19 06:37:41','2018-06-27 12:57:16',4),
-  (5,'Ιωσήφ Βιβιλάκης','ivivilak@theatre.uoa.gr','$2y$10$LgqjzQB6Z36rYE6GBl1sEubLolZhd9AZa64ysuSBqbsnjXNuOq7bO','Dn1cHbxqZ2C7AkgjMJNPopagZ8JcjbpsnwaKMBEaUwnOJliMA0PbY1Gcxk7f','2018-05-22 12:30:18','2018-05-23 06:08:11',2),
-  (6,'Σμαράγδα Χρυσοστόμου','schrysos@music.uoa.gr','$2y$10$VLe.bvfFiIiHtbkMuWMn1Oalz.lMq7tP4fEEFCbZkh2oisHjvt80W','FjN6o6RkGghwjrvqLFHtFmLdfXr9KP0pOlYNL8B6zaGVrVhOXOycsyGyP8pB','2018-05-22 12:31:11','2018-05-23 05:53:06',2),
-  (7,'Κάτια Σαβράμη','savrami@upatras.gr','$2y$10$ExV3Asa3AGyfn.fF3Lj5j.nqMcV5Vr7REaLuL/LXTUA.N/xvqQhQ2','jOswVquiJuXbdg0o601SEZ7Z4ufMVWUbsGJnTxOC17NWzmpwjxOgI3RKjYAm','2018-05-24 20:02:05','2018-06-26 18:11:46',4),
-  (8,'Κλειώ Φανουράκη','kfanouraki@theatre.uoa.gr','$2y$10$OM03FlXlt4cm8dzPtzVx1utXz06zznb2oQzgxmnC6PUQxEqZzlV1S','SNzeZhIleAHrblDmp9uUTgANscvyJyNoMYUgme1ZiZfmBj8ElnpwBD4sb7eO','2018-05-24 20:03:03','2018-07-01 05:41:30',2),
-  (9,'Ειρήνη Γιαννημάρα','rengiannimara@gmail.com','$2y$10$KYbGtEmSE4LbA7k/JBXuBuTFIwdcf1gSlyph9Z5qtyDojGAc53IKu','6m54ifS5sBvyQqbaqCmdb1UpXYLG0GKnS1qOdBFs67TTz9jyjiLDCYAszeyP','2018-05-24 20:11:10','2018-07-15 09:25:10',4),
-  (10,'Αγγελική Τριανταφυλλάκη','angeliki.triant@gmail.com','$2y$10$EcyUOsfL0Wh.3.tbJ8uK.O2Fbp/PRgZlayWIgC3Ef8lGtMkC0pi.S',NULL,'2018-06-21 10:03:39','2018-06-25 09:50:42',4),
-  (11,'Μενέλαος Καραντζάς','mkarantzas@gmail.com','$2y$10$o9dq9E4BYg8l7etTLoxkReEyDZHeTneND1IFr8sODWdlkDkiSDPrO','H60B0bpk81MmUq2eM9XhMRyngdu1SaUCmHVCuTTjBQKNlJNEBfTv6jRuC2OT','2018-06-24 15:35:10','2018-06-24 15:54:58',3),
-  (12,'Βίκτωρ Αρδίττης','varditti@thea.auth.gr','$2y$10$4qgHiZl35drLBqcR8Npk0u7LdzyRzNtUkqXaO3IvvFmincR0rrR36','jrCy97hfKNYmWBmwhGfnyC7KxUrWvYHGLaLS8x7v8sS4KvMjEqIpmJWfep5p','2018-06-25 08:45:47','2018-07-09 08:11:41',4),
-  (13,'Δηώ Καγγελάρη','diokangelari@thea.auth.gr','$2y$10$96fxlmftsbK8leJH2et/G.XkWQGx3wxUVd/qbAkCXF5f.GOjaUGg2',NULL,'2018-06-25 08:46:46','2018-06-25 08:46:46',4),
-  (18,'Άννα Τσίχλη Μπουασσοννά','annieatlondon1@yahoo.com','$2y$10$FqIjacm0fbHyZ1GqDVt8KucpppkN9XMZKqQK0T8idRTVRAQ604nvW','wTcM7GWn6exfFw3iu8v1THdxDUUgRrWYIdrxOUO6yGlzhWfaFAnXJnpyMh0l','2018-07-09 07:29:59','2018-07-09 07:29:59',4);
+  (1,'Τάσος Κολυδάς','kolydart@music.uoa.gr','$2y$10$P.WIoQg1fYQ/qlS3D5t6juMEUZC8X5sYsNOaL1g3mJbUfpRVnLEY.','UKVg6HwMWq2ozKzfYrNLMNsoennnpnTOumhAFyGRbgoaT7lC644aWXvHBUOu','2018-05-19 06:37:41','2018-06-06 07:32:49'),
+  (2,'Ίλια Λακίδου','ilakidou@theatre.uoa.gr','$2y$10$rCKzADm0llMR79TGfyFA6On.Q0Xe1SpIdfZjlHumTF6Cu9hy9SlFi','bSsQ9HwsMZZjsgbbF3hTefBVfNy33DQ7nq6vVZjyd5GrpgCYH85Hb7DIPrha','2018-05-19 06:37:41','2018-05-22 11:00:14'),
+  (3,'Μηνάς Αλεξιάδης','minasialex@theatre.uoa.gr','$2y$10$/Qrv13q18u47lu2SdHzkheN1sCwvfqL58a/9BmPPqbhp3.9s1VPg.','BBfV4oMSBTmXmTJFD1mrIcqp5fGaCzkQYc9AokiFoOzXzrqGeLz0TvMcBFeM','2018-05-19 06:37:41','2018-07-17 07:43:57'),
+  (4,'Χριστίνα Αναγνωστοπούλου','chrisa@music.uoa.gr','$2y$10$ekS/1QA10iIAw82UeNvky.QSA49HGEk6nZY3DO8OARG6no9bwMjh.','e3cTqENg6zxUVNbi07bqNgTFuZM06xTuYvO1Q4Klt6cAx4hrIgh4lYwLU3g5','2018-05-19 06:37:41','2018-06-27 12:57:16'),
+  (5,'Ιωσήφ Βιβιλάκης','ivivilak@theatre.uoa.gr','$2y$10$LgqjzQB6Z36rYE6GBl1sEubLolZhd9AZa64ysuSBqbsnjXNuOq7bO','Dn1cHbxqZ2C7AkgjMJNPopagZ8JcjbpsnwaKMBEaUwnOJliMA0PbY1Gcxk7f','2018-05-22 12:30:18','2018-05-23 06:08:11'),
+  (6,'Σμαράγδα Χρυσοστόμου','schrysos@music.uoa.gr','$2y$10$VLe.bvfFiIiHtbkMuWMn1Oalz.lMq7tP4fEEFCbZkh2oisHjvt80W','FjN6o6RkGghwjrvqLFHtFmLdfXr9KP0pOlYNL8B6zaGVrVhOXOycsyGyP8pB','2018-05-22 12:31:11','2018-05-23 05:53:06'),
+  (7,'Κάτια Σαβράμη','savrami@upatras.gr','$2y$10$ExV3Asa3AGyfn.fF3Lj5j.nqMcV5Vr7REaLuL/LXTUA.N/xvqQhQ2','jOswVquiJuXbdg0o601SEZ7Z4ufMVWUbsGJnTxOC17NWzmpwjxOgI3RKjYAm','2018-05-24 20:02:05','2018-06-26 18:11:46'),
+  (8,'Κλειώ Φανουράκη','kfanouraki@theatre.uoa.gr','$2y$10$OM03FlXlt4cm8dzPtzVx1utXz06zznb2oQzgxmnC6PUQxEqZzlV1S','SNzeZhIleAHrblDmp9uUTgANscvyJyNoMYUgme1ZiZfmBj8ElnpwBD4sb7eO','2018-05-24 20:03:03','2018-07-01 05:41:30'),
+  (9,'Ειρήνη Γιαννημάρα','rengiannimara@gmail.com','$2y$10$KYbGtEmSE4LbA7k/JBXuBuTFIwdcf1gSlyph9Z5qtyDojGAc53IKu','6m54ifS5sBvyQqbaqCmdb1UpXYLG0GKnS1qOdBFs67TTz9jyjiLDCYAszeyP','2018-05-24 20:11:10','2018-07-15 09:25:10'),
+  (10,'Αγγελική Τριανταφυλλάκη','angeliki.triant@gmail.com','$2y$10$EcyUOsfL0Wh.3.tbJ8uK.O2Fbp/PRgZlayWIgC3Ef8lGtMkC0pi.S',NULL,'2018-06-21 10:03:39','2018-06-25 09:50:42'),
+  (11,'Μενέλαος Καραντζάς','mkarantzas@gmail.com','$2y$10$o9dq9E4BYg8l7etTLoxkReEyDZHeTneND1IFr8sODWdlkDkiSDPrO','H60B0bpk81MmUq2eM9XhMRyngdu1SaUCmHVCuTTjBQKNlJNEBfTv6jRuC2OT','2018-06-24 15:35:10','2018-06-24 15:54:58'),
+  (12,'Βίκτωρ Αρδίττης','varditti@thea.auth.gr','$2y$10$4qgHiZl35drLBqcR8Npk0u7LdzyRzNtUkqXaO3IvvFmincR0rrR36','jrCy97hfKNYmWBmwhGfnyC7KxUrWvYHGLaLS8x7v8sS4KvMjEqIpmJWfep5p','2018-06-25 08:45:47','2018-07-09 08:11:41'),
+  (13,'Δηώ Καγγελάρη','diokangelari@thea.auth.gr','$2y$10$96fxlmftsbK8leJH2et/G.XkWQGx3wxUVd/qbAkCXF5f.GOjaUGg2',NULL,'2018-06-25 08:46:46','2018-06-25 08:46:46'),
+  (18,'Άννα Τσίχλη Μπουασσοννά','annieatlondon1@yahoo.com','$2y$10$FqIjacm0fbHyZ1GqDVt8KucpppkN9XMZKqQK0T8idRTVRAQ604nvW','wTcM7GWn6exfFw3iu8v1THdxDUUgRrWYIdrxOUO6yGlzhWfaFAnXJnpyMh0l','2018-07-09 07:29:59','2018-07-09 07:29:59');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
