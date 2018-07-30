@@ -4283,7 +4283,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            columns: [{ title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' }, { title: 'Τίτλος', field: 'title', sortable: true }, { title: 'Τέχνη', field: 'art', tdComp: __WEBPACK_IMPORTED_MODULE_3__dtmodules_DatatableList___default.a }, { title: 'Τύπος', field: 'type', sortable: true }, { title: 'Διάρκεια', field: 'duration', sortable: true }, { title: 'Ονοματεπώνυμο', field: 'name', sortable: true }, { title: 'Email', field: 'email', sortable: true }, { title: 'Ιδιότητα', field: 'attribute', sortable: true }, { title: 'Αρχείο', tdComp: __WEBPACK_IMPORTED_MODULE_5__dtmodules_DatatableDocumentField___default.a, sortable: false }, { title: 'Ανάθεση', field: 'assign', tdComp: __WEBPACK_IMPORTED_MODULE_3__dtmodules_DatatableList___default.a }, { title: 'Status', field: 'status', sortable: true }, { title: 'Informed', field: 'informed', sortable: true }, { title: 'Actions', tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }],
+            columns: [{ title: '#', field: 'id', sortable: true, colStyle: 'width: 50px;' }, { title: 'Τίτλος', field: 'title', sortable: true }, { title: 'Τέχνη', field: 'art', tdComp: __WEBPACK_IMPORTED_MODULE_3__dtmodules_DatatableList___default.a }, { title: 'Τύπος', field: 'type', sortable: true }, { title: 'Διάρκεια', field: 'duration', sortable: true }, { title: 'Ονοματεπώνυμο', field: 'name', sortable: true }, { title: 'Email', field: 'email', sortable: true }, { title: 'Ιδιότητα', field: 'attribute', sortable: true }, { title: 'Status', field: 'status', sortable: true }, { title: 'Informed', field: 'informed', sortable: true }, { title: 'Actions', tdComp: __WEBPACK_IMPORTED_MODULE_1__dtmodules_DatatableActions___default.a, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }],
             query: { sort: 'id', order: 'desc' },
             xprops: {
                 module: 'PapersIndex',
@@ -6556,7 +6556,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -10564,7 +10564,7 @@ webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
         relativeTime : {
             future : '%s sonra',
             past : '%s əvvəl',
-            s : 'birneçə saniyyə',
+            s : 'birneçə saniyə',
             ss : '%d saniyə',
             m : 'bir dəqiqə',
             mm : '%d dəqiqə',
@@ -10660,7 +10660,7 @@ webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
         weekdays : {
             format: 'нядзелю_панядзелак_аўторак_сераду_чацвер_пятніцу_суботу'.split('_'),
             standalone: 'нядзеля_панядзелак_аўторак_серада_чацвер_пятніца_субота'.split('_'),
-            isFormat: /\[ ?[Вв] ?(?:мінулую|наступную)? ?\] ?dddd/
+            isFormat: /\[ ?[Ууў] ?(?:мінулую|наступную)? ?\] ?dddd/
         },
         weekdaysShort : 'нд_пн_ат_ср_чц_пт_сб'.split('_'),
         weekdaysMin : 'нд_пн_ат_ср_чц_пт_сб'.split('_'),
@@ -17966,7 +17966,7 @@ webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
         calendar : {
             sameDay : '[ਅਜ] LT',
             nextDay : '[ਕਲ] LT',
-            nextWeek : 'dddd, LT',
+            nextWeek : '[ਅਗਲਾ] dddd, LT',
             lastDay : '[ਕਲ] LT',
             lastWeek : '[ਪਿਛਲੇ] dddd, LT',
             sameElse : 'L'
@@ -23240,9 +23240,9 @@ webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
 
             mom = createUTC([2000, 1]).day(i);
             if (strict && !this._fullWeekdaysParse[i]) {
-                this._fullWeekdaysParse[i] = new RegExp('^' + this.weekdays(mom, '').replace('.', '\.?') + '$', 'i');
-                this._shortWeekdaysParse[i] = new RegExp('^' + this.weekdaysShort(mom, '').replace('.', '\.?') + '$', 'i');
-                this._minWeekdaysParse[i] = new RegExp('^' + this.weekdaysMin(mom, '').replace('.', '\.?') + '$', 'i');
+                this._fullWeekdaysParse[i] = new RegExp('^' + this.weekdays(mom, '').replace('.', '\\.?') + '$', 'i');
+                this._shortWeekdaysParse[i] = new RegExp('^' + this.weekdaysShort(mom, '').replace('.', '\\.?') + '$', 'i');
+                this._minWeekdaysParse[i] = new RegExp('^' + this.weekdaysMin(mom, '').replace('.', '\\.?') + '$', 'i');
             }
             if (!this._weekdaysParse[i]) {
                 regex = '^' + this.weekdays(mom, '') + '|^' + this.weekdaysShort(mom, '') + '|^' + this.weekdaysMin(mom, '');
@@ -24045,7 +24045,7 @@ webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
 
     function preprocessRFC2822(s) {
         // Remove comments and folding whitespace and replace multiple-spaces with a single space
-        return s.replace(/\([^)]*\)|[\n\t]/g, ' ').replace(/(\s\s+)/g, ' ').trim();
+        return s.replace(/\([^)]*\)|[\n\t]/g, ' ').replace(/(\s\s+)/g, ' ').replace(/^\s\s*/, '').replace(/\s\s*$/, '');
     }
 
     function checkWeekday(weekdayStr, parsedInput, config) {
@@ -26224,7 +26224,7 @@ webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
     // Side effect imports
 
 
-    hooks.version = '2.22.1';
+    hooks.version = '2.22.2';
 
     setHookCallback(createLocal);
 
@@ -26280,16 +26280,16 @@ webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
 /***/ "./node_modules/vue-bootstrap-datetimepicker/dist/vue-bootstrap-datetimepicker.js":
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery, __webpack_provided_window_dot_moment) {(function webpackUniversalModuleDefinition(root, factory) {
+(function webpackUniversalModuleDefinition(root, factory) {
 	if(true)
-		module.exports = factory(__webpack_require__("./node_modules/jquery/dist/jquery.js"), __webpack_require__("./node_modules/moment/moment.js"), __webpack_require__("./node_modules/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js"));
+		module.exports = factory(__webpack_require__("./node_modules/moment/moment.js"), __webpack_require__("./node_modules/jquery/dist/jquery.js"), __webpack_require__("./node_modules/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js"));
 	else if(typeof define === 'function' && define.amd)
-		define("VueBootstrapDatetimePicker", ["jquery", "moment", "eonasdan-bootstrap-datetimepicker"], factory);
+		define("VueBootstrapDatetimePicker", ["moment", "jquery", "eonasdan-bootstrap-datetimepicker"], factory);
 	else if(typeof exports === 'object')
-		exports["VueBootstrapDatetimePicker"] = factory(require("jquery"), require("moment"), require("eonasdan-bootstrap-datetimepicker"));
+		exports["VueBootstrapDatetimePicker"] = factory(require("moment"), require("jquery"), require("eonasdan-bootstrap-datetimepicker"));
 	else
-		root["VueBootstrapDatetimePicker"] = factory(root["jquery"], root["moment"], root["eonasdan-bootstrap-datetimepicker"]);
-})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_3__) {
+		root["VueBootstrapDatetimePicker"] = factory(root["moment"], root["jQuery"], root["eonasdan-bootstrap-datetimepicker"]);
+})(window, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__1__, __WEBPACK_EXTERNAL_MODULE__3__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -26328,12 +26328,32 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
 /******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -26351,22 +26371,49 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
+/******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__0__;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__1__;
+
+/***/ }),
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/component.vue?vue&type=template&id=55cbc077
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.config.inline)?_c('div',{staticClass:"datetimepicker-inline"}):_c('input',{staticClass:"form-control",attrs:{"type":"text"}})}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/component.vue?vue&type=template&id=55cbc077
+
+// EXTERNAL MODULE: external {"commonjs":"jquery","commonjs2":"jquery","amd":"jquery","root":"jQuery"}
+var external_commonjs_jquery_commonjs2_jquery_amd_jquery_root_jQuery_ = __webpack_require__(1);
+var external_commonjs_jquery_commonjs2_jquery_amd_jquery_root_jQuery_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_jquery_commonjs2_jquery_amd_jquery_root_jQuery_);
+
+// EXTERNAL MODULE: external "moment"
+var external_moment_ = __webpack_require__(0);
+var external_moment_default = /*#__PURE__*/__webpack_require__.n(external_moment_);
 
 // EXTERNAL MODULE: external "eonasdan-bootstrap-datetimepicker"
-var external__eonasdan_bootstrap_datetimepicker_ = __webpack_require__(3);
-var external__eonasdan_bootstrap_datetimepicker__default = /*#__PURE__*/__webpack_require__.n(external__eonasdan_bootstrap_datetimepicker_);
+var external_eonasdan_bootstrap_datetimepicker_ = __webpack_require__(3);
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/component.vue
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/component.vue?vue&type=script&lang=js
 //
 //
 //
@@ -26375,8 +26422,8 @@ var external__eonasdan_bootstrap_datetimepicker__default = /*#__PURE__*/__webpac
 //
 //
 
-var jQuery = __webpack_provided_window_dot_jQuery || __webpack_require__(1);
-var moment = __webpack_provided_window_dot_moment || __webpack_require__(2);
+
+
 
 
 // You have to import css yourself
@@ -26385,14 +26432,14 @@ var moment = __webpack_provided_window_dot_moment || __webpack_require__(2);
 // http://eonasdan.github.io/bootstrap-datetimepicker/Events/
 var events = ['hide', 'show', 'change', 'error', 'update'];
 
-/* harmony default export */ var component = ({
+/* harmony default export */ var componentvue_type_script_lang_js = ({
   name: 'date-picker',
   props: {
     value: {
       default: null,
       required: true,
       validator: function validator(value) {
-        return value === null || value instanceof Date || typeof value === 'string' || value instanceof String || value instanceof moment;
+        return value === null || value instanceof Date || typeof value === 'string' || value instanceof String || value instanceof external_moment_default.a;
       }
     },
     // http://eonasdan.github.io/bootstrap-datetimepicker/Options/
@@ -26423,7 +26470,7 @@ var events = ['hide', 'show', 'change', 'error', 'update'];
     /* istanbul ignore if */
     if (this.dp) return;
     // Handle wrapped input
-    this.elem = jQuery(this.wrap ? this.$el.parentNode : this.$el);
+    this.elem = external_commonjs_jquery_commonjs2_jquery_amd_jquery_root_jQuery_default()(this.wrap ? this.$el.parentNode : this.$el);
     // Init date-picker
     this.elem.datetimepicker(this.config);
     // Store data control
@@ -26478,12 +26525,12 @@ var events = ['hide', 'show', 'change', 'error', 'update'];
       var _this = this;
 
       events.forEach(function (name) {
-        _this.elem.on("dp." + name, function () {
+        _this.elem.on('dp.' + name, function () {
           for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
             args[_key] = arguments[_key];
           }
 
-          _this.$emit.apply(_this, ["dp-" + name].concat(args));
+          _this.$emit.apply(_this, ['dp-' + name].concat(args));
         });
       });
     }
@@ -26500,11 +26547,9 @@ var events = ['hide', 'show', 'change', 'error', 'update'];
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-4757e7c2","hasScoped":false,"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/component.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.config.inline)?_c('div',{staticClass:"datetimepicker-inline"}):_c('input',{staticClass:"form-control",attrs:{"type":"text"}})}
-var staticRenderFns = []
-
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/runtime/component-normalizer.js
+// CONCATENATED MODULE: ./src/component.vue?vue&type=script&lang=js
+ /* harmony default export */ var src_componentvue_type_script_lang_js = (componentvue_type_script_lang_js); 
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 /* globals __VUE_SSR_CONTEXT__ */
 
 // IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
@@ -26521,14 +26566,6 @@ function normalizeComponent (
   moduleIdentifier, /* server only */
   shadowMode /* vue-cli only */
 ) {
-  scriptExports = scriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof scriptExports.default
-  if (type === 'object' || type === 'function') {
-    scriptExports = scriptExports.default
-  }
-
   // Vue.extend constructor export interop
   var options = typeof scriptExports === 'function'
     ? scriptExports.options
@@ -26548,7 +26585,7 @@ function normalizeComponent (
 
   // scopedId
   if (scopeId) {
-    options._scopeId = scopeId
+    options._scopeId = 'data-v-' + scopeId
   }
 
   var hook
@@ -26608,32 +26645,25 @@ function normalizeComponent (
 }
 
 // CONCATENATED MODULE: ./src/component.vue
-/* script */
 
 
-/* template */
 
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
 
-var Component = normalizeComponent(
-  component,
+
+/* normalize component */
+
+var component = normalizeComponent(
+  src_componentvue_type_script_lang_js,
   render,
   staticRenderFns,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
+  false,
+  null,
+  null,
+  null
+  
 )
 
-/* harmony default export */ var src_component = (Component.exports);
-
+/* harmony default export */ var src_component = (component.exports);
 // CONCATENATED MODULE: ./src/index.js
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatetimePickerPlugin", function() { return src_DatetimePickerPlugin; });
 /* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "component", function() { return src_component; });
@@ -26653,27 +26683,14 @@ src_component.install = src_DatetimePickerPlugin;
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
-
-/***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_3__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__3__;
 
 /***/ })
 /******/ ]);
 });
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/jquery/dist/jquery.js"), __webpack_require__("./node_modules/moment/moment.js")))
 
 /***/ }),
 
@@ -38351,7 +38368,7 @@ module.exports = Component.exports
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__casl_ability__ = __webpack_require__("./node_modules/@casl/ability/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__casl_ability__ = __webpack_require__("./node_modules/@casl/ability/dist/es5m/index.js");
 
 
 /**

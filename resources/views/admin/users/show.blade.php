@@ -44,10 +44,10 @@
 <table class="table table-bordered table-striped {{ count($judgements) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
-            <th>@lang('quickadmin.judgements.fields.user')</th>
-                        <th>@lang('quickadmin.judgements.fields.paper')</th>
+            <th>@lang('quickadmin.judgements.fields.paper')</th>
                         <th>@lang('quickadmin.judgements.fields.judgement')</th>
                         <th>@lang('quickadmin.judgements.fields.comment')</th>
+                        <th>@lang('quickadmin.judgements.fields.user')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -60,10 +60,10 @@
         @if (count($judgements) > 0)
             @foreach ($judgements as $judgement)
                 <tr data-entry-id="{{ $judgement->id }}">
-                    <td field-key='user'>{{ $judgement->user->name or '' }}</td>
-                                <td field-key='paper'>{{ $judgement->paper->title or '' }}</td>
+                    <td field-key='paper'>{{ $judgement->paper->title or '' }}</td>
                                 <td field-key='judgement'>{{ $judgement->judgement }}</td>
                                 <td field-key='comment'>{!! $judgement->comment !!}</td>
+                                <td field-key='user'>{{ $judgement->user->name or '' }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     {!! Form::open(array(
@@ -121,7 +121,6 @@
                         <th>@lang('quickadmin.papers.fields.name')</th>
                         <th>@lang('quickadmin.papers.fields.email')</th>
                         <th>@lang('quickadmin.papers.fields.attribute')</th>
-                        <th>@lang('quickadmin.papers.fields.assign')</th>
                         <th>@lang('quickadmin.papers.fields.status')</th>
                         <th>@lang('quickadmin.papers.fields.informed')</th>
                         @if( request('show_deleted') == 1 )
@@ -147,12 +146,6 @@
                                 <td field-key='name'>{{ $paper->name }}</td>
                                 <td field-key='email'>{{ $paper->email }}</td>
                                 <td field-key='attribute'>{{ $paper->attribute }}</td>
-                                <td field-key='document'>@if($paper->document)<a href="{{ asset(env('UPLOAD_PATH').'/' . $paper->document) }}" target="_blank">Download file</a>@endif</td>
-                                <td field-key='assign'>
-                                    @foreach ($paper->assign as $singleAssign)
-                                        <span class="label label-info label-many">{{ $singleAssign->name }}</span>
-                                    @endforeach
-                                </td>
                                 <td field-key='status'>{{ $paper->status }}</td>
                                 <td field-key='informed'>{{ $paper->informed }}</td>
                                 @if( request('show_deleted') == 1 )
@@ -195,7 +188,7 @@
             @endforeach
         @else
             <tr>
-                <td colspan="16">@lang('quickadmin.qa_no_entries_in_table')</td>
+                <td colspan="18">@lang('quickadmin.qa_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>

@@ -10,8 +10,6 @@ use App\Http\Requests\Admin\UpdateJudgementsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Input;
 
 
 class JudgementsController extends Controller

@@ -74,8 +74,6 @@ export default {
                 { title: 'Ονοματεπώνυμο', field: 'name', sortable: true },
                 { title: 'Email', field: 'email', sortable: true },
                 { title: 'Ιδιότητα', field: 'attribute', sortable: true },
-                { title: 'Αρχείο', tdComp: DatatableDocumentField, sortable: false },
-                { title: 'Ανάθεση', field: 'assign', tdComp: DatatableList },
                 { title: 'Status', field: 'status', sortable: true },
                 { title: 'Informed', field: 'informed', sortable: true },
                 { title: 'Actions', tdComp: DatatableActions, visible: true, thClass: 'text-right', tdClass: 'text-right', colStyle: 'width: 130px;' }

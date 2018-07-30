@@ -3,7 +3,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Traits\FilterByUser;
 
 /**
  * Class Judgement
@@ -16,7 +15,7 @@ use App\Traits\FilterByUser;
 */
 class Judgement extends Model
 {
-    use SoftDeletes, FilterByUser;
+    use SoftDeletes;
 
     
     protected $fillable = ['judgement', 'comment', 'paper_id', 'user_id'];
