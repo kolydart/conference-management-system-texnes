@@ -24,6 +24,12 @@ class UpdatePapersRequest extends FormRequest
     {
         return [
             
+            'art' => 'required',
+            'art.*' => 'exists:arts,id',
+            'email' => 'email',
+            'assign.*' => 'exists:users,id',
+            'status' => 'required',
+            'informed' => 'required',
         ];
     }
 }

@@ -34,6 +34,14 @@
                         @endcan
 
                         <th>@lang('quickadmin.papers.fields.title')</th>
+                        <th>@lang('quickadmin.papers.fields.art')</th>
+                        <th>@lang('quickadmin.papers.fields.type')</th>
+                        <th>@lang('quickadmin.papers.fields.duration')</th>
+                        <th>@lang('quickadmin.papers.fields.name')</th>
+                        <th>@lang('quickadmin.papers.fields.email')</th>
+                        <th>@lang('quickadmin.papers.fields.attribute')</th>
+                        <th>@lang('quickadmin.papers.fields.status')</th>
+                        <th>@lang('quickadmin.papers.fields.informed')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -51,6 +59,18 @@
                                 @endcan
 
                                 <td field-key='title'>{{ $paper->title }}</td>
+                                <td field-key='art'>
+                                    @foreach ($paper->art as $singleArt)
+                                        <span class="label label-info label-many">{{ $singleArt->title }}</span>
+                                    @endforeach
+                                </td>
+                                <td field-key='type'>{{ $paper->type }}</td>
+                                <td field-key='duration'>{{ $paper->duration }}</td>
+                                <td field-key='name'>{{ $paper->name }}</td>
+                                <td field-key='email'>{{ $paper->email }}</td>
+                                <td field-key='attribute'>{{ $paper->attribute }}</td>
+                                <td field-key='status'>{{ $paper->status }}</td>
+                                <td field-key='informed'>{{ $paper->informed }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('paper_delete')
@@ -95,7 +115,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="6">@lang('quickadmin.qa_no_entries_in_table')</td>
+                            <td colspan="16">@lang('quickadmin.qa_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>

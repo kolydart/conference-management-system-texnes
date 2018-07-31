@@ -4,7 +4,7 @@ return [
 		'user-management' => [		'title' => 'Διαχείριση χρηστών',		'fields' => [		],	],
 		'roles' => [		'title' => 'Ρόλοι',		'fields' => [			'title' => 'Τίτλος',		],	],
 		'users' => [		'title' => 'Κριτές',		'fields' => [			'name' => 'Όνομα',			'email' => 'Email',			'password' => 'Κωδικός',			'role' => 'Ρόλος',			'remember-token' => 'Να με θυμάσαι',		],	],
-		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',		],	],
+		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'document' => 'Αρχείο(α) πρότασης',			'assign' => 'Ανάθεση',			'status' => 'Status',			'informed' => 'Informed',		],	],
 		'reviews' => [		'title' => 'Κρίσεις',		'fields' => [			'review' => 'Review',		],	],
 		'arts' => [		'title' => 'Τέχνες',		'fields' => [			'title' => 'Τίτλος',		],	],
 	'qa_create' => 'Δημιουργία',

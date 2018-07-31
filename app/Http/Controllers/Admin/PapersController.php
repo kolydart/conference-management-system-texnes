@@ -8,9 +8,12 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StorePapersRequest;
 use App\Http\Requests\Admin\UpdatePapersRequest;
+use App\Http\Controllers\Traits\FileUploadTrait;
 
 class PapersController extends Controller
 {
+    use FileUploadTrait;
+
     /**
      * Display a listing of Paper.
      *
@@ -45,7 +48,13 @@ class PapersController extends Controller
         if (! Gate::allows('paper_create')) {
             return abort(401);
         }
-        return view('admin.papers.create');
+        
+        $arts = \App\Art::get()->pluck('title', 'id');
+
+        $assigns = \App\User::get()->pluck('name', 'id');
+
+
+        return view('admin.papers.create', compact('arts', 'assigns'));
     }
 
     /**
@@ -59,9 +68,18 @@ class PapersController extends Controller
         if (! Gate::allows('paper_create')) {
             return abort(401);
         }
+        $request = $this->saveFiles($request);
         $paper = Paper::create($request->all());
+        $paper->art()->sync(array_filter((array)$request->input('art')));
+        $paper->assign()->sync(array_filter((array)$request->input('assign')));
 
 
+        foreach ($request->input('document_id', []) as $index => $id) {
+            $model          = config('laravel-medialibrary.media_model');
+            $file           = $model::find($id);
+            $file->model_id = $paper->id;
+            $file->save();
+        }
 
         return redirect()->route('admin.papers.index');
     }
@@ -78,9 +96,15 @@ class PapersController extends Controller
         if (! Gate::allows('paper_edit')) {
             return abort(401);
         }
+        
+        $arts = \App\Art::get()->pluck('title', 'id');
+
+        $assigns = \App\User::get()->pluck('name', 'id');
+
+
         $paper = Paper::findOrFail($id);
 
-        return view('admin.papers.edit', compact('paper'));
+        return view('admin.papers.edit', compact('paper', 'arts', 'assigns'));
     }
 
     /**
@@ -95,10 +119,22 @@ class PapersController extends Controller
         if (! Gate::allows('paper_edit')) {
             return abort(401);
         }
+        $request = $this->saveFiles($request);
         $paper = Paper::findOrFail($id);
         $paper->update($request->all());
+        $paper->art()->sync(array_filter((array)$request->input('art')));
+        $paper->assign()->sync(array_filter((array)$request->input('assign')));
 
 
+        $media = [];
+        foreach ($request->input('document_id', []) as $index => $id) {
+            $model          = config('laravel-medialibrary.media_model');
+            $file           = $model::find($id);
+            $file->model_id = $paper->id;
+            $file->save();
+            $media[] = $file->toArray();
+        }
+        $paper->updateMedia($media, 'document');
 
         return redirect()->route('admin.papers.index');
     }
@@ -133,7 +169,7 @@ class PapersController extends Controller
             return abort(401);
         }
         $paper = Paper::findOrFail($id);
-        $paper->delete();
+        $paper->deletePreservingMedia();
 
         return redirect()->route('admin.papers.index');
     }
@@ -152,7 +188,7 @@ class PapersController extends Controller
             $entries = Paper::whereIn('id', $request->input('ids'))->get();
 
             foreach ($entries as $entry) {
-                $entry->delete();
+                $entry->deletePreservingMedia();
             }
         }
     }

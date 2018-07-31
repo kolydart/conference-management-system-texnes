@@ -32,19 +32,19 @@ class AuthServiceProvider extends ServiceProvider
         
         // Auth gates for: Papers
         Gate::define('paper_access', function ($user) {
-            return in_array($user->role_id, [1]);
+            return in_array($user->role_id, [1, 3, 4, 5]);
         });
         Gate::define('paper_create', function ($user) {
-            return in_array($user->role_id, [1]);
+            return in_array($user->role_id, [1, 3]);
         });
         Gate::define('paper_edit', function ($user) {
-            return in_array($user->role_id, [1]);
+            return in_array($user->role_id, [1, 3]);
         });
         Gate::define('paper_view', function ($user) {
-            return in_array($user->role_id, [1]);
+            return in_array($user->role_id, [1, 3, 4, 5]);
         });
         Gate::define('paper_delete', function ($user) {
-            return in_array($user->role_id, [1]);
+            return in_array($user->role_id, [1, 3]);
         });
 
         // Auth gates for: Reviews

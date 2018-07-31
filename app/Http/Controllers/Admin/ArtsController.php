@@ -115,9 +115,14 @@ class ArtsController extends Controller
         if (! Gate::allows('art_view')) {
             return abort(401);
         }
+        $papers = \App\Paper::whereHas('art',
+                    function ($query) use ($id) {
+                        $query->where('id', $id);
+                    })->get();
+
         $art = Art::findOrFail($id);
 
-        return view('admin.arts.show', compact('art'));
+        return view('admin.arts.show', compact('art', 'papers'));
     }
 
 
