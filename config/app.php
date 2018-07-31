@@ -185,7 +185,6 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         
         /*
          * Application Service Providers...

@@ -1,47 +1,49 @@
-@inject('request', 'Illuminate\Http\Request')
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.users.title')</h3>
-    @can('user_create')
-    <p>
-        <a href="{{ route('admin.users.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
-        
-    </p>
-    @endcan
-
-    
+    <h3 class="page-title">@lang('quickadmin.roles.title')</h3>
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            @lang('quickadmin.qa_list')
+            @lang('quickadmin.qa_view')
         </div>
 
         <div class="panel-body table-responsive">
-            <table class="table table-bordered table-striped {{ count($users) > 0 ? 'datatable' : '' }} @can('user_delete') dt-select @endcan">
-                <thead>
-                    <tr>
-                        @can('user_delete')
-                            <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
-                        @endcan
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th>@lang('quickadmin.roles.fields.title')</th>
+                            <td field-key='title'>{{ $role->title }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div><!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+    
+<li role="presentation" class="active"><a href="#users" aria-controls="users" role="tab" data-toggle="tab">Χρήστες</a></li>
+</ul>
 
-                        <th>@lang('quickadmin.users.fields.name')</th>
+<!-- Tab panes -->
+<div class="tab-content">
+    
+<div role="tabpanel" class="tab-pane active" id="users">
+<table class="table table-bordered table-striped {{ count($users) > 0 ? 'datatable' : '' }}">
+    <thead>
+        <tr>
+            <th>@lang('quickadmin.users.fields.name')</th>
                         <th>@lang('quickadmin.users.fields.email')</th>
                         <th>@lang('quickadmin.users.fields.role')</th>
                                                 <th>&nbsp;</th>
 
-                    </tr>
-                </thead>
-                
-                <tbody>
-                    @if (count($users) > 0)
-                        @foreach ($users as $user)
-                            <tr data-entry-id="{{ $user->id }}">
-                                @can('user_delete')
-                                    <td></td>
-                                @endcan
+        </tr>
+    </thead>
 
-                                <td field-key='name'>{{ $user->name }}</td>
+    <tbody>
+        @if (count($users) > 0)
+            @foreach ($users as $user)
+                <tr data-entry-id="{{ $user->id }}">
+                    <td field-key='name'>{{ $user->name }}</td>
                                 <td field-key='email'>{{ $user->email }}</td>
                                 <td field-key='role'>{{ $user->role->title or '' }}</td>
                                                                 <td>
@@ -62,24 +64,21 @@
                                     @endcan
                                 </td>
 
-                            </tr>
-                        @endforeach
-                    @else
-                        <tr>
-                            <td colspan="10">@lang('quickadmin.qa_no_entries_in_table')</td>
-                        </tr>
-                    @endif
-                </tbody>
-            </table>
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="10">@lang('quickadmin.qa_no_entries_in_table')</td>
+            </tr>
+        @endif
+    </tbody>
+</table>
+</div>
+</div>
+
+            <p>&nbsp;</p>
+
+            <a href="{{ route('admin.roles.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
         </div>
     </div>
 @stop
-
-@section('javascript') 
-    <script>
-        @can('user_delete')
-            window.route_mass_crud_entries_destroy = '{{ route('admin.users.mass_destroy') }}';
-        @endcan
-
-    </script>
-@endsection

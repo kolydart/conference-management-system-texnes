@@ -1,36 +1,14 @@
 <?php
 
 return [
-		'user-management' => [		'title' => 'User management',		'fields' => [		],	],
-		'permissions' => [		'title' => 'Permissions',		'fields' => [			'title' => 'Title',		],	],
-		'roles' => [		'title' => 'Roles',		'fields' => [			'title' => 'Title',			'permission' => 'Permissions',		],	],
-		'users' => [		'title' => 'Κριτές',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',		],	],
-		'arts' => [		'title' => 'Τέχνες',		'fields' => [			'name' => 'Τίτλος',		],	],
-		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'document' => 'Αρχείο',			'assign' => 'Ανάθεση',			'status' => 'Status',			'informed' => 'Informed',			'reviews' => 'Reviews',			'messages' => 'Messages',		],	],
-		'testpaper' => [		'title' => 'Testpaper',		'fields' => [		],	],
-		'judgements' => [		'title' => 'Κρίσεις',		'fields' => [			'paper' => 'Paper',			'judgement' => 'Judgement',			'comment' => 'Comment',			'user' => 'User',		],	],
-		'content-management' => [		'title' => 'Διαχείριση περιεχομένου',		'fields' => [		],	],
-		'content-categories' => [		'title' => 'Κατηγορίες',		'fields' => [		],	],
-		'content-tags' => [		'title' => 'Ετικέτες',		'fields' => [		],	],
-		'content-pages' => [		'title' => 'Σελίδες',		'fields' => [		],	],
-		'user-actions' => [		'title' => 'Ενέργειες χρηστών',		'created_at' => 'Time',		'fields' => [		],	],
-		'user-actions' => [		'title' => 'Ενέργειες χρηστών',		'created_at' => 'Time',		'fields' => [		],	],
-		'content-management' => [		'title' => 'Διαχείριση περιεχομένου',		'fields' => [		],	],
-		'content-categories' => [		'title' => 'Κατηγορίες',		'fields' => [		],	],
-		'content-tags' => [		'title' => 'Ετικέτες',		'fields' => [		],	],
-		'content-pages' => [		'title' => 'Σελίδες',		'fields' => [		],	],
-		'content-management' => [		'title' => 'Διαχείριση περιεχομένου',		'fields' => [		],	],
-		'content-categories' => [		'title' => 'Κατηγορίες',		'fields' => [			'title' => 'Κατηγορία',			'slug' => 'Slug',		],	],
-		'content-tags' => [		'title' => 'Ετικέτες',		'fields' => [			'title' => 'Ετικέτα',			'slug' => 'Slug',		],	],
-		'content-pages' => [		'title' => 'Σελίδες',		'fields' => [			'title' => 'Τίτλος',			'category-id' => 'Κατηγορίες',			'tag-id' => 'Ετικέτες',			'page-text' => 'Κείμενο',			'excerpt' => 'Excerpt',			'featured-image' => 'Εικόνα εμφάνισης',		],	],
-		'user-actions' => [		'title' => 'Ενέργειες χρηστών',		'created_at' => 'Time',		'fields' => [		],	],
-		'messages' => [		'title' => 'Μηνύματα',		'fields' => [			'paper' => 'Paper',			'address' => 'Address',			'name' => 'Name',			'body' => 'Body',		],	],
-		'user-actions' => [		'title' => 'Ενέργειες χρηστών',		'created_at' => 'Time',		'fields' => [			'user' => 'Χρήστης',			'action' => 'Ενέργεια',			'action-model' => 'Action model',			'action-id' => 'Action id',		],	],
+		'user-management' => [		'title' => 'Διαχείριση χρηστών',		'fields' => [		],	],
+		'roles' => [		'title' => 'Ρόλοι',		'fields' => [			'title' => 'Τίτλος',		],	],
+		'users' => [		'title' => 'Χρήστες',		'fields' => [			'name' => 'Όνομα',			'email' => 'Email',			'password' => 'Κωδικός',			'role' => 'Ρόλος',			'remember-token' => 'Να με θυμάσαι',		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',
 	'qa_view' => 'Εμφάνιση',
-	'qa_update' => 'Ενημέρωησ',
+	'qa_update' => 'Ενημέρωση',
 	'qa_list' => 'Λίστα',
 	'qa_no_entries_in_table' => 'Δεν υπάρχουν δεδομένα στην ταμπέλα',
 	'qa_custom_controller_index' => 'index προσαρμοσμένου controller.',
@@ -38,7 +16,7 @@ return [
 	'qa_add_new' => 'Προσθήκη νέου',
 	'qa_are_you_sure' => 'Είστε σίγουροι;',
 	'qa_back_to_list' => 'Επιστροφή στην λίστα',
-	'qa_dashboard' => 'Αρχική',
+	'qa_dashboard' => 'Dashboard',
 	'qa_delete' => 'Διαγραφή',
 	'qa_restore' => 'Επαναφορά',
 	'qa_permadel' => 'Μόνιμη διαγραφή',
@@ -156,9 +134,9 @@ return [
 	'qa_there_were_problems_with_input' => 'Υπήρξαν προβλήματα με την εισαγωγή',
 	'qa_whoops' => 'Ουπς!',
 	'qa_file_contains_header_row' => 'Το αρχείο περιέχει επικεφαλίδα;',
-	'qa_csvImport' => 'CSV εισαγωγή',
-	'qa_csv_file_to_import' => 'CSV αρχείο για εισαγωγή',
-	'qa_parse_csv' => 'Πέρασμα CSV',
+	'qa_csvImport' => 'Εισαγωγή από CSV ',
+	'qa_csv_file_to_import' => 'Αρχείο CSV για εισαγωγή',
+	'qa_parse_csv' => 'Ανάλυση CSV',
 	'qa_import_data' => 'Εισαγωγή δεδομένων',
 	'qa_subscription-billing' => 'Συνδρομές',
 	'qa_subscription-payments' => 'Πληρωμές',
@@ -167,7 +145,77 @@ return [
 	'qa_customer' => 'Πελάτης',
 	'qa_select_all' => 'Επιλογή όλων',
 	'qa_deselect_all' => 'Αποεπιλογή όλων',
+	'qa_coupon_management' => 'Διαχείριση Κουπονιών',
+	'qa_projects' => 'Έργα',
+	'qa_project' => 'Έργο',
+	'qa_expense_category' => 'Κατηγορία Εξόδων',
+	'qa_expense_categories' => 'Κατηγορίες Εξόδων',
+	'qa_expense_management' => 'Διαχείριση Εξόδων',
+	'qa_entry_date' => 'Ημερομηνία Καταχώρησης',
+	'qa_contact_management' => 'Διαχείριση Επαφών',
+	'qa_skype' => 'Skype',
+	'qa_product_management' => 'Διαχείριση Προϊόντων',
+	'qa_assigned_to' => 'Ανατέθηκε',
+	'qa_excerpt' => 'Απόσπασμα',
+	'qa_notifications' => 'Ειδοποιήσεις',
+	'qa_stripe_transactions' => 'Συναλλαγές Stripe',
+	'qa_upgrade_to_premium' => 'Αναβάθμιση σε Premium',
+	'qa_messages' => 'Μηνύματα',
+	'qa_you_have_no_messages' => 'Δεν έχετε μηνύματα.',
+	'qa_all_messages' => 'Όλα τα Μηνύματα',
+	'qa_new_message' => 'Νέο Μήνυμα',
+	'qa_outbox' => 'Εξερχόμενα',
+	'qa_inbox' => 'Εισερχόμενα',
+	'qa_recipient' => 'Παραλήπτης',
+	'qa_subject' => 'Θέμα',
+	'qa_message' => 'Μήνυμα',
+	'qa_send' => 'Αποστολή',
+	'qa_reply' => 'Απάντηση',
+	'qa_prefix' => 'Πρόθεμα',
+	'qa_suffix' => 'Επίθεμα',
+	'qa_client_management' => 'Διαχείριση Πελατών',
+	'qa_country' => 'Χώρα',
+	'qa_client_status' => 'Κατάσταση Πελατών',
+	'qa_clients' => 'Πελάτες',
+	'qa_client_statuses' => 'Καταστάσεις Πελατών',
+	'qa_currencies' => 'Ισοτιμίες',
+	'qa_main_currency' => 'Κύριο Νόμισμα',
+	'qa_documents' => 'Έγγραφα',
+	'qa_file' => 'Αρχείο',
+	'qa_income_source' => 'Πηγή Εσόδων',
+	'qa_income_sources' => 'Πηγές Εσόδων',
+	'qa_note_text' => 'Κείμενο Σημείωσης',
+	'qa_client' => 'Πελάτης',
+	'qa_start_date' => 'Ημερομηνία Έναρξης',
+	'qa_budget' => 'Προϋπολογισμός',
+	'qa_project_status' => 'Κατάσταση Έργου',
+	'qa_project_statuses' => 'Καταστάσεις Έργων',
+	'qa_transactions' => 'Συναλλαγές',
+	'qa_transaction_types' => 'Τύποι Συναλλαγών',
+	'qa_transaction_type' => 'Τύπος Συναλλαγών',
+	'qa_transaction_date' => 'Ημερομηνία Συναλλαγής',
+	'qa_password_confirm' => 'Επιβεβαίωση νέου κωδικού',
+	'qa_colvis' => 'Εμφάνιση Στηλών',
+	'qa_pdf' => 'PDF',
 	'qa_team-management' => 'Ομάδες',
 	'qa_team-management-singular' => 'Ομάδα',
+	'qa_faq_management' => 'Διαχείριση FAQ',
+	'qa_time' => 'Ώρα',
+	'qa_campaign' => 'Καμπάνια',
+	'qa_campaigns' => 'Καμπάνιες',
+	'qa_discount_amount' => 'Ποσό Έκπτωσης',
+	'qa_discount_percent' => 'Ποσοστό Έκπτωσης',
+	'qa_coupons_amount' => 'Ποσό Κουπονιών',
+	'qa_time_management' => 'Διαχείριση Χρόνου',
+	'qa_work_types' => 'Τύποι εργασιών',
+	'qa_notify_user' => 'Ειδοποίηση Χρήστη',
+	'qa_create_new_notification' => 'Δημιουργία Νέας Ειδοποίησης',
+	'qa_imported_rows_to_table' => 'Έγινε εισαγωγή :rows εγγραφών στον πίνακα :table',
+	'qa_calendar_sources' => 'Πηγές Ημερολογίου',
+	'qa_new_calendar_source' => 'Δημιουργία νέας πηγής ημερολογίου',
+	'qa_crud_title' => 'Τίτλος Διαχειριστικής Σελίδας',
+	'qa_create_new_calendar_source' => 'Δημιουργία Νέας Πηγής Ημερολογίου',
+	'qa_edit_calendar_source' => 'Επεξεργασία Πηγής Ημερολογίου',
+	'qa_client_management_settings' => 'Ρυθμίσεις Διαχείρισης Πελατών',
 	'quickadmin_title' => 'conference-management-system',
 ];

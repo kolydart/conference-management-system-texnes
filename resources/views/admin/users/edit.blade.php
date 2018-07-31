@@ -13,8 +13,8 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('name', trans('quickadmin.users.fields.name').'', ['class' => 'control-label']) !!}
-                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::label('name', trans('quickadmin.users.fields.name').'*', ['class' => 'control-label']) !!}
+                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('name'))
                         <p class="help-block">
@@ -25,8 +25,8 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('email', trans('quickadmin.users.fields.email').'', ['class' => 'control-label']) !!}
-                    {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::label('email', trans('quickadmin.users.fields.email').'*', ['class' => 'control-label']) !!}
+                    {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('email'))
                         <p class="help-block">
@@ -37,7 +37,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('password', trans('quickadmin.users.fields.password').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('password', trans('quickadmin.users.fields.password').'*', ['class' => 'control-label']) !!}
                     {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('password'))
@@ -49,18 +49,12 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('role', trans('quickadmin.users.fields.role').'', ['class' => 'control-label']) !!}
-                    <button type="button" class="btn btn-primary btn-xs" id="selectbtn-role">
-                        {{ trans('quickadmin.qa_select_all') }}
-                    </button>
-                    <button type="button" class="btn btn-primary btn-xs" id="deselectbtn-role">
-                        {{ trans('quickadmin.qa_deselect_all') }}
-                    </button>
-                    {!! Form::select('role[]', $roles, old('role') ? old('role') : $user->role->pluck('id')->toArray(), ['class' => 'form-control select2', 'multiple' => 'multiple', 'id' => 'selectall-role' ]) !!}
+                    {!! Form::label('role_id', trans('quickadmin.users.fields.role').'*', ['class' => 'control-label']) !!}
+                    {!! Form::select('role_id', $roles, old('role_id'), ['class' => 'form-control select2', 'required' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('role'))
+                    @if($errors->has('role_id'))
                         <p class="help-block">
-                            {{ $errors->first('role') }}
+                            {{ $errors->first('role_id') }}
                         </p>
                     @endif
                 </div>
@@ -73,17 +67,3 @@
     {!! Form::close() !!}
 @stop
 
-@section('javascript')
-    @parent
-
-    <script>
-        $("#selectbtn-role").click(function(){
-            $("#selectall-role > option").prop("selected","selected");
-            $("#selectall-role").trigger("change");
-        });
-        $("#deselectbtn-role").click(function(){
-            $("#selectall-role > option").prop("selected","");
-            $("#selectall-role").trigger("change");
-        });
-    </script>
-@stop

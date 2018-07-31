@@ -17,7 +17,8 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {if ($_GATES_$) {
+    {
+        if (! Gate::allows('user_access')) {
             return abort(401);
         }
 
@@ -33,12 +34,12 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {if ($_GATES_$) {
+    {
+        if (! Gate::allows('user_create')) {
             return abort(401);
         }
         
-        $roles = \App\Role::get()->pluck('title', 'id');
-
+        $roles = \App\Role::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         return view('admin.users.create', compact('roles'));
     }
@@ -50,11 +51,11 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreUsersRequest $request)
-    {if ($_GATES_$) {
+    {
+        if (! Gate::allows('user_create')) {
             return abort(401);
         }
         $user = User::create($request->all());
-        $user->role()->sync(array_filter((array)$request->input('role')));
 
 
 
@@ -69,12 +70,12 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {if ($_GATES_$) {
+    {
+        if (! Gate::allows('user_edit')) {
             return abort(401);
         }
         
-        $roles = \App\Role::get()->pluck('title', 'id');
-
+        $roles = \App\Role::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         $user = User::findOrFail($id);
 
@@ -89,12 +90,12 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateUsersRequest $request, $id)
-    {if ($_GATES_$) {
+    {
+        if (! Gate::allows('user_edit')) {
             return abort(401);
         }
         $user = User::findOrFail($id);
         $user->update($request->all());
-        $user->role()->sync(array_filter((array)$request->input('role')));
 
 
 
@@ -109,19 +110,13 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {if ($_GATES_$) {
+    {
+        if (! Gate::allows('user_view')) {
             return abort(401);
         }
-        
-        $roles = \App\Role::get()->pluck('title', 'id');
-$judgements = \App\Judgement::where('user_id', $id)->get();$papers = \App\Paper::whereHas('assign',
-                    function ($query) use ($id) {
-                        $query->where('id', $id);
-                    })->get();
-
         $user = User::findOrFail($id);
 
-        return view('admin.users.show', compact('user', 'judgements', 'papers'));
+        return view('admin.users.show', compact('user'));
     }
 
 
@@ -132,7 +127,8 @@ $judgements = \App\Judgement::where('user_id', $id)->get();$papers = \App\Paper:
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {if ($_GATES_$) {
+    {
+        if (! Gate::allows('user_delete')) {
             return abort(401);
         }
         $user = User::findOrFail($id);
@@ -147,7 +143,8 @@ $judgements = \App\Judgement::where('user_id', $id)->get();$papers = \App\Paper:
      * @param Request $request
      */
     public function massDestroy(Request $request)
-    {if ($_GATES_$) {
+    {
+        if (! Gate::allows('user_delete')) {
             return abort(401);
         }
         if ($request->input('ids')) {
