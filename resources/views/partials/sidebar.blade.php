@@ -14,6 +14,38 @@
                 </a>
             </li>
 
+            @can('paper_access')
+            <li>
+                <a href="{{ route('admin.papers.index') }}">
+                    <i class="fa fa-newspaper-o"></i>
+                    <span>@lang('quickadmin.papers.title')</span>
+                </a>
+            </li>@endcan
+            
+            @can('review_access')
+            <li>
+                <a href="{{ route('admin.reviews.index') }}">
+                    <i class="fa fa-gavel"></i>
+                    <span>@lang('quickadmin.reviews.title')</span>
+                </a>
+            </li>@endcan
+            
+            @can('art_access')
+            <li>
+                <a href="{{ route('admin.arts.index') }}">
+                    <i class="fa fa-paint-brush"></i>
+                    <span>@lang('quickadmin.arts.title')</span>
+                </a>
+            </li>@endcan
+            
+            @can('user_access')
+            <li>
+                <a href="{{ route('admin.users.index') }}">
+                    <i class="fa fa-graduation-cap"></i>
+                    <span>@lang('quickadmin.users.title')</span>
+                </a>
+            </li>@endcan
+            
             @can('user_management_access')
             <li class="treeview">
                 <a href="#">
@@ -29,14 +61,6 @@
                         <a href="{{ route('admin.roles.index') }}">
                             <i class="fa fa-briefcase"></i>
                             <span>@lang('quickadmin.roles.title')</span>
-                        </a>
-                    </li>@endcan
-                    
-                    @can('user_access')
-                    <li>
-                        <a href="{{ route('admin.users.index') }}">
-                            <i class="fa fa-user"></i>
-                            <span>@lang('quickadmin.users.title')</span>
                         </a>
                     </li>@endcan
                     
