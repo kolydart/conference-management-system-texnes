@@ -16,6 +16,14 @@
                             <th>@lang('quickadmin.reviews.fields.review')</th>
                             <td field-key='review'>{{ $review->review }}</td>
                         </tr>
+                        <tr>
+                            <th>@lang('quickadmin.reviews.fields.comment')</th>
+                            <td field-key='comment'>{!! $review->comment !!}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.reviews.fields.user')</th>
+                            <td field-key='user'>{{ $review->user->name or '' }}</td>
+                        </tr>
                     </table>
                 </div>
             </div>

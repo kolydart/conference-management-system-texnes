@@ -24,6 +24,7 @@ class StoreReviewsRequest extends FormRequest
     {
         return [
             'review' => 'required',
+            'user_id' => 'required',
         ];
     }
 }

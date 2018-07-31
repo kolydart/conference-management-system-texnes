@@ -73,6 +73,9 @@ class PapersController extends Controller
         $paper->art()->sync(array_filter((array)$request->input('art')));
         $paper->assign()->sync(array_filter((array)$request->input('assign')));
 
+        foreach ($request->input('reviews', []) as $data) {
+            $paper->reviews()->create($data);
+        }
 
         foreach ($request->input('document_id', []) as $index => $id) {
             $model          = config('laravel-medialibrary.media_model');
@@ -125,6 +128,23 @@ class PapersController extends Controller
         $paper->art()->sync(array_filter((array)$request->input('art')));
         $paper->assign()->sync(array_filter((array)$request->input('assign')));
 
+        $reviews           = $paper->reviews;
+        $currentReviewData = [];
+        foreach ($request->input('reviews', []) as $index => $data) {
+            if (is_integer($index)) {
+                $paper->reviews()->create($data);
+            } else {
+                $id                          = explode('-', $index)[1];
+                $currentReviewData[$id] = $data;
+            }
+        }
+        foreach ($reviews as $item) {
+            if (isset($currentReviewData[$item->id])) {
+                $item->update($currentReviewData[$item->id]);
+            } else {
+                $item->delete();
+            }
+        }
 
         $media = [];
         foreach ($request->input('document_id', []) as $index => $id) {
@@ -151,9 +171,15 @@ class PapersController extends Controller
         if (! Gate::allows('paper_view')) {
             return abort(401);
         }
+        
+        $arts = \App\Art::get()->pluck('title', 'id');
+
+        $assigns = \App\User::get()->pluck('name', 'id');
+$reviews = \App\Review::where('paper_id', $id)->get();
+
         $paper = Paper::findOrFail($id);
 
-        return view('admin.papers.show', compact('paper'));
+        return view('admin.papers.show', compact('paper', 'reviews'));
     }
 
 

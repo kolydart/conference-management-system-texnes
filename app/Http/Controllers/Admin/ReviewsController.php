@@ -45,7 +45,11 @@ class ReviewsController extends Controller
         if (! Gate::allows('review_create')) {
             return abort(401);
         }
-        return view('admin.reviews.create');
+        
+        $papers = \App\Paper::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $users = \App\User::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+
+        return view('admin.reviews.create', compact('papers', 'users'));
     }
 
     /**
@@ -78,9 +82,13 @@ class ReviewsController extends Controller
         if (! Gate::allows('review_edit')) {
             return abort(401);
         }
+        
+        $papers = \App\Paper::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $users = \App\User::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+
         $review = Review::findOrFail($id);
 
-        return view('admin.reviews.edit', compact('review'));
+        return view('admin.reviews.edit', compact('review', 'papers', 'users'));
     }
 
     /**

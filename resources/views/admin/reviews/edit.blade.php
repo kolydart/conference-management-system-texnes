@@ -13,6 +13,18 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
+                    {!! Form::label('paper_id', trans('quickadmin.reviews.fields.paper').'', ['class' => 'control-label']) !!}
+                    {!! Form::select('paper_id', $papers, old('paper_id'), ['class' => 'form-control select2']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('paper_id'))
+                        <p class="help-block">
+                            {{ $errors->first('paper_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
                     {!! Form::label('review', trans('quickadmin.reviews.fields.review').'*', ['class' => 'control-label']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('review'))
@@ -39,6 +51,18 @@
                         </label>
                     </div>
                     
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('comment', trans('quickadmin.reviews.fields.comment').'', ['class' => 'control-label']) !!}
+                    {!! Form::textarea('comment', old('comment'), ['class' => 'form-control ', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('comment'))
+                        <p class="help-block">
+                            {{ $errors->first('comment') }}
+                        </p>
+                    @endif
                 </div>
             </div>
             
