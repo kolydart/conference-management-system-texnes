@@ -7,6 +7,7 @@ return [
 		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'document' => 'Αρχείο(α) πρότασης',			'assign' => 'Ανάθεση',			'status' => 'Status',			'informed' => 'Informed',		],	],
 		'reviews' => [		'title' => 'Κρίσεις',		'fields' => [			'paper' => 'Paper',			'review' => 'Review',			'comment' => 'Comment',			'user' => 'User',		],	],
 		'arts' => [		'title' => 'Τέχνες',		'fields' => [			'title' => 'Τίτλος',		],	],
+		'user-actions' => [		'title' => 'Ενέργειες χρηστών',		'created_at' => 'Ώρα',		'fields' => [			'user' => 'Χρήστης',			'action' => 'Ενέργεια',			'action-model' => 'Action model',			'action-id' => 'Action id',		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',

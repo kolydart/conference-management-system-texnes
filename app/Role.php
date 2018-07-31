@@ -15,5 +15,11 @@ class Role extends Model
     protected $hidden = [];
     
     
+    public static function boot()
+    {
+        parent::boot();
+
+        Role::observe(new \App\Observers\UserActionsObserver);
+    }
     
 }

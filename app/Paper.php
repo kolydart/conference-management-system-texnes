@@ -27,6 +27,12 @@ class Paper extends Model implements HasMedia
     protected $hidden = [];
     
     
+    public static function boot()
+    {
+        parent::boot();
+
+        Paper::observe(new \App\Observers\UserActionsObserver);
+    }
     
     public function art()
     {
