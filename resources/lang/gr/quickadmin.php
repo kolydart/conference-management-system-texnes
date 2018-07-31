@@ -8,6 +8,13 @@ return [
 		'reviews' => [		'title' => 'Κρίσεις',		'fields' => [			'paper' => 'Paper',			'review' => 'Review',			'comment' => 'Comment',			'user' => 'User',		],	],
 		'arts' => [		'title' => 'Τέχνες',		'fields' => [			'title' => 'Τίτλος',		],	],
 		'user-actions' => [		'title' => 'Ενέργειες χρηστών',		'created_at' => 'Ώρα',		'fields' => [			'user' => 'Χρήστης',			'action' => 'Ενέργεια',			'action-model' => 'Action model',			'action-id' => 'Action id',		],	],
+		'contact-management' => [		'title' => 'Contact management',		'fields' => [		],	],
+		'contact-companies' => [		'title' => 'Companies',		'fields' => [		],	],
+		'contacts' => [		'title' => 'Επαφές',		'fields' => [		],	],
+		'content-management' => [		'title' => 'Διαχείριση περιεχομένου',		'fields' => [		],	],
+		'content-categories' => [		'title' => 'Κατηγορίες',		'fields' => [			'title' => 'Κατηγορία',			'slug' => 'Slug',		],	],
+		'content-tags' => [		'title' => 'Ετικέτες',		'fields' => [			'title' => 'Ετικέτα',			'slug' => 'Slug',		],	],
+		'content-pages' => [		'title' => 'Σελίδες',		'fields' => [			'title' => 'Τίτλος',			'category-id' => 'Κατηγορίες',			'tag-id' => 'Ετικέτες',			'page-text' => 'Κείμενο',			'excerpt' => 'Απόσπασμα',			'featured-image' => 'Εικόνα εμφάνισης',		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',
