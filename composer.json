@@ -12,6 +12,7 @@
         "laravelcollective/html": "^5.5",
         "intervention/image": "^2.4",
         "doctrine/dbal": "^2.5",
+        "unisharp/laravel-filemanager": "^1.8",
         "spatie/laravel-medialibrary": "^6.0"
     },
     "require-dev": {
