@@ -46,6 +46,43 @@
                 </a>
             </li>@endcan
             
+            @can('content_management_access')
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-book"></i>
+                    <span>@lang('quickadmin.content-management.title')</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    @can('content_page_access')
+                    <li>
+                        <a href="{{ route('admin.content_pages.index') }}">
+                            <i class="fa fa-file-o"></i>
+                            <span>@lang('quickadmin.content-pages.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                    @can('content_category_access')
+                    <li>
+                        <a href="{{ route('admin.content_categories.index') }}">
+                            <i class="fa fa-folder"></i>
+                            <span>@lang('quickadmin.content-categories.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                    @can('content_tag_access')
+                    <li>
+                        <a href="{{ route('admin.content_tags.index') }}">
+                            <i class="fa fa-tags"></i>
+                            <span>@lang('quickadmin.content-tags.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                </ul>
+            </li>@endcan
+            
             @can('user_management_access')
             <li class="treeview">
                 <a href="#">
@@ -69,43 +106,6 @@
                         <a href="{{ route('admin.user_actions.index') }}">
                             <i class="fa fa-th-list"></i>
                             <span>@lang('quickadmin.user-actions.title')</span>
-                        </a>
-                    </li>@endcan
-                    
-                </ul>
-            </li>@endcan
-            
-            @can('content_management_access')
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-book"></i>
-                    <span>@lang('quickadmin.content-management.title')</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    @can('content_category_access')
-                    <li>
-                        <a href="{{ route('admin.content_categories.index') }}">
-                            <i class="fa fa-folder"></i>
-                            <span>@lang('quickadmin.content-categories.title')</span>
-                        </a>
-                    </li>@endcan
-                    
-                    @can('content_tag_access')
-                    <li>
-                        <a href="{{ route('admin.content_tags.index') }}">
-                            <i class="fa fa-tags"></i>
-                            <span>@lang('quickadmin.content-tags.title')</span>
-                        </a>
-                    </li>@endcan
-                    
-                    @can('content_page_access')
-                    <li>
-                        <a href="{{ route('admin.content_pages.index') }}">
-                            <i class="fa fa-file-o"></i>
-                            <span>@lang('quickadmin.content-pages.title')</span>
                         </a>
                     </li>@endcan
                     
