@@ -83,9 +83,9 @@
 <table class="table table-bordered table-striped {{ count($reviews) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
-            <th>@lang('quickadmin.reviews.fields.review')</th>
+            <th>@lang('quickadmin.reviews.fields.user')</th>
+                        <th>@lang('quickadmin.reviews.fields.review')</th>
                         <th>@lang('quickadmin.reviews.fields.comment')</th>
-                        <th>@lang('quickadmin.reviews.fields.user')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -98,9 +98,9 @@
         @if (count($reviews) > 0)
             @foreach ($reviews as $review)
                 <tr data-entry-id="{{ $review->id }}">
-                    <td field-key='review'>{{ $review->review }}</td>
+                    <td field-key='user'>{{ $review->user->name or '' }}</td>
+                                <td field-key='review'>{{ $review->review }}</td>
                                 <td field-key='comment'>{!! $review->comment !!}</td>
-                                <td field-key='user'>{{ $review->user->name or '' }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('review_delete')

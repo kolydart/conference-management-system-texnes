@@ -33,10 +33,10 @@
                             @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
                         @endcan
 
+                        <th>@lang('quickadmin.reviews.fields.user')</th>
                         <th>@lang('quickadmin.reviews.fields.paper')</th>
                         <th>@lang('quickadmin.reviews.fields.review')</th>
                         <th>@lang('quickadmin.reviews.fields.comment')</th>
-                        <th>@lang('quickadmin.reviews.fields.user')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -53,10 +53,10 @@
                                     @if ( request('show_deleted') != 1 )<td></td>@endif
                                 @endcan
 
+                                <td field-key='user'>{{ $review->user->name or '' }}</td>
                                 <td field-key='paper'>{{ $review->paper->title or '' }}</td>
                                 <td field-key='review'>{{ $review->review }}</td>
                                 <td field-key='comment'>{!! $review->comment !!}</td>
-                                <td field-key='user'>{{ $review->user->name or '' }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('review_delete')

@@ -46,10 +46,10 @@ class ReviewsController extends Controller
             return abort(401);
         }
         
-        $papers = \App\Paper::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $users = \App\User::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $papers = \App\Paper::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
-        return view('admin.reviews.create', compact('papers', 'users'));
+        return view('admin.reviews.create', compact('users', 'papers'));
     }
 
     /**
@@ -83,12 +83,12 @@ class ReviewsController extends Controller
             return abort(401);
         }
         
-        $papers = \App\Paper::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $users = \App\User::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $papers = \App\Paper::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         $review = Review::findOrFail($id);
 
-        return view('admin.reviews.edit', compact('review', 'papers', 'users'));
+        return view('admin.reviews.edit', compact('review', 'users', 'papers'));
     }
 
     /**

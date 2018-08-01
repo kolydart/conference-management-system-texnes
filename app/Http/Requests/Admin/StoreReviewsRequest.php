@@ -23,8 +23,8 @@ class StoreReviewsRequest extends FormRequest
     public function rules()
     {
         return [
-            'review' => 'required',
             'user_id' => 'required',
+            'review' => 'required',
         ];
     }
 }

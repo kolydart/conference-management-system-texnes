@@ -29,54 +29,21 @@
             </div><!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     
-<li role="presentation" class="active"><a href="#user_actions" aria-controls="user_actions" role="tab" data-toggle="tab">Ενέργειες χρηστών</a></li>
-<li role="presentation" class=""><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Κρίσεις</a></li>
+<li role="presentation" class="active"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Κρίσεις</a></li>
+<li role="presentation" class=""><a href="#user_actions" aria-controls="user_actions" role="tab" data-toggle="tab">Ενέργειες χρηστών</a></li>
 <li role="presentation" class=""><a href="#papers" aria-controls="papers" role="tab" data-toggle="tab">Προτάσεις</a></li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
     
-<div role="tabpanel" class="tab-pane active" id="user_actions">
-<table class="table table-bordered table-striped {{ count($user_actions) > 0 ? 'datatable' : '' }}">
-    <thead>
-        <tr>
-            <th>@lang('quickadmin.user-actions.created_at')</th>
-                        <th>@lang('quickadmin.user-actions.fields.user')</th>
-                        <th>@lang('quickadmin.user-actions.fields.action')</th>
-                        <th>@lang('quickadmin.user-actions.fields.action-model')</th>
-                        <th>@lang('quickadmin.user-actions.fields.action-id')</th>
-                        
-        </tr>
-    </thead>
-
-    <tbody>
-        @if (count($user_actions) > 0)
-            @foreach ($user_actions as $user_action)
-                <tr data-entry-id="{{ $user_action->id }}">
-                    <td>{{ $user_action->created_at or '' }}</td>
-                                <td field-key='user'>{{ $user_action->user->name or '' }}</td>
-                                <td field-key='action'>{{ $user_action->action }}</td>
-                                <td field-key='action_model'>{{ $user_action->action_model }}</td>
-                                <td field-key='action_id'>{{ $user_action->action_id }}</td>
-                                
-                </tr>
-            @endforeach
-        @else
-            <tr>
-                <td colspan="7">@lang('quickadmin.qa_no_entries_in_table')</td>
-            </tr>
-        @endif
-    </tbody>
-</table>
-</div>
-<div role="tabpanel" class="tab-pane " id="reviews">
+<div role="tabpanel" class="tab-pane active" id="reviews">
 <table class="table table-bordered table-striped {{ count($reviews) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
-            <th>@lang('quickadmin.reviews.fields.review')</th>
+            <th>@lang('quickadmin.reviews.fields.user')</th>
+                        <th>@lang('quickadmin.reviews.fields.review')</th>
                         <th>@lang('quickadmin.reviews.fields.comment')</th>
-                        <th>@lang('quickadmin.reviews.fields.user')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -89,9 +56,9 @@
         @if (count($reviews) > 0)
             @foreach ($reviews as $review)
                 <tr data-entry-id="{{ $review->id }}">
-                    <td field-key='review'>{{ $review->review }}</td>
+                    <td field-key='user'>{{ $review->user->name or '' }}</td>
+                                <td field-key='review'>{{ $review->review }}</td>
                                 <td field-key='comment'>{!! $review->comment !!}</td>
-                                <td field-key='user'>{{ $review->user->name or '' }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('review_delete')
@@ -137,6 +104,39 @@
         @else
             <tr>
                 <td colspan="9">@lang('quickadmin.qa_no_entries_in_table')</td>
+            </tr>
+        @endif
+    </tbody>
+</table>
+</div>
+<div role="tabpanel" class="tab-pane " id="user_actions">
+<table class="table table-bordered table-striped {{ count($user_actions) > 0 ? 'datatable' : '' }}">
+    <thead>
+        <tr>
+            <th>@lang('quickadmin.user-actions.created_at')</th>
+                        <th>@lang('quickadmin.user-actions.fields.user')</th>
+                        <th>@lang('quickadmin.user-actions.fields.action')</th>
+                        <th>@lang('quickadmin.user-actions.fields.action-model')</th>
+                        <th>@lang('quickadmin.user-actions.fields.action-id')</th>
+                        
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (count($user_actions) > 0)
+            @foreach ($user_actions as $user_action)
+                <tr data-entry-id="{{ $user_action->id }}">
+                    <td>{{ $user_action->created_at or '' }}</td>
+                                <td field-key='user'>{{ $user_action->user->name or '' }}</td>
+                                <td field-key='action'>{{ $user_action->action }}</td>
+                                <td field-key='action_model'>{{ $user_action->action_model }}</td>
+                                <td field-key='action_id'>{{ $user_action->action_id }}</td>
+                                
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="7">@lang('quickadmin.qa_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>
