@@ -188,7 +188,6 @@ return [
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         
-	App\Providers\GatewebServiceProvider::class,
         /*
          * Application Service Providers...
          */
