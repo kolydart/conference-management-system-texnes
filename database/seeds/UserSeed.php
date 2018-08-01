@@ -20,5 +20,7 @@ class UserSeed extends Seeder
         foreach ($items as $item) {
             \App\User::create($item);
         }
+
+        factory(\App\User::class,13)->create();
     }
 }
