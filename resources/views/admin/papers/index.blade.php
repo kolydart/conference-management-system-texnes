@@ -33,6 +33,7 @@
                             @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
                         @endcan
 
+                        <th>id</th>
                         <th>@lang('quickadmin.papers.fields.title')</th>
                         <th>@lang('quickadmin.papers.fields.art')</th>
                         <th>@lang('quickadmin.papers.fields.type')</th>
@@ -58,6 +59,7 @@
                                     @if ( request('show_deleted') != 1 )<td></td>@endif
                                 @endcan
 
+                                <td field-key='id'>{{$paper->id}}</td>
                                 <td field-key='title'>
                                     @if (Gate::allows('paper_view'))
                                         <a href="{{ route('admin.papers.show',[$paper->id]) }}" >{{ $paper->title }}</a>
