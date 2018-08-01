@@ -30,6 +30,14 @@
                 </a>
             </li>@endcan
             
+            @can('file_access')
+            <li>
+                <a href="{{ route('admin.files.index') }}">
+                    <i class="fa fa-file-text-o"></i>
+                    <span>@lang('quickadmin.files.title')</span>
+                </a>
+            </li>@endcan
+            
             @can('art_access')
             <li>
                 <a href="{{ route('admin.arts.index') }}">

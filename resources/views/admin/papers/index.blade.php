@@ -40,7 +40,6 @@
                         <th>@lang('quickadmin.papers.fields.name')</th>
                         <th>@lang('quickadmin.papers.fields.email')</th>
                         <th>@lang('quickadmin.papers.fields.attribute')</th>
-                        <th>@lang('quickadmin.papers.fields.finalcontent')</th>
                         <th>@lang('quickadmin.papers.fields.phone')</th>
                         <th>@lang('quickadmin.papers.fields.status')</th>
                         <th>@lang('quickadmin.papers.fields.informed')</th>
@@ -71,11 +70,6 @@
                                 <td field-key='name'>{{ $paper->name }}</td>
                                 <td field-key='email'>{{ $paper->email }}</td>
                                 <td field-key='attribute'>{{ $paper->attribute }}</td>
-                                <td field-key='finalcontent'> @foreach($paper->getMedia('finalcontent') as $media)
-                                <p class="form-group">
-                                    <a href="{{ $media->getUrl() }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
-                                </p>
-                            @endforeach</td>
                                 <td field-key='phone'>{{ $paper->phone }}</td>
                                 <td field-key='status'>{{ $paper->status }}</td>
                                 <td field-key='informed'>{{ $paper->informed }}</td>
@@ -123,7 +117,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="18">@lang('quickadmin.qa_no_entries_in_table')</td>
+                            <td colspan="17">@lang('quickadmin.qa_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>

@@ -83,12 +83,6 @@ class PapersController extends Controller
             $file->model_id = $paper->id;
             $file->save();
         }
-        foreach ($request->input('finalcontent_id', []) as $index => $id) {
-            $model          = config('laravel-medialibrary.media_model');
-            $file           = $model::find($id);
-            $file->model_id = $paper->id;
-            $file->save();
-        }
 
         return redirect()->route('admin.papers.index');
     }
@@ -161,15 +155,6 @@ class PapersController extends Controller
             $media[] = $file->toArray();
         }
         $paper->updateMedia($media, 'document');
-        $media = [];
-        foreach ($request->input('finalcontent_id', []) as $index => $id) {
-            $model          = config('laravel-medialibrary.media_model');
-            $file           = $model::find($id);
-            $file->model_id = $paper->id;
-            $file->save();
-            $media[] = $file->toArray();
-        }
-        $paper->updateMedia($media, 'finalcontent');
 
         return redirect()->route('admin.papers.index');
     }
@@ -190,11 +175,11 @@ class PapersController extends Controller
         $arts = \App\Art::get()->pluck('title', 'id');
 
         $assigns = \App\User::get()->pluck('name', 'id');
-$reviews = \App\Review::where('paper_id', $id)->get();
+$files = \App\File::where('paper_id', $id)->get();$reviews = \App\Review::where('paper_id', $id)->get();
 
         $paper = Paper::findOrFail($id);
 
-        return view('admin.papers.show', compact('paper', 'reviews'));
+        return view('admin.papers.show', compact('paper', 'files', 'reviews'));
     }
 
 

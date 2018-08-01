@@ -181,5 +181,22 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1]);
         });
 
+        // Auth gates for: Files
+        Gate::define('file_access', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('file_create', function ($user) {
+            return in_array($user->role_id, [1, 3]);
+        });
+        Gate::define('file_edit', function ($user) {
+            return in_array($user->role_id, [1, 3]);
+        });
+        Gate::define('file_view', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('file_delete', function ($user) {
+            return in_array($user->role_id, [1, 3]);
+        });
+
     }
 }

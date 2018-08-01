@@ -181,6 +181,18 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
+                    {!! Form::label('phone', trans('quickadmin.papers.fields.phone').'', ['class' => 'control-label']) !!}
+                    {!! Form::text('phone', old('phone'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('phone'))
+                        <p class="help-block">
+                            {{ $errors->first('phone') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
                     {!! Form::label('document', trans('quickadmin.papers.fields.document').'', ['class' => 'control-label']) !!}
                     {!! Form::file('document[]', [
                         'multiple',
@@ -205,48 +217,6 @@
                     @if($errors->has('document'))
                         <p class="help-block">
                             {{ $errors->first('document') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('finalcontent', trans('quickadmin.papers.fields.finalcontent').'', ['class' => 'control-label']) !!}
-                    {!! Form::file('finalcontent[]', [
-                        'multiple',
-                        'class' => 'form-control file-upload',
-                        'data-url' => route('admin.media.upload'),
-                        'data-bucket' => 'finalcontent',
-                        'data-filekey' => 'finalcontent',
-                        ]) !!}
-                    <p class="help-block"></p>
-                    <div class="photo-block">
-                        <div class="progress-bar form-group">&nbsp;</div>
-                        <div class="files-list">
-                            @foreach($paper->getMedia('finalcontent') as $media)
-                                <p class="form-group">
-                                    <a href="{{ $media->getUrl() }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
-                                    <a href="#" class="btn btn-xs btn-danger remove-file">Remove</a>
-                                    <input type="hidden" name="finalcontent_id[]" value="{{ $media->id }}">
-                                </p>
-                            @endforeach
-                        </div>
-                    </div>
-                    @if($errors->has('finalcontent'))
-                        <p class="help-block">
-                            {{ $errors->first('finalcontent') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('phone', trans('quickadmin.papers.fields.phone').'', ['class' => 'control-label']) !!}
-                    {!! Form::text('phone', old('phone'), ['class' => 'form-control', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('phone'))
-                        <p class="help-block">
-                            {{ $errors->first('phone') }}
                         </p>
                     @endif
                 </div>

@@ -179,7 +179,6 @@
                                 <td field-key='name'>{{ $paper->name }}</td>
                                 <td field-key='email'>{{ $paper->email }}</td>
                                 <td field-key='attribute'>{{ $paper->attribute }}</td>
-                                <td field-key='finalcontent'>@if($paper->finalcontent)<a href="{{ asset(env('UPLOAD_PATH').'/' . $paper->finalcontent) }}" target="_blank">Download file</a>@endif</td>
                                 <td field-key='phone'>{{ $paper->phone }}</td>
                                 <td field-key='status'>{{ $paper->status }}</td>
                                 <td field-key='informed'>{{ $paper->informed }}</td>
@@ -227,7 +226,7 @@
             @endforeach
         @else
             <tr>
-                <td colspan="18">@lang('quickadmin.qa_no_entries_in_table')</td>
+                <td colspan="17">@lang('quickadmin.qa_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>
