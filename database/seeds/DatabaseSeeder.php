@@ -16,5 +16,10 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeed::class);
         $this->call(UserSeed::class);
 
+        $this->call(ArtSeed::class);
+        $this->call(PaperSeed::class);
+        $this->call(DocumentSeed::class);
+        $this->call(UserActionSeed::class);
+        $this->call(ReviewSeed::class);
     }
 }
