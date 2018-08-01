@@ -202,6 +202,40 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
+                    {!! Form::label('finalcontent', trans('quickadmin.papers.fields.finalcontent').'', ['class' => 'control-label']) !!}
+                    {!! Form::file('finalcontent[]', [
+                        'multiple',
+                        'class' => 'form-control file-upload',
+                        'data-url' => route('admin.media.upload'),
+                        'data-bucket' => 'finalcontent',
+                        'data-filekey' => 'finalcontent',
+                        ]) !!}
+                    <p class="help-block"></p>
+                    <div class="photo-block">
+                        <div class="progress-bar form-group">&nbsp;</div>
+                        <div class="files-list"></div>
+                    </div>
+                    @if($errors->has('finalcontent'))
+                        <p class="help-block">
+                            {{ $errors->first('finalcontent') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('phone', trans('quickadmin.papers.fields.phone').'', ['class' => 'control-label']) !!}
+                    {!! Form::text('phone', old('phone'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('phone'))
+                        <p class="help-block">
+                            {{ $errors->first('phone') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
                     {!! Form::label('assign', trans('quickadmin.papers.fields.assign').'', ['class' => 'control-label']) !!}
                     <button type="button" class="btn btn-primary btn-xs" id="selectbtn-assign">
                         {{ trans('quickadmin.qa_select_all') }}

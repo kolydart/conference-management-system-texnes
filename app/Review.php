@@ -3,7 +3,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * Class Review
@@ -16,11 +15,6 @@ use Spatie\Activitylog\Traits\LogsActivity;
 */
 class Review extends Model
 {
-    use LogsActivity;
-    /** log dirty fillable */
-    protected static $logFillable = true;       
-    protected static $logOnlyDirty = true;          
-
     use SoftDeletes;
 
     protected $fillable = ['review', 'comment', 'user_id', 'paper_id'];

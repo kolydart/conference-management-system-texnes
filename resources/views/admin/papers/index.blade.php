@@ -33,7 +33,6 @@
                             @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
                         @endcan
 
-                        <th>id</th>
                         <th>@lang('quickadmin.papers.fields.title')</th>
                         <th>@lang('quickadmin.papers.fields.art')</th>
                         <th>@lang('quickadmin.papers.fields.type')</th>
@@ -41,6 +40,8 @@
                         <th>@lang('quickadmin.papers.fields.name')</th>
                         <th>@lang('quickadmin.papers.fields.email')</th>
                         <th>@lang('quickadmin.papers.fields.attribute')</th>
+                        <th>@lang('quickadmin.papers.fields.finalcontent')</th>
+                        <th>@lang('quickadmin.papers.fields.phone')</th>
                         <th>@lang('quickadmin.papers.fields.status')</th>
                         <th>@lang('quickadmin.papers.fields.informed')</th>
                         @if( request('show_deleted') == 1 )
@@ -59,14 +60,7 @@
                                     @if ( request('show_deleted') != 1 )<td></td>@endif
                                 @endcan
 
-                                <td field-key='id'>{{$paper->id}}</td>
-                                <td field-key='title'>
-                                    @if (Gate::allows('paper_view'))
-                                        <a href="{{ route('admin.papers.show',[$paper->id]) }}" >{{ $paper->title }}</a>
-                                    @else
-                                        {{ $paper->title }}
-                                    @endif
-                                </td>
+                                <td field-key='title'>{{ $paper->title }}</td>
                                 <td field-key='art'>
                                     @foreach ($paper->art as $singleArt)
                                         <span class="label label-info label-many">{{ $singleArt->title }}</span>
@@ -77,6 +71,12 @@
                                 <td field-key='name'>{{ $paper->name }}</td>
                                 <td field-key='email'>{{ $paper->email }}</td>
                                 <td field-key='attribute'>{{ $paper->attribute }}</td>
+                                <td field-key='finalcontent'> @foreach($paper->getMedia('finalcontent') as $media)
+                                <p class="form-group">
+                                    <a href="{{ $media->getUrl() }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
+                                </p>
+                            @endforeach</td>
+                                <td field-key='phone'>{{ $paper->phone }}</td>
                                 <td field-key='status'>{{ $paper->status }}</td>
                                 <td field-key='informed'>{{ $paper->informed }}</td>
                                 @if( request('show_deleted') == 1 )
@@ -123,7 +123,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="16">@lang('quickadmin.qa_no_entries_in_table')</td>
+                            <td colspan="18">@lang('quickadmin.qa_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>

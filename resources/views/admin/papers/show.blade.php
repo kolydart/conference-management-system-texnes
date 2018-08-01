@@ -13,10 +13,6 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <th>id</th>
-                            <td field-key='id'>{{ $paper->id }}</td>
-                        </tr>
-                        <tr>
                             <th>@lang('quickadmin.papers.fields.title')</th>
                             <td field-key='title'>{{ $paper->title }}</td>
                         </tr>
@@ -55,6 +51,18 @@
                                     <a href="{{ $media->getUrl() }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
                                 </p>
                             @endforeach</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.papers.fields.finalcontent')</th>
+                            <td field-key='finalcontent's> @foreach($paper->getMedia('finalcontent') as $media)
+                                <p class="form-group">
+                                    <a href="{{ $media->getUrl() }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
+                                </p>
+                            @endforeach</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.papers.fields.phone')</th>
+                            <td field-key='phone'>{{ $paper->phone }}</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.papers.fields.assign')</th>

@@ -3,7 +3,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * Class Art
@@ -13,11 +12,6 @@ use Spatie\Activitylog\Traits\LogsActivity;
 */
 class Art extends Model
 {
-	use LogsActivity;
-	/** log dirty fillable */
-	protected static $logFillable = true;	    
-	protected static $logOnlyDirty = true;			
-
     use SoftDeletes;
 
     protected $fillable = ['title'];

@@ -8,7 +8,7 @@ $(document).ready(function () {
     }
     window.dtDefaultOptions = {
         retrieve: true,
-        dom: '<"col-xs-12"i>lBfrtip<"actions">',
+        dom: 'lBfrtip<"actions">',
         columnDefs: [],
         "iDisplayLength": 100,
         "aaSorting": [],
