@@ -168,7 +168,13 @@
         @if (count($papers) > 0)
             @foreach ($papers as $paper)
                 <tr data-entry-id="{{ $paper->id }}">
-                    <td field-key='title'>{{ $paper->title }}</td>
+                        <td field-key='title'>
+                            @if (Gate::allows('paper_view'))
+                                <a href="{{ route('admin.papers.show',[$paper->id]) }}" >{{ $paper->title }}</a>
+                            @else
+                                {{ $paper->title }}
+                            @endif
+                        </td>
                                 <td field-key='art'>
                                     @foreach ($paper->art as $singleArt)
                                         <span class="label label-info label-many">{{ $singleArt->title }}</span>
