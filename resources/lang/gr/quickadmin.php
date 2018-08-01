@@ -11,7 +11,7 @@ return [
 		'contact-management' => [		'title' => 'Contact management',		'fields' => [		],	],
 		'contact-companies' => [		'title' => 'Companies',		'fields' => [		],	],
 		'contacts' => [		'title' => 'Επαφές',		'fields' => [		],	],
-		'content-management' => [		'title' => 'Διαχείριση περιεχομένου',		'fields' => [		],	],
+		'content-management' => [		'title' => 'Στατικό περιεχόμενο',		'fields' => [		],	],
 		'content-categories' => [		'title' => 'Κατηγορίες',		'fields' => [			'title' => 'Κατηγορία',			'slug' => 'Slug',		],	],
 		'content-tags' => [		'title' => 'Ετικέτες',		'fields' => [			'title' => 'Ετικέτα',			'slug' => 'Slug',		],	],
 		'content-pages' => [		'title' => 'Σελίδες',		'fields' => [			'title' => 'Τίτλος',			'category-id' => 'Κατηγορίες',			'tag-id' => 'Ετικέτες',			'page-text' => 'Κείμενο',			'excerpt' => 'Απόσπασμα',			'featured-image' => 'Εικόνα εμφάνισης',		],	],
