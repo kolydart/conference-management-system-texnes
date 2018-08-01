@@ -46,6 +46,14 @@
                 </a>
             </li>@endcan
             
+            @can('message_access')
+            <li>
+                <a href="{{ route('admin.messages.index') }}">
+                    <i class="fa fa-envelope-o"></i>
+                    <span>@lang('quickadmin.messages.title')</span>
+                </a>
+            </li>@endcan
+            
             @can('user_access')
             <li>
                 <a href="{{ route('admin.users.index') }}">

@@ -16,6 +16,7 @@ return [
 		'content-tags' => [		'title' => 'Ετικέτες',		'fields' => [			'title' => 'Ετικέτα',			'slug' => 'Slug',		],	],
 		'content-pages' => [		'title' => 'Σελίδες',		'fields' => [			'title' => 'Τίτλος',			'category-id' => 'Κατηγορίες',			'tag-id' => 'Ετικέτες',			'page-text' => 'Κείμενο',			'excerpt' => 'Απόσπασμα',			'featured-image' => 'Εικόνα εμφάνισης',		],	],
 		'files' => [		'title' => 'Τελικά κείμενα',		'fields' => [			'paper' => 'Paper',			'finaltext' => 'Τελικό(ά) αρχείο(α)',		],	],
+		'messages' => [		'title' => 'Μηνύματα',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'body' => 'Body',			'paper' => 'Paper',		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',

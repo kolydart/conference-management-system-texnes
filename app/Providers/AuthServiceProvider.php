@@ -64,6 +64,23 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1]);
         });
 
+        // Auth gates for: Files
+        Gate::define('file_access', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('file_create', function ($user) {
+            return in_array($user->role_id, [1, 3]);
+        });
+        Gate::define('file_edit', function ($user) {
+            return in_array($user->role_id, [1, 3]);
+        });
+        Gate::define('file_view', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('file_delete', function ($user) {
+            return in_array($user->role_id, [1, 3]);
+        });
+
         // Auth gates for: Arts
         Gate::define('art_access', function ($user) {
             return in_array($user->role_id, [1, 3]);
@@ -78,6 +95,23 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1, 3]);
         });
         Gate::define('art_delete', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+
+        // Auth gates for: Messages
+        Gate::define('message_access', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('message_create', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('message_edit', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('message_view', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('message_delete', function ($user) {
             return in_array($user->role_id, [1]);
         });
 
@@ -179,23 +213,6 @@ class AuthServiceProvider extends ServiceProvider
         // Auth gates for: User actions
         Gate::define('user_action_access', function ($user) {
             return in_array($user->role_id, [1]);
-        });
-
-        // Auth gates for: Files
-        Gate::define('file_access', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
-        });
-        Gate::define('file_create', function ($user) {
-            return in_array($user->role_id, [1, 3]);
-        });
-        Gate::define('file_edit', function ($user) {
-            return in_array($user->role_id, [1, 3]);
-        });
-        Gate::define('file_view', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
-        });
-        Gate::define('file_delete', function ($user) {
-            return in_array($user->role_id, [1, 3]);
         });
 
     }

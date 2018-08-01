@@ -175,11 +175,11 @@ class PapersController extends Controller
         $arts = \App\Art::get()->pluck('title', 'id');
 
         $assigns = \App\User::get()->pluck('name', 'id');
-$files = \App\File::where('paper_id', $id)->get();$reviews = \App\Review::where('paper_id', $id)->get();
+$files = \App\File::where('paper_id', $id)->get();$reviews = \App\Review::where('paper_id', $id)->get();$messages = \App\Message::where('paper_id', $id)->get();
 
         $paper = Paper::findOrFail($id);
 
-        return view('admin.papers.show', compact('paper', 'files', 'reviews'));
+        return view('admin.papers.show', compact('paper', 'files', 'reviews', 'messages'));
     }
 
 
