@@ -2,6 +2,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * Class Role
@@ -11,6 +12,11 @@ use Illuminate\Database\Eloquent\Model;
 */
 class Role extends Model
 {
+	use LogsActivity;
+	/** log dirty fillable */
+	protected static $logFillable = true;	    
+	protected static $logOnlyDirty = true;			
+
     protected $fillable = ['title'];
     protected $hidden = [];
     
