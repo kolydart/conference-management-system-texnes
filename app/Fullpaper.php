@@ -7,13 +7,13 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
 /**
- * Class File
+ * Class Fullpaper
  *
  * @package App
  * @property string $paper
  * @property string $description
 */
-class File extends Model implements HasMedia
+class Fullpaper extends Model implements HasMedia
 {
     use SoftDeletes, HasMediaTrait;
 
@@ -25,7 +25,7 @@ class File extends Model implements HasMedia
     {
         parent::boot();
 
-        File::observe(new \App\Observers\UserActionsObserver);
+        Fullpaper::observe(new \App\Observers\UserActionsObserver);
     }
 
     /**

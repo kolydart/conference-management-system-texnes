@@ -3,7 +3,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateFilesRequest extends FormRequest
+class StoreFullpapersRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,6 @@ class UpdateFilesRequest extends FormRequest
     public function rules()
     {
         return [
-            
             'paper_id' => 'required',
         ];
     }

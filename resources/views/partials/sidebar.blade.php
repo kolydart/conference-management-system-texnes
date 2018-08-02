@@ -30,11 +30,11 @@
                 </a>
             </li>@endcan
             
-            @can('file_access')
+            @can('fullpaper_access')
             <li>
-                <a href="{{ route('admin.files.index') }}">
+                <a href="{{ route('admin.fullpapers.index') }}">
                     <i class="fa fa-file-text-o"></i>
-                    <span>@lang('quickadmin.files.title')</span>
+                    <span>@lang('quickadmin.fullpaper.title')</span>
                 </a>
             </li>@endcan
             
