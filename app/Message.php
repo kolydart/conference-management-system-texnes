@@ -3,6 +3,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * Class Message
@@ -15,6 +16,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 */
 class Message extends Model
 {
+    use LogsActivity;
+    /** log dirty fillable */
+    protected static $logFillable = true;       
+    protected static $logOnlyDirty = true;          
+
     use SoftDeletes;
 
     protected $fillable = ['name', 'email', 'body', 'paper_id'];

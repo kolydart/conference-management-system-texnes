@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * Class File
@@ -15,6 +16,11 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 */
 class File extends Model implements HasMedia
 {
+    use LogsActivity;
+    /** log dirty fillable */
+    protected static $logFillable = true;       
+    protected static $logOnlyDirty = true;          
+
     use SoftDeletes, HasMediaTrait;
 
     protected $fillable = ['description', 'paper_id'];
