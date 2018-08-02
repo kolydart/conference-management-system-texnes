@@ -134,7 +134,7 @@ class AuthServiceProvider extends ServiceProvider
 
         // Auth gates for: Content management
         Gate::define('content_management_access', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1]);
         });
 
         // Auth gates for: Content pages

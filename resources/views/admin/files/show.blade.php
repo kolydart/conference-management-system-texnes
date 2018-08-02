@@ -24,6 +24,10 @@
                                 </p>
                             @endforeach</td>
                         </tr>
+                        <tr>
+                            <th>@lang('quickadmin.files.fields.description')</th>
+                            <td field-key='description'>{{ $file->description }}</td>
+                        </tr>
                     </table>
                 </div>
             </div>

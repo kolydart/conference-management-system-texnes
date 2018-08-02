@@ -53,6 +53,18 @@
                     @endif
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('description', trans('quickadmin.files.fields.description').'', ['class' => 'control-label']) !!}
+                    {!! Form::text('description', old('description'), ['class' => 'form-control', 'placeholder' => 'Σύντομη περιγραφή (προαιρετικό)']) !!}
+                    <p class="help-block">Σύντομη περιγραφή (προαιρετικό)</p>
+                    @if($errors->has('description'))
+                        <p class="help-block">
+                            {{ $errors->first('description') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
             
         </div>
     </div>

@@ -90,6 +90,7 @@
     <thead>
         <tr>
             <th>@lang('quickadmin.files.fields.paper')</th>
+                        <th>@lang('quickadmin.files.fields.description')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -104,6 +105,7 @@
                 <tr data-entry-id="{{ $file->id }}">
                     <td field-key='paper'>{{ $file->paper->title or '' }}</td>
                                 <td field-key='finaltext'>@if($file->finaltext)<a href="{{ asset(env('UPLOAD_PATH').'/' . $file->finaltext) }}" target="_blank">Download file</a>@endif</td>
+                                <td field-key='description'>{{ $file->description }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('file_delete')
@@ -148,7 +150,7 @@
             @endforeach
         @else
             <tr>
-                <td colspan="7">@lang('quickadmin.qa_no_entries_in_table')</td>
+                <td colspan="8">@lang('quickadmin.qa_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>

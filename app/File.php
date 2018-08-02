@@ -11,12 +11,13 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
  *
  * @package App
  * @property string $paper
+ * @property string $description
 */
 class File extends Model implements HasMedia
 {
     use SoftDeletes, HasMediaTrait;
 
-    protected $fillable = ['paper_id'];
+    protected $fillable = ['description', 'paper_id'];
     protected $hidden = [];
     
     
