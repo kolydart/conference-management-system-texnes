@@ -14,7 +14,14 @@
                     <table class="table table-bordered table-striped">
                         <tr>
                             <th>@lang('quickadmin.fullpaper.fields.paper')</th>
-                            <td field-key='paper'>{{ $fullpaper->paper->title or '' }}</td>
+                            <td field-key='paper'>
+                                @if (Gate::allows('paper_view'))
+                                    <a href="{{ route('admin.papers.show',[$fullpaper->paper->id]) }}" >{{ $fullpaper->paper->title }}</a>
+                                @else
+                                    {{ $fullpaper->paper->title }}
+                                @endif
+                            </td>
+
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.fullpaper.fields.finaltext')</th>

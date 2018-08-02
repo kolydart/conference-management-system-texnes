@@ -52,7 +52,13 @@
                                     @if ( request('show_deleted') != 1 )<td></td>@endif
                                 @endcan
 
-                                <td field-key='paper'>{{ $fullpaper->paper->title or '' }}</td>
+                                <td field-key='paper'>
+                                    @if (Gate::allows('paper_view'))
+                                        <a href="{{ route('admin.papers.show',[$fullpaper->paper->id]) }}" >{{ $fullpaper->paper->title }}</a>
+                                    @else
+                                        {{ $fullpaper->paper->title }}
+                                    @endif
+                                </td>
                                 <td field-key='finaltext'> @foreach($fullpaper->getMedia('finaltext') as $media)
                                 <p class="form-group">
                                     <a href="{{ "/storage/".$media->id."/".rawurlencode($media->file_name) }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
