@@ -35,6 +35,7 @@
 
                         <th>@lang('quickadmin.files.fields.paper')</th>
                         <th>@lang('quickadmin.files.fields.finaltext')</th>
+                        <th>@lang('quickadmin.files.fields.description')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -57,6 +58,7 @@
                                     <a href="{{ $media->getUrl() }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
                                 </p>
                             @endforeach</td>
+                                <td field-key='description'>{{ $file->description }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('file_delete')
@@ -101,7 +103,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="7">@lang('quickadmin.qa_no_entries_in_table')</td>
+                            <td colspan="8">@lang('quickadmin.qa_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>
