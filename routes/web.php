@@ -27,10 +27,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('reviews_mass_destroy', ['uses' => 'Admin\ReviewsController@massDestroy', 'as' => 'reviews.mass_destroy']);
     Route::post('reviews_restore/{id}', ['uses' => 'Admin\ReviewsController@restore', 'as' => 'reviews.restore']);
     Route::delete('reviews_perma_del/{id}', ['uses' => 'Admin\ReviewsController@perma_del', 'as' => 'reviews.perma_del']);
-    Route::resource('files', 'Admin\FilesController');
-    Route::post('files_mass_destroy', ['uses' => 'Admin\FilesController@massDestroy', 'as' => 'files.mass_destroy']);
-    Route::post('files_restore/{id}', ['uses' => 'Admin\FilesController@restore', 'as' => 'files.restore']);
-    Route::delete('files_perma_del/{id}', ['uses' => 'Admin\FilesController@perma_del', 'as' => 'files.perma_del']);
+    Route::resource('fullpapers', 'Admin\FullpapersController');
+    Route::post('fullpapers_mass_destroy', ['uses' => 'Admin\FullpapersController@massDestroy', 'as' => 'fullpapers.mass_destroy']);
+    Route::post('fullpapers_restore/{id}', ['uses' => 'Admin\FullpapersController@restore', 'as' => 'fullpapers.restore']);
+    Route::delete('fullpapers_perma_del/{id}', ['uses' => 'Admin\FullpapersController@perma_del', 'as' => 'fullpapers.perma_del']);
     Route::resource('arts', 'Admin\ArtsController');
     Route::post('arts_mass_destroy', ['uses' => 'Admin\ArtsController@massDestroy', 'as' => 'arts.mass_destroy']);
     Route::post('arts_restore/{id}', ['uses' => 'Admin\ArtsController@restore', 'as' => 'arts.restore']);

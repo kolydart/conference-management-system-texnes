@@ -8,13 +8,13 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
- * Class File
+ * Class Fullpaper
  *
  * @package App
  * @property string $paper
  * @property string $description
 */
-class File extends Model implements HasMedia
+class Fullpaper extends Model implements HasMedia
 {
     use LogsActivity;
     /** log dirty fillable */
@@ -31,7 +31,7 @@ class File extends Model implements HasMedia
     {
         parent::boot();
 
-        File::observe(new \App\Observers\UserActionsObserver);
+        Fullpaper::observe(new \App\Observers\UserActionsObserver);
     }
 
     /**

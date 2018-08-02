@@ -81,7 +81,7 @@
             </div><!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     
-<li role="presentation" class="active"><a href="#files" aria-controls="files" role="tab" data-toggle="tab">Τελικά κείμενα</a></li>
+<li role="presentation" class="active"><a href="#fullpaper" aria-controls="fullpaper" role="tab" data-toggle="tab">Τελικά κείμενα</a></li>
 <li role="presentation" class=""><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Κρίσεις</a></li>
 <li role="presentation" class=""><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Μηνύματα</a></li>
 </ul>
@@ -89,12 +89,12 @@
 <!-- Tab panes -->
 <div class="tab-content">
     
-<div role="tabpanel" class="tab-pane active" id="files">
-<table class="table table-bordered table-striped {{ count($files) > 0 ? 'datatable' : '' }}">
+<div role="tabpanel" class="tab-pane active" id="fullpaper">
+<table class="table table-bordered table-striped {{ count($fullpapers) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
-            <th>@lang('quickadmin.files.fields.paper')</th>
-                        <th>@lang('quickadmin.files.fields.description')</th>
+            <th>@lang('quickadmin.fullpaper.fields.paper')</th>
+                        <th>@lang('quickadmin.fullpaper.fields.description')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -104,47 +104,47 @@
     </thead>
 
     <tbody>
-        @if (count($files) > 0)
-            @foreach ($files as $file)
-                <tr data-entry-id="{{ $file->id }}">
-                    <td field-key='paper'>{{ $file->paper->title or '' }}</td>
-                                <td field-key='finaltext'>@if($file->finaltext)<a href="{{ asset(env('UPLOAD_PATH').'/' . $file->finaltext) }}" target="_blank">Download file</a>@endif</td>
-                                <td field-key='description'>{{ $file->description }}</td>
+        @if (count($fullpapers) > 0)
+            @foreach ($fullpapers as $fullpaper)
+                <tr data-entry-id="{{ $fullpaper->id }}">
+                    <td field-key='paper'>{{ $fullpaper->paper->title or '' }}</td>
+                                <td field-key='finaltext'>@if($fullpaper->finaltext)<a href="{{ asset(env('UPLOAD_PATH').'/' . $fullpaper->finaltext) }}" target="_blank">Download file</a>@endif</td>
+                                <td field-key='description'>{{ $fullpaper->description }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
-                                    @can('file_delete')
+                                    @can('fullpaper_delete')
                                                                         {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'POST',
                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.files.restore', $file->id])) !!}
+                                        'route' => ['admin.fullpapers.restore', $fullpaper->id])) !!}
                                     {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
                                     {!! Form::close() !!}
                                 @endcan
-                                    @can('file_delete')
+                                    @can('fullpaper_delete')
                                                                         {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.files.perma_del', $file->id])) !!}
+                                        'route' => ['admin.fullpapers.perma_del', $fullpaper->id])) !!}
                                     {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
                                     {!! Form::close() !!}
                                 @endcan
                                 </td>
                                 @else
                                 <td>
-                                    @can('file_view')
-                                    <a href="{{ route('admin.files.show',[$file->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    @can('fullpaper_view')
+                                    <a href="{{ route('admin.fullpapers.show',[$fullpaper->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
                                     @endcan
-                                    @can('file_edit')
-                                    <a href="{{ route('admin.files.edit',[$file->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                    @can('fullpaper_edit')
+                                    <a href="{{ route('admin.fullpapers.edit',[$fullpaper->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
                                     @endcan
-                                    @can('file_delete')
+                                    @can('fullpaper_delete')
 {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.files.destroy', $file->id])) !!}
+                                        'route' => ['admin.fullpapers.destroy', $fullpaper->id])) !!}
                                     {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                                     {!! Form::close() !!}
                                     @endcan

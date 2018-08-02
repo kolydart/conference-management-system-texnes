@@ -1,18 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.files.title')</h3>
-    {!! Form::open(['method' => 'POST', 'route' => ['admin.files.store'], 'files' => true,]) !!}
+    <h3 class="page-title">@lang('quickadmin.fullpaper.title')</h3>
+    
+    {!! Form::model($fullpaper, ['method' => 'PUT', 'route' => ['admin.fullpapers.update', $fullpaper->id], 'files' => true,]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            @lang('quickadmin.qa_create')
+            @lang('quickadmin.qa_edit')
         </div>
-        
+
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('paper_id', trans('quickadmin.files.fields.paper').'*', ['class' => 'control-label']) !!}
+                    {!! Form::label('paper_id', trans('quickadmin.fullpaper.fields.paper').'*', ['class' => 'control-label']) !!}
                     {!! Form::select('paper_id', $papers, old('paper_id'), ['class' => 'form-control select2', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('paper_id'))
@@ -24,7 +25,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('finaltext', trans('quickadmin.files.fields.finaltext').'*', ['class' => 'control-label']) !!}
+                    {!! Form::label('finaltext', trans('quickadmin.fullpaper.fields.finaltext').'*', ['class' => 'control-label']) !!}
                     {!! Form::file('finaltext[]', [
                         'multiple',
                         'class' => 'form-control file-upload',
@@ -35,7 +36,15 @@
                     <p class="help-block"></p>
                     <div class="photo-block">
                         <div class="progress-bar form-group">&nbsp;</div>
-                        <div class="files-list"></div>
+                        <div class="files-list">
+                            @foreach($fullpaper->getMedia('finaltext') as $media)
+                                <p class="form-group">
+                                    <a href="{{ $media->getUrl() }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
+                                    <a href="#" class="btn btn-xs btn-danger remove-file">Remove</a>
+                                    <input type="hidden" name="finaltext_id[]" value="{{ $media->id }}">
+                                </p>
+                            @endforeach
+                        </div>
                     </div>
                     @if($errors->has('finaltext'))
                         <p class="help-block">
@@ -46,9 +55,9 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('description', trans('quickadmin.files.fields.description').'', ['class' => 'control-label']) !!}
-                    {!! Form::text('description', old('description'), ['class' => 'form-control', 'placeholder' => 'Σύντομη περιγραφή (προαιρετικό)']) !!}
-                    <p class="help-block">Σύντομη περιγραφή (προαιρετικό)</p>
+                    {!! Form::label('description', trans('quickadmin.fullpaper.fields.description').'', ['class' => 'control-label']) !!}
+                    {!! Form::text('description', old('description'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
                     @if($errors->has('description'))
                         <p class="help-block">
                             {{ $errors->first('description') }}
@@ -60,7 +69,7 @@
         </div>
     </div>
 
-    {!! Form::submit(trans('quickadmin.qa_save'), ['class' => 'btn btn-danger']) !!}
+    {!! Form::submit(trans('quickadmin.qa_update'), ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
 @stop
 
@@ -78,7 +87,7 @@
                 $(this).fileupload({
                     dataType: 'json',
                     formData: {
-                        model_name: 'File',
+                        model_name: 'Fullpaper',
                         bucket: $this.data('bucket'),
                         file_key: $this.data('filekey'),
                         _token: '{{ csrf_token() }}'

@@ -1,6 +1,6 @@
 <?php
 
-$factory->define(App\File::class, function (Faker\Generator $faker) {
+$factory->define(App\Fullpaper::class, function (Faker\Generator $faker) {
     return [
         "paper_id" => factory('App\Paper')->create(),
         "description" => $faker->name,

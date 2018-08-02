@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.files.title')</h3>
+    <h3 class="page-title">@lang('quickadmin.fullpaper.title')</h3>
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -13,20 +13,20 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <th>@lang('quickadmin.files.fields.paper')</th>
-                            <td field-key='paper'>{{ $file->paper->title or '' }}</td>
+                            <th>@lang('quickadmin.fullpaper.fields.paper')</th>
+                            <td field-key='paper'>{{ $fullpaper->paper->title or '' }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.files.fields.finaltext')</th>
-                            <td field-key='finaltext's> @foreach($file->getMedia('finaltext') as $media)
+                            <th>@lang('quickadmin.fullpaper.fields.finaltext')</th>
+                            <td field-key='finaltext's> @foreach($fullpaper->getMedia('finaltext') as $media)
                                 <p class="form-group">
                                     <a href="{{ $media->getUrl() }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
                                 </p>
                             @endforeach</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.files.fields.description')</th>
-                            <td field-key='description'>{{ $file->description }}</td>
+                            <th>@lang('quickadmin.fullpaper.fields.description')</th>
+                            <td field-key='description'>{{ $fullpaper->description }}</td>
                         </tr>
                     </table>
                 </div>
@@ -34,7 +34,7 @@
 
             <p>&nbsp;</p>
 
-            <a href="{{ route('admin.files.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
+            <a href="{{ route('admin.fullpapers.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
         </div>
     </div>
 @stop
