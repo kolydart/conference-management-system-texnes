@@ -54,7 +54,13 @@
                                 @endcan
 
                                 <td field-key='user'>{{ $review->user->name or '' }}</td>
-                                <td field-key='paper'>{{ $review->paper->title or '' }}</td>
+                                <td field-key='paper'>
+                                    @if (Gate::allows('paper_view'))
+                                        <a href="{{ route('admin.papers.show',[$review->paper->id]) }}" >{{ $review->paper->title }}</a>
+                                    @else
+                                        {{ $paper->title }}
+                                    @endif
+                                </td>
                                 <td field-key='review'>{{ $review->review }}</td>
                                 <td field-key='comment'>{!! $review->comment !!}</td>
                                 @if( request('show_deleted') == 1 )
