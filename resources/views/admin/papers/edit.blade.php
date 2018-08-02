@@ -207,7 +207,7 @@
                         <div class="files-list">
                             @foreach($paper->getMedia('document') as $media)
                                 <p class="form-group">
-                                    <a href="{{ $media->getUrl() }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
+                                    <a href="{{ "/storage/".$media->id."/".rawurlencode($media->file_name) }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
                                     <a href="#" class="btn btn-xs btn-danger remove-file">Remove</a>
                                     <input type="hidden" name="document_id[]" value="{{ $media->id }}">
                                 </p>

@@ -20,7 +20,7 @@
                             <th>@lang('quickadmin.fullpaper.fields.finaltext')</th>
                             <td field-key='finaltext's> @foreach($fullpaper->getMedia('finaltext') as $media)
                                 <p class="form-group">
-                                    <a href="{{ $media->getUrl() }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
+                                    <a href="{{ "/storage/".$media->id."/".rawurlencode($media->file_name) }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
                                 </p>
                             @endforeach</td>
                         </tr>

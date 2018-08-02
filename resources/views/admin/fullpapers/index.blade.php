@@ -55,7 +55,7 @@
                                 <td field-key='paper'>{{ $fullpaper->paper->title or '' }}</td>
                                 <td field-key='finaltext'> @foreach($fullpaper->getMedia('finaltext') as $media)
                                 <p class="form-group">
-                                    <a href="{{ $media->getUrl() }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
+                                    <a href="{{ "/storage/".$media->id."/".rawurlencode($media->file_name) }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
                                 </p>
                             @endforeach</td>
                                 <td field-key='description'>{{ $fullpaper->description }}</td>
