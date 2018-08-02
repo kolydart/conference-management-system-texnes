@@ -29,7 +29,7 @@ class ReviewsController extends Controller
             }
             $reviews = Review::onlyTrashed()->get();
         } else {
-            $reviews = Review::all();
+            $reviews = Review::all()->reverse();
         }
 
         return view('admin.reviews.index', compact('reviews'));

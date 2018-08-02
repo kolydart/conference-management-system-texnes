@@ -32,7 +32,7 @@ class PapersController extends Controller
             }
             $papers = Paper::onlyTrashed()->get();
         } else {
-            $papers = Paper::all();
+            $papers = Paper::all()->reverse();
         }
 
         return view('admin.papers.index', compact('papers'));

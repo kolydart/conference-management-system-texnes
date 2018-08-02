@@ -32,7 +32,7 @@ class FullpapersController extends Controller
             }
             $fullpapers = Fullpaper::onlyTrashed()->get();
         } else {
-            $fullpapers = Fullpaper::all();
+            $fullpapers = Fullpaper::all()->reverse();
         }
 
         return view('admin.fullpapers.index', compact('fullpapers'));
