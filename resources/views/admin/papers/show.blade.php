@@ -79,6 +79,11 @@
                     </table>
                 </div>
             </div><!-- Nav tabs -->
+@can('paper_edit')
+    <a href="{{ route('admin.papers.edit',[$paper->id]) }}" class="btn btn-info">@lang('quickadmin.qa_edit')</a>
+@endcan
+<p>&nbsp;</p>
+            
 <ul class="nav nav-tabs" role="tablist">
     
 <li role="presentation" class="active"><a href="#fullpaper" aria-controls="fullpaper" role="tab" data-toggle="tab">Τελικά κείμενα</a></li>
