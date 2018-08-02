@@ -28,6 +28,7 @@
                         <th>@lang('quickadmin.users.fields.name')</th>
                         <th>@lang('quickadmin.users.fields.email')</th>
                         <th>@lang('quickadmin.users.fields.role')</th>
+                        @can('user_edit')<th>&nbsp;</th>@endcan
                                                 <th>&nbsp;</th>
 
                     </tr>
@@ -44,6 +45,13 @@
                                 <td field-key='name'>{{ $user->name }}</td>
                                 <td field-key='email'>{{ $user->email }}</td>
                                 <td field-key='role'>{{ $user->role->title or '' }}</td>
+                                @can('user_edit')
+                                    <td>
+                                        @if (Hash::check(gateweb\common\Presenter::before($user->email,'@'), $user->password))
+                                            <span class="badge badge-warning">weak password</span>
+                                        @endif
+                                    </td>
+                                @endcan
                                                                 <td>
                                     @can('user_view')
                                     <a href="{{ route('admin.users.show',[$user->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>

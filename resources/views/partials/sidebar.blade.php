@@ -9,8 +9,8 @@
 
             <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
                 <a href="{{ url('/') }}">
-                    <i class="fa fa-wrench"></i>
-                    <span class="title">@lang('quickadmin.qa_dashboard')</span>
+                    <i class="fa fa-home"></i>
+                    <span class="title">@lang('gw.home')</span>
                 </a>
             </li>
 
