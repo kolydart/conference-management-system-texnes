@@ -41,7 +41,7 @@
 <table class="table table-bordered table-striped {{ count($reviews) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
-            <th>@lang('quickadmin.reviews.fields.user')</th>
+            <th>@lang('quickadmin.papers.fields.title')</th>
                         <th>@lang('quickadmin.reviews.fields.review')</th>
                         <th>@lang('quickadmin.reviews.fields.comment')</th>
                         @if( request('show_deleted') == 1 )
@@ -56,7 +56,14 @@
         @if (count($reviews) > 0)
             @foreach ($reviews as $review)
                 <tr data-entry-id="{{ $review->id }}">
-                    <td field-key='user'>{{ $review->user->name or '' }}</td>
+                    <td field-key='paper'>
+                        @if (Gate::allows('paper_view'))
+                            <a href="{{ route('admin.papers.show',[$review->paper->id]) }}" >{{ $review->paper->title }}</a>
+                        @else
+                            {{ $review->paper->title }}
+                        @endif                                
+                    </td>
+
                                 <td field-key='review'>{{ $review->review }}</td>
                                 <td field-key='comment'>{!! $review->comment !!}</td>
                                 @if( request('show_deleted') == 1 )
