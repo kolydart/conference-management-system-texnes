@@ -24,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        
+        $fullpapers = \App\Fullpaper::latest()->limit(5)->get(); 
+
+        return view('home', compact( 'fullpapers' ));
     }
 }
