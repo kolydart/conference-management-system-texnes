@@ -13,20 +13,20 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <th>@lang('quickadmin.messages.fields.paper')</th>
-                            <td field-key='paper'><a href="{{ route('admin.papers.show',[$message->paper->id]) }}" >{{ $message->paper->title or '' }}</a></td>
-                        </tr>
-                        <tr>
                             <th>@lang('quickadmin.messages.fields.name')</th>
                             <td field-key='name'>{{ $message->name }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.messages.fields.email')</th>
+                            <td field-key='email'>{{ $message->email }}</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.messages.fields.title')</th>
                             <td field-key='title'>{{ $message->title }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.messages.fields.email')</th>
-                            <td field-key='email'>{{ $message->email }}</td>
+                            <th>@lang('quickadmin.messages.fields.paper')</th>
+                            <td field-key='paper'><a href="{{ route('admin.papers.show',[$message->paper->id]) }}" >{{ $message->paper->title or '' }}</a></td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.messages.fields.body')</th>
