@@ -30,8 +30,8 @@
 <ul class="nav nav-tabs" role="tablist">
     
 <li role="presentation" class="active"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Κρίσεις</a></li>
-<li role="presentation" class=""><a href="#user_actions" aria-controls="user_actions" role="tab" data-toggle="tab">Ενέργειες χρηστών</a></li>
-<li role="presentation" class=""><a href="#activitylog" aria-controls="activitylog" role="tab" data-toggle="tab">activity-log</a></li>
+{{-- <li role="presentation" class=""><a href="#user_actions" aria-controls="user_actions" role="tab" data-toggle="tab">Ενέργειες χρηστών</a></li> --}}
+{{-- <li role="presentation" class=""><a href="#activitylog" aria-controls="activitylog" role="tab" data-toggle="tab">activity-log</a></li> --}}
 <li role="presentation" class=""><a href="#papers" aria-controls="papers" role="tab" data-toggle="tab">Προτάσεις</a></li>
 </ul>
 
