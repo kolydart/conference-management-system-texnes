@@ -8,6 +8,7 @@
                 @lang('gw.dashboard')
             </div>
             <div class="panel-body">
+                Σύστημα Διαχείρισης Προτάσεων για το Συνέδριο <a href="http://texnes-ellinikosxoleio.uoa.gr/" target="_blank">Oι Τέχνες στο ελληνικό σχολείο: παρόν και μἐλλον</a><br><br>                
                 @if (
                     Hash::check(
                         gateweb\common\Presenter::before(Auth::user()->email,'@'), Auth::user()->password
