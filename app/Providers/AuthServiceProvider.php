@@ -66,19 +66,19 @@ class AuthServiceProvider extends ServiceProvider
 
         // Auth gates for: Fullpaper
         Gate::define('fullpaper_access', function ($user) {
-            return in_array($user->role_id, [1]);
+            return in_array($user->role_id, [1, 3, 4, 5]);
         });
         Gate::define('fullpaper_create', function ($user) {
-            return in_array($user->role_id, [1]);
+            return in_array($user->role_id, [1, 3]);
         });
         Gate::define('fullpaper_edit', function ($user) {
-            return in_array($user->role_id, [1]);
+            return in_array($user->role_id, [1, 3]);
         });
         Gate::define('fullpaper_view', function ($user) {
-            return in_array($user->role_id, [1]);
+            return in_array($user->role_id, [1, 3, 4, 5]);
         });
         Gate::define('fullpaper_delete', function ($user) {
-            return in_array($user->role_id, [1]);
+            return in_array($user->role_id, [1, 3]);
         });
 
         // Auth gates for: Arts
@@ -134,7 +134,7 @@ class AuthServiceProvider extends ServiceProvider
 
         // Auth gates for: Content management
         Gate::define('content_management_access', function ($user) {
-            return in_array($user->role_id, [1]);
+            return in_array($user->role_id, [1, 3]);
         });
 
         // Auth gates for: Content pages
