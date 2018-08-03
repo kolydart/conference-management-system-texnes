@@ -17,7 +17,7 @@ return [
 		'content-pages' => [		'title' => 'Σελίδες',		'fields' => [			'title' => 'Τίτλος',			'category-id' => 'Κατηγορίες',			'page-text' => 'Κείμενο',			'excerpt' => 'Απόσπασμα',			'featured-image' => 'Εικόνα εμφάνισης',			'tag-id' => 'Ετικέτες',		],	],
 		'files' => [		'title' => 'Τελικά κείμενα',		'fields' => [		],	],
 		'messages' => [		'title' => 'Μηνύματα',		'fields' => [			'paper' => 'Paper',			'name' => 'Name',			'title' => 'Title',			'email' => 'Email',			'body' => 'Body',		],	],
-		'fullpaper' => [		'title' => 'Τελικά κείμενα',		'fields' => [			'paper' => 'Paper',			'finaltext' => 'Finaltext',			'description' => 'Σύντομη περιγραφή',		],	],
+		'fullpaper' => [		'title' => 'Τελικά κείμενα',		'fields' => [			'paper' => 'Paper',			'finaltext' => 'Αρχείο(α)',			'description' => 'Σύντομη περιγραφή',		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',
