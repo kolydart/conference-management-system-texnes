@@ -25,6 +25,7 @@
                             <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
                         @endcan
 
+                        <th>@lang('gw.date')</th>
                         <th>@lang('quickadmin.activitylog.fields.causer-id')</th>
                         <th>@lang('quickadmin.activitylog.fields.description')</th>
                         <th>@lang('quickadmin.activitylog.fields.subject-type')</th>
@@ -42,8 +43,9 @@
                                     <td></td>
                                 @endcan
 
+                                <td field-key='date'>{{$activitylog->created_at}}</td>
                                 <td field-key='causer_id'>
-                                    @if ($activitylog->causer_type == 'App\User')
+                                    @if ($activitylog->causer_type == 'App\User' && App\User::find($activitylog->causer_id))
                                         <a href="{{route('admin.users.show',$activitylog->causer_id)}}">{{ App\User::find($activitylog->causer_id)->name }}</a>
                                     @else
                                         {{ $activitylog->causer_id }}
