@@ -39,12 +39,9 @@ class ActivitylogsController extends Controller
         if (! Gate::allows('activitylog_edit')) {
             return abort(401);
         }
-        
-        $causers = \App\User::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
-
         $activitylog = Activitylog::findOrFail($id);
 
-        return view('admin.activitylogs.edit', compact('activitylog', 'causers'));
+        return view('admin.activitylogs.edit', compact('activitylog'));
     }
 
     /**

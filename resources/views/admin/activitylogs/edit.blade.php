@@ -37,8 +37,8 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('causer_id', trans('quickadmin.activitylog.fields.causer').'', ['class' => 'control-label']) !!}
-                    {!! Form::select('causer_id', $causers, old('causer_id'), ['class' => 'form-control select2']) !!}
+                    {!! Form::label('causer_id', trans('quickadmin.activitylog.fields.causer-id').'', ['class' => 'control-label']) !!}
+                    {!! Form::number('causer_id', old('causer_id'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('causer_id'))
                         <p class="help-block">

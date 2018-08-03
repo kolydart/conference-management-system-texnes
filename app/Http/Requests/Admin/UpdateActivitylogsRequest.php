@@ -24,6 +24,7 @@ class UpdateActivitylogsRequest extends FormRequest
     {
         return [
             
+            'causer_id' => 'max:2147483647|nullable|numeric',
             'subject_id' => 'max:2147483647|nullable|numeric',
         ];
     }

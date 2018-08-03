@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @property string $log_name
  * @property string $causer_type
- * @property string $causer
+ * @property integer $causer_id
  * @property string $description
  * @property string $subject_type
  * @property integer $subject_id
@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
 */
 class Activitylog extends Model
 {
-    protected $fillable = ['log_name', 'causer_type', 'description', 'subject_type', 'subject_id', 'properties', 'causer_id'];
+    protected $fillable = ['log_name', 'causer_type', 'causer_id', 'description', 'subject_type', 'subject_id', 'properties'];
     protected $hidden = [];
     
     
@@ -29,7 +29,7 @@ class Activitylog extends Model
     }
 
     /**
-     * Set to null if empty
+     * Set attribute to money format
      * @param $input
      */
     public function setCauserIdAttribute($input)
@@ -44,11 +44,6 @@ class Activitylog extends Model
     public function setSubjectIdAttribute($input)
     {
         $this->attributes['subject_id'] = $input ? $input : null;
-    }
-    
-    public function causer()
-    {
-        return $this->belongsTo(User::class, 'causer_id');
     }
     
 }

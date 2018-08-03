@@ -21,8 +21,8 @@
                             <td field-key='causer_type'>{{ $activitylog->causer_type }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.activitylog.fields.causer')</th>
-                            <td field-key='causer'>{{ $activitylog->causer->name or '' }}</td>
+                            <th>@lang('quickadmin.activitylog.fields.causer-id')</th>
+                            <td field-key='causer_id'>{{ $activitylog->causer_id }}</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.activitylog.fields.description')</th>

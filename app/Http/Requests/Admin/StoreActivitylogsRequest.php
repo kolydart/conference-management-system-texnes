@@ -23,6 +23,7 @@ class StoreActivitylogsRequest extends FormRequest
     public function rules()
     {
         return [
+            'causer_id' => 'max:2147483647|nullable|numeric',
             'subject_id' => 'max:2147483647|nullable|numeric',
         ];
     }
