@@ -32,7 +32,7 @@ class FullpaperSeeder extends Seeder
     }
 
     public function createMedia($paper){
-       $fullpaper = factory(Fullpaper::class)->create(['paper_id'=>$paper->id]);
+       $fullpaper = factory(Fullpaper::class)->create(['paper_id'=>$paper->id, 'created_at'=>$this->faker->dateTimeThisMonth()]);
        
        $filename = $this->faker->word.".".$this->extensions->random();
        File::put($filename, "");
