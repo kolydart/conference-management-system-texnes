@@ -18,6 +18,7 @@ return [
 		'files' => [		'title' => 'Τελικά κείμενα',		'fields' => [		],	],
 		'messages' => [		'title' => 'Μηνύματα',		'fields' => [			'paper' => 'Paper',			'name' => 'Name',			'title' => 'Title',			'email' => 'Email',			'body' => 'Body',		],	],
 		'fullpaper' => [		'title' => 'Τελικά κείμενα',		'fields' => [			'paper' => 'Paper',			'finaltext' => 'Αρχείο(α)',			'description' => 'Σύντομη περιγραφή',		],	],
+		'activitylog' => [		'title' => 'activity-log',		'fields' => [			'log-name' => 'Log name',			'causer-type' => 'Causer type',			'causer' => 'Causer id',			'description' => 'Description',			'subject-type' => 'Subject type',			'subject-id' => 'Subject id',			'properties' => 'Properties',		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',

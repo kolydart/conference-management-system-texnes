@@ -215,5 +215,19 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1]);
         });
 
+        // Auth gates for: Activitylog
+        Gate::define('activitylog_access', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('activitylog_edit', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('activitylog_view', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('activitylog_delete', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+
     }
 }

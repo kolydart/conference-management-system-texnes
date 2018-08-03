@@ -31,6 +31,7 @@
     
 <li role="presentation" class="active"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Κρίσεις</a></li>
 <li role="presentation" class=""><a href="#user_actions" aria-controls="user_actions" role="tab" data-toggle="tab">Ενέργειες χρηστών</a></li>
+<li role="presentation" class=""><a href="#activitylog" aria-controls="activitylog" role="tab" data-toggle="tab">activity-log</a></li>
 <li role="presentation" class=""><a href="#papers" aria-controls="papers" role="tab" data-toggle="tab">Προτάσεις</a></li>
 </ul>
 
@@ -144,6 +145,55 @@
         @else
             <tr>
                 <td colspan="7">@lang('quickadmin.qa_no_entries_in_table')</td>
+            </tr>
+        @endif
+    </tbody>
+</table>
+</div>
+<div role="tabpanel" class="tab-pane " id="activitylog">
+<table class="table table-bordered table-striped {{ count($activitylogs) > 0 ? 'datatable' : '' }}">
+    <thead>
+        <tr>
+            <th>@lang('quickadmin.activitylog.fields.causer')</th>
+                        <th>@lang('quickadmin.activitylog.fields.description')</th>
+                        <th>@lang('quickadmin.activitylog.fields.subject-type')</th>
+                        <th>@lang('quickadmin.activitylog.fields.subject-id')</th>
+                                                <th>&nbsp;</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (count($activitylogs) > 0)
+            @foreach ($activitylogs as $activitylog)
+                <tr data-entry-id="{{ $activitylog->id }}">
+                    <td field-key='causer'>{{ $activitylog->causer->name or '' }}</td>
+                                <td field-key='description'>{{ $activitylog->description }}</td>
+                                <td field-key='subject_type'>{{ $activitylog->subject_type }}</td>
+                                <td field-key='subject_id'>{{ $activitylog->subject_id }}</td>
+                                                                <td>
+                                    @can('activitylog_view')
+                                    <a href="{{ route('admin.activitylogs.show',[$activitylog->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    @endcan
+                                    @can('activitylog_edit')
+                                    <a href="{{ route('admin.activitylogs.edit',[$activitylog->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                    @endcan
+                                    @can('activitylog_delete')
+{!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                        'route' => ['admin.activitylogs.destroy', $activitylog->id])) !!}
+                                    {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                    {!! Form::close() !!}
+                                    @endcan
+                                </td>
+
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="12">@lang('quickadmin.qa_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>
