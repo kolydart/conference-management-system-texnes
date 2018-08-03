@@ -25,7 +25,7 @@
                             <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
                         @endcan
 
-                        <th>@lang('quickadmin.activitylog.fields.causer')</th>
+                        <th>@lang('quickadmin.activitylog.fields.causer-id')</th>
                         <th>@lang('quickadmin.activitylog.fields.description')</th>
                         <th>@lang('quickadmin.activitylog.fields.subject-type')</th>
                         <th>@lang('quickadmin.activitylog.fields.subject-id')</th>
@@ -42,7 +42,7 @@
                                     <td></td>
                                 @endcan
 
-                                <td field-key='causer'>{{ $activitylog->causer->name or '' }}</td>
+                                <td field-key='causer_id'>{{ $activitylog->causer_id }}</td>
                                 <td field-key='description'>{{ $activitylog->description }}</td>
                                 <td field-key='subject_type'>{{ $activitylog->subject_type }}</td>
                                 <td field-key='subject_id'>{{ $activitylog->subject_id }}</td>
