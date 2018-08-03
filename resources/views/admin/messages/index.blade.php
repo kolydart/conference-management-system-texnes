@@ -52,7 +52,7 @@
                                     @if ( request('show_deleted') != 1 )<td></td>@endif
                                 @endcan
 
-                                <td field-key='paper'>{{ $message->paper->title or '' }}</td>
+                                <td field-key='paper'><a href="{{ route('admin.papers.show',[$message->paper->id]) }}" >{{ $message->paper->title or '' }}</a></td>
                                 <td field-key='name'>{{ $message->name }}</td>
                                 <td field-key='title'>{{ $message->title }}</td>
                                 @if( request('show_deleted') == 1 )

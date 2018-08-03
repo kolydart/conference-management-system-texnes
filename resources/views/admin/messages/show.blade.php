@@ -14,7 +14,7 @@
                     <table class="table table-bordered table-striped">
                         <tr>
                             <th>@lang('quickadmin.messages.fields.paper')</th>
-                            <td field-key='paper'>{{ $message->paper->title or '' }}</td>
+                            <td field-key='paper'><a href="{{ route('admin.papers.show',[$message->paper->id]) }}" >{{ $message->paper->title or '' }}</a></td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.messages.fields.name')</th>
