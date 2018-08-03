@@ -42,7 +42,13 @@
                                     <td></td>
                                 @endcan
 
-                                <td field-key='causer_id'>{{ $activitylog->causer_id }}</td>
+                                <td field-key='causer_id'>
+                                    @if ($activitylog->causer_type == 'App\User')
+                                        <a href="{{route('admin.users.show',$activitylog->causer_id)}}">{{ App\User::find($activitylog->causer_id)->name }}</a>
+                                    @else
+                                        {{ $activitylog->causer_id }}
+                                    @endif
+                                </td>
                                 <td field-key='description'>{{ $activitylog->description }}</td>
                                 <td field-key='subject_type'>{{ $activitylog->subject_type }}</td>
                                 <td field-key='subject_id'>{{ $activitylog->subject_id }}</td>

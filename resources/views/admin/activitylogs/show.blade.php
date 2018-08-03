@@ -22,7 +22,13 @@
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.activitylog.fields.causer-id')</th>
-                            <td field-key='causer_id'>{{ $activitylog->causer_id }}</td>
+                            <td field-key='causer_id'>
+                                @if ($activitylog->causer_type == 'App\User')
+                                    <a href="{{route('admin.users.show',$activitylog->causer_id)}}">{{ App\User::find($activitylog->causer_id)->name }}</a>
+                                @else
+                                    {{ $activitylog->causer_id }}
+                                @endif
+                            </td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.activitylog.fields.description')</th>
@@ -38,7 +44,7 @@
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.activitylog.fields.properties')</th>
-                            <td field-key='properties'>{!! $activitylog->properties !!}</td>
+                            <td field-key='properties'><pre>{!! print_r(json_decode($activitylog->properties,true)) !!}</pre></td>
                         </tr>
                     </table>
                 </div>
