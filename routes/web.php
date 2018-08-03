@@ -18,6 +18,8 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/home', 'HomeController@index');
+    Route::get('/reports/fullpaper-uploads', 'Admin\ReportsController@fullpaperUploads');
+
     
     Route::resource('papers', 'Admin\PapersController');
     Route::post('papers_mass_destroy', ['uses' => 'Admin\PapersController@massDestroy', 'as' => 'papers.mass_destroy']);
