@@ -12,12 +12,36 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
+                    {!! Form::label('paper_id', trans('quickadmin.messages.fields.paper').'', ['class' => 'control-label']) !!}
+                    {!! Form::select('paper_id', $papers, old('paper_id'), ['class' => 'form-control select2']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('paper_id'))
+                        <p class="help-block">
+                            {{ $errors->first('paper_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
                     {!! Form::label('name', trans('quickadmin.messages.fields.name').'', ['class' => 'control-label']) !!}
                     {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => 'Recipient\'s name']) !!}
                     <p class="help-block">Recipient's name</p>
                     @if($errors->has('name'))
                         <p class="help-block">
                             {{ $errors->first('name') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('title', trans('quickadmin.messages.fields.title').'', ['class' => 'control-label']) !!}
+                    {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('title'))
+                        <p class="help-block">
+                            {{ $errors->first('title') }}
                         </p>
                     @endif
                 </div>
@@ -42,18 +66,6 @@
                     @if($errors->has('body'))
                         <p class="help-block">
                             {{ $errors->first('body') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('paper_id', trans('quickadmin.messages.fields.paper').'', ['class' => 'control-label']) !!}
-                    {!! Form::select('paper_id', $papers, old('paper_id'), ['class' => 'form-control select2']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('paper_id'))
-                        <p class="help-block">
-                            {{ $errors->first('paper_id') }}
                         </p>
                     @endif
                 </div>

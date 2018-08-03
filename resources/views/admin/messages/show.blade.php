@@ -13,8 +13,16 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr>
+                            <th>@lang('quickadmin.messages.fields.paper')</th>
+                            <td field-key='paper'>{{ $message->paper->title or '' }}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.messages.fields.name')</th>
                             <td field-key='name'>{{ $message->name }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.messages.fields.title')</th>
+                            <td field-key='title'>{{ $message->title }}</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.messages.fields.email')</th>
@@ -23,10 +31,6 @@
                         <tr>
                             <th>@lang('quickadmin.messages.fields.body')</th>
                             <td field-key='body'>{!! $message->body !!}</td>
-                        </tr>
-                        <tr>
-                            <th>@lang('quickadmin.messages.fields.paper')</th>
-                            <td field-key='paper'>{{ $message->paper->title or '' }}</td>
                         </tr>
                     </table>
                 </div>
