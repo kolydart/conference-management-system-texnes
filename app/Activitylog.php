@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
 */
 class Activitylog extends Model
 {
+    protected $table = 'activity_log';
     protected $fillable = ['log_name', 'causer_type', 'description', 'subject_type', 'subject_id', 'properties', 'causer_id'];
     protected $hidden = [];
     
