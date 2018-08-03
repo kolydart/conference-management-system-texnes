@@ -137,7 +137,23 @@
             </li>@endcan
             
 
-            
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-line-chart"></i>
+                    <span class="title">Generated Reports</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                   <li class="{{ $request->is('/reports/fullpaper-uploads') }}">
+                        <a href="{{ url('/admin/reports/fullpaper-uploads') }}">
+                            <i class="fa fa-line-chart"></i>
+                            <span class="title">fullpaper uploads</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
 
             
 
