@@ -99,6 +99,7 @@
     <thead>
         <tr>
             <th>@lang('quickadmin.fullpaper.fields.paper')</th>
+            <th>@lang('quickadmin.fullpaper.fields.finaltext')</th>
                         <th>@lang('quickadmin.fullpaper.fields.description')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
@@ -113,7 +114,11 @@
             @foreach ($fullpapers as $fullpaper)
                 <tr data-entry-id="{{ $fullpaper->id }}">
                     <td field-key='paper'>{{ $fullpaper->paper->title or '' }}</td>
-                                <td field-key='finaltext'>@if($fullpaper->finaltext)<a href="{{ asset(env('UPLOAD_PATH').'/' . $fullpaper->finaltext) }}" target="_blank">Download file</a>@endif</td>
+                                <td field-key='finaltext'>@foreach($fullpaper->getMedia('finaltext') as $media)
+                                <p class="form-group">
+                                    <a href="{{ "/storage/".$media->id."/".rawurlencode($media->file_name) }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
+                                </p>
+                            @endforeach</td>
                                 <td field-key='description'>{{ $fullpaper->description }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
