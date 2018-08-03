@@ -33,10 +33,9 @@
                             @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
                         @endcan
 
-                        <th>@lang('quickadmin.messages.fields.name')</th>
-                        <th>@lang('quickadmin.messages.fields.email')</th>
-                        <th>@lang('quickadmin.messages.fields.body')</th>
                         <th>@lang('quickadmin.messages.fields.paper')</th>
+                        <th>@lang('quickadmin.messages.fields.name')</th>
+                        <th>@lang('quickadmin.messages.fields.title')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -53,10 +52,9 @@
                                     @if ( request('show_deleted') != 1 )<td></td>@endif
                                 @endcan
 
-                                <td field-key='name'>{{ $message->name }}</td>
-                                <td field-key='email'>{{ $message->email }}</td>
-                                <td field-key='body'>{!! $message->body !!}</td>
                                 <td field-key='paper'>{{ $message->paper->title or '' }}</td>
+                                <td field-key='name'>{{ $message->name }}</td>
+                                <td field-key='title'>{{ $message->title }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('message_delete')
@@ -101,7 +99,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="9">@lang('quickadmin.qa_no_entries_in_table')</td>
+                            <td colspan="10">@lang('quickadmin.qa_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>

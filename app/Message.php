@@ -8,16 +8,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * Class Message
  *
  * @package App
+ * @property string $paper
  * @property string $name
+ * @property string $title
  * @property string $email
  * @property text $body
- * @property string $paper
 */
 class Message extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name', 'email', 'body', 'paper_id'];
+    protected $fillable = ['name', 'title', 'email', 'body', 'paper_id'];
     protected $hidden = [];
     
     
