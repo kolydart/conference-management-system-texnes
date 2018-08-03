@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ContentPageSeed extends Seeder
+class UserActionSeed extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,12 +13,12 @@ class ContentPageSeed extends Seeder
     {
         $items = [
             
-            ['id' => 1, 'title' => 'About us', 'page_text' => 'Sample text', 'excerpt' => 'Sample excerpt', 'featured_image' => '',],
+            ['id' => 1, 'user_id' => 1, 'action' => 'deleted', 'action_model' => 'content_pages', 'action_id' => 1,],
 
         ];
 
         foreach ($items as $item) {
-            \App\ContentPage::create($item);
+            \App\UserAction::create($item);
         }
     }
 }

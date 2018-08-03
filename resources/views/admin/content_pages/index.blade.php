@@ -27,10 +27,8 @@
 
                         <th>@lang('quickadmin.content-pages.fields.title')</th>
                         <th>@lang('quickadmin.content-pages.fields.category-id')</th>
-                        <th>@lang('quickadmin.content-pages.fields.tag-id')</th>
-                        <th>@lang('quickadmin.content-pages.fields.page-text')</th>
-                        <th>@lang('quickadmin.content-pages.fields.excerpt')</th>
                         <th>@lang('quickadmin.content-pages.fields.featured-image')</th>
+                        <th>@lang('quickadmin.content-pages.fields.tag-id')</th>
                                                 <th>&nbsp;</th>
 
                     </tr>
@@ -50,14 +48,12 @@
                                         <span class="label label-info label-many">{{ $singleCategoryId->title }}</span>
                                     @endforeach
                                 </td>
+                                <td field-key='featured_image'>@if($content_page->featured_image)<a href="{{ asset(env('UPLOAD_PATH').'/' . $content_page->featured_image) }}" target="_blank"><img src="{{ asset(env('UPLOAD_PATH').'/thumb/' . $content_page->featured_image) }}"/></a>@endif</td>
                                 <td field-key='tag_id'>
                                     @foreach ($content_page->tag_id as $singleTagId)
                                         <span class="label label-info label-many">{{ $singleTagId->title }}</span>
                                     @endforeach
                                 </td>
-                                <td field-key='page_text'>{!! $content_page->page_text !!}</td>
-                                <td field-key='excerpt'>{!! $content_page->excerpt !!}</td>
-                                <td field-key='featured_image'>@if($content_page->featured_image)<a href="{{ asset(env('UPLOAD_PATH').'/' . $content_page->featured_image) }}" target="_blank"><img src="{{ asset(env('UPLOAD_PATH').'/thumb/' . $content_page->featured_image) }}"/></a>@endif</td>
                                                                 <td>
                                     @can('content_page_view')
                                     <a href="{{ route('admin.content_pages.show',[$content_page->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>

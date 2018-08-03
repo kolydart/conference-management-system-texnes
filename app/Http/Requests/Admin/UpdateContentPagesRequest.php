@@ -25,9 +25,10 @@ class UpdateContentPagesRequest extends FormRequest
         return [
             
             'title' => 'required',
+            'category_id' => 'required',
             'category_id.*' => 'exists:content_categories,id',
-            'tag_id.*' => 'exists:content_tags,id',
             'featured_image' => 'nullable|mimes:png,jpg,jpeg,gif',
+            'tag_id.*' => 'exists:content_tags,id',
         ];
     }
 }

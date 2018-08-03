@@ -25,36 +25,18 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('category_id', trans('quickadmin.content-pages.fields.category-id').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('category_id', trans('quickadmin.content-pages.fields.category-id').'*', ['class' => 'control-label']) !!}
                     <button type="button" class="btn btn-primary btn-xs" id="selectbtn-category_id">
                         {{ trans('quickadmin.qa_select_all') }}
                     </button>
                     <button type="button" class="btn btn-primary btn-xs" id="deselectbtn-category_id">
                         {{ trans('quickadmin.qa_deselect_all') }}
                     </button>
-                    {!! Form::select('category_id[]', $category_ids, old('category_id') ? old('category_id') : $content_page->category_id->pluck('id')->toArray(), ['class' => 'form-control select2', 'multiple' => 'multiple', 'id' => 'selectall-category_id' ]) !!}
+                    {!! Form::select('category_id[]', $category_ids, old('category_id') ? old('category_id') : $content_page->category_id->pluck('id')->toArray(), ['class' => 'form-control select2', 'multiple' => 'multiple', 'id' => 'selectall-category_id' , 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('category_id'))
                         <p class="help-block">
                             {{ $errors->first('category_id') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('tag_id', trans('quickadmin.content-pages.fields.tag-id').'', ['class' => 'control-label']) !!}
-                    <button type="button" class="btn btn-primary btn-xs" id="selectbtn-tag_id">
-                        {{ trans('quickadmin.qa_select_all') }}
-                    </button>
-                    <button type="button" class="btn btn-primary btn-xs" id="deselectbtn-tag_id">
-                        {{ trans('quickadmin.qa_deselect_all') }}
-                    </button>
-                    {!! Form::select('tag_id[]', $tag_ids, old('tag_id') ? old('tag_id') : $content_page->tag_id->pluck('id')->toArray(), ['class' => 'form-control select2', 'multiple' => 'multiple', 'id' => 'selectall-tag_id' ]) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('tag_id'))
-                        <p class="help-block">
-                            {{ $errors->first('tag_id') }}
                         </p>
                     @endif
                 </div>
@@ -97,6 +79,24 @@
                     @if($errors->has('featured_image'))
                         <p class="help-block">
                             {{ $errors->first('featured_image') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('tag_id', trans('quickadmin.content-pages.fields.tag-id').'', ['class' => 'control-label']) !!}
+                    <button type="button" class="btn btn-primary btn-xs" id="selectbtn-tag_id">
+                        {{ trans('quickadmin.qa_select_all') }}
+                    </button>
+                    <button type="button" class="btn btn-primary btn-xs" id="deselectbtn-tag_id">
+                        {{ trans('quickadmin.qa_deselect_all') }}
+                    </button>
+                    {!! Form::select('tag_id[]', $tag_ids, old('tag_id') ? old('tag_id') : $content_page->tag_id->pluck('id')->toArray(), ['class' => 'form-control select2', 'multiple' => 'multiple', 'id' => 'selectall-tag_id' ]) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('tag_id'))
+                        <p class="help-block">
+                            {{ $errors->first('tag_id') }}
                         </p>
                     @endif
                 </div>

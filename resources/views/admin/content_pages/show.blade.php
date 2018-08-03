@@ -25,14 +25,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.content-pages.fields.tag-id')</th>
-                            <td field-key='tag_id'>
-                                @foreach ($content_page->tag_id as $singleTagId)
-                                    <span class="label label-info label-many">{{ $singleTagId->title }}</span>
-                                @endforeach
-                            </td>
-                        </tr>
-                        <tr>
                             <th>@lang('quickadmin.content-pages.fields.page-text')</th>
                             <td field-key='page_text'>{!! $content_page->page_text !!}</td>
                         </tr>
@@ -43,6 +35,14 @@
                         <tr>
                             <th>@lang('quickadmin.content-pages.fields.featured-image')</th>
                             <td field-key='featured_image'>@if($content_page->featured_image)<a href="{{ asset(env('UPLOAD_PATH').'/' . $content_page->featured_image) }}" target="_blank"><img src="{{ asset(env('UPLOAD_PATH').'/thumb/' . $content_page->featured_image) }}"/></a>@endif</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.content-pages.fields.tag-id')</th>
+                            <td field-key='tag_id'>
+                                @foreach ($content_page->tag_id as $singleTagId)
+                                    <span class="label label-info label-many">{{ $singleTagId->title }}</span>
+                                @endforeach
+                            </td>
                         </tr>
                     </table>
                 </div>
