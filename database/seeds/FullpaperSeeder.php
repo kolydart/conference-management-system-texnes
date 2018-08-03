@@ -36,7 +36,7 @@ class FullpaperSeeder extends Seeder
        
        $filename = $this->faker->word.".".$this->extensions->random();
        File::put($filename, "");
-       $media = $paper->addMedia($filename)->usingName($filename)->toMediaCollection($this->collection);
+       $media = $fullpaper->addMedia($filename)->usingName($filename)->toMediaCollection($this->collection);
        DB::table('media')->where('id', $media->id)->update(['size' => random_int(30,500)]);
     }
 
