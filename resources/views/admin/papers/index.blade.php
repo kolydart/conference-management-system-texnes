@@ -42,6 +42,7 @@
                         <th>@lang('quickadmin.papers.fields.email')</th>
                         <th>@lang('quickadmin.papers.fields.attribute')</th>
                         <th>@lang('quickadmin.papers.fields.phone')</th>
+                        <th>@lang('gw.papers.fields.reviewed')</th>
                         <th>@lang('quickadmin.papers.fields.status')</th>
                         <th>@lang('quickadmin.papers.fields.informed')</th>
                         @if( request('show_deleted') == 1 )
@@ -79,6 +80,14 @@
                                 <td field-key='email'>{{ $paper->email }}</td>
                                 <td field-key='attribute'>{{ $paper->attribute }}</td>
                                 <td field-key='phone'>{{ $paper->phone }}</td>
+                                <td field-key='judged'>
+                                    @if ($paper->assign->count())
+                                        {{round($paper->reviews->count()*100/$paper->assign->count(),0)}}%
+                                    @endif
+                                    @if ($paper->reviews->count())
+                                        {{"[".implode($paper->reviews->pluck('review')->all(),', ')."]"}}
+                                    @endif
+                                </td>
                                 <td field-key='status'>{{ $paper->status }}</td>
                                 <td field-key='informed'>{{ $paper->informed }}</td>
                                 @if( request('show_deleted') == 1 )
