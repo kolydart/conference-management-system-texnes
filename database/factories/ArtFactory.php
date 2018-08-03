@@ -2,6 +2,6 @@
 
 $factory->define(App\Art::class, function (Faker\Generator $faker) {
     return [
-        "title" => $faker->name,
+        "title" => $faker->word,
     ];
 });

@@ -2,7 +2,7 @@
 
 $factory->define(App\Fullpaper::class, function (Faker\Generator $faker) {
     return [
-        "paper_id" => factory('App\Paper')->create(),
-        "description" => $faker->name,
+        "paper_id" => App\Paper::all()->random(),
+        "description" => $faker->sentence,
     ];
 });

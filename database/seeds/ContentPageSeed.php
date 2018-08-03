@@ -1,5 +1,8 @@
 <?php
 
+use App\ContentCategory;
+use App\ContentPage;
+use App\ContentTag;
 use Illuminate\Database\Seeder;
 
 class ContentPageSeed extends Seeder
@@ -20,5 +23,10 @@ class ContentPageSeed extends Seeder
         foreach ($items as $item) {
             \App\ContentPage::create($item);
         }
+
+        factory(ContentPage::class,40)->create()->each(function($page){
+            $page->category_id()->save(ContentCategory::all()->random());
+            $page->tag_id()->saveMany(ContentTag::all()->random(3));
+        });
     }
 }
