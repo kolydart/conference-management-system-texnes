@@ -194,24 +194,6 @@
                             Εκπαιδευτικός Δευτεροβάθμιας Εκπαίδευσης
                         </label>
                     </div>
-                    <div>
-                        <label>
-                            {!! Form::radio('attribute', '~Πανεπιστημιακός', false, []) !!}
-                            ~Πανεπιστημιακός
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            {!! Form::radio('attribute', '~Μεταπτυχιακός φοιτητής', false, []) !!}
-                            ~Μεταπτυχιακός φοιτητής
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            {!! Form::radio('attribute', '~Άλλο', false, []) !!}
-                            ~Άλλο
-                        </label>
-                    </div>
                     
                 </div>
             </div>
