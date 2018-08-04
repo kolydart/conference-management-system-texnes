@@ -20,7 +20,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::get('/home', 'HomeController@index');
     Route::get('/reports/fullpaper-uploads', 'Admin\ReportsController@fullpaperUploads');
 
-    
+    Route::get('/calendar', 'Admin\SystemCalendarController@index'); 
+  
     Route::resource('papers', 'Admin\PapersController');
     Route::post('papers_mass_destroy', ['uses' => 'Admin\PapersController@massDestroy', 'as' => 'papers.mass_destroy']);
     Route::post('papers_restore/{id}', ['uses' => 'Admin\PapersController@restore', 'as' => 'papers.restore']);
