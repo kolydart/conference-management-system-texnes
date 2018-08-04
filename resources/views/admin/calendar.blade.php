@@ -54,7 +54,9 @@
 
                 /** group by date, then by resource */
                 groupByDateAndResource: true,
-
+                
+                /** start date */
+                defaultDate: '2018-10-11',
 
             })
         });
