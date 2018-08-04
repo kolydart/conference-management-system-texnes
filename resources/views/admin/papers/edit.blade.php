@@ -103,6 +103,18 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
+                    {!! Form::label('session_id', trans('quickadmin.papers.fields.session').'', ['class' => 'control-label']) !!}
+                    {!! Form::select('session_id', $sessions, old('session_id'), ['class' => 'form-control select2']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('session_id'))
+                        <p class="help-block">
+                            {{ $errors->first('session_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
                     {!! Form::label('name', trans('quickadmin.papers.fields.name').'', ['class' => 'control-label']) !!}
                     {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>

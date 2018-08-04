@@ -1,10 +1,10 @@
 <?php
 
 return [
-		'user-management' => [		'title' => 'Διαχείριση χρηστών',		'fields' => [		],	],
+		'management' => [		'title' => 'Διαχείριση',		'fields' => [		],	],
 		'roles' => [		'title' => 'Ρόλοι',		'fields' => [			'title' => 'Τίτλος',		],	],
 		'users' => [		'title' => 'Κριτές',		'fields' => [			'name' => 'Όνομα',			'email' => 'Email',			'password' => 'Κωδικός',			'role' => 'Ρόλος',			'remember-token' => 'Να με θυμάσαι',		],	],
-		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'phone' => 'Τηλέφωνο',			'document' => 'Αρχείο(α) πρότασης',			'assign' => 'Ανάθεση',			'status' => 'Status',			'informed' => 'Informed',		],	],
+		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'session' => 'Συνεδρία',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'phone' => 'Τηλέφωνο',			'document' => 'Αρχείο(α) πρότασης',			'assign' => 'Ανάθεση',			'status' => 'Status',			'informed' => 'Informed',		],	],
 		'reviews' => [		'title' => 'Κρίσεις',		'fields' => [			'user' => 'User',			'paper' => 'Paper',			'review' => 'Review',			'comment' => 'Comment',		],	],
 		'arts' => [		'title' => 'Τέχνες',		'fields' => [			'title' => 'Τίτλος',		],	],
 		'user-actions' => [		'title' => 'Ενέργειες χρηστών',		'created_at' => 'Ώρα',		'fields' => [			'user' => 'Χρήστης',			'action' => 'Ενέργεια',			'action-model' => 'Action model',			'action-id' => 'Action id',		],	],
@@ -19,6 +19,8 @@ return [
 		'messages' => [		'title' => 'Μηνύματα',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'title' => 'Title',			'paper' => 'Paper',			'body' => 'Body',		],	],
 		'fullpaper' => [		'title' => 'Τελικά κείμενα',		'fields' => [			'paper' => 'Paper',			'finaltext' => 'Αρχείο(α)',			'description' => 'Σύντομη περιγραφή',		],	],
 		'activitylog' => [		'title' => 'activity-log',		'fields' => [			'log-name' => 'Log name',			'causer-type' => 'Causer type',			'causer-id' => 'Causer id',			'description' => 'Description',			'subject-type' => 'Subject type',			'subject-id' => 'Subject id',			'properties' => 'Properties',		],	],
+		'rooms' => [		'title' => 'Αίθουσες',		'fields' => [			'title' => 'Όνομα',			'description' => 'Description',		],	],
+		'sessions' => [		'title' => 'Συνεδρίες',		'fields' => [			'title' => 'Κωδικός',			'room' => 'Αίθουσα',			'start' => 'Start',			'end' => 'End',		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',

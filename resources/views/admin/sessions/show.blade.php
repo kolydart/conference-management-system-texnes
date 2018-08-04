@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.arts.title')</h3>
+    <h3 class="page-title">@lang('quickadmin.sessions.title')</h3>
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -13,8 +13,20 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <th>@lang('quickadmin.arts.fields.title')</th>
-                            <td field-key='title'>{{ $art->title }}</td>
+                            <th>@lang('quickadmin.sessions.fields.title')</th>
+                            <td field-key='title'>{{ $session->title }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.sessions.fields.room')</th>
+                            <td field-key='room'>{{ $session->room->title or '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.sessions.fields.start')</th>
+                            <td field-key='start'>{{ $session->start }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.sessions.fields.end')</th>
+                            <td field-key='end'>{{ $session->end }}</td>
                         </tr>
                     </table>
                 </div>
@@ -119,7 +131,7 @@
 
             <p>&nbsp;</p>
 
-            <a href="{{ route('admin.arts.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
+            <a href="{{ route('admin.sessions.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
         </div>
     </div>
 @stop
