@@ -39,7 +39,6 @@
                         <th>@lang('quickadmin.papers.fields.type')</th>
                         <th>@lang('quickadmin.papers.fields.duration')</th>
                         <th>@lang('quickadmin.papers.fields.name')</th>
-                        <th>@lang('quickadmin.papers.fields.email')</th>
                         <th>@lang('quickadmin.papers.fields.attribute')</th>
                         <th>@lang('gw.papers.fields.reviewed')</th>
                         <th>@lang('quickadmin.papers.fields.status')</th>
@@ -76,7 +75,6 @@
                                 <td field-key='type'>{{ $paper->type }}</td>
                                 <td field-key='duration'>{{ $paper->duration }}</td>
                                 <td field-key='name'>{{ $paper->name }}</td>
-                                <td field-key='email'>{{ $paper->email }}</td>
                                 <td field-key='attribute'>{{ $paper->attribute }}</td>
                                 <td field-key='judged'>
                                     @if ($paper->assign->count())
