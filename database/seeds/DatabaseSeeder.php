@@ -25,5 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ContentPageSeed::class);
         $this->call(MessageSeeder::class);
         $this->call(FullpaperSeeder::class);
+        $this->call(RoomsSeed::class);
+        $this->call(SessionsSeed::class);
     }
 }
