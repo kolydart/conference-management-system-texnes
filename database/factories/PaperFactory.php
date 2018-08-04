@@ -10,7 +10,7 @@ $factory->define(App\Paper::class, function (Faker\Generator $faker) {
         "duration" => $durations[$i],
         "name" => $faker->name,
         "email" => $faker->safeEmail,
-        "attribute" => collect(["Πανεπιστημιακός","Ερευνητής","Μεταπτυχιακός φοιτητής","Εκπαιδευτικός Β/θμιας Εκπ/σης","Εκπαιδευτικός Α/θμιας Εκπ/σης","Καλλιτέχνης","Άλλο",])->random(),
+        "attribute" => collect(["Μέλος ΔΕΠ","Μέλος ΕΕΠ","Μέλος ΕΔΙΠ","Διδάκτωρ / Ερευνητής","Υποψήφιος Διδάκτωρ","Μεταπτυχιακός/ή Φοιτητής/τρια","Προπτυχιακός/ή Φοιτητής/τρια","Στέλεχος Εκπαίδευσης","Εκπαιδευτικός Πρωτοβάθμιας Εκπαίδευσης","Εκπαιδευτικός Δευτεροβάθμιας Εκπαίδευσης",])->random(),
         "phone" => $faker->phoneNumber,
         "status" => collect(["Accepted","Rejected","Pending",])->random(),
         "informed" => collect(['Unaware','Informed'])->random(),

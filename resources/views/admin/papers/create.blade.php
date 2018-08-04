@@ -135,44 +135,62 @@
                     @endif
                     <div>
                         <label>
-                            {!! Form::radio('attribute', 'Πανεπιστημιακός', false, []) !!}
-                            Πανεπιστημιακός
+                            {!! Form::radio('attribute', 'Μέλος ΔΕΠ', false, []) !!}
+                            Μέλος ΔΕΠ
                         </label>
                     </div>
                     <div>
                         <label>
-                            {!! Form::radio('attribute', 'Ερευνητής', false, []) !!}
-                            Ερευνητής
+                            {!! Form::radio('attribute', 'Μέλος ΕΕΠ', false, []) !!}
+                            Μέλος ΕΕΠ
                         </label>
                     </div>
                     <div>
                         <label>
-                            {!! Form::radio('attribute', 'Μεταπτυχιακός φοιτητής', false, []) !!}
-                            Μεταπτυχιακός φοιτητής
+                            {!! Form::radio('attribute', 'Μέλος ΕΔΙΠ', false, []) !!}
+                            Μέλος ΕΔΙΠ
                         </label>
                     </div>
                     <div>
                         <label>
-                            {!! Form::radio('attribute', 'Εκπαιδευτικός Β/θμιας Εκπ/σης', false, []) !!}
-                            Εκπαιδευτικός Β/θμιας Εκπ/σης
+                            {!! Form::radio('attribute', 'Διδάκτωρ / Ερευνητής', false, []) !!}
+                            Διδάκτωρ / Ερευνητής
                         </label>
                     </div>
                     <div>
                         <label>
-                            {!! Form::radio('attribute', 'Εκπαιδευτικός Α/θμιας Εκπ/σης', false, []) !!}
-                            Εκπαιδευτικός Α/θμιας Εκπ/σης
+                            {!! Form::radio('attribute', 'Υποψήφιος Διδάκτωρ', false, []) !!}
+                            Υποψήφιος Διδάκτωρ
                         </label>
                     </div>
                     <div>
                         <label>
-                            {!! Form::radio('attribute', 'Καλλιτέχνης', false, []) !!}
-                            Καλλιτέχνης
+                            {!! Form::radio('attribute', 'Μεταπτυχιακός/ή Φοιτητής/τρια', false, []) !!}
+                            Μεταπτυχιακός/ή Φοιτητής/τρια
                         </label>
                     </div>
                     <div>
                         <label>
-                            {!! Form::radio('attribute', 'Άλλο', false, []) !!}
-                            Άλλο
+                            {!! Form::radio('attribute', 'Προπτυχιακός/ή Φοιτητής/τρια', false, []) !!}
+                            Προπτυχιακός/ή Φοιτητής/τρια
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            {!! Form::radio('attribute', 'Στέλεχος Εκπαίδευσης', false, []) !!}
+                            Στέλεχος Εκπαίδευσης
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            {!! Form::radio('attribute', 'Εκπαιδευτικός Πρωτοβάθμιας Εκπαίδευσης', false, []) !!}
+                            Εκπαιδευτικός Πρωτοβάθμιας Εκπαίδευσης
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            {!! Form::radio('attribute', 'Εκπαιδευτικός Δευτεροβάθμιας Εκπαίδευσης', false, []) !!}
+                            Εκπαιδευτικός Δευτεροβάθμιας Εκπαίδευσης
                         </label>
                     </div>
                     
