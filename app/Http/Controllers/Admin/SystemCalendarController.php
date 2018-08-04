@@ -11,7 +11,7 @@ class SystemCalendarController extends Controller
     public function index() 
     {
         $events = []; 
-        $resources = Room::select('id','title');
+        $resources = Room::select('id','title')->get();
 
         foreach (\App\Session::all() as $session) { 
            $crudFieldValue = $session->getOriginal('start'); 
@@ -28,7 +28,8 @@ class SystemCalendarController extends Controller
                 'title' => $dataFieldValue, 
                 'start' => $crudFieldValue, 
                 'end'   => $session->getOriginal('end'), 
-                'url'   => route('admin.sessions.show', $session->id)
+                'url'   => route('admin.sessions.show', $session->id),
+                'resourceId' => $session->room_id
            ];
         }
 
