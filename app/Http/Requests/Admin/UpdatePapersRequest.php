@@ -26,7 +26,7 @@ class UpdatePapersRequest extends FormRequest
             
             'art' => 'required',
             'art.*' => 'exists:arts,id',
-            'email' => 'email',
+            'email' => 'required|email',
             'assign.*' => 'exists:users,id',
             'status' => 'required',
             'informed' => 'required',
