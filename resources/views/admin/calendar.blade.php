@@ -19,11 +19,42 @@
     <script>
         $(document).ready(function () {
             // page is now ready, initialize the calendar...
+            /**
+             * events
+             * @type json object
+             * @see https://fullcalendar.io/docs/event-object
+             */
             events={!! json_encode($events)  !!};
+            /**
+             * resources (rooms)
+             * @example { id: 'a', title: 'Room A' },
+             */
+            resources={!! json_encode($resources) !!}; 
+
             $('#calendar').fullCalendar({
                 // put your options and callbacks here
-                events: events,
+                /** academic lisence */
                 schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+                events: events,
+                resources: resources,
+                header: {
+                  left: 'prev,next',
+                  center: 'title',
+                  right: 'agendaDay,agendaThreeDay'
+                },
+
+                /** custom view: three days */
+                views: {
+                  agendaThreeDay: {
+                    type: 'agenda',
+                    duration: { days: 3 }
+                  }
+                },                
+                defaultView: 'agendaThreeDay',
+
+                /** group by date, then by resource */
+                groupByDateAndResource: true,
+
 
             })
         });

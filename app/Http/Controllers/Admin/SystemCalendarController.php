@@ -1,15 +1,17 @@
 <?php
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Room;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class SystemCalendarController extends Controller
 {
     public function index() 
     {
         $events = []; 
+        $resources = Room::select('id','title');
 
         foreach (\App\Session::all() as $session) { 
            $crudFieldValue = $session->getOriginal('start'); 
@@ -25,12 +27,12 @@ class SystemCalendarController extends Controller
            $events[]       = [ 
                 'title' => $dataFieldValue, 
                 'start' => $crudFieldValue, 
-                'url'   => route('admin.sessions.edit', $session->id)
-           ]; 
-        } 
+                'end'   => $session->getOriginal('end'), 
+                'url'   => route('admin.sessions.show', $session->id)
+           ];
+        }
 
-
-       return view('admin.calendar' , compact('events')); 
+       return view('admin.calendar' , compact('events','resources')); 
     }
 
 }
