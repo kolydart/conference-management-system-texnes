@@ -62,3 +62,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
  
 });
+
+require __DIR__."/gw.php";
