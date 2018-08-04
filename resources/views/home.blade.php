@@ -30,7 +30,7 @@
             </div>
             <div class="panel-body table-responsive">
                 <table class="table table-bordered table-striped ajaxTable">
-                    <thead>
+                    {{-- <thead>
                         <tr>
                             <td>
                                 @lang('quickadmin.papers.fields.title')
@@ -39,7 +39,7 @@
                                 @lang('quickadmin.fullpaper.fields.description')
                             </td>
                         </tr>
-                    </thead>
+                    </thead> --}}
                     @foreach($fullpapers as $fullpaper)
                     <tr>
                         <td>
