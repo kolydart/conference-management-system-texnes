@@ -11,24 +11,6 @@ class SystemCalendarController extends Controller
     {
         $events = []; 
 
-        foreach (\App\Fullpaper::all() as $fullpaper) { 
-           $crudFieldValue = $fullpaper->getOriginal('created_at'); 
-
-           if (! $crudFieldValue) {
-               continue;
-           }
-
-           $eventLabel     = $fullpaper->description; 
-           $prefix         = ''; 
-           $suffix         = ''; 
-           $dataFieldValue = trim($prefix . " " . $eventLabel . " " . $suffix); 
-           $events[]       = [ 
-                'title' => $dataFieldValue, 
-                'start' => $crudFieldValue, 
-                'url'   => route('admin.fullpapers.edit', $fullpaper->id)
-           ]; 
-        } 
-
         foreach (\App\Session::all() as $session) { 
            $crudFieldValue = $session->getOriginal('start'); 
 
