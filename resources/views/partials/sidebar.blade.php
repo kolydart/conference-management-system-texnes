@@ -14,6 +14,15 @@
                 </a>
             </li>
 
+            <li>
+                <a href="{{url('admin/calendar')}}">
+                  <i class="fa fa-calendar"></i>
+                  <span class="title">
+                    Calendar
+                  </span>
+                </a>
+            </li>
+        
             @can('paper_access')
             <li>
                 <a href="{{ route('admin.papers.index') }}">
