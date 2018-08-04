@@ -26,6 +26,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('papers_mass_destroy', ['uses' => 'Admin\PapersController@massDestroy', 'as' => 'papers.mass_destroy']);
     Route::post('papers_restore/{id}', ['uses' => 'Admin\PapersController@restore', 'as' => 'papers.restore']);
     Route::delete('papers_perma_del/{id}', ['uses' => 'Admin\PapersController@perma_del', 'as' => 'papers.perma_del']);
+    Route::resource('sessions', 'Admin\SessionsController');
+    Route::post('sessions_mass_destroy', ['uses' => 'Admin\SessionsController@massDestroy', 'as' => 'sessions.mass_destroy']);
+    Route::post('sessions_restore/{id}', ['uses' => 'Admin\SessionsController@restore', 'as' => 'sessions.restore']);
+    Route::delete('sessions_perma_del/{id}', ['uses' => 'Admin\SessionsController@perma_del', 'as' => 'sessions.perma_del']);
     Route::resource('reviews', 'Admin\ReviewsController');
     Route::post('reviews_mass_destroy', ['uses' => 'Admin\ReviewsController@massDestroy', 'as' => 'reviews.mass_destroy']);
     Route::post('reviews_restore/{id}', ['uses' => 'Admin\ReviewsController@restore', 'as' => 'reviews.restore']);
@@ -55,6 +59,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('user_actions', 'Admin\UserActionsController');
     Route::resource('activitylogs', 'Admin\ActivitylogsController');
     Route::post('activitylogs_mass_destroy', ['uses' => 'Admin\ActivitylogsController@massDestroy', 'as' => 'activitylogs.mass_destroy']);
+    Route::resource('rooms', 'Admin\RoomsController');
+    Route::post('rooms_mass_destroy', ['uses' => 'Admin\RoomsController@massDestroy', 'as' => 'rooms.mass_destroy']);
+    Route::post('rooms_restore/{id}', ['uses' => 'Admin\RoomsController@restore', 'as' => 'rooms.restore']);
+    Route::delete('rooms_perma_del/{id}', ['uses' => 'Admin\RoomsController@perma_del', 'as' => 'rooms.perma_del']);
     Route::post('/spatie/media/upload', 'Admin\SpatieMediaController@create')->name('media.upload');
     Route::post('/spatie/media/remove', 'Admin\SpatieMediaController@destroy')->name('media.remove');
 

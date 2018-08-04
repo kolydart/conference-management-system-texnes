@@ -51,10 +51,11 @@ class PapersController extends Controller
         
         $arts = \App\Art::get()->pluck('title', 'id');
 
+        $sessions = \App\Session::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $assigns = \App\User::get()->pluck('name', 'id');
 
 
-        return view('admin.papers.create', compact('arts', 'assigns'));
+        return view('admin.papers.create', compact('arts', 'sessions', 'assigns'));
     }
 
     /**
@@ -102,12 +103,13 @@ class PapersController extends Controller
         
         $arts = \App\Art::get()->pluck('title', 'id');
 
+        $sessions = \App\Session::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $assigns = \App\User::get()->pluck('name', 'id');
 
 
         $paper = Paper::findOrFail($id);
 
-        return view('admin.papers.edit', compact('paper', 'arts', 'assigns'));
+        return view('admin.papers.edit', compact('paper', 'arts', 'sessions', 'assigns'));
     }
 
     /**
@@ -174,6 +176,7 @@ class PapersController extends Controller
         
         $arts = \App\Art::get()->pluck('title', 'id');
 
+        $sessions = \App\Session::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $assigns = \App\User::get()->pluck('name', 'id');
 $fullpapers = \App\Fullpaper::where('paper_id', $id)->get();$reviews = \App\Review::where('paper_id', $id)->get();$messages = \App\Message::where('paper_id', $id)->get();
 

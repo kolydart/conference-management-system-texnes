@@ -37,6 +37,10 @@
                             <td field-key='duration'>{{ $paper->duration }}</td>
                         </tr>
                         <tr>
+                            <th>@lang('quickadmin.papers.fields.session')</th>
+                            <td field-key='session'>{{ $paper->session->title or '' }}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.papers.fields.name')</th>
                             <td field-key='name'>{{ $paper->name }}</td>
                         </tr>

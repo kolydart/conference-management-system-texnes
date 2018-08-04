@@ -47,6 +47,23 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1, 3]);
         });
 
+        // Auth gates for: Sessions
+        Gate::define('session_access', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('session_create', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+        Gate::define('session_edit', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+        Gate::define('session_view', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('session_delete', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+
         // Auth gates for: Reviews
         Gate::define('review_access', function ($user) {
             return in_array($user->role_id, [1, 3, 4, 5]);
@@ -188,8 +205,8 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1, 3]);
         });
 
-        // Auth gates for: User management
-        Gate::define('user_management_access', function ($user) {
+        // Auth gates for: Management
+        Gate::define('management_access', function ($user) {
             return in_array($user->role_id, [1]);
         });
 
@@ -226,6 +243,23 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1]);
         });
         Gate::define('activitylog_delete', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+
+        // Auth gates for: Rooms
+        Gate::define('room_access', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('room_create', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('room_edit', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('room_view', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('room_delete', function ($user) {
             return in_array($user->role_id, [1]);
         });
 

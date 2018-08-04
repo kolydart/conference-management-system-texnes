@@ -1,48 +1,55 @@
-@inject('request', 'Illuminate\Http\Request')
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.papers.title')</h3>
-    @can('paper_create')
-    <p>
-        <a href="{{ route('admin.papers.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
-        
-    </p>
-    @endcan
-
-    @can('paper_delete')
-    <p>
-        <ul class="list-inline">
-            <li><a href="{{ route('admin.papers.index') }}" style="{{ request('show_deleted') == 1 ? '' : 'font-weight: 700' }}">@lang('quickadmin.qa_all')</a></li> |
-            <li><a href="{{ route('admin.papers.index') }}?show_deleted=1" style="{{ request('show_deleted') == 1 ? 'font-weight: 700' : '' }}">@lang('quickadmin.qa_trash')</a></li>
-        </ul>
-    </p>
-    @endcan
-
+    <h3 class="page-title">@lang('quickadmin.sessions.title')</h3>
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            @lang('quickadmin.qa_list')
+            @lang('quickadmin.qa_view')
         </div>
 
         <div class="panel-body table-responsive">
-            <table class="table table-bordered table-striped {{ count($papers) > 0 ? 'datatable' : '' }} @can('paper_delete') @if ( request('show_deleted') != 1 ) dt-select @endif @endcan">
-                <thead>
-                    <tr>
-                        @can('paper_delete')
-                            @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
-                        @endcan
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th>@lang('quickadmin.sessions.fields.title')</th>
+                            <td field-key='title'>{{ $session->title }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.sessions.fields.room')</th>
+                            <td field-key='room'>{{ $session->room->title or '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.sessions.fields.start')</th>
+                            <td field-key='start'>{{ $session->start }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.sessions.fields.end')</th>
+                            <td field-key='end'>{{ $session->end }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div><!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+    
+<li role="presentation" class="active"><a href="#papers" aria-controls="papers" role="tab" data-toggle="tab">Προτάσεις</a></li>
+</ul>
 
-                        <th>id</th>
-                        <th>@lang('quickadmin.papers.fields.title')</th>
+<!-- Tab panes -->
+<div class="tab-content">
+    
+<div role="tabpanel" class="tab-pane active" id="papers">
+<table class="table table-bordered table-striped {{ count($papers) > 0 ? 'datatable' : '' }}">
+    <thead>
+        <tr>
+            <th>@lang('quickadmin.papers.fields.title')</th>
                         <th>@lang('quickadmin.papers.fields.art')</th>
                         <th>@lang('quickadmin.papers.fields.type')</th>
                         <th>@lang('quickadmin.papers.fields.duration')</th>
                         <th>@lang('quickadmin.papers.fields.name')</th>
                         <th>@lang('quickadmin.papers.fields.email')</th>
                         <th>@lang('quickadmin.papers.fields.attribute')</th>
-                        <th>@lang('quickadmin.papers.fields.phone')</th>
-                        <th>@lang('gw.papers.fields.reviewed')</th>
                         <th>@lang('quickadmin.papers.fields.status')</th>
                         <th>@lang('quickadmin.papers.fields.informed')</th>
                         @if( request('show_deleted') == 1 )
@@ -50,25 +57,14 @@
                         @else
                         <th>&nbsp;</th>
                         @endif
-                    </tr>
-                </thead>
-                
-                <tbody>
-                    @if (count($papers) > 0)
-                        @foreach ($papers as $paper)
-                            <tr data-entry-id="{{ $paper->id }}">
-                                @can('paper_delete')
-                                    @if ( request('show_deleted') != 1 )<td></td>@endif
-                                @endcan
+        </tr>
+    </thead>
 
-                                <td field-key='id'>{{$paper->id}}</td>
-                                <td field-key='title'>
-                                    @if (Gate::allows('paper_view'))
-                                        <a href="{{ route('admin.papers.show',[$paper->id]) }}" >{{ $paper->title }}</a>
-                                    @else
-                                        {{ $paper->title }}
-                                    @endif
-                                </td>
+    <tbody>
+        @if (count($papers) > 0)
+            @foreach ($papers as $paper)
+                <tr data-entry-id="{{ $paper->id }}">
+                    <td field-key='title'>{{ $paper->title }}</td>
                                 <td field-key='art'>
                                     @foreach ($paper->art as $singleArt)
                                         <span class="label label-info label-many">{{ $singleArt->title }}</span>
@@ -79,15 +75,6 @@
                                 <td field-key='name'>{{ $paper->name }}</td>
                                 <td field-key='email'>{{ $paper->email }}</td>
                                 <td field-key='attribute'>{{ $paper->attribute }}</td>
-                                <td field-key='phone'>{{ $paper->phone }}</td>
-                                <td field-key='judged'>
-                                    @if ($paper->assign->count())
-                                        {{round($paper->reviews->count()*100/$paper->assign->count(),0)}}%
-                                    @endif
-                                    @if ($paper->reviews->count())
-                                        {{"[".implode($paper->reviews->pluck('review')->all(),', ')."]"}}
-                                    @endif
-                                </td>
                                 <td field-key='status'>{{ $paper->status }}</td>
                                 <td field-key='informed'>{{ $paper->informed }}</td>
                                 @if( request('show_deleted') == 1 )
@@ -130,24 +117,21 @@
                                     @endcan
                                 </td>
                                 @endif
-                            </tr>
-                        @endforeach
-                    @else
-                        <tr>
-                            <td colspan="18">@lang('quickadmin.qa_no_entries_in_table')</td>
-                        </tr>
-                    @endif
-                </tbody>
-            </table>
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="18">@lang('quickadmin.qa_no_entries_in_table')</td>
+            </tr>
+        @endif
+    </tbody>
+</table>
+</div>
+</div>
+
+            <p>&nbsp;</p>
+
+            <a href="{{ route('admin.sessions.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
         </div>
     </div>
 @stop
-
-@section('javascript') 
-    <script>
-        @can('paper_delete')
-            @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('admin.papers.mass_destroy') }}'; @endif
-        @endcan
-
-    </script>
-@endsection
