@@ -64,7 +64,7 @@
         @if (count($papers) > 0)
             @foreach ($papers as $paper)
                 <tr data-entry-id="{{ $paper->id }}">
-                    <td field-key='title'>{{ $paper->title }}</td>
+                    <td field-key='title'><a href="{{route('admin.papers.show',$paper->id)}}">{{ $paper->title }}</a></td>
                                 <td field-key='art'>
                                     @foreach ($paper->art as $singleArt)
                                         <span class="label label-info label-many">{{ $singleArt->title }}</span>
