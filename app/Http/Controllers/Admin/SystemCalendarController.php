@@ -28,7 +28,7 @@ class SystemCalendarController extends Controller
            $events[]       = [ 
                 'title' => $dataFieldValue, 
                 'start' => $crudFieldValue, 
-                'end'   => (new DateTime($crudFieldValue))->addTime($session->duration), 
+                'end'   => (new DateTime($crudFieldValue))->addTime($session->duration)->sql(), 
                 'url'   => route('admin.sessions.show', $session->id),
                 'resourceId' => $session->room_id
            ];
