@@ -9,4 +9,5 @@ return [
 		]
 	],
 	'date'=>'Date',
+	'id'=>'Code',
 ];

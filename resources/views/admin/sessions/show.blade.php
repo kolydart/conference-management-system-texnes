@@ -13,6 +13,10 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr>
+                            <th>@lang('gw.id')</th>
+                            <td field-key='title'>S{{ $session->id }}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.sessions.fields.title')</th>
                             <td field-key='title'>{{ $session->title }}</td>
                         </tr>
@@ -35,6 +39,7 @@
                     </table>
                 </div>
             </div><!-- Nav tabs -->
+<a href="{{route('admin.sessions.edit',$session->id)}}" class="btn btn-info">@lang('quickadmin.qa_edit')</a> <br><br>           
 <ul class="nav nav-tabs" role="tablist">
     
 <li role="presentation" class="active"><a href="#papers" aria-controls="papers" role="tab" data-toggle="tab">Προτάσεις</a></li>
