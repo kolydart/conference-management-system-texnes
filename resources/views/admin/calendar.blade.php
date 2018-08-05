@@ -57,7 +57,9 @@
                 
                 /** start date */
                 defaultDate: '2018-10-11',
-
+                allDaySlot: false,
+                minTime: "09:00:00",
+                maxTime: "22:00:00",
             })
         });
     </script>
