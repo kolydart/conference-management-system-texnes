@@ -33,6 +33,7 @@
                             @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
                         @endcan
 
+                        <th>@lang('gw.id')</th>
                         <th>@lang('quickadmin.sessions.fields.title')</th>
                         <th>@lang('quickadmin.sessions.fields.room')</th>
                         <th>@lang('quickadmin.sessions.fields.start')</th>
@@ -53,6 +54,7 @@
                                     @if ( request('show_deleted') != 1 )<td></td>@endif
                                 @endcan
 
+                                <td field-key='id'>{{ $session->id }}</td>
                                 <td field-key='title'>{{ $session->title }}</td>
                                 <td field-key='room'>{{ $session->room->title or '' }}</td>
                                 <td field-key='start'>{{ $session->start }}</td>
