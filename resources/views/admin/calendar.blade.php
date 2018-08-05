@@ -60,6 +60,8 @@
                 allDaySlot: false,
                 minTime: "09:00:00",
                 maxTime: "22:00:00",
+
+                timeFormat: 'H:mm',
             })
         });
     </script>
