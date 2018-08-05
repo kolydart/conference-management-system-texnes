@@ -38,7 +38,7 @@
             <th>@lang('quickadmin.sessions.fields.title')</th>
                         <th>@lang('quickadmin.sessions.fields.room')</th>
                         <th>@lang('quickadmin.sessions.fields.start')</th>
-                        <th>@lang('quickadmin.sessions.fields.end')</th>
+                        <th>@lang('quickadmin.sessions.fields.duration')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -54,7 +54,7 @@
                     <td field-key='title'>{{ $session->title }}</td>
                                 <td field-key='room'>{{ $session->room->title or '' }}</td>
                                 <td field-key='start'>{{ $session->start }}</td>
-                                <td field-key='end'>{{ $session->end }}</td>
+                                <td field-key='duration'>{{ $session->duration }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('session_delete')
@@ -99,7 +99,7 @@
             @endforeach
         @else
             <tr>
-                <td colspan="9">@lang('quickadmin.qa_no_entries_in_table')</td>
+                <td colspan="10">@lang('quickadmin.qa_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>
