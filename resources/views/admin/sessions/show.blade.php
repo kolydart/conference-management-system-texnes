@@ -25,8 +25,12 @@
                             <td field-key='start'>{{ $session->start }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.sessions.fields.end')</th>
-                            <td field-key='end'>{{ $session->end }}</td>
+                            <th>@lang('quickadmin.sessions.fields.duration')</th>
+                            <td field-key='duration'>{{ $session->duration }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.sessions.fields.chair')</th>
+                            <td field-key='chair'>{{ $session->chair }}</td>
                         </tr>
                     </table>
                 </div>

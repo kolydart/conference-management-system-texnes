@@ -48,12 +48,24 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('end', trans('quickadmin.sessions.fields.end').'', ['class' => 'control-label']) !!}
-                    {!! Form::text('end', old('end'), ['class' => 'form-control datetime', 'placeholder' => '']) !!}
+                    {!! Form::label('duration', trans('quickadmin.sessions.fields.duration').'*', ['class' => 'control-label']) !!}
+                    {!! Form::text('duration', old('duration'), ['class' => 'form-control timepicker', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('end'))
+                    @if($errors->has('duration'))
                         <p class="help-block">
-                            {{ $errors->first('end') }}
+                            {{ $errors->first('duration') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('chair', trans('quickadmin.sessions.fields.chair').'', ['class' => 'control-label']) !!}
+                    {!! Form::text('chair', old('chair'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('chair'))
+                        <p class="help-block">
+                            {{ $errors->first('chair') }}
                         </p>
                     @endif
                 </div>
@@ -81,6 +93,10 @@
                 format: "{{ config('app.datetime_format_moment') }}",
                 locale: "{{ App::getLocale() }}",
                 sideBySide: true,
+            });
+            
+            $('.timepicker').datetimepicker({
+                format: "{{ config('app.time_format_moment') }}",
             });
             
         });

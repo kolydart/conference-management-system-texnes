@@ -8,9 +8,11 @@ $factory->define(App\Session::class, function (Faker\Generator $faker) {
 	$obj = (new DateTime($date))->setTime($faker->numberBetween(10,18),00);
 
     return [
-        "title" => 'Session '.$faker->unique()->numberBetween(100,300).$faker->randomLetter(),
+        "title" => $faker->sentence,
         "room_id" => Room::all()->random()->id,
         "start" => $obj->sql(),
         "end" =>  $obj->modify('+2 hours')->sql(),
+        "duration" => '02:00:00',
+        "chair" => $faker->name,
     ];
 });

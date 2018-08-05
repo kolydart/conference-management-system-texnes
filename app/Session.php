@@ -12,13 +12,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $title
  * @property string $room
  * @property string $start
- * @property string $end
+ * @property time $duration
+ * @property string $chair
 */
 class Session extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title', 'start', 'end', 'room_id'];
+    protected $fillable = ['title', 'start', 'duration', 'chair', 'room_id'];
     protected $hidden = [];
     
     
@@ -72,12 +73,12 @@ class Session extends Model
      * Set attribute to date format
      * @param $input
      */
-    public function setEndAttribute($input)
+    public function setDurationAttribute($input)
     {
         if ($input != null && $input != '') {
-            $this->attributes['end'] = Carbon::createFromFormat(config('app.date_format') . ' H:i:s', $input)->format('Y-m-d H:i:s');
+            $this->attributes['duration'] = Carbon::createFromFormat('H:i:s', $input)->format('H:i:s');
         } else {
-            $this->attributes['end'] = null;
+            $this->attributes['duration'] = null;
         }
     }
 
@@ -87,12 +88,10 @@ class Session extends Model
      *
      * @return string
      */
-    public function getEndAttribute($input)
+    public function getDurationAttribute($input)
     {
-        $zeroDate = str_replace(['Y', 'm', 'd'], ['0000', '00', '00'], config('app.date_format') . ' H:i:s');
-
-        if ($input != $zeroDate && $input != null) {
-            return Carbon::createFromFormat('Y-m-d H:i:s', $input)->format(config('app.date_format') . ' H:i:s');
+        if ($input != null && $input != '') {
+            return Carbon::createFromFormat('H:i:s', $input)->format('H:i:s');
         } else {
             return '';
         }
