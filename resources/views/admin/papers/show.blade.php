@@ -38,7 +38,11 @@
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.papers.fields.session')</th>
-                            <td field-key='session'><a href="{{route('admin.sessions.show',$paper->session->id)}}">{{ $paper->session->title or '' }}</a></td>
+                            <td field-key='session'>
+                                @if ($paper->session)
+                                    <a href="{{route('admin.sessions.show',$paper->session->id)}}">{{ $paper->session->title or '' }}</a>    
+                                @endif
+                            </td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.papers.fields.name')</th>

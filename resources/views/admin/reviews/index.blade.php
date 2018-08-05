@@ -55,7 +55,7 @@
 
                                 <td field-key='user'>{{ $review->user->name or '' }}</td>
                                 <td field-key='paper'>
-                                    @if (Gate::allows('paper_view'))
+                                    @if (Gate::allows('paper_view') && $review->paper)
                                         <a href="{{ route('admin.papers.show',[$review->paper->id]) }}" >{{ $review->paper->title }}</a>
                                     @else
                                         {{ $paper->title }}

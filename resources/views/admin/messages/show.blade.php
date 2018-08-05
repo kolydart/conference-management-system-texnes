@@ -26,7 +26,11 @@
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.messages.fields.paper')</th>
-                            <td field-key='paper'><a href="{{ route('admin.papers.show',[$message->paper->id]) }}" >{{ $message->paper->title or '' }}</a></td>
+                            <td field-key='paper'>
+                                @if ($message->paper)
+                                    <a href="{{ route('admin.papers.show',[$message->paper->id]) }}" >{{ $message->paper->title or '' }}</a>
+                                @endif
+                            </td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.messages.fields.body')</th>

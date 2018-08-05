@@ -53,7 +53,7 @@
                                 @endcan
 
                                 <td field-key='paper'>
-                                    @if (Gate::allows('paper_view'))
+                                    @if (Gate::allows('paper_view') && $fullpaper->paper)
                                         <a href="{{ route('admin.papers.show',[$fullpaper->paper->id]) }}" >{{ $fullpaper->paper->title }}</a>
                                     @else
                                         {{ $fullpaper->paper->title }}
