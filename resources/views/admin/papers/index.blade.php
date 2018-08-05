@@ -75,10 +75,14 @@
                                 </td>
                                 <td field-key='type'>{{ $paper->type }}</td>
                                 <td field-key='duration'>{{ $paper->duration }}</td>
-                                <td field-key='session'>{{ $paper->session->title or '' }}</td>
+                                <td field-key='session'>
+                                    @if ($paper->session)
+                                        <a href="{{route('admin.sessions.show',$paper->session->id)}}">{{ "S". $paper->session->id.". ".$paper->session->title }}</a>
+                                    @endif
+                                </td>
                                 <td field-key='name'>{{ $paper->name }}</td>
                                 <td field-key='attribute'>{{ $paper->attribute }}</td>
-                                <td field-key='judged'>
+                                <td field-key='reviewed'>
                                     @if ($paper->assign->count())
                                         {{round($paper->reviews->count()*100/$paper->assign->count(),0)}}%
                                     @endif
