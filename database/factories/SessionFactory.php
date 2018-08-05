@@ -11,8 +11,7 @@ $factory->define(App\Session::class, function (Faker\Generator $faker) {
         "title" => $faker->sentence,
         "room_id" => Room::all()->random()->id,
         "start" => $obj->sql(),
-        "end" =>  $obj->modify('+2 hours')->sql(),
-        "duration" => '02:00:00',
+        "duration" => '0'.$faker->numberBetween(1,3).':00:00',
         "chair" => $faker->name,
     ];
 });
