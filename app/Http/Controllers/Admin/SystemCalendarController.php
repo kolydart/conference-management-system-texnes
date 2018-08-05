@@ -24,7 +24,7 @@ class SystemCalendarController extends Controller
            $eventLabel     = $session->title; 
            $prefix         = ''; 
            $suffix         = ''; 
-           $dataFieldValue = trim($prefix . " " . $eventLabel . " " . $suffix); 
+           $dataFieldValue = trim($prefix . "S$session->id. " . $eventLabel . " " . $suffix); 
            $events[]       = [ 
                 'title' => $dataFieldValue, 
                 'start' => $crudFieldValue, 
