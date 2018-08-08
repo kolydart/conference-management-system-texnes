@@ -145,7 +145,7 @@
                     @can('activitylog_access')
                     <li>
                         <a href="{{ route('admin.activitylogs.index') }}">
-                            <i class="fa fa-list"></i>
+                            <i class="fa fa-heartbeat"></i>
                             <span>@lang('quickadmin.activitylog.title')</span>
                         </a>
                     </li>@endcan
