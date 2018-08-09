@@ -1,13 +1,9 @@
 <?php
-
-return [
-	'dashboard'=>'Dashboard',
-	'home'=>'Home',
+return array_merge(gateweb\common\presenter\Language::get_map('en'),[
 	'papers'=>[
 		'fields'=>[
 			'reviewed' => 'Reviews'
 		]
 	],
-	'date'=>'Date',
-	'id'=>'Code',
-];
+
+	]);
