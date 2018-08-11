@@ -119,7 +119,7 @@
             @can('management_access')
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-gears"></i>
+                    <i class="fa fa-gear"></i>
                     <span>@lang('quickadmin.management.title')</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -134,6 +134,27 @@
                         </a>
                     </li>@endcan
                     
+                    @can('room_access')
+                    <li>
+                        <a href="{{ route('admin.rooms.index') }}">
+                            <i class="fa fa-map-marker"></i>
+                            <span>@lang('quickadmin.rooms.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                </ul>
+            </li>@endcan
+            
+            @can('log_access')
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-heartbeat"></i>
+                    <span>@lang('quickadmin.logs.title')</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
                     @can('user_action_access')
                     <li>
                         <a href="{{ route('admin.user_actions.index') }}">
@@ -145,16 +166,8 @@
                     @can('activitylog_access')
                     <li>
                         <a href="{{ route('admin.activitylogs.index') }}">
-                            <i class="fa fa-heartbeat"></i>
+                            <i class="fa fa-space-shuttle"></i>
                             <span>@lang('quickadmin.activitylog.title')</span>
-                        </a>
-                    </li>@endcan
-                    
-                    @can('room_access')
-                    <li>
-                        <a href="{{ route('admin.rooms.index') }}">
-                            <i class="fa fa-map-marker"></i>
-                            <span>@lang('quickadmin.rooms.title')</span>
                         </a>
                     </li>@endcan
                     

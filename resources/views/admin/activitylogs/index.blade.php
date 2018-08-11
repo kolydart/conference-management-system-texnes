@@ -18,7 +18,7 @@
         </div>
 
         <div class="panel-body table-responsive">
-            <table class="table table-bordered table-striped {{ count($activitylogs) > 0 ? 'datatable' : '' }} @can('activitylog_delete') dt-select @endcan">
+            <table class="table table-bordered table-striped ajaxTable @can('activitylog_delete') dt-select @endcan">
                 <thead>
                     <tr>
                         @can('activitylog_delete')
@@ -90,6 +90,18 @@
         @can('activitylog_delete')
             window.route_mass_crud_entries_destroy = '{{ route('admin.activitylogs.mass_destroy') }}';
         @endcan
-
+        $(document).ready(function () {
+            window.dtDefaultOptions.ajax = '{!! route('admin.activitylogs.index') !!}';
+            window.dtDefaultOptions.columns = [@can('activitylog_delete')
+                    {data: 'massDelete', name: 'id', searchable: false, sortable: false},
+                @endcan{data: 'causer_id', name: 'causer_id'},
+                {data: 'description', name: 'description'},
+                {data: 'subject_type', name: 'subject_type'},
+                {data: 'subject_id', name: 'subject_id'},
+                
+                {data: 'actions', name: 'actions', searchable: false, sortable: false}
+            ];
+            processAjaxTables();
+        });
     </script>
 @endsection
