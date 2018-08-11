@@ -35,51 +35,7 @@
                     </tr>
                 </thead>
                 
-                <tbody>
-                    @if (count($activitylogs) > 0)
-                        @foreach ($activitylogs as $activitylog)
-                            <tr data-entry-id="{{ $activitylog->id }}">
-                                @can('activitylog_delete')
-                                    <td></td>
-                                @endcan
 
-                                <td field-key='date'>{{$activitylog->created_at}}</td>
-                                <td field-key='causer_id'>
-                                    @if ($activitylog->causer_type == 'App\User' && App\User::find($activitylog->causer_id))
-                                        <a href="{{route('admin.users.show',$activitylog->causer_id)}}">{{ App\User::find($activitylog->causer_id)->name }}</a>
-                                    @else
-                                        {{ $activitylog->causer_id }}
-                                    @endif
-                                </td>
-                                <td field-key='description'>{{ $activitylog->description }}</td>
-                                <td field-key='subject_type'>{{ $activitylog->subject_type }}</td>
-                                <td field-key='subject_id'>{{ $activitylog->subject_id }}</td>
-                                                                <td>
-                                    @can('activitylog_view')
-                                    <a href="{{ route('admin.activitylogs.show',[$activitylog->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
-                                    @endcan
-                                    @can('activitylog_edit')
-                                    <a href="{{ route('admin.activitylogs.edit',[$activitylog->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
-                                    @endcan
-                                    @can('activitylog_delete')
-{!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'DELETE',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.activitylogs.destroy', $activitylog->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!}
-                                    @endcan
-                                </td>
-
-                            </tr>
-                        @endforeach
-                    @else
-                        <tr>
-                            <td colspan="12">@lang('quickadmin.qa_no_entries_in_table')</td>
-                        </tr>
-                    @endif
-                </tbody>
             </table>
         </div>
     </div>
