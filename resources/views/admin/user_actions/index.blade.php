@@ -18,7 +18,7 @@
         </div>
 
         <div class="panel-body table-responsive">
-            <table class="table table-bordered table-striped {{ count($user_actions) > 0 ? 'datatable' : '' }} ">
+            <table class="table table-bordered table-striped ajaxTable ">
                 <thead>
                     <tr>
                         
@@ -30,26 +30,6 @@
                         
                     </tr>
                 </thead>
-                
-                <tbody>
-                    @if (count($user_actions) > 0)
-                        @foreach ($user_actions as $user_action)
-                            <tr data-entry-id="{{ $user_action->id }}">
-                                
-                                <td>{{ $user_action->created_at or '' }}</td>
-                                <td field-key='user'>{{ $user_action->user->name or '' }}</td>
-                                <td field-key='action'>{{ $user_action->action }}</td>
-                                <td field-key='action_model'>{{ $user_action->action_model }}</td>
-                                <td field-key='action_id'>{{ $user_action->action_id }}</td>
-                                
-                            </tr>
-                        @endforeach
-                    @else
-                        <tr>
-                            <td colspan="7">@lang('quickadmin.qa_no_entries_in_table')</td>
-                        </tr>
-                    @endif
-                </tbody>
             </table>
         </div>
     </div>
@@ -57,6 +37,17 @@
 
 @section('javascript') 
     <script>
-        
+                $(document).ready(function () {
+            window.dtDefaultOptions.ajax = '{!! route('admin.user_actions.index') !!}';
+            window.dtDefaultOptions.columns = [{data: 'created_at', name: 'created_at'},
+                {data: 'user.name', name: 'user.name'},
+                {data: 'action', name: 'action'},
+                {data: 'action_model', name: 'action_model'},
+                {data: 'action_id', name: 'action_id'},
+                
+                {data: 'actions', name: 'actions', searchable: false, sortable: false}
+            ];
+            processAjaxTables();
+        });
     </script>
 @endsection

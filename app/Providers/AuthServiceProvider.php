@@ -263,5 +263,10 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1]);
         });
 
+        // Auth gates for: Logs
+        Gate::define('log_access', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+
     }
 }

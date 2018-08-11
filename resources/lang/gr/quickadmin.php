@@ -21,6 +21,7 @@ return [
 		'activitylog' => [		'title' => 'activity-log',		'fields' => [			'log-name' => 'Log name',			'causer-type' => 'Causer type',			'causer-id' => 'Causer id',			'description' => 'Description',			'subject-type' => 'Subject type',			'subject-id' => 'Subject id',			'properties' => 'Properties',		],	],
 		'rooms' => [		'title' => 'Αίθουσες',		'fields' => [			'title' => 'Όνομα',			'description' => 'Description',		],	],
 		'sessions' => [		'title' => 'Συνεδρίες',		'fields' => [			'title' => 'Τίτλος',			'room' => 'Αίθουσα',			'start' => 'Έναρξη',			'duration' => 'Διάρκεια',			'chair' => 'Chair',		],	],
+		'logs' => [		'title' => 'Logs',		'fields' => [		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',
@@ -234,5 +235,10 @@ return [
 	'qa_create_new_calendar_source' => 'Δημιουργία Νέας Πηγής Ημερολογίου',
 	'qa_edit_calendar_source' => 'Επεξεργασία Πηγής Ημερολογίου',
 	'qa_client_management_settings' => 'Ρυθμίσεις Διαχείρισης Πελατών',
+	'qa_no_reports_yet' => 'Δεν υπάρχουν αναφορές ακόμη.',
+	'qa_select_users_placeholder' => 'Παρακαλώ επιλέξτε έναν από τους Χρήστες',
+	'qa_is_created' => 'δημιουργήθηκε',
+	'qa_is_updated' => 'ενημερώθηκε',
+	'qa_is_deleted' => 'διαγράφηκε',
 	'quickadmin_title' => 'conference-management-system',
 ];
