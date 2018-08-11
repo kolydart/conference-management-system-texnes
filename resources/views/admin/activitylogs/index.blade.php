@@ -50,7 +50,9 @@
             window.dtDefaultOptions.ajax = '{!! route('admin.activitylogs.index') !!}';
             window.dtDefaultOptions.columns = [@can('activitylog_delete')
                     {data: 'massDelete', name: 'id', searchable: false, sortable: false},
-                @endcan{data: 'causer_id', name: 'causer_id'},
+                @endcan
+                {data: 'created_at', name: 'created_at'},
+                {data: 'causer_id', name: 'causer_id'},
                 {data: 'description', name: 'description'},
                 {data: 'subject_type', name: 'subject_type'},
                 {data: 'subject_id', name: 'subject_id'},

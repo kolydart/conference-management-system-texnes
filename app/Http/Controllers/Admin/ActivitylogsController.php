@@ -38,6 +38,7 @@ class ActivitylogsController extends Controller
                 'activity_log.subject_type',
                 'activity_log.subject_id',
                 'activity_log.properties',
+                'activity_log.created_at',
             ]);
             $table = Datatables::of($query);
 
@@ -52,6 +53,9 @@ class ActivitylogsController extends Controller
 
                 return view($template, compact('row', 'gateKey', 'routeKey'));
             });
+            $table->editColumn('created_at', function ($row) {
+                return $row->created_at ? $row->created_at : '';
+            });
             $table->editColumn('log_name', function ($row) {
                 return $row->log_name ? $row->log_name : '';
             });
@@ -59,7 +63,11 @@ class ActivitylogsController extends Controller
                 return $row->causer_type ? $row->causer_type : '';
             });
             $table->editColumn('causer_id', function ($row) {
-                return $row->causer_id ? $row->causer_id : '';
+                if($row->causer_type == 'App\User' && \App\User::find($row->causer_id)){
+                    return \App\User::find($row->causer_id)->name;
+                }else{
+                    return $row->causer_id;
+                }
             });
             $table->editColumn('description', function ($row) {
                 return $row->description ? $row->description : '';
