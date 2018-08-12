@@ -155,6 +155,14 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
+                    @can('activitylog_access')
+                    <li>
+                        <a href="{{ route('admin.activitylogs.index') }}">
+                            <i class="fa fa-space-shuttle"></i>
+                            <span>@lang('quickadmin.activitylog.title')</span>
+                        </a>
+                    </li>@endcan
+                    
                     @can('user_action_access')
                     <li>
                         <a href="{{ route('admin.user_actions.index') }}">
@@ -163,11 +171,11 @@
                         </a>
                     </li>@endcan
                     
-                    @can('activitylog_access')
+                    @can('loguseragent_access')
                     <li>
-                        <a href="{{ route('admin.activitylogs.index') }}">
-                            <i class="fa fa-space-shuttle"></i>
-                            <span>@lang('quickadmin.activitylog.title')</span>
+                        <a href="{{ route('admin.loguseragents.index') }}">
+                            <i class="fa fa-user-secret"></i>
+                            <span>@lang('quickadmin.loguseragent.title')</span>
                         </a>
                     </li>@endcan
                     
