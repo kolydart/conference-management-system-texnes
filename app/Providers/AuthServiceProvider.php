@@ -227,25 +227,6 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1]);
         });
 
-        // Auth gates for: User actions
-        Gate::define('user_action_access', function ($user) {
-            return in_array($user->role_id, [1]);
-        });
-
-        // Auth gates for: Activitylog
-        Gate::define('activitylog_access', function ($user) {
-            return in_array($user->role_id, [1]);
-        });
-        Gate::define('activitylog_edit', function ($user) {
-            return in_array($user->role_id, [1]);
-        });
-        Gate::define('activitylog_view', function ($user) {
-            return in_array($user->role_id, [1]);
-        });
-        Gate::define('activitylog_delete', function ($user) {
-            return in_array($user->role_id, [1]);
-        });
-
         // Auth gates for: Rooms
         Gate::define('room_access', function ($user) {
             return in_array($user->role_id, [1, 3, 4, 5]);
@@ -265,6 +246,39 @@ class AuthServiceProvider extends ServiceProvider
 
         // Auth gates for: Logs
         Gate::define('log_access', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+
+        // Auth gates for: Activitylog
+        Gate::define('activitylog_access', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('activitylog_edit', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('activitylog_view', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('activitylog_delete', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+
+        // Auth gates for: User actions
+        Gate::define('user_action_access', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+
+        // Auth gates for: Loguseragent
+        Gate::define('loguseragent_access', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('loguseragent_edit', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('loguseragent_view', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('loguseragent_delete', function ($user) {
             return in_array($user->role_id, [1]);
         });
 
