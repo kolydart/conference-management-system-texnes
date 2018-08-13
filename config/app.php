@@ -191,7 +191,6 @@ return [
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         
         App\Providers\GatewebServiceProvider::class,
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         /*
          * Application Service Providers...
          */
