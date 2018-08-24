@@ -19,6 +19,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property string $email
  * @property string $attribute
  * @property string $phone
+ * @property text $abstract
  * @property string $status
  * @property string $informed
 */
@@ -31,7 +32,7 @@ class Paper extends Model implements HasMedia
 
     use SoftDeletes, HasMediaTrait;
 
-    protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'phone', 'status', 'informed', 'session_id'];
+    protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'phone', 'abstract', 'status', 'informed', 'session_id'];
     protected $hidden = [];
     
     

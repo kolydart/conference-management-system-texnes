@@ -23,14 +23,6 @@
                 </a>
             </li>
         
-            @can('paper_access')
-            <li>
-                <a href="{{ route('admin.papers.index') }}">
-                    <i class="fa fa-newspaper-o"></i>
-                    <span>@lang('quickadmin.papers.title')</span>
-                </a>
-            </li>@endcan
-            
             @can('session_access')
             <li>
                 <a href="{{ route('admin.sessions.index') }}">
@@ -39,11 +31,19 @@
                 </a>
             </li>@endcan
             
-            @can('review_access')
+            @can('room_access')
             <li>
-                <a href="{{ route('admin.reviews.index') }}">
-                    <i class="fa fa-gavel"></i>
-                    <span>@lang('quickadmin.reviews.title')</span>
+                <a href="{{ route('admin.rooms.index') }}">
+                    <i class="fa fa-map-marker"></i>
+                    <span>@lang('quickadmin.rooms.title')</span>
+                </a>
+            </li>@endcan
+            
+            @can('paper_access')
+            <li>
+                <a href="{{ route('admin.papers.index') }}">
+                    <i class="fa fa-newspaper-o"></i>
+                    <span>@lang('quickadmin.papers.title')</span>
                 </a>
             </li>@endcan
             
@@ -63,19 +63,19 @@
                 </a>
             </li>@endcan
             
-            @can('message_access')
-            <li>
-                <a href="{{ route('admin.messages.index') }}">
-                    <i class="fa fa-envelope-o"></i>
-                    <span>@lang('quickadmin.messages.title')</span>
-                </a>
-            </li>@endcan
-            
             @can('user_access')
             <li>
                 <a href="{{ route('admin.users.index') }}">
                     <i class="fa fa-graduation-cap"></i>
                     <span>@lang('quickadmin.users.title')</span>
+                </a>
+            </li>@endcan
+            
+            @can('review_access')
+            <li>
+                <a href="{{ route('admin.reviews.index') }}">
+                    <i class="fa fa-gavel"></i>
+                    <span>@lang('quickadmin.reviews.title')</span>
                 </a>
             </li>@endcan
             
@@ -126,6 +126,14 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
+                    @can('message_access')
+                    <li>
+                        <a href="{{ route('admin.messages.index') }}">
+                            <i class="fa fa-envelope-o"></i>
+                            <span>@lang('quickadmin.messages.title')</span>
+                        </a>
+                    </li>@endcan
+                    
                     @can('role_access')
                     <li>
                         <a href="{{ route('admin.roles.index') }}">
@@ -134,27 +142,6 @@
                         </a>
                     </li>@endcan
                     
-                    @can('room_access')
-                    <li>
-                        <a href="{{ route('admin.rooms.index') }}">
-                            <i class="fa fa-map-marker"></i>
-                            <span>@lang('quickadmin.rooms.title')</span>
-                        </a>
-                    </li>@endcan
-                    
-                </ul>
-            </li>@endcan
-            
-            @can('log_access')
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-heartbeat"></i>
-                    <span>@lang('quickadmin.logs.title')</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
                     @can('activitylog_access')
                     <li>
                         <a href="{{ route('admin.activitylogs.index') }}">

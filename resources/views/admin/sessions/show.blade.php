@@ -130,7 +130,7 @@
             @endforeach
         @else
             <tr>
-                <td colspan="18">@lang('quickadmin.qa_no_entries_in_table')</td>
+                <td colspan="19">@lang('quickadmin.qa_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>
@@ -143,4 +143,30 @@
             <a href="{{ route('admin.sessions.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
         </div>
     </div>
+@stop
+
+@section('javascript')
+    @parent
+
+    <script src="{{ url('adminlte/plugins/datetimepicker/moment-with-locales.min.js') }}"></script>
+    <script src="{{ url('adminlte/plugins/datetimepicker/bootstrap-datetimepicker.min.js') }}"></script>
+    <script>
+        $(function(){
+            moment.updateLocale('{{ App::getLocale() }}', {
+                week: { dow: 1 } // Monday is the first day of the week
+            });
+            
+            $('.datetime').datetimepicker({
+                format: "{{ config('app.datetime_format_moment') }}",
+                locale: "{{ App::getLocale() }}",
+                sideBySide: true,
+            });
+            
+            $('.timepicker').datetimepicker({
+                format: "{{ config('app.time_format_moment') }}",
+            });
+            
+        });
+    </script>
+            
 @stop

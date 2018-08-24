@@ -259,6 +259,18 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
+                    {!! Form::label('abstract', trans('quickadmin.papers.fields.abstract').'', ['class' => 'control-label']) !!}
+                    {!! Form::textarea('abstract', old('abstract'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('abstract'))
+                        <p class="help-block">
+                            {{ $errors->first('abstract') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
                     {!! Form::label('assign', trans('quickadmin.papers.fields.assign').'', ['class' => 'control-label']) !!}
                     <button type="button" class="btn btn-primary btn-xs" id="selectbtn-assign">
                         {{ trans('quickadmin.qa_select_all') }}
@@ -376,6 +388,17 @@
                     'index' => '_INDEX_',
                 ])
                </script > 
+    <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
+    <script>
+        $('.editor').each(function () {
+                  CKEDITOR.replace($(this).attr('id'),{
+                    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
+                    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}'
+            });
+        });
+    </script>
 
             <script>
         $('.add-new').click(function () {
