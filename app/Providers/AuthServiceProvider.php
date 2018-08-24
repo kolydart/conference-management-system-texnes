@@ -38,7 +38,7 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1, 3]);
         });
         Gate::define('paper_edit', function ($user) {
-            return in_array($user->role_id, [1, 3]);
+            return in_array($user->role_id, [1, 3, 4]);
         });
         Gate::define('paper_view', function ($user) {
             return in_array($user->role_id, [1, 3, 4, 5]);
@@ -117,7 +117,7 @@ class AuthServiceProvider extends ServiceProvider
 
         // Auth gates for: Messages
         Gate::define('message_access', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
+            return in_array($user->role_id, [1]);
         });
         Gate::define('message_create', function ($user) {
             return in_array($user->role_id, [1]);
@@ -126,7 +126,7 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1]);
         });
         Gate::define('message_view', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
+            return in_array($user->role_id, [1]);
         });
         Gate::define('message_delete', function ($user) {
             return in_array($user->role_id, [1]);
@@ -232,21 +232,16 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1, 3, 4, 5]);
         });
         Gate::define('room_create', function ($user) {
-            return in_array($user->role_id, [1]);
+            return in_array($user->role_id, [1, 3, 4]);
         });
         Gate::define('room_edit', function ($user) {
-            return in_array($user->role_id, [1]);
+            return in_array($user->role_id, [1, 3, 4]);
         });
         Gate::define('room_view', function ($user) {
             return in_array($user->role_id, [1, 3, 4, 5]);
         });
         Gate::define('room_delete', function ($user) {
-            return in_array($user->role_id, [1]);
-        });
-
-        // Auth gates for: Logs
-        Gate::define('log_access', function ($user) {
-            return in_array($user->role_id, [1]);
+            return in_array($user->role_id, [1, 3, 4]);
         });
 
         // Auth gates for: Activitylog

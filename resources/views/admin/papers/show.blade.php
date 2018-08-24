@@ -61,6 +61,10 @@
                             @endforeach</td>
                         </tr>
                         <tr>
+                            <th>@lang('quickadmin.papers.fields.abstract')</th>
+                            <td field-key='abstract'>{!! $paper->abstract !!}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.papers.fields.assign')</th>
                             <td field-key='assign'>
                                 @foreach ($paper->assign as $singleAssign)
@@ -311,4 +315,20 @@
             <a href="{{ route('admin.papers.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
         </div>
     </div>
+@stop
+
+@section('javascript')
+    @parent
+    <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
+    <script>
+        $('.editor').each(function () {
+                  CKEDITOR.replace($(this).attr('id'),{
+                    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
+                    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}'
+            });
+        });
+    </script>
+
 @stop

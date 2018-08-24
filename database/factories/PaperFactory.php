@@ -10,6 +10,7 @@ $factory->define(App\Paper::class, function (Faker\Generator $faker) {
         "email" => $faker->safeEmail,
         "attribute" => collect(["Μέλος ΔΕΠ","Μέλος ΕΕΠ","Μέλος ΕΔΙΠ","Διδάκτωρ / Ερευνητής","Υποψήφιος Διδάκτωρ","Μεταπτυχιακός/ή Φοιτητής/τρια","Προπτυχιακός/ή Φοιτητής/τρια","Στέλεχος Εκπαίδευσης","Εκπαιδευτικός Πρωτοβάθμιας Εκπαίδευσης","Εκπαιδευτικός Δευτεροβάθμιας Εκπαίδευσης","Καλλιτέχνης",])->random(),
         "phone" => $faker->name,
+        "abstract" => $faker->name,
         "status" => collect(["Accepted","Rejected","Pending",])->random(),
         "informed" => collect(["Unaware","Informed",])->random(),
     ];
