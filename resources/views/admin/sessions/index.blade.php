@@ -38,6 +38,7 @@
                         <th>@lang('quickadmin.sessions.fields.room')</th>
                         <th>@lang('quickadmin.sessions.fields.start')</th>
                         <th>@lang('quickadmin.sessions.fields.duration')</th>
+                        <th>@lang('Κενό-Πλεόνασμα')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -58,7 +59,8 @@
                                 <td field-key='title'>{{ $session->title }}</td>
                                 <td field-key='room'>{{ $session->room->title or '' }}</td>
                                 <td field-key='start'>{{ $session->start }}</td>
-                                <td field-key='duration'>{{ $session->duration }}</td>
+                                <td field-key='duration'>{{ (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
+                                <td field-key='remains'>{{ $session->papers->pluck('duration')->sum() - (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('session_delete')

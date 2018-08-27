@@ -30,8 +30,12 @@
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.sessions.fields.duration')</th>
-                            <td field-key='duration'>{{ $session->duration }}</td>
+                            <td field-key='duration'>{{ (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
                         </tr>
+                        <tr>
+                            <th>@lang('Κενό-Πλεόνασμα')</th>
+                            <td field-key='duration'>{{ $session->papers->pluck('duration')->sum() - (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
+                        </tr>                        
                         <tr>
                             <th>@lang('quickadmin.sessions.fields.chair')</th>
                             <td field-key='chair'>{{ $session->chair }}</td>
