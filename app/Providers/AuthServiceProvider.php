@@ -30,23 +30,6 @@ class AuthServiceProvider extends ServiceProvider
         $user = \Auth::user();
 
         
-        // Auth gates for: Papers
-        Gate::define('paper_access', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
-        });
-        Gate::define('paper_create', function ($user) {
-            return in_array($user->role_id, [1, 3]);
-        });
-        Gate::define('paper_edit', function ($user) {
-            return in_array($user->role_id, [1, 3, 4]);
-        });
-        Gate::define('paper_view', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
-        });
-        Gate::define('paper_delete', function ($user) {
-            return in_array($user->role_id, [1, 3]);
-        });
-
         // Auth gates for: Sessions
         Gate::define('session_access', function ($user) {
             return in_array($user->role_id, [1, 3, 4, 5]);
@@ -64,21 +47,38 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1, 3, 4]);
         });
 
-        // Auth gates for: Reviews
-        Gate::define('review_access', function ($user) {
+        // Auth gates for: Rooms
+        Gate::define('room_access', function ($user) {
             return in_array($user->role_id, [1, 3, 4, 5]);
         });
-        Gate::define('review_create', function ($user) {
-            return in_array($user->role_id, [1, 3, 5]);
+        Gate::define('room_create', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
         });
-        Gate::define('review_edit', function ($user) {
-            return in_array($user->role_id, [1]);
+        Gate::define('room_edit', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
         });
-        Gate::define('review_view', function ($user) {
+        Gate::define('room_view', function ($user) {
             return in_array($user->role_id, [1, 3, 4, 5]);
         });
-        Gate::define('review_delete', function ($user) {
-            return in_array($user->role_id, [1]);
+        Gate::define('room_delete', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+
+        // Auth gates for: Papers
+        Gate::define('paper_access', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('paper_create', function ($user) {
+            return in_array($user->role_id, [1, 3]);
+        });
+        Gate::define('paper_edit', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+        Gate::define('paper_view', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('paper_delete', function ($user) {
+            return in_array($user->role_id, [1, 3]);
         });
 
         // Auth gates for: Fullpaper
@@ -115,23 +115,6 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1]);
         });
 
-        // Auth gates for: Messages
-        Gate::define('message_access', function ($user) {
-            return in_array($user->role_id, [1]);
-        });
-        Gate::define('message_create', function ($user) {
-            return in_array($user->role_id, [1]);
-        });
-        Gate::define('message_edit', function ($user) {
-            return in_array($user->role_id, [1]);
-        });
-        Gate::define('message_view', function ($user) {
-            return in_array($user->role_id, [1]);
-        });
-        Gate::define('message_delete', function ($user) {
-            return in_array($user->role_id, [1]);
-        });
-
         // Auth gates for: Users
         Gate::define('user_access', function ($user) {
             return in_array($user->role_id, [1, 3, 4, 5]);
@@ -147,6 +130,23 @@ class AuthServiceProvider extends ServiceProvider
         });
         Gate::define('user_delete', function ($user) {
             return in_array($user->role_id, [1, 3]);
+        });
+
+        // Auth gates for: Reviews
+        Gate::define('review_access', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('review_create', function ($user) {
+            return in_array($user->role_id, [1, 3, 5]);
+        });
+        Gate::define('review_edit', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('review_view', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('review_delete', function ($user) {
+            return in_array($user->role_id, [1]);
         });
 
         // Auth gates for: Content management
@@ -210,6 +210,23 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1]);
         });
 
+        // Auth gates for: Messages
+        Gate::define('message_access', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('message_create', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('message_edit', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('message_view', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('message_delete', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+
         // Auth gates for: Roles
         Gate::define('role_access', function ($user) {
             return in_array($user->role_id, [1]);
@@ -225,23 +242,6 @@ class AuthServiceProvider extends ServiceProvider
         });
         Gate::define('role_delete', function ($user) {
             return in_array($user->role_id, [1]);
-        });
-
-        // Auth gates for: Rooms
-        Gate::define('room_access', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
-        });
-        Gate::define('room_create', function ($user) {
-            return in_array($user->role_id, [1, 3, 4]);
-        });
-        Gate::define('room_edit', function ($user) {
-            return in_array($user->role_id, [1, 3, 4]);
-        });
-        Gate::define('room_view', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
-        });
-        Gate::define('room_delete', function ($user) {
-            return in_array($user->role_id, [1, 3, 4]);
         });
 
         // Auth gates for: Activitylog

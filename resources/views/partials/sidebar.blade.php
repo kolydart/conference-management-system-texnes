@@ -50,7 +50,7 @@
             @can('fullpaper_access')
             <li>
                 <a href="{{ route('admin.fullpapers.index') }}">
-                    <i class="fa fa-file-text-o"></i>
+                    <i class="fa fa-paperclip"></i>
                     <span>@lang('quickadmin.fullpaper.title')</span>
                 </a>
             </li>@endcan
