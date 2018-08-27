@@ -1,11 +1,13 @@
 <?php
 namespace App;
 
+use App\Fullpaper;
+use App\Message;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
-use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * Class Paper
@@ -54,12 +56,18 @@ class Paper extends Model implements HasMedia
     
     public function art()
     {
-        return $this->belongsToMany(Art::class, 'art_paper')->withTrashed();
+        if(request('show_deleted') == 1)
+            return $this->belongsToMany(Art::class, 'art_paper')->withTrashed();
+        else
+            return $this->belongsToMany(Art::class, 'art_paper');
     }
     
     public function session()
     {
-        return $this->belongsTo(Session::class, 'session_id')->withTrashed();
+        if(request('show_deleted') == 1)
+            return $this->belongsTo(Session::class, 'session_id')->withTrashed();
+        else
+            return $this->belongsTo(Session::class, 'session_id');
     }
     
     public function assign()
@@ -70,4 +78,23 @@ class Paper extends Model implements HasMedia
     public function reviews() {
         return $this->hasMany(Review::class, 'paper_id');
     }
+
+    public function messages()
+    {
+        if(request('show_deleted') == 1)
+            return $this->hasMany(Message::class, 'paper_id')->withTrashed();
+        else
+            return $this->hasMany(Message::class, 'paper_id');
+    }
+
+
+    public function fullpapers(){
+        if(request('show_deleted') == 1)
+            return $this->hasMany(Fullpaper::class,'paper_id')->withTrashed();
+        else
+            return $this->hasMany(Fullpaper::class,'paper_id');
+        
+    }
+    
+
 }

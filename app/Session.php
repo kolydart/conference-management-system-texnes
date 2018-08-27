@@ -1,8 +1,9 @@
 <?php
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Paper;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -99,7 +100,17 @@ class Session extends Model
     
     public function room()
     {
-        return $this->belongsTo(Room::class, 'room_id')->withTrashed();
+        if(request('show_deleted') == 1)
+            return $this->belongsTo(Room::class, 'room_id')->withTrashed();
+        else
+            return $this->belongsTo(Room::class, 'room_id');
+    }
+
+    public function papers(){
+        if(request('show_deleted') == 1)
+            return $this->hasMany(Paper::class, 'session_id')->withTrashed();
+        else        
+            return $this->hasMany(Paper::class, 'session_id');
     }
     
 }

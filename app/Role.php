@@ -1,6 +1,7 @@
 <?php
 namespace App;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -26,6 +27,11 @@ class Role extends Model
         parent::boot();
 
         Role::observe(new \App\Observers\UserActionsObserver);
+    }
+
+    public function users()
+    {
+        return $this->hasMany(User::class, 'role_id');
     }
     
 }

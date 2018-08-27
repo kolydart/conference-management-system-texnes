@@ -1,10 +1,12 @@
 <?php
 namespace App;
 
+use App\Paper;
+use App\Review;
+use Hash;
+use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Auth\Notifications\ResetPassword;
-use Hash;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
@@ -61,11 +63,20 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class, 'role_id');
     }
     
-    
-    
 
     public function sendPasswordResetNotification($token)
     {
        $this->notify(new ResetPassword($token));
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'user_id');
+    }
+
+    public function assign()
+    {
+        return $this->belongsToMany(Paper::class, 'paper_user');
+    }
+
 }

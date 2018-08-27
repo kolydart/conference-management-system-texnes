@@ -1,6 +1,7 @@
 <?php
 namespace App;
 
+use App\Session;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -24,6 +25,13 @@ class Room extends Model
         parent::boot();
 
         Room::observe(new \App\Observers\UserActionsObserver);
+    }
+    
+    public function sessions(){
+        if(request('show_deleted') == 1)
+        	return $this->hasMany(Session::class, 'room_id')->withTrashed();
+        else    	
+        	return $this->hasMany(Session::class, 'room_id');
     }
     
 }

@@ -1,6 +1,7 @@
 <?php
 namespace App;
 
+use App\Paper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -29,6 +30,14 @@ class Art extends Model
         parent::boot();
 
         Art::observe(new \App\Observers\UserActionsObserver);
+    }
+
+    public function papers()
+    {
+        if(request('show_deleted') == 1)
+            return $this->belongsToMany(Paper::class, 'art_paper')->withTrashed();
+        else
+            return $this->belongsToMany(Paper::class, 'art_paper');
     }
     
 }
