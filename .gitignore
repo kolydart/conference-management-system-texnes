@@ -1,6 +1,7 @@
 /node_modules
 /public/hot
 /public/storage
+/public/uploads/guide.mp4
 /storage/*.key
 /vendor
 /.idea
