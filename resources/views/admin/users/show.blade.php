@@ -217,7 +217,6 @@
                         <th>@lang('quickadmin.papers.fields.name')</th>
                         <th>@lang('quickadmin.papers.fields.attribute')</th>
                         <th>@lang('quickadmin.papers.fields.status')</th>
-                        <th>@lang('quickadmin.papers.fields.informed')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -248,7 +247,6 @@
                                 <td field-key='name'>{{ $paper->name }}</td>
                                 <td field-key='attribute'>{{ $paper->attribute }}</td>
                                 <td field-key='status'>{{ $paper->status }}</td>
-                                <td field-key='informed'>{{ $paper->informed }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('paper_delete')
