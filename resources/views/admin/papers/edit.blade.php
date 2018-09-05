@@ -10,8 +10,8 @@
             @lang('quickadmin.qa_edit')
         </div>
 
-        <div class="panel-body">
-            <div class="row">
+        <div class="panel-body row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('title', trans('quickadmin.papers.fields.title').'', ['class' => 'control-label']) !!}
                     {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => '']) !!}
@@ -23,7 +23,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('art', trans('quickadmin.papers.fields.art').'*', ['class' => 'control-label']) !!}
                     <button type="button" class="btn btn-primary btn-xs" id="selectbtn-art">
@@ -41,7 +41,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('type', trans('quickadmin.papers.fields.type').'', ['class' => 'control-label']) !!}
                     <p class="help-block"></p>
@@ -71,7 +71,7 @@
                     
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('duration', trans('quickadmin.papers.fields.duration').'', ['class' => 'control-label']) !!}
                     <p class="help-block"></p>
@@ -101,7 +101,7 @@
                     
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('session_id', trans('quickadmin.papers.fields.session').'', ['class' => 'control-label']) !!}
                     {!! Form::select('session_id', $sessions, old('session_id'), ['class' => 'form-control select2']) !!}
@@ -113,7 +113,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('name', trans('quickadmin.papers.fields.name').'', ['class' => 'control-label']) !!}
                     {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '']) !!}
@@ -125,7 +125,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('email', trans('quickadmin.papers.fields.email').'*', ['class' => 'control-label']) !!}
                     {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
@@ -137,7 +137,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('attribute', trans('quickadmin.papers.fields.attribute').'', ['class' => 'control-label']) !!}
                     <p class="help-block"></p>
@@ -215,7 +215,7 @@
                     
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('phone', trans('quickadmin.papers.fields.phone').'', ['class' => 'control-label']) !!}
                     {!! Form::text('phone', old('phone'), ['class' => 'form-control', 'placeholder' => '']) !!}
@@ -227,7 +227,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('document', trans('quickadmin.papers.fields.document').'', ['class' => 'control-label']) !!}
                     {!! Form::file('document[]', [
@@ -257,7 +257,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('abstract', trans('quickadmin.papers.fields.abstract').'', ['class' => 'control-label']) !!}
                     {!! Form::textarea('abstract', old('abstract'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
@@ -269,7 +269,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('assign', trans('quickadmin.papers.fields.assign').'', ['class' => 'control-label']) !!}
                     <button type="button" class="btn btn-primary btn-xs" id="selectbtn-assign">
@@ -287,7 +287,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('status', trans('quickadmin.papers.fields.status').'*', ['class' => 'control-label']) !!}
                     <p class="help-block"></p>
@@ -317,7 +317,7 @@
                     
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('informed', trans('quickadmin.papers.fields.informed').'*', ['class' => 'control-label']) !!}
                     <p class="help-block"></p>
