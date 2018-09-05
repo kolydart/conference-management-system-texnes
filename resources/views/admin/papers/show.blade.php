@@ -73,6 +73,10 @@
                             <td field-key='abstract'>{!! $paper->abstract !!}</td>
                         </tr>
                         <tr>
+                            <th>@lang('quickadmin.papers.fields.bio')</th>
+                            <td field-key='bio'>{!! $paper->bio !!}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.papers.fields.assign')</th>
                             <td field-key='assign'>
                                 @foreach ($paper->assign as $singleAssign)

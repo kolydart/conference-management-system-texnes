@@ -262,6 +262,18 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
+                    {!! Form::label('bio', trans('quickadmin.papers.fields.bio').'', ['class' => 'control-label']) !!}
+                    {!! Form::textarea('bio', old('bio'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('bio'))
+                        <p class="help-block">
+                            {{ $errors->first('bio') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
                     {!! Form::label('assign', trans('quickadmin.papers.fields.assign').'', ['class' => 'control-label']) !!}
                     <button type="button" class="btn btn-primary btn-xs" id="selectbtn-assign">
                         {{ trans('quickadmin.qa_select_all') }}

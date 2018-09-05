@@ -15,6 +15,7 @@ $factory->define(App\Paper::class, function (Faker\Generator $faker) {
         "phone" => $faker->phoneNumber,
         "phone" => $faker->name,
         "abstract" => $faker->paragraph,
+        "bio" => $faker->paragraph,
         "status" => collect(["Accepted","Rejected","Pending",])->random(),
         "informed" => collect(['Unaware','Informed'])->random(),
     ];
