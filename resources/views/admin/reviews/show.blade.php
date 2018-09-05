@@ -17,6 +17,10 @@
                             <td field-key='user'>{{ $review->user->name or '' }}</td>
                         </tr>
                         <tr>
+                            <th>@lang('quickadmin.reviews.fields.paper')</th>
+                            <td field-key='paper'>{{ $review->paper->title or '' }}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.reviews.fields.review')</th>
                             <td field-key='review'>{{ $review->review }}</td>
                         </tr>
@@ -34,3 +38,5 @@
         </div>
     </div>
 @stop
+
+
