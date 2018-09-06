@@ -24,9 +24,8 @@ class StoreSessionsRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:sessions,title,'.$this->route('session'),
-            'room_id' => 'required',
-            'start' => 'required|date_format:'.config('app.date_format').' H:i:s',
             'duration' => 'required|date_format:H:i:s',
+            'start' => 'nullable|date_format:'.config('app.date_format').' H:i:s',
         ];
     }
 }

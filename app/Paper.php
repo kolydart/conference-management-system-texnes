@@ -62,7 +62,4 @@ class Paper extends Model implements HasMedia
         return $this->belongsToMany(User::class, 'paper_user');
     }
     
-    public function reviews() {
-        return $this->hasMany(Review::class, 'paper_id');
-    }
 }
