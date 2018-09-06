@@ -49,24 +49,24 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('chair', trans('quickadmin.sessions.fields.chair').'', ['class' => 'control-label']) !!}
-                    {!! Form::text('chair', old('chair'), ['class' => 'form-control', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('chair'))
-                        <p class="help-block">
-                            {{ $errors->first('chair') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
                     {!! Form::label('start', trans('quickadmin.sessions.fields.start').'', ['class' => 'control-label']) !!}
                     {!! Form::text('start', old('start'), ['class' => 'form-control datetime', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('start'))
                         <p class="help-block">
                             {{ $errors->first('start') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('chair', trans('quickadmin.sessions.fields.chair').'', ['class' => 'control-label']) !!}
+                    {!! Form::text('chair', old('chair'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('chair'))
+                        <p class="help-block">
+                            {{ $errors->first('chair') }}
                         </p>
                     @endif
                 </div>
