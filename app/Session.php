@@ -12,14 +12,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $title
  * @property time $duration
  * @property string $room
- * @property string $chair
  * @property string $start
+ * @property string $chair
 */
 class Session extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title', 'duration', 'chair', 'start', 'room_id'];
+    protected $fillable = ['title', 'duration', 'start', 'chair', 'room_id'];
     protected $hidden = [];
     
     
