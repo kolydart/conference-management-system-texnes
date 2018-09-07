@@ -35,13 +35,19 @@
                     <div>
                         <label>
                             {!! Form::radio('type', 'green', false, ['required' => '']) !!}
-                            Available
+                            Available (green)
                         </label>
                     </div>
                     <div>
                         <label>
                             {!! Form::radio('type', 'black', false, ['required' => '']) !!}
-                            Occupied
+                            Occupied (black)
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            {!! Form::radio('type', 'yellow', false, ['required' => '']) !!}
+                            Break (yellow)
                         </label>
                     </div>
                     

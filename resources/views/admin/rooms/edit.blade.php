@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('description', trans('quickadmin.rooms.fields.description').'', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('description', old('description'), ['class' => 'form-control ', 'placeholder' => 'Πληροφορίες για το κοινό']) !!}
+                    {!! Form::textarea('description', old('description'), ['class' => 'form-control editor', 'placeholder' => 'Πληροφορίες για το κοινό']) !!}
                     <p class="help-block">Πληροφορίες για το κοινό</p>
                     @if($errors->has('description'))
                         <p class="help-block">
@@ -43,3 +43,18 @@
     {!! Form::close() !!}
 @stop
 
+@section('javascript')
+    @parent
+    <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
+    <script>
+        $('.editor').each(function () {
+                  CKEDITOR.replace($(this).attr('id'),{
+                    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
+                    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}'
+            });
+        });
+    </script>
+
+@stop
