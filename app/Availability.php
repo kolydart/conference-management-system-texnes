@@ -10,15 +10,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @package App
  * @property string $room
+ * @property string $type
  * @property string $start
  * @property string $end
- * @property string $notes
+ * @property text $notes
 */
 class Availability extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['start', 'end', 'notes', 'room_id'];
+    protected $fillable = ['type', 'start', 'end', 'notes', 'room_id'];
     protected $hidden = [];
     
     

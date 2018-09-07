@@ -25,7 +25,7 @@
             </div><!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     
-<li role="presentation" class="active"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">Availability</a></li>
+<li role="presentation" class="active"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">Διαθεσιμότητα αιθουσών</a></li>
 <li role="presentation" class=""><a href="#sessions" aria-controls="sessions" role="tab" data-toggle="tab">Συνεδρίες</a></li>
 </ul>
 
@@ -37,6 +37,7 @@
     <thead>
         <tr>
             <th>@lang('quickadmin.availability.fields.room')</th>
+                        <th>@lang('quickadmin.availability.fields.type')</th>
                         <th>@lang('quickadmin.availability.fields.start')</th>
                         <th>@lang('quickadmin.availability.fields.end')</th>
                         <th>@lang('quickadmin.availability.fields.notes')</th>
@@ -53,9 +54,10 @@
             @foreach ($availabilities as $availability)
                 <tr data-entry-id="{{ $availability->id }}">
                     <td field-key='room'>{{ $availability->room->title or '' }}</td>
+                                <td field-key='type'>{{ $availability->type }}</td>
                                 <td field-key='start'>{{ $availability->start }}</td>
                                 <td field-key='end'>{{ $availability->end }}</td>
-                                <td field-key='notes'>{{ $availability->notes }}</td>
+                                <td field-key='notes'>{!! $availability->notes !!}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('availability_delete')
@@ -100,7 +102,7 @@
             @endforeach
         @else
             <tr>
-                <td colspan="9">@lang('quickadmin.qa_no_entries_in_table')</td>
+                <td colspan="10">@lang('quickadmin.qa_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>
