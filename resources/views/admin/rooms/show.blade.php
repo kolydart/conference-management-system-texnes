@@ -25,19 +25,19 @@
             </div><!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     
-<li role="presentation" class="active"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">Διαθεσιμότητα αιθουσών</a></li>
-<li role="presentation" class=""><a href="#sessions" aria-controls="sessions" role="tab" data-toggle="tab">Συνεδρίες</a></li>
+<li role="presentation" class=""><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">Διαθεσιμότητα αιθουσών</a></li>
+<li role="presentation" class="active"><a href="#sessions" aria-controls="sessions" role="tab" data-toggle="tab">Συνεδρίες</a></li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
     
-<div role="tabpanel" class="tab-pane active" id="availability">
+<div role="tabpanel" class="tab-pane " id="availability">
 <table class="table table-bordered table-striped {{ count($availabilities) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
-            <th>@lang('quickadmin.availability.fields.room')</th>
-                        <th>@lang('quickadmin.availability.fields.type')</th>
+            {{-- <th>@lang('quickadmin.availability.fields.room')</th> --}}
+                        <th style="width: 30px;">@lang('quickadmin.availability.fields.type')</th>
                         <th>@lang('quickadmin.availability.fields.start')</th>
                         <th>@lang('quickadmin.availability.fields.end')</th>
                         <th>@lang('quickadmin.availability.fields.notes')</th>
@@ -53,7 +53,7 @@
         @if (count($availabilities) > 0)
             @foreach ($availabilities as $availability)
                 <tr data-entry-id="{{ $availability->id }}">
-                    <td field-key='room'>{{ $availability->room->title or '' }}</td>
+                    {{-- <td field-key='room'>{{ $availability->room->title or '' }}</td> --}}
                                 <td field-key='type'>{{ $availability->type }}</td>
                                 <td field-key='start'>{{ $availability->start }}</td>
                                 <td field-key='end'>{{ $availability->end }}</td>
@@ -108,7 +108,7 @@
     </tbody>
 </table>
 </div>
-<div role="tabpanel" class="tab-pane " id="sessions">
+<div role="tabpanel" class="tab-pane active" id="sessions">
 <table class="table table-bordered table-striped {{ count($sessions) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>

@@ -13,7 +13,7 @@ class SystemCalendarController extends Controller
     public function index() 
     {
         $events = []; 
-        $resources = Room::select('id','title')->get();
+        $resources = Room::orderBy('title')->select('id','title')->get();
 
         foreach (\App\Session::all() as $session) { 
            $crudFieldValue = $session->getOriginal('start'); 
