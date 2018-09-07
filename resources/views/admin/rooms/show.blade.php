@@ -25,13 +25,88 @@
             </div><!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     
-<li role="presentation" class="active"><a href="#sessions" aria-controls="sessions" role="tab" data-toggle="tab">Συνεδρίες</a></li>
+<li role="presentation" class="active"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">Availability</a></li>
+<li role="presentation" class=""><a href="#sessions" aria-controls="sessions" role="tab" data-toggle="tab">Συνεδρίες</a></li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
     
-<div role="tabpanel" class="tab-pane active" id="sessions">
+<div role="tabpanel" class="tab-pane active" id="availability">
+<table class="table table-bordered table-striped {{ count($availabilities) > 0 ? 'datatable' : '' }}">
+    <thead>
+        <tr>
+            <th>@lang('quickadmin.availability.fields.room')</th>
+                        <th>@lang('quickadmin.availability.fields.start')</th>
+                        <th>@lang('quickadmin.availability.fields.end')</th>
+                        <th>@lang('quickadmin.availability.fields.notes')</th>
+                        @if( request('show_deleted') == 1 )
+                        <th>&nbsp;</th>
+                        @else
+                        <th>&nbsp;</th>
+                        @endif
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (count($availabilities) > 0)
+            @foreach ($availabilities as $availability)
+                <tr data-entry-id="{{ $availability->id }}">
+                    <td field-key='room'>{{ $availability->room->title or '' }}</td>
+                                <td field-key='start'>{{ $availability->start }}</td>
+                                <td field-key='end'>{{ $availability->end }}</td>
+                                <td field-key='notes'>{{ $availability->notes }}</td>
+                                @if( request('show_deleted') == 1 )
+                                <td>
+                                    @can('availability_delete')
+                                                                        {!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'POST',
+                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                        'route' => ['admin.availabilities.restore', $availability->id])) !!}
+                                    {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
+                                    {!! Form::close() !!}
+                                @endcan
+                                    @can('availability_delete')
+                                                                        {!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                        'route' => ['admin.availabilities.perma_del', $availability->id])) !!}
+                                    {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                    {!! Form::close() !!}
+                                @endcan
+                                </td>
+                                @else
+                                <td>
+                                    @can('availability_view')
+                                    <a href="{{ route('admin.availabilities.show',[$availability->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    @endcan
+                                    @can('availability_edit')
+                                    <a href="{{ route('admin.availabilities.edit',[$availability->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                    @endcan
+                                    @can('availability_delete')
+{!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                        'route' => ['admin.availabilities.destroy', $availability->id])) !!}
+                                    {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                    {!! Form::close() !!}
+                                    @endcan
+                                </td>
+                                @endif
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="9">@lang('quickadmin.qa_no_entries_in_table')</td>
+            </tr>
+        @endif
+    </tbody>
+</table>
+</div>
+<div role="tabpanel" class="tab-pane " id="sessions">
 <table class="table table-bordered table-striped {{ count($sessions) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>

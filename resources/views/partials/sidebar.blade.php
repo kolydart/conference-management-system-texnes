@@ -126,6 +126,14 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
+                    @can('availability_access')
+                    <li>
+                        <a href="{{ route('admin.availabilities.index') }}">
+                            <i class="fa fa-calendar-times-o"></i>
+                            <span>@lang('quickadmin.availability.title')</span>
+                        </a>
+                    </li>@endcan
+                    
                     @can('message_access')
                     <li>
                         <a href="{{ route('admin.messages.index') }}">
