@@ -17,16 +17,16 @@
                             <td field-key='title'>{{ $session->title }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.sessions.fields.duration')</th>
-                            <td field-key='duration'>{{ $session->duration }}</td>
-                        </tr>
-                        <tr>
                             <th>@lang('quickadmin.sessions.fields.room')</th>
                             <td field-key='room'>{{ $session->room->title or '' }}</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.sessions.fields.start')</th>
                             <td field-key='start'>{{ $session->start }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.sessions.fields.duration')</th>
+                            <td field-key='duration'>{{ $session->duration }}</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.sessions.fields.chair')</th>

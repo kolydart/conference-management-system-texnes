@@ -25,18 +25,6 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('duration', trans('quickadmin.sessions.fields.duration').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('duration', old('duration'), ['class' => 'form-control timepicker', 'placeholder' => '', 'required' => '']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('duration'))
-                        <p class="help-block">
-                            {{ $errors->first('duration') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
                     {!! Form::label('room_id', trans('quickadmin.sessions.fields.room').'', ['class' => 'control-label']) !!}
                     {!! Form::select('room_id', $rooms, old('room_id'), ['class' => 'form-control select2']) !!}
                     <p class="help-block"></p>
@@ -55,6 +43,18 @@
                     @if($errors->has('start'))
                         <p class="help-block">
                             {{ $errors->first('start') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('duration', trans('quickadmin.sessions.fields.duration').'*', ['class' => 'control-label']) !!}
+                    {!! Form::text('duration', old('duration'), ['class' => 'form-control timepicker', 'placeholder' => '', 'required' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('duration'))
+                        <p class="help-block">
+                            {{ $errors->first('duration') }}
                         </p>
                     @endif
                 </div>

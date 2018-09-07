@@ -10,16 +10,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @package App
  * @property string $title
- * @property time $duration
  * @property string $room
  * @property string $start
+ * @property time $duration
  * @property string $chair
 */
 class Session extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title', 'duration', 'start', 'chair', 'room_id'];
+    protected $fillable = ['title', 'start', 'duration', 'chair', 'room_id'];
     protected $hidden = [];
     
     
@@ -28,34 +28,6 @@ class Session extends Model
         parent::boot();
 
         Session::observe(new \App\Observers\UserActionsObserver);
-    }
-
-    /**
-     * Set attribute to date format
-     * @param $input
-     */
-    public function setDurationAttribute($input)
-    {
-        if ($input != null && $input != '') {
-            $this->attributes['duration'] = Carbon::createFromFormat('H:i:s', $input)->format('H:i:s');
-        } else {
-            $this->attributes['duration'] = null;
-        }
-    }
-
-    /**
-     * Get attribute from date format
-     * @param $input
-     *
-     * @return string
-     */
-    public function getDurationAttribute($input)
-    {
-        if ($input != null && $input != '') {
-            return Carbon::createFromFormat('H:i:s', $input)->format('H:i:s');
-        } else {
-            return '';
-        }
     }
 
     /**
@@ -92,6 +64,34 @@ class Session extends Model
 
         if ($input != $zeroDate && $input != null) {
             return Carbon::createFromFormat('Y-m-d H:i:s', $input)->format(config('app.date_format') . ' H:i:s');
+        } else {
+            return '';
+        }
+    }
+
+    /**
+     * Set attribute to date format
+     * @param $input
+     */
+    public function setDurationAttribute($input)
+    {
+        if ($input != null && $input != '') {
+            $this->attributes['duration'] = Carbon::createFromFormat('H:i:s', $input)->format('H:i:s');
+        } else {
+            $this->attributes['duration'] = null;
+        }
+    }
+
+    /**
+     * Get attribute from date format
+     * @param $input
+     *
+     * @return string
+     */
+    public function getDurationAttribute($input)
+    {
+        if ($input != null && $input != '') {
+            return Carbon::createFromFormat('H:i:s', $input)->format('H:i:s');
         } else {
             return '';
         }

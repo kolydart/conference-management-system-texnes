@@ -113,9 +113,9 @@
     <thead>
         <tr>
             <th>@lang('quickadmin.sessions.fields.title')</th>
-                        <th>@lang('quickadmin.sessions.fields.duration')</th>
                         <th>@lang('quickadmin.sessions.fields.room')</th>
                         <th>@lang('quickadmin.sessions.fields.start')</th>
+                        <th>@lang('quickadmin.sessions.fields.duration')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -129,9 +129,9 @@
             @foreach ($sessions as $session)
                 <tr data-entry-id="{{ $session->id }}">
                     <td field-key='title'>{{ $session->title }}</td>
-                                <td field-key='duration'>{{ $session->duration }}</td>
                                 <td field-key='room'>{{ $session->room->title or '' }}</td>
                                 <td field-key='start'>{{ $session->start }}</td>
+                                <td field-key='duration'>{{ $session->duration }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('session_delete')
