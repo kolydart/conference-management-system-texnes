@@ -23,7 +23,7 @@ return [
 		'sessions' => [		'title' => 'Συνεδρίες',		'fields' => [			'title' => 'Τίτλος',			'room' => 'Αίθουσα',			'start' => 'Έναρξη',			'duration' => 'Διάρκεια',			'chair' => 'Chair',		],	],
 		'logs' => [		'title' => 'Logs',		'fields' => [		],	],
 		'loguseragent' => [		'title' => 'Loguseragent',		'fields' => [			'os' => 'OS',			'os-version' => 'OS version',			'browser' => 'Browser',			'browser-version' => 'Browser version',			'device' => 'Device',			'language' => 'Language',			'item-id' => 'item_id',			'ipv6' => 'ipv6',			'uri' => 'Uri',			'form-submitted' => 'Form submitted',			'user' => 'User',		],	],
-		'availability' => [		'title' => 'Διαθεσιμότητα αιθουσών',		'fields' => [			'room' => 'Room',			'type' => 'Type',			'start' => 'Από',			'end' => 'Έως',			'notes' => 'Σχόλια',		],	],
+		'availability' => [		'title' => 'Διαθεσιμότητα αιθουσών',		'fields' => [			'type' => 'Type',			'start' => 'Από',			'end' => 'Έως',			'notes' => 'Σχόλια',			'room' => 'Room',		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',

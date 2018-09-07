@@ -24,7 +24,6 @@ class UpdateAvailabilitiesRequest extends FormRequest
     {
         return [
             
-            'room_id' => 'required',
             'type' => 'required',
             'start' => 'required|date_format:'.config('app.date_format').' H:i:s',
             'end' => 'required|date_format:'.config('app.date_format').' H:i:s',
