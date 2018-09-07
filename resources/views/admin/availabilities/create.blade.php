@@ -24,6 +24,30 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
+                    {!! Form::label('type', trans('quickadmin.availability.fields.type').'*', ['class' => 'control-label']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('type'))
+                        <p class="help-block">
+                            {{ $errors->first('type') }}
+                        </p>
+                    @endif
+                    <div>
+                        <label>
+                            {!! Form::radio('type', 'green', false, ['required' => '']) !!}
+                            Available
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            {!! Form::radio('type', 'black', false, ['required' => '']) !!}
+                            Occupied
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
                     {!! Form::label('start', trans('quickadmin.availability.fields.start').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('start', old('start'), ['class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
@@ -49,8 +73,8 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('notes', trans('quickadmin.availability.fields.notes').'', ['class' => 'control-label']) !!}
-                    {!! Form::text('notes', old('notes'), ['class' => 'form-control', 'placeholder' => 'optional']) !!}
-                    <p class="help-block">optional</p>
+                    {!! Form::textarea('notes', old('notes'), ['class' => 'form-control ', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
                     @if($errors->has('notes'))
                         <p class="help-block">
                             {{ $errors->first('notes') }}
