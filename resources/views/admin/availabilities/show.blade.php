@@ -13,10 +13,6 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <th>@lang('quickadmin.availability.fields.room')</th>
-                            <td field-key='room'>{{ $availability->room->title or '' }}</td>
-                        </tr>
-                        <tr>
                             <th>@lang('quickadmin.availability.fields.type')</th>
                             <td field-key='type'>{{ $availability->type }}</td>
                         </tr>
@@ -31,6 +27,10 @@
                         <tr>
                             <th>@lang('quickadmin.availability.fields.notes')</th>
                             <td field-key='notes'>{!! $availability->notes !!}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.availability.fields.room')</th>
+                            <td field-key='room'>{{ $availability->room->title or '' }}</td>
                         </tr>
                     </table>
                 </div>

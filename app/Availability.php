@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * Class Availability
  *
  * @package App
- * @property string $room
  * @property string $type
  * @property string $start
  * @property string $end
  * @property text $notes
+ * @property string $room
 */
 class Availability extends Model
 {
@@ -28,15 +28,6 @@ class Availability extends Model
         parent::boot();
 
         Availability::observe(new \App\Observers\UserActionsObserver);
-    }
-
-    /**
-     * Set to null if empty
-     * @param $input
-     */
-    public function setRoomIdAttribute($input)
-    {
-        $this->attributes['room_id'] = $input ? $input : null;
     }
 
     /**
@@ -97,6 +88,15 @@ class Availability extends Model
         } else {
             return '';
         }
+    }
+
+    /**
+     * Set to null if empty
+     * @param $input
+     */
+    public function setRoomIdAttribute($input)
+    {
+        $this->attributes['room_id'] = $input ? $input : null;
     }
     
     public function room()
