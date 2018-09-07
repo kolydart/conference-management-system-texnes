@@ -210,6 +210,23 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1]);
         });
 
+        // Auth gates for: Availability
+        Gate::define('availability_access', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('availability_create', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+        Gate::define('availability_edit', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+        Gate::define('availability_view', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('availability_delete', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+
         // Auth gates for: Messages
         Gate::define('message_access', function ($user) {
             return in_array($user->role_id, [1]);

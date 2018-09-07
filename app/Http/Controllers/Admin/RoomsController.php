@@ -115,11 +115,11 @@ class RoomsController extends Controller
         if (! Gate::allows('room_view')) {
             return abort(401);
         }
-        $sessions = \App\Session::where('room_id', $id)->get();
+        $availabilities = \App\Availability::where('room_id', $id)->get();$sessions = \App\Session::where('room_id', $id)->get();
 
         $room = Room::findOrFail($id);
 
-        return view('admin.rooms.show', compact('room', 'sessions'));
+        return view('admin.rooms.show', compact('room', 'availabilities', 'sessions'));
     }
 
 
