@@ -20,13 +20,6 @@
                             <th>@lang('quickadmin.sessions.fields.title')</th>
                             <td field-key='title'>{{ $session->title }}</td>
                         </tr>
-                        <tr>
-                            <th>@lang('quickadmin.sessions.fields.duration')</th>
-                        </tr>
-                        <tr>
-                            <th>@lang('Κενό-Πλεόνασμα')</th>
-                            <td field-key='duration'>{{ $session->papers->pluck('duration')->sum() - (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
-                        </tr>                        
                             <th>@lang('quickadmin.sessions.fields.room')</th>
                             <td field-key='room'>{{ $session->room->title or '' }}</td>
                         </tr>
@@ -39,6 +32,10 @@
                             <td field-key='duration'>{{ (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
                         </tr>
                         <tr>
+                        <tr>
+                            <th>@lang('Κενό-Πλεόνασμα')</th>
+                            <td field-key='remains'>{{ $session->papers->pluck('duration')->sum() - (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
+                        </tr>                        
                             <th>@lang('quickadmin.sessions.fields.chair')</th>
                             <td field-key='chair'>{{ $session->chair }}</td>
                         </tr>
