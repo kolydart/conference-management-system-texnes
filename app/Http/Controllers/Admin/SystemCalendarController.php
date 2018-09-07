@@ -6,6 +6,7 @@ use App\Room;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use gateweb\common\DateTime;
+use gateweb\common\Presenter;
 
 class SystemCalendarController extends Controller
 {
@@ -32,6 +33,22 @@ class SystemCalendarController extends Controller
                 'url'   => route('admin.sessions.show', $session->id),
                 'resourceId' => $session->room_id
            ];
+        }
+
+        /**
+         * show availability time slots to backend (admin)
+         */
+        if(Presenter::before(\Route::currentRouteName(),'.') == 'admin'){
+          foreach (\App\Availability::all() as $slot) {
+            $events[] =[
+              'title' => $slot->notes, 
+              'start' => $slot->start, 
+              'end'   => $slot->end, 
+              'resourceId' => $slot->room_id,
+              'rendering' => 'background',
+              'color' => $slot->type
+            ];
+          }
         }
 
        return view('admin.calendar' , compact('events','resources')); 
