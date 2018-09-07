@@ -50,7 +50,7 @@
                     duration: { days: 3 }
                   }
                 },                
-                defaultView: 'agendaThreeDay',
+                defaultView: 'agendaDay',
 
                 /** group by date, then by resource */
                 groupByDateAndResource: true,
@@ -61,7 +61,17 @@
                 minTime: "09:00:00",
                 maxTime: "22:00:00",
 
+                validRange: {
+                  start: '2018-10-11',
+                  end: '2018-10-14'
+                },
+
+
                 timeFormat: 'H:mm',
+
+                /** only resources that have associated events will be displayed (hide inactive rooms) */
+                filterResourcesWithEvents: true,
+
             })
         });
     </script>
