@@ -9,7 +9,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         "name" => $faker->name,
         "email" => $email,
         "password" => $password,
-        "role_id" => App\Role::find([3,4])->random()->id,
+        "role_id" => App\Role::all()->random()->id,
         "remember_token" => $password,
     ];
 });

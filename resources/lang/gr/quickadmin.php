@@ -3,7 +3,7 @@
 return [
 		'management' => [		'title' => 'Διαχείριση',		'fields' => [		],	],
 		'roles' => [		'title' => 'Ρόλοι',		'fields' => [			'title' => 'Τίτλος',		],	],
-		'users' => [		'title' => 'Κριτές',		'fields' => [			'name' => 'Όνομα',			'email' => 'Email',			'password' => 'Κωδικός',			'role' => 'Ρόλος',			'remember-token' => 'Να με θυμάσαι',		],	],
+		'users' => [		'title' => 'Χρήστες',		'fields' => [			'name' => 'Όνομα',			'email' => 'Email',			'password' => 'Κωδικός',			'role' => 'Ρόλος',			'remember-token' => 'Να με θυμάσαι',		],	],
 		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'session' => 'Συνεδρία',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'phone' => 'Τηλέφωνο',			'document' => 'Αρχείο(α) πρότασης',			'abstract' => 'Περίληψη',			'bio' => 'Βιογραφικό Σημείωμα',			'assign' => 'Ανάθεση',			'status' => 'Status',			'informed' => 'Informed',		],	],
 		'reviews' => [		'title' => 'Κρίσεις',		'fields' => [			'user' => 'User',			'paper' => 'Paper',			'review' => 'Review',			'comment' => 'Comment',		],	],
 		'arts' => [		'title' => 'Τέχνες',		'fields' => [			'title' => 'Τίτλος',		],	],
@@ -23,7 +23,7 @@ return [
 		'sessions' => [		'title' => 'Συνεδρίες',		'fields' => [			'title' => 'Τίτλος',			'room' => 'Αίθουσα',			'start' => 'Έναρξη',			'duration' => 'Διάρκεια',			'chair' => 'Chair',		],	],
 		'logs' => [		'title' => 'Logs',		'fields' => [		],	],
 		'loguseragent' => [		'title' => 'Loguseragent',		'fields' => [			'os' => 'OS',			'os-version' => 'OS version',			'browser' => 'Browser',			'browser-version' => 'Browser version',			'device' => 'Device',			'language' => 'Language',			'item-id' => 'item_id',			'ipv6' => 'ipv6',			'uri' => 'Uri',			'form-submitted' => 'Form submitted',			'user' => 'User',		],	],
-		'availability' => [		'title' => 'Διαθεσιμότητα αιθουσών',		'fields' => [			'type' => 'Type',			'start' => 'Από',			'end' => 'Έως',			'notes' => 'Σχόλια',			'room' => 'Room',		],	],
+		'availability' => [		'title' => 'Διαθεσιμότητα αιθουσών',		'fields' => [			'type' => 'Type',			'start' => 'Από',			'end' => 'Έως',			'room' => 'Room',			'notes' => 'Σχόλια',		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',

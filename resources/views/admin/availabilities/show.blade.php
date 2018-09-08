@@ -25,12 +25,12 @@
                             <td field-key='end'>{{ $availability->end }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.availability.fields.notes')</th>
-                            <td field-key='notes'>{!! $availability->notes !!}</td>
-                        </tr>
-                        <tr>
                             <th>@lang('quickadmin.availability.fields.room')</th>
                             <td field-key='room'>{{ $availability->room->title or '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.availability.fields.notes')</th>
+                            <td field-key='notes'>{!! $availability->notes !!}</td>
                         </tr>
                     </table>
                 </div>
