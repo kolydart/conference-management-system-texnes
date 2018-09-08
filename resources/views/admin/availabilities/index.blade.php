@@ -36,8 +36,8 @@
                         <th>@lang('quickadmin.availability.fields.type')</th>
                         <th>@lang('quickadmin.availability.fields.start')</th>
                         <th>@lang('quickadmin.availability.fields.end')</th>
-                        <th>@lang('quickadmin.availability.fields.notes')</th>
                         <th>@lang('quickadmin.availability.fields.room')</th>
+                        <th>@lang('quickadmin.availability.fields.notes')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -57,8 +57,8 @@
                                 <td field-key='type'>{{ $availability->type }}</td>
                                 <td field-key='start'>{{ $availability->start }}</td>
                                 <td field-key='end'>{{ $availability->end }}</td>
-                                <td field-key='notes'>{!! $availability->notes !!}</td>
                                 <td field-key='room'>{{ $availability->room->title or '' }}</td>
+                                <td field-key='notes'>{!! $availability->notes !!}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('availability_delete')

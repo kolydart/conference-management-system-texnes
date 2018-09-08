@@ -12,8 +12,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $type
  * @property string $start
  * @property string $end
- * @property text $notes
  * @property string $room
+ * @property text $notes
 */
 class Availability extends Model
 {

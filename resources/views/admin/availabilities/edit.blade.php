@@ -67,24 +67,24 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('notes', trans('quickadmin.availability.fields.notes').'', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('notes', old('notes'), ['class' => 'form-control ', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('notes'))
-                        <p class="help-block">
-                            {{ $errors->first('notes') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
                     {!! Form::label('room_id', trans('quickadmin.availability.fields.room').'', ['class' => 'control-label']) !!}
                     {!! Form::select('room_id', $rooms, old('room_id'), ['class' => 'form-control select2']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('room_id'))
                         <p class="help-block">
                             {{ $errors->first('room_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('notes', trans('quickadmin.availability.fields.notes').'', ['class' => 'control-label']) !!}
+                    {!! Form::textarea('notes', old('notes'), ['class' => 'form-control ', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('notes'))
+                        <p class="help-block">
+                            {{ $errors->first('notes') }}
                         </p>
                     @endif
                 </div>

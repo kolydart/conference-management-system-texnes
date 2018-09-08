@@ -21,7 +21,7 @@
             </div><!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     
-<li role="presentation" class="active"><a href="#users" aria-controls="users" role="tab" data-toggle="tab">Κριτές</a></li>
+<li role="presentation" class="active"><a href="#users" aria-controls="users" role="tab" data-toggle="tab">Χρήστες</a></li>
 </ul>
 
 <!-- Tab panes -->
@@ -82,3 +82,5 @@
         </div>
     </div>
 @stop
+
+
