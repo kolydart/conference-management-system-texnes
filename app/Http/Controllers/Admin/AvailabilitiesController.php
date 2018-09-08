@@ -29,7 +29,7 @@ class AvailabilitiesController extends Controller
             }
             $availabilities = Availability::onlyTrashed()->get();
         } else {
-            $availabilities = Availability::all();
+            $availabilities = Availability::orderBy('start')->get();
         }
 
         return view('admin.availabilities.index', compact('availabilities'));

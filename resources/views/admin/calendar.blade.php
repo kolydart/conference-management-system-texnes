@@ -62,8 +62,8 @@
                   }
                 },                
 
-                // defaultView: 'agendaDay',
-                defaultView: 'agendaThreeDay',
+                defaultView: 'agendaDay',
+                // defaultView: 'agendaThreeDay',
 
                 /** hide inactive rooms */
                 filterResourcesWithEvents: true,
