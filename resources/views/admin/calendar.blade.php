@@ -5,8 +5,19 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css'/>
     <link rel='stylesheet' href='/css/scheduler.min.css'/>
 
-    <h3 class="page-title">Calendar</h3>
 
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="page-title">Calendar</h3>        
+      </div>
+      @if (gateweb\common\Presenter::before(\Route::currentRouteName(),'.') == 'admin')
+        <div class="col-md-6 text-right">
+          <a href="javascript:jQuery('#calendar').fullCalendar('option', 'filterResourcesWithEvents', !jQuery('#calendar').fullCalendar('option', 'filterResourcesWithEvents'));" class="btn btn-default pull-right">@lang('Show/hide unused Rooms')</a>
+          
+        </div>
+      @endif
+    </div>
+    
     <div id='calendar'></div>
 
 @endsection
