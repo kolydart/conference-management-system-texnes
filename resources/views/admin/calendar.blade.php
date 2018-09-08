@@ -61,7 +61,12 @@
                     duration: { days: 3 }
                   }
                 },                
-                defaultView: 'agendaDay',
+
+                // defaultView: 'agendaDay',
+                defaultView: 'agendaThreeDay',
+
+                /** hide inactive rooms */
+                filterResourcesWithEvents: true,
 
                 /** group by date, then by resource */
                 groupByDateAndResource: true,
@@ -76,15 +81,6 @@
                 },
 
                 timeFormat: 'H:mm',
-
-                /** 
-                 * display only resources with events 
-                 * (hide inactive rooms)
-                 * only on frontend
-                 */
-                @if (gateweb\common\Presenter::before(\Route::currentRouteName(),'.') != 'admin')
-                  filterResourcesWithEvents: true,
-                @endif
 
             })
         });
