@@ -96,6 +96,11 @@ class Paper extends Model implements HasMedia
             return $this->hasMany(Fullpaper::class,'paper_id');
         
     }
+
+    public function scopeOrderByAttribute($query){
+        return $query->orderByRaw("FIELD(attribute , 'Μέλος ΔΕΠ','Μέλος ΕΕΠ','Μέλος ΕΔΙΠ','Διδάκτωρ / Ερευνητής','Υποψήφιος Διδάκτωρ','Μεταπτυχιακός/ή Φοιτητής/τρια','Προπτυχιακός/ή Φοιτητής/τρια','Στέλεχος Εκπαίδευσης','Εκπαιδευτικός Πρωτοβάθμιας Εκπαίδευσης','Εκπαιδευτικός Δευτεροβάθμιας Εκπαίδευσης','Καλλιτέχνης') ASC");
+    }
+    
     
 
 }

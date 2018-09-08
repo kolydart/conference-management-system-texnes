@@ -122,7 +122,8 @@ class SessionsController extends Controller
             return abort(401);
         }
         
-        $rooms = \App\Room::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');$papers = \App\Paper::where('session_id', $id)->get();
+        $rooms = \App\Room::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $papers = \App\Paper::where('session_id', $id)->orderByAttribute()->get();
 
         $session = Session::findOrFail($id);
 
