@@ -26,7 +26,7 @@ class PaperSeed extends Seeder
                     $paper->art()->save($art);
                 }
             }
-            $users = User::where('role_id',4)->get()->random(3);
+            $users = User::where('role_id',5)->get()->random(2);
             foreach ($users as $user) {
                 if(collect([0,1])->random()){
                     $paper->assign()->save($user);
