@@ -55,11 +55,11 @@
 <table class="table table-bordered table-striped {{ count($papers) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
+                        <th>@lang('id')</th>
             <th>@lang('quickadmin.papers.fields.title')</th>
                         <th>@lang('quickadmin.papers.fields.art')</th>
                         <th>@lang('quickadmin.papers.fields.type')</th>
                         <th>@lang('quickadmin.papers.fields.duration')</th>
-                        <th>@lang('quickadmin.papers.fields.session')</th>
                         <th>@lang('quickadmin.papers.fields.name')</th>
                         <th>@lang('quickadmin.papers.fields.attribute')</th>
                         <th>@lang('quickadmin.papers.fields.status')</th>
@@ -75,6 +75,7 @@
         @if (count($papers) > 0)
             @foreach ($papers as $paper)
                 <tr data-entry-id="{{ $paper->id }}">
+                                <td field-key='id'>{{ $paper->id }}</td>
                     <td field-key='title'><a href="{{route('admin.papers.show',$paper->id)}}">{{ $paper->title }}</a></td>
                                 <td field-key='art'>
                                     @foreach ($paper->art as $singleArt)
@@ -83,7 +84,6 @@
                                 </td>
                                 <td field-key='type'>{{ $paper->type }}</td>
                                 <td field-key='duration'>{{ $paper->duration }}</td>
-                                <td field-key='session'>{{ $paper->session->title or '' }}</td>
                                 <td field-key='name'>{{ $paper->name }}</td>
                                 <td field-key='attribute'>{{ $paper->attribute }}</td>
                                 <td field-key='status'>{{ $paper->status }}</td>

@@ -22,7 +22,9 @@
                         </tr>
                     </table>
                 </div>
-            </div><!-- Nav tabs -->
+            </div>
+    {{-- Χάρτες - πρόσβαση: http://texnes-ellinikosxoleio.uoa.gr/xartes-prosbash.html --}}
+            <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     
 <li role="presentation" class="active"><a href="#sessions" aria-controls="sessions" role="tab" data-toggle="tab">Συνεδρίες</a></li>
