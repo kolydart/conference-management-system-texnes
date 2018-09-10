@@ -30,6 +30,7 @@ class UpdatePapersRequest extends FormRequest
             'assign.*' => 'exists:users,id',
             'status' => 'required',
             'informed' => 'required',
+            'order' => 'max:2147483647|nullable|numeric',
         ];
     }
 }

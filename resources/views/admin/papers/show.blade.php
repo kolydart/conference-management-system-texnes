@@ -92,6 +92,10 @@
                             <th>@lang('quickadmin.papers.fields.informed')</th>
                             <td field-key='informed'>{{ $paper->informed }}</td>
                         </tr>
+                        <tr>
+                            <th>@lang('quickadmin.papers.fields.order')</th>
+                            <td field-key='order'>{{ $paper->order }}</td>
+                        </tr>
                     </table>
                 </div>
             </div><!-- Nav tabs -->
