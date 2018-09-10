@@ -353,6 +353,18 @@
                     
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('order', trans('quickadmin.papers.fields.order').'', ['class' => 'control-label']) !!}
+                    {!! Form::number('order', old('order'), ['class' => 'form-control', 'placeholder' => 'Θέση (σειρά) εντός της συνεδρίας. Αφήστε κενό για ταξινόμηση σύμφωνα με την ιδιότητα']) !!}
+                    <p class="help-block">Θέση (σειρά) εντός της συνεδρίας. Αφήστε κενό για ταξινόμηση σύμφωνα με την ιδιότητα</p>
+                    @if($errors->has('order'))
+                        <p class="help-block">
+                            {{ $errors->first('order') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
             
         </div>
     </div>

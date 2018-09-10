@@ -22,12 +22,13 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
  * @property text $bio
  * @property string $status
  * @property string $informed
+ * @property integer $order
 */
 class Paper extends Model implements HasMedia
 {
     use SoftDeletes, HasMediaTrait;
 
-    protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'phone', 'abstract', 'bio', 'status', 'informed', 'session_id'];
+    protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'phone', 'abstract', 'bio', 'status', 'informed', 'order', 'session_id'];
     protected $hidden = [];
     
     
@@ -45,6 +46,15 @@ class Paper extends Model implements HasMedia
     public function setSessionIdAttribute($input)
     {
         $this->attributes['session_id'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+    public function setOrderAttribute($input)
+    {
+        $this->attributes['order'] = $input ? $input : null;
     }
     
     public function art()
