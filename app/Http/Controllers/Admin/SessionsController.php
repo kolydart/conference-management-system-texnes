@@ -123,7 +123,7 @@ class SessionsController extends Controller
         }
         
         $rooms = \App\Room::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
-        $papers = \App\Paper::where('session_id', $id)->orderByAttribute()->get();
+        $papers = \App\Paper::where('session_id', $id)->orderByRaw('-`order` DESC')->orderByAttribute()->get();
 
         $session = Session::findOrFail($id);
 
