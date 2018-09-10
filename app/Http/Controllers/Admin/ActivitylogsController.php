@@ -54,7 +54,7 @@ class ActivitylogsController extends Controller
                 return view($template, compact('row', 'gateKey', 'routeKey'));
             });
             $table->editColumn('created_at', function ($row) {
-                return $row->created_at ? $row->created_at : '';
+                return $row->created_at ? (new \gateweb\common\DateTime($row->created_at))->set_timezone_athens()->sql() : '';
             });
             $table->editColumn('log_name', function ($row) {
                 return $row->log_name ? $row->log_name : '';

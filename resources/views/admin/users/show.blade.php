@@ -134,7 +134,7 @@
         @if (count($user_actions) > 0)
             @foreach ($user_actions as $user_action)
                 <tr data-entry-id="{{ $user_action->id }}">
-                    <td>{{ $user_action->created_at or '' }}</td>
+                    <td>{{ (new gateweb\common\DateTime($user_action->created_at))->set_timezone_athens()->sql() ?? '' }}</td>
                                 <td field-key='user'>{{ $user_action->user->name or '' }}</td>
                                 <td field-key='action'>{{ $user_action->action }}</td>
                                 <td field-key='action_model'>{{ $user_action->action_model }}</td>
