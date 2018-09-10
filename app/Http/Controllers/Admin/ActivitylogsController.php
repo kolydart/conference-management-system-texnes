@@ -39,7 +39,7 @@ class ActivitylogsController extends Controller
                 'activity_log.subject_id',
                 'activity_log.properties',
                 'activity_log.created_at',
-            ]);
+            ])->latest();
             $table = Datatables::of($query);
 
             $table->setRowAttr([
