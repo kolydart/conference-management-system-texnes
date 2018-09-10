@@ -54,7 +54,7 @@
         @if (count($sessions) > 0)
             @foreach ($sessions as $session)
                 <tr data-entry-id="{{ $session->id }}">
-                    <td field-key='title'>{{ $session->title }}</td>
+                    <td field-key='title'><a href="{{route('admin.sessions.show',$session->id)}}">{{ "S". $session->id.". ".$session->title }}</a></td>
                                 <td field-key='room'>{{ $session->room->title or '' }}</td>
                                 <td field-key='start'>{{ $session->start }}</td>
                                 <td field-key='duration'>{{ $session->duration }}</td>

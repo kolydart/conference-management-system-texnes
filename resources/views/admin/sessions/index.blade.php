@@ -56,7 +56,7 @@
                                 @endcan
 
                                 <td field-key='id'>S{{ $session->id }}</td>
-                                <td field-key='title'>{{ $session->title }}</td>
+                                <td field-key='title'><a href="{{route('admin.sessions.show',$session->id)}}">{{$session->title }}</a></td>
                                 <td field-key='room'>{{ $session->room->title or '' }}</td>
                                 <td field-key='start'>{{ $session->start }}</td>
                                 <td field-key='duration'>{{ (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
