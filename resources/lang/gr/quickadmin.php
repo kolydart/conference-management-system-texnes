@@ -19,7 +19,7 @@ return [
 		'messages' => [		'title' => 'Μηνύματα',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'title' => 'Title',			'paper' => 'Paper',			'body' => 'Body',		],	],
 		'fullpaper' => [		'title' => 'Τελικά κείμενα',		'fields' => [			'paper' => 'Paper',			'finaltext' => 'Αρχείο(α)',			'description' => 'Σύντομη περιγραφή',		],	],
 		'activitylog' => [		'title' => 'activity-log',		'fields' => [			'log-name' => 'Log name',			'causer-type' => 'Causer type',			'causer-id' => 'Causer id',			'description' => 'Description',			'subject-type' => 'Subject type',			'subject-id' => 'Subject id',			'properties' => 'Properties',		],	],
-		'rooms' => [		'title' => 'Αίθουσες',		'fields' => [			'title' => 'Όνομα',			'description' => 'Description',		],	],
+		'rooms' => [		'title' => 'Αίθουσες',		'fields' => [			'title' => 'Όνομα',			'description' => 'Περιγραφή',			'type' => 'Είδος',			'wifi' => 'Public wi-fi access',		],	],
 		'sessions' => [		'title' => 'Συνεδρίες',		'fields' => [			'title' => 'Τίτλος',			'room' => 'Αίθουσα',			'start' => 'Έναρξη',			'duration' => 'Διάρκεια',			'chair' => 'Chair',			'color' => 'Color',		],	],
 		'logs' => [		'title' => 'Logs',		'fields' => [		],	],
 		'loguseragent' => [		'title' => 'Loguseragent',		'fields' => [			'os' => 'OS',			'os-version' => 'OS version',			'browser' => 'Browser',			'browser-version' => 'Browser version',			'device' => 'Device',			'language' => 'Language',			'item-id' => 'item_id',			'ipv6' => 'ipv6',			'uri' => 'Uri',			'form-submitted' => 'Form submitted',			'user' => 'User',		],	],

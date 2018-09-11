@@ -35,6 +35,8 @@
 
                         <th>@lang('quickadmin.rooms.fields.title')</th>
                         <th>@lang('quickadmin.rooms.fields.description')</th>
+                        <th>@lang('quickadmin.rooms.fields.type')</th>
+                        <th>@lang('quickadmin.rooms.fields.wifi')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -53,6 +55,8 @@
 
                                 <td field-key='title'>{{ $room->title }}</td>
                                 <td field-key='description'>{!! $room->description !!}</td>
+                                <td field-key='type'>{{ $room->type }}</td>
+                                <td field-key='wifi'>{{ $room->wifi }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('room_delete')
@@ -97,7 +101,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="7">@lang('quickadmin.qa_no_entries_in_table')</td>
+                            <td colspan="9">@lang('quickadmin.qa_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>
