@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeed::class);
 
         $this->call(ArtSeed::class);
+        $this->call(ColorSeed::class);
         $this->call(PaperSeed::class);
         $this->call(DocumentSeed::class);
         $this->call(UserActionSeed::class);

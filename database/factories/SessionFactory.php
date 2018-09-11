@@ -1,5 +1,6 @@
 <?php
 
+use App\Color;
 use App\Room;
 use gateweb\common\DateTime;
 
@@ -13,6 +14,6 @@ $factory->define(App\Session::class, function (Faker\Generator $faker) {
         "start" => $obj->sql(),
         "duration" => '0'.$faker->numberBetween(1,3).':00:00',
         "chair" => $faker->name,
-        "color_id" => factory('App\Color')->create(),
+        "color_id" => Color::all()->random()->id,
     ];
 });

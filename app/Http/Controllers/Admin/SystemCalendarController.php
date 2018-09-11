@@ -31,7 +31,8 @@ class SystemCalendarController extends Controller
                 'start' => $crudFieldValue, 
                 'end'   => (new DateTime($crudFieldValue))->addTime($session->duration)->sql(), 
                 'url'   => route('admin.sessions.show', $session->id),
-                'resourceId' => $session->room_id
+                'resourceId' => $session->room_id,
+                'color' => ($session->color->title)?:'',
            ];
         }
 
