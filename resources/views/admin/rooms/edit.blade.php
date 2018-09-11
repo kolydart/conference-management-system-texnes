@@ -35,6 +35,72 @@
                     @endif
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('type', trans('quickadmin.rooms.fields.type').'', ['class' => 'control-label']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('type'))
+                        <p class="help-block">
+                            {{ $errors->first('type') }}
+                        </p>
+                    @endif
+                    <div>
+                        <label>
+                            {!! Form::radio('type', 'Αμφιθέατρο', false, []) !!}
+                            Αμφιθέατρο
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            {!! Form::radio('type', 'Αίθουσα διδασκαλίας', false, []) !!}
+                            Αίθουσα διδασκαλίας
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            {!! Form::radio('type', 'Αίθουσα τελετών', false, []) !!}
+                            Αίθουσα τελετών
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            {!! Form::radio('type', 'Εξωτερικός χώρος', false, []) !!}
+                            Εξωτερικός χώρος
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('wifi', trans('quickadmin.rooms.fields.wifi').'', ['class' => 'control-label']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('wifi'))
+                        <p class="help-block">
+                            {{ $errors->first('wifi') }}
+                        </p>
+                    @endif
+                    <div>
+                        <label>
+                            {!! Form::radio('wifi', 'full', false, []) !!}
+                            full
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            {!! Form::radio('wifi', 'limited', false, []) !!}
+                            limited
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            {!! Form::radio('wifi', 'none', false, []) !!}
+                            none
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
             
         </div>
     </div>

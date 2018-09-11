@@ -11,12 +11,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @package App
  * @property string $title
  * @property text $description
+ * @property string $type
+ * @property string $wifi
 */
 class Room extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title', 'description'];
+    protected $fillable = ['title', 'description', 'type', 'wifi'];
     protected $hidden = [];
     
     
