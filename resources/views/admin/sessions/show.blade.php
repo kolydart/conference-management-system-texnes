@@ -43,10 +43,6 @@
                             <th>@lang('quickadmin.sessions.fields.color')</th>
                             <td field-key='color'>{{ $session->color->title or '' }}</td>
                         </tr>
-                        <tr>
-                            <th>@lang('quickadmin.colors.fields.description')</th>
-                            <td field-key='description'>{{ isset($session->color) ? $session->color->description : '' }}</td>
-                        </tr>
                     </table>
                 </div>
             </div><!-- Nav tabs -->
