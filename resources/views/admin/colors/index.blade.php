@@ -26,7 +26,7 @@
         </div>
 
         <div class="panel-body table-responsive">
-            <table class="table table-bordered table-striped ajaxTable @can('color_delete') @if ( request('show_deleted') != 1 ) dt-select @endif @endcan">
+            <table class="table table-bordered table-striped {{ count($colors) > 0 ? 'datatable' : '' }} @can('color_delete') @if ( request('show_deleted') != 1 ) dt-select @endif @endcan">
                 <thead>
                     <tr>
                         @can('color_delete')
@@ -41,6 +41,64 @@
                         @endif
                     </tr>
                 </thead>
+                
+                <tbody>
+                    @if (count($colors) > 0)
+                        @foreach ($colors as $color)
+                            <tr data-entry-id="{{ $color->id }}">
+                                @can('color_delete')
+                                    @if ( request('show_deleted') != 1 )<td></td>@endif
+                                @endcan
+
+                                <td field-key='title'>{{ $color->title }}</td>
+                                @if( request('show_deleted') == 1 )
+                                <td>
+                                    @can('color_delete')
+                                                                        {!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'POST',
+                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                        'route' => ['admin.colors.restore', $color->id])) !!}
+                                    {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
+                                    {!! Form::close() !!}
+                                @endcan
+                                    @can('color_delete')
+                                                                        {!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                        'route' => ['admin.colors.perma_del', $color->id])) !!}
+                                    {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                    {!! Form::close() !!}
+                                @endcan
+                                </td>
+                                @else
+                                <td>
+                                    @can('color_view')
+                                    <a href="{{ route('admin.colors.show',[$color->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    @endcan
+                                    @can('color_edit')
+                                    <a href="{{ route('admin.colors.edit',[$color->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                    @endcan
+                                    @can('color_delete')
+{!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                        'route' => ['admin.colors.destroy', $color->id])) !!}
+                                    {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                    {!! Form::close() !!}
+                                    @endcan
+                                </td>
+                                @endif
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td colspan="6">@lang('quickadmin.qa_no_entries_in_table')</td>
+                        </tr>
+                    @endif
+                </tbody>
             </table>
         </div>
     </div>
@@ -51,17 +109,6 @@
         @can('color_delete')
             @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('admin.colors.mass_destroy') }}'; @endif
         @endcan
-        $(document).ready(function () {
-            window.dtDefaultOptions.ajax = '{!! route('admin.colors.index') !!}?show_deleted={{ request('show_deleted') }}';
-            window.dtDefaultOptions.columns = [@can('color_delete')
-                @if ( request('show_deleted') != 1 )
-                    {data: 'massDelete', name: 'id', searchable: false, sortable: false},
-                @endif
-                @endcan{data: 'title', name: 'title'},
-                
-                {data: 'actions', name: 'actions', searchable: false, sortable: false}
-            ];
-            processAjaxTables();
-        });
+
     </script>
 @endsection

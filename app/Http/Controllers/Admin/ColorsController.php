@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreColorsRequest;
 use App\Http\Requests\Admin\UpdateColorsRequest;
-use Yajra\DataTables\DataTables;
 
 class ColorsController extends Controller
 {
@@ -24,45 +23,16 @@ class ColorsController extends Controller
         }
 
 
-        
-        if (request()->ajax()) {
-            $query = Color::query();
-            $template = 'actionsTemplate';
-            if(request('show_deleted') == 1) {
-                
-        if (! Gate::allows('color_delete')) {
-            return abort(401);
-        }
-                $query->onlyTrashed();
-                $template = 'restoreTemplate';
+        if (request('show_deleted') == 1) {
+            if (! Gate::allows('color_delete')) {
+                return abort(401);
             }
-            $query->select([
-                'colors.id',
-                'colors.title',
-            ]);
-            $table = Datatables::of($query);
-
-            $table->setRowAttr([
-                'data-entry-id' => '{{$id}}',
-            ]);
-            $table->addColumn('massDelete', '&nbsp;');
-            $table->addColumn('actions', '&nbsp;');
-            $table->editColumn('actions', function ($row) use ($template) {
-                $gateKey  = 'color_';
-                $routeKey = 'admin.colors';
-
-                return view($template, compact('row', 'gateKey', 'routeKey'));
-            });
-            $table->editColumn('title', function ($row) {
-                return $row->title ? $row->title : '';
-            });
-
-            $table->rawColumns(['actions','massDelete']);
-
-            return $table->make(true);
+            $colors = Color::onlyTrashed()->get();
+        } else {
+            $colors = Color::all();
         }
 
-        return view('admin.colors.index');
+        return view('admin.colors.index', compact('colors'));
     }
 
     /**
