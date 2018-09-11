@@ -58,6 +58,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('availabilities_mass_destroy', ['uses' => 'Admin\AvailabilitiesController@massDestroy', 'as' => 'availabilities.mass_destroy']);
     Route::post('availabilities_restore/{id}', ['uses' => 'Admin\AvailabilitiesController@restore', 'as' => 'availabilities.restore']);
     Route::delete('availabilities_perma_del/{id}', ['uses' => 'Admin\AvailabilitiesController@perma_del', 'as' => 'availabilities.perma_del']);
+    Route::resource('colors', 'Admin\ColorsController');
+    Route::post('colors_mass_destroy', ['uses' => 'Admin\ColorsController@massDestroy', 'as' => 'colors.mass_destroy']);
+    Route::post('colors_restore/{id}', ['uses' => 'Admin\ColorsController@restore', 'as' => 'colors.restore']);
+    Route::delete('colors_perma_del/{id}', ['uses' => 'Admin\ColorsController@perma_del', 'as' => 'colors.perma_del']);
     Route::resource('messages', 'Admin\MessagesController');
     Route::post('messages_mass_destroy', ['uses' => 'Admin\MessagesController@massDestroy', 'as' => 'messages.mass_destroy']);
     Route::post('messages_restore/{id}', ['uses' => 'Admin\MessagesController@restore', 'as' => 'messages.restore']);

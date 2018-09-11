@@ -227,6 +227,23 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1, 3, 4]);
         });
 
+        // Auth gates for: Colors
+        Gate::define('color_access', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+        Gate::define('color_create', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+        Gate::define('color_edit', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+        Gate::define('color_view', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+        Gate::define('color_delete', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+
         // Auth gates for: Messages
         Gate::define('message_access', function ($user) {
             return in_array($user->role_id, [1]);

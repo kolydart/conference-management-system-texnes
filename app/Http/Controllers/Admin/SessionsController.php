@@ -47,8 +47,9 @@ class SessionsController extends Controller
         }
         
         $rooms = \App\Room::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $colors = \App\Color::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
-        return view('admin.sessions.create', compact('rooms'));
+        return view('admin.sessions.create', compact('rooms', 'colors'));
     }
 
     /**
@@ -83,10 +84,11 @@ class SessionsController extends Controller
         }
         
         $rooms = \App\Room::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $colors = \App\Color::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         $session = Session::findOrFail($id);
 
-        return view('admin.sessions.edit', compact('session', 'rooms'));
+        return view('admin.sessions.edit', compact('session', 'rooms', 'colors'));
     }
 
     /**
@@ -124,6 +126,7 @@ class SessionsController extends Controller
         
         $rooms = \App\Room::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $papers = \App\Paper::where('session_id', $id)->orderByRaw('-`order` DESC')->orderByAttribute()->get();
+        $colors = \App\Color::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         $session = Session::findOrFail($id);
 

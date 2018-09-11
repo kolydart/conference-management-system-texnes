@@ -15,12 +15,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $start
  * @property time $duration
  * @property string $chair
+ * @property string $color
 */
 class Session extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title', 'start', 'duration', 'chair', 'room_id'];
+    protected $fillable = ['title', 'start', 'duration', 'chair', 'room_id', 'color_id'];
     protected $hidden = [];
     
     
@@ -97,6 +98,15 @@ class Session extends Model
             return '';
         }
     }
+
+    /**
+     * Set to null if empty
+     * @param $input
+     */
+    public function setColorIdAttribute($input)
+    {
+        $this->attributes['color_id'] = $input ? $input : null;
+    }
     
     public function room()
     {
@@ -111,6 +121,11 @@ class Session extends Model
             return $this->hasMany(Paper::class, 'session_id')->withTrashed();
         else        
             return $this->hasMany(Paper::class, 'session_id');
+    }
+    
+    public function color()
+    {
+        return $this->belongsTo(Color::class, 'color_id')->withTrashed();
     }
     
 }

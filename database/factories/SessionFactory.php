@@ -13,5 +13,6 @@ $factory->define(App\Session::class, function (Faker\Generator $faker) {
         "start" => $obj->sql(),
         "duration" => '0'.$faker->numberBetween(1,3).':00:00',
         "chair" => $faker->name,
+        "color_id" => factory('App\Color')->create(),
     ];
 });
