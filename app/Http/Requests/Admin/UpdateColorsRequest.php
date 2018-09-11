@@ -24,6 +24,8 @@ class UpdateColorsRequest extends FormRequest
     {
         return [
             
+            'title' => 'required',
+            'value' => 'required',
         ];
     }
 }

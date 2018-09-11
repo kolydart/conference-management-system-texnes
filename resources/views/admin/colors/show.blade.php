@@ -17,8 +17,8 @@
                             <td field-key='title'>{{ $color->title }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.colors.fields.description')</th>
-                            <td field-key='description'>{{ $color->description }}</td>
+                            <th>@lang('quickadmin.colors.fields.value')</th>
+                            <td field-key='value'>{{ $color->value }}</td>
                         </tr>
                     </table>
                 </div>
