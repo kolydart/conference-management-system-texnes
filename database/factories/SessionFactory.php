@@ -7,5 +7,6 @@ $factory->define(App\Session::class, function (Faker\Generator $faker) {
         "start" => $faker->date("Y-m-d H:i:s", $max = 'now'),
         "duration" => $faker->date("H:i:s", $max = 'now'),
         "chair" => $faker->name,
+        "color_id" => factory('App\Color')->create(),
     ];
 });

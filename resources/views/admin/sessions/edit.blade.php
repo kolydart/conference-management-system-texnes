@@ -71,6 +71,18 @@
                     @endif
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('color_id', trans('quickadmin.sessions.fields.color').'', ['class' => 'control-label']) !!}
+                    {!! Form::select('color_id', $colors, old('color_id'), ['class' => 'form-control select2']) !!}
+                    <p class="help-block">leave empty for default</p>
+                    @if($errors->has('color_id'))
+                        <p class="help-block">
+                            {{ $errors->first('color_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
             
         </div>
     </div>

@@ -32,6 +32,10 @@
                             <th>@lang('quickadmin.sessions.fields.chair')</th>
                             <td field-key='chair'>{{ $session->chair }}</td>
                         </tr>
+                        <tr>
+                            <th>@lang('quickadmin.sessions.fields.color')</th>
+                            <td field-key='color'>{{ $session->color->title or '' }}</td>
+                        </tr>
                     </table>
                 </div>
             </div><!-- Nav tabs -->

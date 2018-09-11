@@ -134,6 +134,14 @@
                         </a>
                     </li>@endcan
                     
+                    @can('color_access')
+                    <li>
+                        <a href="{{ route('admin.colors.index') }}">
+                            <i class="fa fa-adjust"></i>
+                            <span>@lang('quickadmin.colors.title')</span>
+                        </a>
+                    </li>@endcan
+                    
                     @can('message_access')
                     <li>
                         <a href="{{ route('admin.messages.index') }}">
