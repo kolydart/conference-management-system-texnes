@@ -16,6 +16,10 @@
                             <th>@lang('quickadmin.colors.fields.title')</th>
                             <td field-key='title'>{{ $color->title }}</td>
                         </tr>
+                        <tr>
+                            <th>@lang('quickadmin.colors.fields.description')</th>
+                            <td field-key='description'>{{ $color->description }}</td>
+                        </tr>
                     </table>
                 </div>
             </div><!-- Nav tabs -->

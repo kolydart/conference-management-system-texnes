@@ -9,12 +9,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @package App
  * @property string $title
+ * @property string $description
 */
 class Color extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title'];
+    protected $fillable = ['title', 'description'];
     protected $hidden = [];
     
     
