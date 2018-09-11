@@ -21,7 +21,11 @@
                             <td field-key='title'>{{ $session->title }}</td>
                         </tr>
                             <th>@lang('quickadmin.sessions.fields.room')</th>
-                            <td field-key='room'>{{ $session->room->title or '' }}</td>
+                            <td field-key='room'>
+                                @if (isset($session->room))
+                                    <a href="{{route('admin.rooms.show',$session->room->id)}}">{{ $session->room->title or '' }}</a>
+                                @endif
+                            </td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.sessions.fields.start')</th>
