@@ -34,6 +34,7 @@
                         @endcan
 
                         <th>@lang('quickadmin.colors.fields.title')</th>
+                        <th>@lang('quickadmin.colors.fields.description')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -51,6 +52,7 @@
                                 @endcan
 
                                 <td field-key='title'>{{ $color->title }}</td>
+                                <td field-key='description'>{{ $color->description }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('color_delete')
@@ -95,7 +97,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="6">@lang('quickadmin.qa_no_entries_in_table')</td>
+                            <td colspan="7">@lang('quickadmin.qa_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>
