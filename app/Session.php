@@ -125,7 +125,10 @@ class Session extends Model
     
     public function color()
     {
-        return $this->belongsTo(Color::class, 'color_id')->withTrashed();
+        if(request('show_deleted') == 1)
+            return $this->belongsTo(Color::class, 'color_id')->withTrashed();
+        else
+            return $this->belongsTo(Color::class, 'color_id');
     }
     
 }

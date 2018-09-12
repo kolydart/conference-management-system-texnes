@@ -22,5 +22,6 @@ class UserSeed extends Seeder
         }
 
         factory(\App\User::class,13)->create();
+        factory(\App\User::class,5)->create(['role_id'=>5]);
     }
 }

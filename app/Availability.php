@@ -21,6 +21,10 @@ class Availability extends Model
 
     protected $fillable = ['type', 'start', 'end', 'notes', 'room_id'];
     protected $hidden = [];
+
+    use \Spatie\Activitylog\Traits\LogsActivity;
+    protected static $logFillable = true;       
+    protected static $logOnlyDirty = true;    
     
     
     public static function boot()
@@ -101,7 +105,11 @@ class Availability extends Model
     
     public function room()
     {
-        return $this->belongsTo(Room::class, 'room_id')->withTrashed();
+        if(request('show_deleted') == 1)
+            return $this->belongsTo(Room::class, 'room_id')->withTrashed();
+        else
+            return $this->belongsTo(Room::class, 'room_id');
+        
     }
     
 }

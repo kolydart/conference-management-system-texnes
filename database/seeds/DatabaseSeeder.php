@@ -28,5 +28,6 @@ class DatabaseSeeder extends Seeder
         $this->call(FullpaperSeeder::class);
         $this->call(RoomsSeed::class);
         $this->call(SessionsSeed::class);
+        $this->call(AvailabilitySeed::class);
     }
 }
