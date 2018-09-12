@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 use Auth;
+use Gate;
+use Request;
 use App\User;
 
 class LoginController extends Controller
@@ -24,13 +26,6 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login / registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/admin/home';
-
-    /**
      * Create a new controller instance.
      *
      * @return void
@@ -40,5 +35,15 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
 
+
+    protected function redirectTo()
+    {
+        if(Gate::allows('backend_access')){
+            return route('admin.home');
+        }
+        else{
+            return route('frontend.home');
+        }
+    }
     
 }

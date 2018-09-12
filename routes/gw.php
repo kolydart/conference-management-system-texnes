@@ -1,3 +1,3 @@
 <?php
 
-Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
+Route::get('/', 'Frontend\HomeController@index')->name('frontend.home');

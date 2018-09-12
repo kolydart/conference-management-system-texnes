@@ -1,5 +1,5 @@
 <?php
-Route::get('/', function () { return redirect('/admin/home'); });
+// Route::get('/', function () { return redirect('/admin/home'); })->middleware('backend');
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -16,8 +16,8 @@ $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.password.reset');
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::get('/home', 'HomeController@index');
+Route::group(['middleware' => ['backend','auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('/home', ['uses' => 'HomeController@index', 'as' => 'home']);
     Route::get('/reports/fullpaper-uploads', 'Admin\ReportsController@fullpaperUploads');
 
     Route::get('/calendar', 'Admin\SystemCalendarController@index'); 
