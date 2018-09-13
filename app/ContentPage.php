@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App
  * @property string $title
+ * @property string $alias
  * @property text $page_text
  * @property text $excerpt
  * @property string $featured_image
 */
 class ContentPage extends Model
 {
-    protected $fillable = ['title', 'page_text', 'excerpt', 'featured_image'];
+    protected $fillable = ['title', 'alias', 'page_text', 'excerpt', 'featured_image'];
     protected $hidden = [];
     
     

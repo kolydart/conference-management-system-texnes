@@ -14,7 +14,7 @@ return [
 		'content-management' => [		'title' => 'Στατικό περιεχόμενο',		'fields' => [		],	],
 		'content-categories' => [		'title' => 'Κατηγορίες',		'fields' => [			'title' => 'Κατηγορία',			'slug' => 'Slug',		],	],
 		'content-tags' => [		'title' => 'Ετικέτες',		'fields' => [			'title' => 'Ετικέτα',			'slug' => 'Slug',		],	],
-		'content-pages' => [		'title' => 'Σελίδες',		'fields' => [			'title' => 'Τίτλος',			'category-id' => 'Κατηγορίες',			'page-text' => 'Κείμενο',			'excerpt' => 'Απόσπασμα',			'featured-image' => 'Εικόνα εμφάνισης',			'tag-id' => 'Ετικέτες',		],	],
+		'content-pages' => [		'title' => 'Σελίδες',		'fields' => [			'title' => 'Τίτλος',			'alias' => 'Alias',			'category-id' => 'Κατηγορίες',			'page-text' => 'Κείμενο',			'excerpt' => 'Απόσπασμα',			'featured-image' => 'Εικόνα εμφάνισης',			'tag-id' => 'Ετικέτες',		],	],
 		'files' => [		'title' => 'Τελικά κείμενα',		'fields' => [		],	],
 		'messages' => [		'title' => 'Μηνύματα',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'title' => 'Title',			'paper' => 'Paper',			'body' => 'Body',		],	],
 		'fullpaper' => [		'title' => 'Τελικά κείμενα',		'fields' => [			'paper' => 'Paper',			'finaltext' => 'Αρχείο(α)',			'description' => 'Σύντομη περιγραφή',		],	],

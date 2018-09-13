@@ -36,6 +36,7 @@
     <thead>
         <tr>
             <th>@lang('quickadmin.content-pages.fields.title')</th>
+                        <th>@lang('quickadmin.content-pages.fields.alias')</th>
                         <th>@lang('quickadmin.content-pages.fields.category-id')</th>
                         <th>@lang('quickadmin.content-pages.fields.featured-image')</th>
                         <th>@lang('quickadmin.content-pages.fields.tag-id')</th>
@@ -49,6 +50,7 @@
             @foreach ($content_pages as $content_page)
                 <tr data-entry-id="{{ $content_page->id }}">
                     <td field-key='title'>{{ $content_page->title }}</td>
+                                <td field-key='alias'>{{ $content_page->alias }}</td>
                                 <td field-key='category_id'>
                                     @foreach ($content_page->category_id as $singleCategoryId)
                                         <span class="label label-info label-many">{{ $singleCategoryId->title }}</span>
@@ -82,7 +84,7 @@
             @endforeach
         @else
             <tr>
-                <td colspan="11">@lang('quickadmin.qa_no_entries_in_table')</td>
+                <td colspan="12">@lang('quickadmin.qa_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>
@@ -96,3 +98,5 @@
         </div>
     </div>
 @stop
+
+
