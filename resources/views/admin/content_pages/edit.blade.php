@@ -25,6 +25,18 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
+                    {!! Form::label('alias', trans('quickadmin.content-pages.fields.alias').'*', ['class' => 'control-label']) !!}
+                    {!! Form::text('alias', old('alias'), ['class' => 'form-control', 'placeholder' => 'url slug', 'required' => '']) !!}
+                    <p class="help-block">url slug</p>
+                    @if($errors->has('alias'))
+                        <p class="help-block">
+                            {{ $errors->first('alias') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
                     {!! Form::label('category_id', trans('quickadmin.content-pages.fields.category-id').'*', ['class' => 'control-label']) !!}
                     <button type="button" class="btn btn-primary btn-xs" id="selectbtn-category_id">
                         {{ trans('quickadmin.qa_select_all') }}

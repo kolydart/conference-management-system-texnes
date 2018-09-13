@@ -24,6 +24,7 @@ class StoreContentPagesRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'alias' => 'required|unique:content_pages,alias,'.$this->route('content_page'),
             'category_id' => 'required',
             'category_id.*' => 'exists:content_categories,id',
             'featured_image' => 'nullable|mimes:png,jpg,jpeg,gif',

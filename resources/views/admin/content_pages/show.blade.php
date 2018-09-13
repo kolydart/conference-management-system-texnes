@@ -17,6 +17,10 @@
                             <td field-key='title'>{{ $content_page->title }}</td>
                         </tr>
                         <tr>
+                            <th>@lang('quickadmin.content-pages.fields.alias')</th>
+                            <td field-key='alias'>{{ $content_page->alias }}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.content-pages.fields.category-id')</th>
                             <td field-key='category_id'>
                                 @foreach ($content_page->category_id as $singleCategoryId)
@@ -57,4 +61,20 @@
             <a href="{{ route('admin.content_pages.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
         </div>
     </div>
+@stop
+
+@section('javascript')
+    @parent
+    <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
+    <script>
+        $('.editor').each(function () {
+                  CKEDITOR.replace($(this).attr('id'),{
+                    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
+                    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}'
+            });
+        });
+    </script>
+
 @stop
