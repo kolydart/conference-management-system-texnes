@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends((Gate::allows('backend_access'))?'layouts.app':'frontend.app')
 
 @section('content')
 	<h3 class="page-title">@lang('quickadmin.qa_change_password')</h3>
