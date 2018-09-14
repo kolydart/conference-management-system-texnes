@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('frontend.app')
 
 @section('content')
     <h3 class="page-title">@lang('quickadmin.sessions.title')</h3>

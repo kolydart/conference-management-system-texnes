@@ -1,5 +1,5 @@
 @inject('request', 'Illuminate\Http\Request')
-@extends('layouts.app')
+@extends('frontend.app')
 
 @section('content')
     <h3 class="page-title">@lang('quickadmin.rooms.title')</h3>
