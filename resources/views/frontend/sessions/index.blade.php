@@ -5,7 +5,7 @@
     <h3 class="page-title">@lang('quickadmin.sessions.title')</h3>
     @can('session_create')
     <p>
-        <a href="{{ route('admin.sessions.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
+        <a href="{{ route('frontend.sessions.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
         
     </p>
     @endcan
@@ -13,8 +13,8 @@
     @can('session_delete')
     <p>
         <ul class="list-inline">
-            <li><a href="{{ route('admin.sessions.index') }}" style="{{ request('show_deleted') == 1 ? '' : 'font-weight: 700' }}">@lang('quickadmin.qa_all')</a></li> |
-            <li><a href="{{ route('admin.sessions.index') }}?show_deleted=1" style="{{ request('show_deleted') == 1 ? 'font-weight: 700' : '' }}">@lang('quickadmin.qa_trash')</a></li>
+            <li><a href="{{ route('frontend.sessions.index') }}" style="{{ request('show_deleted') == 1 ? '' : 'font-weight: 700' }}">@lang('quickadmin.qa_all')</a></li> |
+            <li><a href="{{ route('frontend.sessions.index') }}?show_deleted=1" style="{{ request('show_deleted') == 1 ? 'font-weight: 700' : '' }}">@lang('quickadmin.qa_trash')</a></li>
         </ul>
     </p>
     @endcan
@@ -56,7 +56,7 @@
                                 @endcan
 
                                 <td field-key='id'>S{{ $session->id }}</td>
-                                <td field-key='title'><a href="{{route('admin.sessions.show',$session->id)}}">{{$session->title }}</a></td>
+                                <td field-key='title'><a href="{{route('frontend.sessions.show',$session->id)}}">{{$session->title }}</a></td>
                                 <td field-key='room'>{{ $session->room->title or '' }}</td>
                                 <td field-key='start'>{{ $session->start }}</td>
                                 <td field-key='duration'>{{ (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
@@ -85,10 +85,10 @@
                                 @else
                                 <td>
                                     @can('session_view')
-                                    <a href="{{ route('admin.sessions.show',[$session->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    <a href="{{ route('frontend.sessions.show',[$session->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
                                     @endcan
                                     @can('session_edit')
-                                    <a href="{{ route('admin.sessions.edit',[$session->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                    <a href="{{ route('frontend.sessions.edit',[$session->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
                                     @endcan
                                     @can('session_delete')
 {!! Form::open(array(
@@ -117,7 +117,7 @@
 @section('javascript') 
     <script>
         @can('session_delete')
-            @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('admin.sessions.mass_destroy') }}'; @endif
+            @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('frontend.sessions.mass_destroy') }}'; @endif
         @endcan
 
     </script>

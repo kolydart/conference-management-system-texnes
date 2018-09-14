@@ -62,7 +62,7 @@
         @if (count($sessions) > 0)
             @foreach ($sessions as $session)
                 <tr data-entry-id="{{ $session->id }}">
-                    <td field-key='title'><a href="{{route('admin.sessions.show',$session->id)}}">{{ "S". $session->id.". ".$session->title }}</a></td>
+                    <td field-key='title'><a href="{{route('frontend.sessions.show',$session->id)}}">{{ "S". $session->id.". ".$session->title }}</a></td>
                                 <td field-key='room'>{{ $session->room->title or '' }}</td>
                                 <td field-key='start'>{{ $session->start }}</td>
                                 <td field-key='duration'>{{ $session->duration }}</td>
@@ -90,10 +90,10 @@
                                 @else
                                 <td>
                                     @can('session_view')
-                                    <a href="{{ route('admin.sessions.show',[$session->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    <a href="{{ route('frontend.sessions.show',[$session->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
                                     @endcan
                                     @can('session_edit')
-                                    <a href="{{ route('admin.sessions.edit',[$session->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                    <a href="{{ route('frontend.sessions.edit',[$session->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
                                     @endcan
                                     @can('session_delete')
 {!! Form::open(array(
@@ -166,10 +166,10 @@
                                 @else
                                 <td>
                                     @can('availability_view')
-                                    <a href="{{ route('admin.availabilities.show',[$availability->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    <a href="{{ route('frontend.availabilities.show',[$availability->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
                                     @endcan
                                     @can('availability_edit')
-                                    <a href="{{ route('admin.availabilities.edit',[$availability->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                    <a href="{{ route('frontend.availabilities.edit',[$availability->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
                                     @endcan
                                     @can('availability_delete')
 {!! Form::open(array(
@@ -196,7 +196,7 @@
 
             <p>&nbsp;</p>
 
-            <a href="{{ route('admin.rooms.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
+            <a href="{{ route('frontend.rooms.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
         </div>
     </div>
 @stop

@@ -23,7 +23,7 @@
                             <th>@lang('quickadmin.sessions.fields.room')</th>
                             <td field-key='room'>
                                 @if (isset($session->room))
-                                    <a href="{{route('admin.rooms.show',$session->room->id)}}">{{ $session->room->title or '' }}</a>
+                                    <a href="{{route('frontend.rooms.show',$session->room->id)}}">{{ $session->room->title or '' }}</a>
                                 @endif
                             </td>
                         </tr>
@@ -50,7 +50,7 @@
                     </table>
                 </div>
             </div><!-- Nav tabs -->
-<a href="{{route('admin.sessions.edit',$session->id)}}" class="btn btn-info">@lang('quickadmin.qa_edit')</a> <br><br>           
+<a href="{{route('frontend.sessions.edit',$session->id)}}" class="btn btn-info">@lang('quickadmin.qa_edit')</a> <br><br>           
 <ul class="nav nav-tabs" role="tablist">
     
 <li role="presentation" class="active"><a href="#papers" aria-controls="papers" role="tab" data-toggle="tab">Προτάσεις</a></li>
@@ -85,7 +85,7 @@
             @foreach ($papers as $paper)
                 <tr data-entry-id="{{ $paper->id }}">
                                 <td field-key='id'>{{ $paper->id }}</td>
-                    <td field-key='title'><a href="{{route('admin.papers.show',$paper->id)}}">{{ $paper->title }}</a></td>
+                    <td field-key='title'><a href="{{route('frontend.papers.show',$paper->id)}}">{{ $paper->title }}</a></td>
                                 <td field-key='art'>
                                     @foreach ($paper->art as $singleArt)
                                         <span class="label label-info label-many">{{ $singleArt->title }}</span>
@@ -121,10 +121,10 @@
                                 @else
                                 <td>
                                     @can('paper_view')
-                                    <a href="{{ route('admin.papers.show',[$paper->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    <a href="{{ route('frontend.papers.show',[$paper->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
                                     @endcan
                                     @can('paper_edit')
-                                    <a href="{{ route('admin.papers.edit',[$paper->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                    <a href="{{ route('frontend.papers.edit',[$paper->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
                                     @endcan
                                     @can('paper_delete')
 {!! Form::open(array(
@@ -151,7 +151,7 @@
 
             <p>&nbsp;</p>
 
-            <a href="{{ route('admin.sessions.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
+            <a href="{{ route('frontend.sessions.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
         </div>
     </div>
 @stop

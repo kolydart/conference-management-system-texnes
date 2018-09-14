@@ -54,11 +54,11 @@
 
             <p>&nbsp;</p>
 @can('content_page_edit')
-    <a href="{{ route('admin.content_pages.edit',[$content_page->id]) }}" class="btn btn-info">@lang('quickadmin.qa_edit')</a>
+    <a href="{{ route('frontend.content_pages.edit',[$content_page->id]) }}" class="btn btn-info">@lang('quickadmin.qa_edit')</a>
 @endcan
 <p>&nbsp;</p>
 
-            <a href="{{ route('admin.content_pages.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
+            <a href="{{ route('frontend.content_pages.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
         </div>
     </div>
 @stop

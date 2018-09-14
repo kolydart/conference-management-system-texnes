@@ -5,7 +5,7 @@
     <h3 class="page-title">@lang('quickadmin.rooms.title')</h3>
     @can('room_create')
     <p>
-        <a href="{{ route('admin.rooms.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
+        <a href="{{ route('frontend.rooms.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
         
     </p>
     @endcan
@@ -13,8 +13,8 @@
     @can('room_delete')
     <p>
         <ul class="list-inline">
-            <li><a href="{{ route('admin.rooms.index') }}" style="{{ request('show_deleted') == 1 ? '' : 'font-weight: 700' }}">@lang('quickadmin.qa_all')</a></li> |
-            <li><a href="{{ route('admin.rooms.index') }}?show_deleted=1" style="{{ request('show_deleted') == 1 ? 'font-weight: 700' : '' }}">@lang('quickadmin.qa_trash')</a></li>
+            <li><a href="{{ route('frontend.rooms.index') }}" style="{{ request('show_deleted') == 1 ? '' : 'font-weight: 700' }}">@lang('quickadmin.qa_all')</a></li> |
+            <li><a href="{{ route('frontend.rooms.index') }}?show_deleted=1" style="{{ request('show_deleted') == 1 ? 'font-weight: 700' : '' }}">@lang('quickadmin.qa_trash')</a></li>
         </ul>
     </p>
     @endcan
@@ -81,10 +81,10 @@
                                 @else
                                 <td>
                                     @can('room_view')
-                                    <a href="{{ route('admin.rooms.show',[$room->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    <a href="{{ route('frontend.rooms.show',[$room->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
                                     @endcan
                                     @can('room_edit')
-                                    <a href="{{ route('admin.rooms.edit',[$room->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                    <a href="{{ route('frontend.rooms.edit',[$room->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
                                     @endcan
                                     @can('room_delete')
 {!! Form::open(array(
@@ -113,7 +113,7 @@
 @section('javascript') 
     <script>
         @can('room_delete')
-            @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('admin.rooms.mass_destroy') }}'; @endif
+            @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('frontend.rooms.mass_destroy') }}'; @endif
         @endcan
 
     </script>
