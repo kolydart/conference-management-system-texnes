@@ -16,45 +16,54 @@
                         </a>
                     </li>
 
-                    {{-- <li class="nav-item {{ Route::currentRouteName() == 'register' ? 'active' : '' }} ">
-                        <a class="nav-link" href="#">@lang('Εγγραφή ακροατών')</a>
-                    </li>
-                    
                     <li class="nav-item {{ Route::currentRouteName() == 'frontend.calendar' ? 'active' : '' }}">
-                        <a href="{{url('frontend/calendar')}}">
+                        <a class="nav-link" href="{{route('frontend.calendar')}}">
                           <i class="fa fa-calendar"></i>
                           <span class="title"> @lang('Calendar') </span>
                         </a>
                     </li>
 
-                    <li class="nav-item {{ Route::currentRouteName() == 'frontend.papers.index' ? 'active' : '' }}">
-                        <a href="{{ route('frontend.papers.index') }}">
-                            <i class="fa fa-newspaper-o"></i>
-                            <span>@lang('quickadmin.papers.title')</span>
+                    <li class="nav-item dropdown">
+                        <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" >
+                            <i class="fab fa-searchengin"></i> @lang('Αναζήτηση')
                         </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{route('frontend.papers.index')}}">
+                              <i class="fa fa-newspaper"></i>
+                              <span class="title"> @lang('Εισηγήσεις/Εργαστήρια') </span>
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('frontend.sessions.index') }}">
+                                <i class="fa fa-clock"></i>
+                                <span>@lang('quickadmin.sessions.title')</span>
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('frontend.rooms.index') }}">
+                                <i class="fa fa-map-marker"></i>
+                                <span>@lang('quickadmin.rooms.title')</span>
+                            </a>
+
+
+                            <a class="dropdown-item" href="{{ route('frontend.arts.index') }}">
+                                <i class="fa fa-paint-brush"></i>
+                                <span>@lang('quickadmin.arts.title')</span>
+                            </a>
+
+                        </div>
                     </li>
 
-                    <li class="nav-item {{ Route::currentRouteName() == 'frontend.sessions.index' ? 'active' : '' }}">
-                        <a href="{{ route('frontend.sessions.index') }}">
-                            <i class="fa fa-clock-o"></i>
-                            <span>@lang('quickadmin.sessions.title')</span>
-                        </a>
+
+                    <li class="nav-item {{ Route::currentRouteName() == 'register' ? 'active' : '' }} ">
+                        <a class="nav-link" href="#"><i class="fab fa-get-pocket"></i> @lang('Εγγραφή ακροατών')</a>
                     </li>
+                    
 
-                    <li class="nav-item {{ Route::currentRouteName() == 'frontend.rooms.index' ? 'active' : '' }}">
-                        <a href="{{ route('frontend.rooms.index') }}">
-                            <i class="fa fa-map-marker"></i>
-                            <span>@lang('quickadmin.rooms.title')</span>
+                    <li class="nav-item {{ Route::currentRouteName() == '/page/map' ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('frontend.pages.show','map') }}">
+                            <i class="fa fa-map"></i>
+                            <span>@lang('Χάρτες')</span>
                         </a>
-                    </li>
-
-
-                    <li class="nav-item {{ Route::currentRouteName() == 'frontend.arts.index' ? 'active' : '' }}">
-                        <a href="{{ route('frontend.arts.index') }}">
-                            <i class="fa fa-paint-brush"></i>
-                            <span>@lang('quickadmin.arts.title')</span>
-                        </a>
-                    </li>     --}}              
+                    </li>                  
 
                 </ul>
 
@@ -68,7 +77,7 @@
                             <div class="dropdown-menu">
 
                                 @can('backend_access')
-                                <a href="{{route('admin.home')}}" class="dropdown-item">
+                                <a href="{{route('frontend.home')}}" class="dropdown-item">
                                     <i class="fa fa-tachometer-alt"></i> @lang('Διαχείριση backend')
                                 </a>@endcan
 
