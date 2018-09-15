@@ -14,7 +14,7 @@
                     <table class="table table-bordered table-striped">
                         <tr>
                             <th>@lang('gw.id')</th>
-                            <td field-key='title'>S{{ $session->id }}</td>
+                            <td field-key='id'>S{{ $session->id }}</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.sessions.fields.title')</th>
