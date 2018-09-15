@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends((gateweb\common\Presenter::before(\Route::currentRouteName(),'.') == 'admin')?'layouts.app':'frontend.app')
 
 
 @section('content')

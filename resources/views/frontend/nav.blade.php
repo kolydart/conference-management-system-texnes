@@ -34,12 +34,12 @@
                             </a>
 
                             <a class="dropdown-item" href="{{ route('frontend.sessions.index') }}">
-                                <i class="fa fa-clock"></i>
+                                <i class="far fa-clock"></i>
                                 <span>@lang('quickadmin.sessions.title')</span>
                             </a>
 
                             <a class="dropdown-item" href="{{ route('frontend.rooms.index') }}">
-                                <i class="fa fa-map-marker"></i>
+                                <i class="fa fa-map-marker-alt"></i>
                                 <span>@lang('quickadmin.rooms.title')</span>
                             </a>
 
@@ -77,7 +77,7 @@
                             <div class="dropdown-menu">
 
                                 @can('backend_access')
-                                <a href="{{route('frontend.home')}}" class="dropdown-item">
+                                <a href="{{route('admin.home')}}" class="dropdown-item">
                                     <i class="fa fa-tachometer-alt"></i> @lang('Διαχείριση backend')
                                 </a>@endcan
 
