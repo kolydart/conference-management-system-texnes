@@ -14,11 +14,12 @@ class PaperSeed extends Seeder
      */
     public function run()
     {
+        $count = (App::environment()=='testing')?5:200;
 
         /**
          * create papers & relate with arts & users
          */
-        factory(Paper::class,200)->create()->each(function ($paper) {
+        factory(Paper::class,$count)->create()->each(function ($paper) {
             $arts = Art::all()->random(3); // pick three random
             $paper->art()->save($arts->splice(0, 1)->first()); // always get first
             foreach ($arts as $art) { // the rest: random
