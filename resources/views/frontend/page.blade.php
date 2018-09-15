@@ -4,7 +4,7 @@
 
 @section('content')
 
-	{{$page->excerpt}}
-	{{$page->page_text}}
+	{!!$page->excerpt!!}
+	{!!$page->page_text!!}
 
 @endsection
