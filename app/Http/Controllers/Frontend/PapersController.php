@@ -19,7 +19,7 @@ class PapersController extends Controller
         /** 
          * @todo ->orderBy(RelatedDate)
          */
-        $papers = Paper::accepted(); 
+        $papers = Paper::accepted()->get(); 
 
         return view('frontend.papers.index', compact('papers'));
     }
