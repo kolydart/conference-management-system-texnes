@@ -9,6 +9,7 @@ $(document).ready(function () {
     window.dtDefaultOptions = {
         retrieve: true,
         dom: '<"col-xs-12"i>lfrtipB<"actions">',
+        bLengthChange: false,
         columnDefs: [],
         "iDisplayLength": 100,
         "aaSorting": [],
