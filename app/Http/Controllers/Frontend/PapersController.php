@@ -16,9 +16,12 @@ class PapersController extends Controller
      */
     public function index()
     {
-            $papers = Paper::all()->reverse();
+        /** 
+         * @todo ->orderBy(RelatedDate)
+         */
+        $papers = Paper::accepted(); 
 
-        return view('admin.papers.index', compact('papers'));
+        return view('frontend.papers.index', compact('papers'));
     }
 
     /**
@@ -30,15 +33,9 @@ class PapersController extends Controller
     public function show($id)
     {
         
-        $arts = \App\Art::get()->pluck('title', 'id');
+        $paper = Paper::accepted()->findOrFail($id);
 
-        $sessions = \App\Session::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
-        $assigns = \App\User::get()->pluck('name', 'id');
-        $fullpapers = \App\Fullpaper::where('paper_id', $id)->get();$reviews = \App\Review::where('paper_id', $id)->get();$messages = \App\Message::where('paper_id', $id)->get();
-
-        $paper = Paper::findOrFail($id);
-
-        return view('admin.papers.show', compact('paper', 'fullpapers', 'reviews', 'messages'));
+        return view('frontend.papers.show', compact('paper'));
     }
 
 }

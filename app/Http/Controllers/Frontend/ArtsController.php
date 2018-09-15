@@ -28,7 +28,7 @@ class ArtsController extends Controller
      */
     public function show($id)
     {
-        $papers = \App\Paper::whereHas('art',
+        $papers = \App\Paper::accepted()->whereHas('art',
                     function ($query) use ($id) {
                         $query->where('id', $id);
                     })->get();
