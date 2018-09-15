@@ -5,6 +5,7 @@ use App\Fullpaper;
 use App\Message;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Jedrzej\Searchable\SearchableTrait;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
@@ -39,7 +40,9 @@ class Paper extends Model implements HasMedia
     protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'phone', 'abstract', 'bio', 'status', 'informed', 'order', 'session_id'];
     protected $hidden = [];
     
-    
+    use SearchableTrait;
+    public $searchable = ['type'];
+
     public static function boot()
     {
         parent::boot();
