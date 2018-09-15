@@ -30,7 +30,7 @@ class SystemCalendarController extends Controller
                 'title' => $dataFieldValue, 
                 'start' => $crudFieldValue, 
                 'end'   => (new DateTime($crudFieldValue))->addTime($session->duration)->sql(), 
-                'url'   => route('admin.sessions.show', $session->id),
+                'url'   => route((Presenter::before(\Route::currentRouteName(),'.') == 'admin')?'admin.sessions.show':'frontend.sessions.show', $session->id),
                 'resourceId' => $session->room_id,
                 'color' => (isset($session->color))? $session->color->value : '',
            ];
