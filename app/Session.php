@@ -19,6 +19,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 */
 class Session extends Model
 {
+    use \Spatie\Activitylog\Traits\LogsActivity;
+    protected static $logFillable = true;       
+    protected static $logOnlyDirty = true;
+
     use SoftDeletes;
 
     protected $fillable = ['title', 'start', 'duration', 'chair', 'room_id', 'color_id'];

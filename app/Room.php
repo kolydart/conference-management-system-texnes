@@ -16,6 +16,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 */
 class Room extends Model
 {
+    use \Spatie\Activitylog\Traits\LogsActivity;
+    protected static $logFillable = true;       
+    protected static $logOnlyDirty = true;
+
     use SoftDeletes;
 
     protected $fillable = ['title', 'description', 'type', 'wifi'];
