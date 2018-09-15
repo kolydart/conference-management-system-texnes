@@ -1,7 +1,7 @@
 @extends('frontend.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.sessions.title')</h3>
+    <h3 class="page-title"><i class="far fa-clock"></i> @lang('quickadmin.sessions.title')</h3>
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -73,7 +73,7 @@
                     <td field-key='type'>{{ $paper->type }}</td>
                     <td field-key='art'>
                         @foreach ($paper->art as $singleArt)
-                            <span class="label label-info label-many">{{ $singleArt->title }}</span>
+                            <a href="{{route('frontend.arts.show',$singleArt->id)}}" class="badge badge-secondary m-md-1" >{{ $singleArt->title }} </a>
                         @endforeach
                     </td>
                     <td field-key='duration'>{{ $paper->duration }}</td>

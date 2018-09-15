@@ -2,7 +2,7 @@
 
 @section('content')
 <h3 class="page-title">
-    @lang('quickadmin.arts.title')
+    <i class="fa fa-paint-brush"></i> @lang('quickadmin.arts.title')
 </h3>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -17,7 +17,7 @@
                             @lang('quickadmin.arts.fields.title')
                         </th>
                         <td field-key="title">
-                            {{ $art->title }}
+                            <h4>{{ $art->title }}</h4>
                         </td>
                     </tr>
                 </table>

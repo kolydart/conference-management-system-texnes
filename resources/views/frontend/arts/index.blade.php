@@ -2,7 +2,7 @@
 @extends('frontend.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.arts.title')</h3>
+    <h3 class="page-title"><i class="fa fa-paint-brush"></i> @lang('quickadmin.arts.title')</h3>
 
     <div class="panel panel-default">
 

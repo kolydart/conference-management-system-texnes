@@ -21,7 +21,7 @@
                             <th>@lang('quickadmin.papers.fields.session')</th>
                             <td field-key='session'>
                                 @if ($paper->session)
-                                    <a href="{{route('frontend.sessions.show',$paper->session->id)}}">{{ $paper->session->title or '' }}</a> (<i class="fa fa-clock"></i> {{(new gateweb\common\DateTime($paper->session->start))->format('H:i')}})    
+                                    <a href="{{route('frontend.sessions.show',$paper->session->id)}}">{{ $paper->session->title or '' }}</a> [ <i class="fa fa-clock"></i> {{(new gateweb\common\DateTime($paper->session->start))->format('H:i')}}]    
                                 @endif
                             </td>
                         </tr>
@@ -58,7 +58,7 @@
                             <th>@lang('quickadmin.papers.fields.art')</th>
                             <td field-key='art'>
                                 @foreach ($paper->art as $singleArt)
-                                    <a href="{{route('frontend.arts.show',$singleArt->id)}}">{{ $singleArt->title }}</a>
+                                    <a href="{{route('frontend.arts.show',$singleArt->id)}}" class="badge badge-secondary" >{{ $singleArt->title }}</a>
                                 @endforeach
                             </td>
                         </tr>
