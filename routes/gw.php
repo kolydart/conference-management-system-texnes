@@ -16,7 +16,7 @@ Route::get('rooms/{id}', 'Frontend\RoomsController@show')->name('frontend.rooms.
 Route::get('sessions', 'Frontend\SessionsController@index')->name('frontend.sessions.index');
 Route::get('sessions/{id}', 'Frontend\SessionsController@show')->name('frontend.sessions.show');
 
-Route::get('/calendar', 'Frontend\SystemCalendarController@index')->name('frontend.calendar'); 
+Route::get('/calendar', 'Admin\SystemCalendarController@index')->name('frontend.calendar'); 
 
 Route::get('/page/{alias}', 'Frontend\ContentPagesController@show')->name('frontend.pages.show');
 
