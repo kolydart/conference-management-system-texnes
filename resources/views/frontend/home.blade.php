@@ -1,7 +1,10 @@
 @extends('frontend.app')
 
 @section('content')
-		<div class="row mb-4">
+
+	{!! App\ContentPage::where('alias','home')->first()->page_text !!}
+
+		{{-- <div class="row mb-4">
 			
 			<div class="col-sm-4 my-auto">
 				<img src="/img/uoa-logo.png" class="img-responsive img-fluid" alt="uoa logo">
@@ -127,8 +130,5 @@
 		<p>Ιστοσελίδα</p>
 		<p><a href="http://texnes-ellinikosxoleio.uoa.gr">http://texnes-ellinikosxoleio.uoa.gr</a></p>
 		<p><a href="https://www.facebook.com/texnesellinikosxoleio/">https://www.facebook.com/texnesellinikosxoleio/</a></p>
-		<p>H οργανωτική επιτροπή</p>
-
-
-
+		<p>H οργανωτική επιτροπή</p> --}}	
 @endsection
