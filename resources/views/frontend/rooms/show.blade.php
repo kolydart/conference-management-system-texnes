@@ -34,43 +34,18 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
             <li class="nav-item">
-            <a href="#sessions" class="nav-link active">
-                <span class="badge badge-dark">Συνεδρίες</span></a>
+            <a href="#papers" class="nav-link active">
+                <span class="badge badge-dark">Προτάσεις/Εισηγήσεις</span>
+            </a>
             </li>
         </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-<div role="tabpanel" class="tab-pane active" id="sessions">
-<table class="table table-bordered table-striped {{ count($sessions) > 0 ? 'datatable' : '' }}">
-    <thead>
-        <tr>
-            <th>@lang('quickadmin.sessions.fields.title')</th>
-            <th>@lang('quickadmin.sessions.fields.start')</th>
-            <th>@lang('quickadmin.sessions.fields.duration')</th>
-            <th></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @if (count($sessions) > 0)
-            @foreach ($sessions as $session)
-                <tr data-entry-id="{{ $session->id }}">
-                    <td field-key='title'><a href="{{route('frontend.sessions.show',$session->id)}}">{{ "S". $session->id.". ".$session->title }}</a></td>
-                    <td field-key='start'>{{ (new gateweb\common\DateTime($session->start))->format('l, d M, H:i') }}</td>
-                    <td field-key='duration'>{{ (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
-                    <td> <a href="{{ route('frontend.sessions.show',[$session->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a> </td>
-                </tr>
-            @endforeach
-        @else
-            <tr>
-                <td colspan="11">@lang('quickadmin.qa_no_entries_in_table')</td>
-            </tr>
-        @endif
-    </tbody>
-</table>
+<div role="tabpanel" class="tab-pane active" id="papers">
+    @include('frontend.papers.table')
 </div>
-    
+   
 </div>
 
             <p>&nbsp;</p>

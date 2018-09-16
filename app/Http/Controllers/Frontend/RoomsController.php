@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Room;
-use Illuminate\Http\Request;
-use Gate;
 use App\Http\Controllers\Controller;
+use App\Paper;
+use App\Room;
+use Gate;
+use Illuminate\Http\Request;
 
 class RoomsController extends Controller
 {
@@ -31,10 +32,11 @@ class RoomsController extends Controller
     {
 
         $sessions = \App\Session::where('room_id', $id)->get();
+        $papers = Room::findOrFail($id)->papers()->accepted()->get();
 
         $room = Room::findOrFail($id);
 
-        return view('frontend.rooms.show', compact('room', 'sessions'));
+        return view('frontend.rooms.show', compact('room', 'sessions', 'papers'));
     }
 
 }
