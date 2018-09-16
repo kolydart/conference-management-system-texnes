@@ -210,6 +210,23 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1]);
         });
 
+        // Auth gates for: Subscriptions
+        Gate::define('subscription_access', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('subscription_create', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+        Gate::define('subscription_edit', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+        Gate::define('subscription_view', function ($user) {
+            return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+        Gate::define('subscription_delete', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+
         // Auth gates for: Availability
         Gate::define('availability_access', function ($user) {
             return in_array($user->role_id, [1, 3, 4, 5]);
@@ -309,23 +326,6 @@ class AuthServiceProvider extends ServiceProvider
         });
         Gate::define('loguseragent_delete', function ($user) {
             return in_array($user->role_id, [1]);
-        });
-
-        // Auth gates for: Subscriptions
-        Gate::define('subscription_access', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
-        });
-        Gate::define('subscription_create', function ($user) {
-            return in_array($user->role_id, [1, 3, 4]);
-        });
-        Gate::define('subscription_edit', function ($user) {
-            return in_array($user->role_id, [1, 3, 4]);
-        });
-        Gate::define('subscription_view', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
-        });
-        Gate::define('subscription_delete', function ($user) {
-            return in_array($user->role_id, [1, 3, 4]);
         });
 
     }
