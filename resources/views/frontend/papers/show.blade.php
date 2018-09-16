@@ -40,7 +40,7 @@
                             <th>@lang('Ημερομηνία')</th>
                             <td field-key='date'>
                                 @if ($paper->session)
-                                    {{ (new gateweb\common\DateTime($paper->session->start))->format('d/m/Y') }}
+                                    {{ (new gateweb\common\DateTime($paper->session->start))->format('l, d M Y') }}
                                 @endif
                             </td>
                         </tr>
@@ -55,7 +55,7 @@
 
                         <tr>
                             <th>@lang('quickadmin.papers.fields.duration')</th>
-                            <td field-key='duration'>{{ $paper->duration }}</td>
+                            <td field-key='duration'>{{ $paper->duration }}'</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.papers.fields.art')</th>
