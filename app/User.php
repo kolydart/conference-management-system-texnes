@@ -15,7 +15,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @package App
  * @property string $name
  * @property string $email
- * @property integer $phone
+ * @property string $phone
  * @property string $attribute
  * @property string $password
  * @property string $role
@@ -40,16 +40,7 @@ class User extends Authenticatable
         User::observe(new \App\Observers\UserActionsObserver);
     }
     
-    
-
     /**
-     * Set attribute to money format
-     * @param $input
-     */
-    public function setPhoneAttribute($input)
-    {
-        $this->attributes['phone'] = $input ? $input : null;
-    }/**
      * Hash password
      * @param $input
      */
