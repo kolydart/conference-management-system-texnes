@@ -1,7 +1,7 @@
 @extends('frontend.app')
 
 @section('content')
-    <h3 class="page-title"><i class="fa fa-map-marker-alt"></i> @lang('quickadmin.rooms.title')</h3>
+    <h3 class="page-title"><i class="fa fa-map-marker-alt"></i> @lang('Αίθουσα')</h3>
 
     <div class="panel panel-default">
         <div class="panel-heading">

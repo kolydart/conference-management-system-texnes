@@ -1,7 +1,7 @@
 @extends('frontend.app')
 
 @section('content')
-    <h3 class="page-title"><i class="far fa-clock"></i> @lang('quickadmin.sessions.title')</h3>
+    <h3 class="page-title"><i class="far fa-clock"></i> @lang('Συνεδρία')</h3>
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -29,7 +29,8 @@
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.sessions.fields.start')</th>
-                            <td field-key='start'>{{ $session->start }}</td>
+                            <td field-key='start'>{{ (new gateweb\common\DateTime($session->start))->format('l, d M, H:i') }}</td>
+                            
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.sessions.fields.duration')</th>

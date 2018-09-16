@@ -2,7 +2,7 @@
 
 @section('content')
 <h3 class="page-title">
-    <i class="fa fa-paint-brush"></i> @lang('quickadmin.arts.title')
+    <i class="fa fa-paint-brush"></i> @lang('Τέχνη')
 </h3>
 <div class="panel panel-default">
     <div class="panel-heading">

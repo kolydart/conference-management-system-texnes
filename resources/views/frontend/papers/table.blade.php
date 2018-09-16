@@ -4,9 +4,9 @@
                         <th>@lang('quickadmin.papers.fields.title')</th>
                         <th>@lang('quickadmin.papers.fields.name')</th>
                         <th>@lang('quickadmin.papers.fields.type')</th>
+                        <th>@lang('Date')</th>
                         <th>@lang('quickadmin.papers.fields.session')</th>
                         <th>@lang('Room')</th>
-                        <th>@lang('Date')</th>
                         <th>@lang('quickadmin.papers.fields.art')</th>
                         <th>@lang('quickadmin.papers.fields.duration')</th>
                         <th></th>
@@ -23,9 +23,15 @@
                                 </td>
                                 <td field-key='name'>{{ $paper->name }}</td>
                                 <td field-key='type'><a href="{{route('frontend.papers.index',['type'=> $paper->type ])}}">{{ $paper->type }}</a></td>
+                                <td field-key='date'>
+                                    @if ($paper->session)
+                                        {{ (new gateweb\common\DateTime($paper->session->start))->format('d M') }}
+                                    @endif
+                                </td>
+                                
                                 <td field-key='session'>
                                     @if ($paper->session)
-                                        <a href="{{route('frontend.sessions.show',$paper->session->id)}}">{{ "S". $paper->session->id.". ".$paper->session->title }}</a>
+                                        <a href="{{route('frontend.sessions.show',$paper->session->id)}}">{{ "S". $paper->session->id.". ".$paper->session->title }}</a> <span class="text-secondary"><i class="fa fa-clock"></i> {{(new gateweb\common\DateTime($paper->session->start))->format('H:i')}}</span>
                                     @endif
                                 </td>
                                 <td field-key='room'>
@@ -34,12 +40,6 @@
                                     @endif
                                     
                                 </td>
-                                <td field-key='date'>
-                                    @if ($paper->session)
-                                        {{ (new gateweb\common\DateTime($paper->session->start))->format('d/m/Y') }}
-                                    @endif
-                                </td>
-                                
                                 <td field-key='art'>
                                     @foreach ($paper->art as $singleArt)
                                         <a href="{{route('frontend.arts.show',$singleArt->id)}}" class="badge badge-secondary m-md-1" >{{ $singleArt->title }} </a>
