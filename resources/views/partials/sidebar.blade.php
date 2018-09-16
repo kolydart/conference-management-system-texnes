@@ -126,6 +126,14 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
+                    @can('subscription_access')
+                    <li>
+                        <a href="{{ route('admin.subscriptions.index') }}">
+                            <i class="fa fa-check-square-o"></i>
+                            <span>@lang('quickadmin.subscriptions.title')</span>
+                        </a>
+                    </li>@endcan
+                    
                     @can('availability_access')
                     <li>
                         <a href="{{ route('admin.availabilities.index') }}">

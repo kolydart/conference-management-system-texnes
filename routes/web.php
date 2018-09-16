@@ -73,6 +73,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('user_actions', 'Admin\UserActionsController');
     Route::resource('loguseragents', 'Admin\LoguseragentsController');
     Route::post('loguseragents_mass_destroy', ['uses' => 'Admin\LoguseragentsController@massDestroy', 'as' => 'loguseragents.mass_destroy']);
+    Route::resource('subscriptions', 'Admin\SubscriptionsController');
+    Route::post('subscriptions_mass_destroy', ['uses' => 'Admin\SubscriptionsController@massDestroy', 'as' => 'subscriptions.mass_destroy']);
+    Route::post('subscriptions_restore/{id}', ['uses' => 'Admin\SubscriptionsController@restore', 'as' => 'subscriptions.restore']);
+    Route::delete('subscriptions_perma_del/{id}', ['uses' => 'Admin\SubscriptionsController@perma_del', 'as' => 'subscriptions.perma_del']);
     Route::post('/spatie/media/upload', 'Admin\SpatieMediaController@create')->name('media.upload');
     Route::post('/spatie/media/remove', 'Admin\SpatieMediaController@destroy')->name('media.remove');
 

@@ -15,5 +15,6 @@ $factory->define(App\Paper::class, function (Faker\Generator $faker) {
         "status" => collect(["Accepted","Rejected","Pending",])->random(),
         "informed" => collect(["Unaware","Informed",])->random(),
         "order" => $faker->randomNumber(2),
+        "capacity" => $faker->randomNumber(2),
     ];
 });

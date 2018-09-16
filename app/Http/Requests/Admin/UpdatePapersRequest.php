@@ -31,6 +31,7 @@ class UpdatePapersRequest extends FormRequest
             'status' => 'required',
             'informed' => 'required',
             'order' => 'max:2147483647|nullable|numeric',
+            'capacity' => 'max:2147483647|nullable|numeric',
         ];
     }
 }

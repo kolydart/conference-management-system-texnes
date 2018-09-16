@@ -158,11 +158,11 @@ class PapersController extends Controller
 
         $sessions = \App\Session::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $assigns = \App\User::get()->pluck('name', 'id');
-$fullpapers = \App\Fullpaper::where('paper_id', $id)->get();$reviews = \App\Review::where('paper_id', $id)->get();$messages = \App\Message::where('paper_id', $id)->get();
+$fullpapers = \App\Fullpaper::where('paper_id', $id)->get();$subscriptions = \App\Subscription::where('paper_id', $id)->get();$reviews = \App\Review::where('paper_id', $id)->get();$messages = \App\Message::where('paper_id', $id)->get();
 
         $paper = Paper::findOrFail($id);
 
-        return view('admin.papers.show', compact('paper', 'fullpapers', 'reviews', 'messages'));
+        return view('admin.papers.show', compact('paper', 'fullpapers', 'subscriptions', 'reviews', 'messages'));
     }
 
 

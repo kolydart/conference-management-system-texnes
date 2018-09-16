@@ -88,12 +88,17 @@
                             <th>@lang('quickadmin.papers.fields.order')</th>
                             <td field-key='order'>{{ $paper->order }}</td>
                         </tr>
+                        <tr>
+                            <th>@lang('quickadmin.papers.fields.capacity')</th>
+                            <td field-key='capacity'>{{ $paper->capacity }}</td>
+                        </tr>
                     </table>
                 </div>
             </div><!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     
 <li role="presentation" class="active"><a href="#fullpaper" aria-controls="fullpaper" role="tab" data-toggle="tab">Τελικά κείμενα</a></li>
+<li role="presentation" class=""><a href="#subscriptions" aria-controls="subscriptions" role="tab" data-toggle="tab">Δηλώσεις συμμετοχής</a></li>
 <li role="presentation" class=""><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Κρίσεις</a></li>
 <li role="presentation" class=""><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Μηνύματα</a></li>
 </ul>
@@ -157,6 +162,78 @@
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
                                         'route' => ['admin.fullpapers.destroy', $fullpaper->id])) !!}
+                                    {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                    {!! Form::close() !!}
+                                    @endcan
+                                </td>
+                                @endif
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="8">@lang('quickadmin.qa_no_entries_in_table')</td>
+            </tr>
+        @endif
+    </tbody>
+</table>
+</div>
+<div role="tabpanel" class="tab-pane " id="subscriptions">
+<table class="table table-bordered table-striped {{ count($subscriptions) > 0 ? 'datatable' : '' }}">
+    <thead>
+        <tr>
+            <th>@lang('quickadmin.subscriptions.fields.user')</th>
+                        <th>@lang('quickadmin.subscriptions.fields.paper')</th>
+                        <th>@lang('quickadmin.subscriptions.fields.appeared')</th>
+                        @if( request('show_deleted') == 1 )
+                        <th>&nbsp;</th>
+                        @else
+                        <th>&nbsp;</th>
+                        @endif
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (count($subscriptions) > 0)
+            @foreach ($subscriptions as $subscription)
+                <tr data-entry-id="{{ $subscription->id }}">
+                    <td field-key='user'>{{ $subscription->user->name or '' }}</td>
+                                <td field-key='paper'>{{ $subscription->paper->title or '' }}</td>
+                                <td field-key='appeared'>{{ Form::checkbox("appeared", 1, $subscription->appeared == 1 ? true : false, ["disabled"]) }}</td>
+                                @if( request('show_deleted') == 1 )
+                                <td>
+                                    @can('subscription_delete')
+                                                                        {!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'POST',
+                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                        'route' => ['admin.subscriptions.restore', $subscription->id])) !!}
+                                    {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
+                                    {!! Form::close() !!}
+                                @endcan
+                                    @can('subscription_delete')
+                                                                        {!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                        'route' => ['admin.subscriptions.perma_del', $subscription->id])) !!}
+                                    {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                    {!! Form::close() !!}
+                                @endcan
+                                </td>
+                                @else
+                                <td>
+                                    @can('subscription_view')
+                                    <a href="{{ route('admin.subscriptions.show',[$subscription->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    @endcan
+                                    @can('subscription_edit')
+                                    <a href="{{ route('admin.subscriptions.edit',[$subscription->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                    @endcan
+                                    @can('subscription_delete')
+{!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                        'route' => ['admin.subscriptions.destroy', $subscription->id])) !!}
                                     {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                                     {!! Form::close() !!}
                                     @endcan
