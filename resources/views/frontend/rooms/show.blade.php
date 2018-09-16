@@ -46,7 +46,6 @@
     <thead>
         <tr>
             <th>@lang('quickadmin.sessions.fields.title')</th>
-            <th>@lang('quickadmin.sessions.fields.room')</th>
             <th>@lang('quickadmin.sessions.fields.start')</th>
             <th>@lang('quickadmin.sessions.fields.duration')</th>
             <th></th>
@@ -58,9 +57,8 @@
             @foreach ($sessions as $session)
                 <tr data-entry-id="{{ $session->id }}">
                     <td field-key='title'><a href="{{route('frontend.sessions.show',$session->id)}}">{{ "S". $session->id.". ".$session->title }}</a></td>
-                    <td field-key='room'>{{ $session->room->title or '' }}</td>
-                    <td field-key='start'>{{ $session->start }}</td>
-                    <td field-key='duration'>{{ $session->duration }}</td>
+                    <td field-key='start'>{{ (new gateweb\common\DateTime($session->start))->format('l, d M, H:i') }}</td>
+                    <td field-key='duration'>{{ (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
                     <td> <a href="{{ route('frontend.sessions.show',[$session->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a> </td>
                 </tr>
             @endforeach

@@ -24,7 +24,7 @@
                         @foreach ($arts as $art)
                             <tr data-entry-id="{{ $art->id }}">
                                 <td field-key='title'>{{ $art->title }}</td>
-                                <td> <a href="{{ route('frontend.arts.show',[$art->id]) }}" class="btn btn-xs btn-outline-primary">@lang('quickadmin.qa_view')</a> </td>
+                                <td> <a href="{{ route('frontend.arts.show',[$art->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a> </td>
                             </tr>
                         @endforeach
                     @else

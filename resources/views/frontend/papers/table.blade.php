@@ -45,8 +45,8 @@
                                         <a href="{{route('frontend.arts.show',$singleArt->id)}}" class="badge badge-secondary m-md-1" >{{ $singleArt->title }} </a>
                                     @endforeach
                                 </td>
-                                <td field-key='duration'>{{ $paper->duration }}</td>
-                                <td field-key='button'><a class="btn btn-xs btn-outline-primary" href="{{ route('frontend.papers.show',[$paper->id]) }}"> @lang('quickadmin.qa_view') </a></td>
+                                <td field-key='duration'>{{ $paper->duration }}'</td>
+                                <td field-key='button'><a class="btn btn-xs btn-primary" href="{{ route('frontend.papers.show',[$paper->id]) }}"> @lang('quickadmin.qa_view') </a></td>
                             </tr>
                         @endforeach
                     @else
