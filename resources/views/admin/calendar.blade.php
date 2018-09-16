@@ -81,6 +81,7 @@
                 },
 
                 timeFormat: 'H:mm',
+                nowIndicator: true,
 
             })
         });
