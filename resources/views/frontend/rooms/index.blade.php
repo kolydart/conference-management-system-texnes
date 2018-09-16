@@ -26,7 +26,7 @@
 
                                 <td field-key='title'>{{ $room->title }}</td>
                                 <td field-key='type'>{{ $room->type }}</td>
-                                <td> <a href="{{ route('frontend.rooms.show',[$room->id]) }}" class="btn btn-xs btn-ouline-primary">@lang('quickadmin.qa_view')</a> </td>
+                                <td> <a href="{{ route('frontend.rooms.show',[$room->id]) }}" class="btn btn-xs btn-outline-primary">@lang('quickadmin.qa_view')</a> </td>
                             </tr>
                         @endforeach
                     @else

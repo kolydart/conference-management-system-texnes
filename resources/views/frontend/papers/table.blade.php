@@ -1,4 +1,4 @@
-            <table class="table table-bordered table-striped {{ count($papers) > 0 ? 'datatable' : '' }}">
+            <table class="table table-bordered table-striped table-responsive {{ count($papers) > 0 ? 'datatable' : '' }}">
                 <thead>
                     <tr>
                         <th>@lang('quickadmin.papers.fields.title')</th>

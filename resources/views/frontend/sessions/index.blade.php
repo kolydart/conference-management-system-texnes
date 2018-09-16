@@ -31,7 +31,7 @@
                                 <td field-key='room'>{{ $session->room->title or '' }}</td>
                                 <td field-key='start'>{{ $session->start }}</td>
                                 <td field-key='duration'>{{ (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
-                                <td> <a href="{{ route('frontend.sessions.show',[$session->id]) }}" class="btn btn-xs btn-ouline-primary">@lang('quickadmin.qa_view')</a></td>
+                                <td> <a href="{{ route('frontend.sessions.show',[$session->id]) }}" class="btn btn-xs btn-outline-primary">@lang('quickadmin.qa_view')</a></td>
                             </tr>
                         @endforeach
                     @else
