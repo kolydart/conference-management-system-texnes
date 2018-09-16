@@ -2,8 +2,8 @@
 
 $factory->define(App\Subscription::class, function (Faker\Generator $faker) {
     return [
-        "user_id" => factory('App\User')->create(),
-        "paper_id" => factory('App\Paper')->create(),
-        "appeared" => 0,
+        "user_id" => App\User::all()->random()->id,
+        "paper_id" => App\Paper::all()->random()->id,
+        "appeared" => collect([0,1])->random()
     ];
 });
