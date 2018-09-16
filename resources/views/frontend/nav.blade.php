@@ -61,7 +61,7 @@
                     <li class="nav-item {{ Route::currentRouteName() == '/page/map' ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('frontend.pages.show','map') }}">
                             <i class="fa fa-map"></i>
-                            <span>@lang('Χάρτες')</span>
+                            <span>@lang('Χάρτης')</span>
                         </a>
                     </li>                  
 
