@@ -59,9 +59,6 @@
     </div>
 </div>
 
-            <p>&nbsp;</p>
-
-            <a href="{{ route('frontend.sessions.index') }}" class="btn btn-outline-info">@lang('quickadmin.qa_back_to_list')</a>
         </div>
     </div>
 @stop

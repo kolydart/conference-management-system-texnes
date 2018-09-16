@@ -72,8 +72,6 @@
                     </table>
                 </div>
             </div>
-            
-            <a href="{{ route('frontend.papers.index') }}" class="btn btn-outline-info">@lang('quickadmin.qa_back_to_list')</a>
         </div>
     </div>
 @stop

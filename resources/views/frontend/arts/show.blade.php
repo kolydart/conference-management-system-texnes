@@ -40,9 +40,6 @@
         </div>
         <p>
         </p>
-        <a class="btn btn-outline-info" href="{{ route('frontend.arts.index') }}">
-            @lang('quickadmin.qa_back_to_list')
-        </a>
     </div>
 </div>
 @stop
