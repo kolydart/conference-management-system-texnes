@@ -8,7 +8,7 @@
             <span class="badge badge-dark">@lang('quickadmin.qa_view')</span>
         </div>        
 
-        <div class="panel-body table-responsive">
+        <div class="panel-body">
             <div class="row">
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">

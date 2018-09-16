@@ -15,7 +15,7 @@
             <span class="badge badge-dark">@lang('quickadmin.qa_list')</span>
         </div>
         
-        <div class="panel-body table-responsive">
+        <div class="panel-body">
             @include('frontend.papers.table')
         </div>
 

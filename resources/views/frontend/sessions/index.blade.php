@@ -9,7 +9,7 @@
             <span class="badge badge-dark">@lang('quickadmin.qa_list')</span>
         </div>
 
-        <div class="panel-body table-responsive">
+        <div class="panel-body">
             <table class="table table-bordered table-striped {{ count($sessions) > 0 ? 'datatable' : '' }}">
                 <thead>
                     <tr>
