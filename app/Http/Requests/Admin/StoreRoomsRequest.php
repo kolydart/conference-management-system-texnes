@@ -24,6 +24,7 @@ class StoreRoomsRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'capacity' => 'max:2147483647|nullable|numeric',
         ];
     }
 }

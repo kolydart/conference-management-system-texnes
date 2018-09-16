@@ -365,6 +365,18 @@
                     @endif
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('capacity', trans('quickadmin.papers.fields.capacity').'', ['class' => 'control-label']) !!}
+                    {!! Form::number('capacity', old('capacity'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('capacity'))
+                        <p class="help-block">
+                            {{ $errors->first('capacity') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
             
         </div>
     </div>

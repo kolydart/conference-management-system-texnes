@@ -3,7 +3,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePapersRequest extends FormRequest
+class UpdateSubscriptionsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,14 +23,9 @@ class StorePapersRequest extends FormRequest
     public function rules()
     {
         return [
-            'art' => 'required',
-            'art.*' => 'exists:arts,id',
-            'email' => 'required|email',
-            'assign.*' => 'exists:users,id',
-            'status' => 'required',
-            'informed' => 'required',
-            'order' => 'max:2147483647|nullable|numeric',
-            'capacity' => 'max:2147483647|nullable|numeric',
+            
+            'user_id' => 'required',
+            'paper_id' => 'required',
         ];
     }
 }

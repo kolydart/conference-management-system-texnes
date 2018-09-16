@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property text $description
  * @property string $type
  * @property string $wifi
+ * @property integer $capacity
 */
 class Room extends Model
 {
@@ -22,7 +23,7 @@ class Room extends Model
 
     use SoftDeletes;
 
-    protected $fillable = ['title', 'description', 'type', 'wifi'];
+    protected $fillable = ['title', 'description', 'type', 'wifi', 'capacity'];
     protected $hidden = [];
     
     
@@ -31,6 +32,15 @@ class Room extends Model
         parent::boot();
 
         Room::observe(new \App\Observers\UserActionsObserver);
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+    public function setCapacityAttribute($input)
+    {
+        $this->attributes['capacity'] = $input ? $input : null;
     }
     
     public function sessions(){
