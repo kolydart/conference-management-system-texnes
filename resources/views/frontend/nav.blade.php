@@ -18,7 +18,7 @@
 
                     <li class="nav-item {{ Route::currentRouteName() == 'frontend.calendar' ? 'active' : '' }}">
                         <a class="nav-link" href="{{route('frontend.calendar')}}">
-                          <i class="fa fa-calendar"></i>
+                          <i class="far fa-calendar-alt"></i>
                           <span class="title"> @lang('Calendar') </span>
                         </a>
                     </li>

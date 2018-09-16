@@ -8,7 +8,7 @@
 
     <div class="row">
       <div class="col-md-6">
-        <h3 class="page-title">Calendar</h3>        
+        <h3 class="page-title">@lang('Calendar')</h3>        
       </div>
       @if (gateweb\common\Presenter::before(\Route::currentRouteName(),'.') == 'admin')
         <div class="col-md-6 text-right">
