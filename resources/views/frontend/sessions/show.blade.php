@@ -44,14 +44,17 @@
                 </div>
             </div><!-- Nav tabs -->
 
-<ul class="nav nav-tabs" role="tablist">
-    
-<li role="presentation" class="active"><a href="#papers" aria-controls="papers" role="tab" data-toggle="tab"><span class="badge badge-dark">Εισηγήσεις/Εργαστήρια</span></a></li>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a href="#papers" class="nav-link active">
+            <span class="badge badge-dark">Εισηγήσεις/Εργαστήρια</span>
+        </a>
+    </li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="papers">
+    <div class="tab-pane active" id="papers">
         @include('frontend.papers.table')
     </div>
 </div>

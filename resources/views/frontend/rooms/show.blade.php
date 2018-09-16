@@ -32,9 +32,12 @@
 
     
         <!-- Nav tabs -->
-<ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#sessions" aria-controls="sessions" role="tab" data-toggle="tab"><span class="badge badge-dark">Συνεδρίες</span></a></li>
-</ul>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+            <a href="#sessions" class="nav-link active">
+                <span class="badge badge-dark">Συνεδρίες</span></a>
+            </li>
+        </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
