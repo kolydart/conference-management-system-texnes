@@ -15,6 +15,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @package App
  * @property string $name
  * @property string $email
+ * @property integer $phone
+ * @property string $attribute
  * @property string $password
  * @property string $role
  * @property string $remember_token
@@ -27,7 +29,7 @@ class User extends Authenticatable
     protected static $logOnlyDirty = true;          
 
     use Notifiable;
-    protected $fillable = ['name', 'email', 'password', 'remember_token', 'role_id'];
+    protected $fillable = ['name', 'email', 'phone', 'attribute', 'password', 'remember_token', 'role_id'];
     protected $hidden = ['password', 'remember_token'];
     
     
@@ -38,7 +40,16 @@ class User extends Authenticatable
         User::observe(new \App\Observers\UserActionsObserver);
     }
     
+    
+
     /**
+     * Set attribute to money format
+     * @param $input
+     */
+    public function setPhoneAttribute($input)
+    {
+        $this->attributes['phone'] = $input ? $input : null;
+    }/**
      * Hash password
      * @param $input
      */

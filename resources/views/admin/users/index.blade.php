@@ -27,6 +27,7 @@
 
                         <th>@lang('quickadmin.users.fields.name')</th>
                         <th>@lang('quickadmin.users.fields.email')</th>
+                        <th>@lang('quickadmin.users.fields.attribute')</th>
                         <th>@lang('quickadmin.users.fields.role')</th>
                         @can('user_edit')<th>&nbsp;</th>@endcan
                                                 <th>&nbsp;</th>
@@ -44,6 +45,7 @@
 
                                 <td field-key='name'>{{ $user->name }}</td>
                                 <td field-key='email'>{{ $user->email }}</td>
+                                <td field-key='attribute'>{{ $user->attribute }}</td>
                                 <td field-key='role'>{{ $user->role->title or '' }}</td>
                                 @can('user_edit')
                                     <td>
@@ -74,7 +76,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="10">@lang('quickadmin.qa_no_entries_in_table')</td>
+                            <td colspan="12">@lang('quickadmin.qa_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>

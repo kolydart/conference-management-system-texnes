@@ -26,6 +26,8 @@ class UpdateUsersRequest extends FormRequest
             
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$this->route('user'),
+            'phone' => 'max:2147483647|nullable|numeric',
+            'attribute' => 'required',
             'role_id' => 'required',
         ];
     }

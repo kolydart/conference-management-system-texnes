@@ -21,6 +21,14 @@
                             <td field-key='email'>{{ $user->email }}</td>
                         </tr>
                         <tr>
+                            <th>@lang('quickadmin.users.fields.phone')</th>
+                            <td field-key='phone'>{{ $user->phone }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.users.fields.attribute')</th>
+                            <td field-key='attribute'>{{ $user->attribute }}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.users.fields.role')</th>
                             <td field-key='role'>{{ $user->role->title or '' }}</td>
                         </tr>
