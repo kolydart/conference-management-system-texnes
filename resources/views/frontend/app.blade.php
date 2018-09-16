@@ -15,7 +15,7 @@
     <link rel="stylesheet"
           href="//cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css"/>
 
-    <title>@yield('title',config('app.name'))</title>
+    <title>Oι Τέχνες στο ελληνικό σχολείο: παρόν και μέλλον{{-- @yield('title') --}}</title>
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,7 +24,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    {{-- <link rel="icon" href="/favicon.ico"> --}}
+    <link rel="icon" href="/favicon.ico">
     {{-- <link href="{{ mix('/css/app.css') }}" rel="stylesheet" > --}}
     {{-- <script src="{{ mix('/js/app.js') }}"></script> --}}
 
