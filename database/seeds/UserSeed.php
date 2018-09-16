@@ -13,7 +13,7 @@ class UserSeed extends Seeder
     {
         $items = [
             
-            ['id' => 1, 'name' => 'admin', 'email' => 'n-vue.quickadminpanel.com@gateweb.gr', 'password' => '$2y$10$eJGoqrdu7M0x9nYMhDhBxOeW25eMBoMtsgM7hT4VfSQl44Ht37pdm', 'role_id' => 1, 'remember_token' => '',],
+            ['id' => 1, 'name' => 'admin', 'email' => 'n-vue.quickadminpanel.com@gateweb.gr', 'phone' => null, 'attribute' => null, 'password' => '$2y$10$eJGoqrdu7M0x9nYMhDhBxOeW25eMBoMtsgM7hT4VfSQl44Ht37pdm', 'role_id' => 1, 'remember_token' => '',],
 
         ];
 
