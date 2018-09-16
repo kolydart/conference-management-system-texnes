@@ -35,71 +35,7 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane active" id="papers" role="tabpanel">
-                <table class="table table-bordered table-striped {{ count($papers) > 0 ? 'datatable' : '' }}">
-                    <thead>
-                        <tr>
-                            <th>
-                                @lang('quickadmin.papers.fields.title')
-                            </th>
-                            <th>
-                                @lang('quickadmin.papers.fields.type')
-                            </th>
-                            <th>
-                                @lang('quickadmin.papers.fields.duration')
-                            </th>
-                            <th>
-                                @lang('quickadmin.papers.fields.session')
-                            </th>
-                            <th>
-                                @lang('quickadmin.papers.fields.name')
-                            </th>
-                            <th>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (count($papers) > 0)
-                    @foreach ($papers as $paper)
-                        <tr data-entry-id="{{ $paper->id }}">
-                            <td field-key="title">
-                                @if (Gate::allows('paper_view'))
-                                <a href="{{ route('frontend.papers.show',[$paper->id]) }}">
-                                    {{ $paper->title }}
-                                </a>
-                                @else
-                                    {{ $paper->title }}
-                                @endif
-                            </td>
-                            <td field-key="type">
-                                {{ $paper->type }}
-                            </td>
-                            <td field-key="duration">
-                                {{ $paper->duration }}
-                            </td>
-                            <td field-key="session">
-                                @if ($paper->session)
-                                <a href="{{route('frontend.sessions.show',$paper->session->id)}}">
-                                    {{ "S". $paper->session->id.". ".$paper->session->title }}
-                                </a>
-                                @endif
-                            </td>
-                            <td field-key="name">
-                                {{ $paper->name }}
-                            </td>
-                            <td>
-                                <a class="btn btn-xs btn-primary" href="{{ route('frontend.papers.show',[$paper->id]) }}"> @lang('quickadmin.qa_view') </a>
-                            </td>
-                        </tr>
-                        @endforeach
-                @else
-                        <tr>
-                            <td colspan="21">
-                                @lang('quickadmin.qa_no_entries_in_table')
-                            </td>
-                        </tr>
-                        @endif
-                    </tbody>
-                </table>
+                @include('frontend.papers.table')
             </div>
         </div>
         <p>

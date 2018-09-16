@@ -50,44 +50,9 @@
 
 <!-- Tab panes -->
 <div class="tab-content">
-    
-<div role="tabpanel" class="tab-pane active" id="papers">
-<table class="table table-bordered table-striped {{ count($papers) > 0 ? 'datatable' : '' }}">
-    <thead>
-        <tr>
-            <th>@lang('quickadmin.papers.fields.title')</th>
-            <th>@lang('quickadmin.papers.fields.name')</th>
-            <th>@lang('quickadmin.papers.fields.type')</th>
-            <th>@lang('quickadmin.papers.fields.art')</th>
-            <th>@lang('quickadmin.papers.fields.duration')</th>
-            <th></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @if (count($papers) > 0)
-            @foreach ($papers as $paper)
-                <tr data-entry-id="{{ $paper->id }}">
-                    <td field-key='title'><a href="{{route('frontend.papers.show',$paper->id)}}">{{ $paper->title }}</a></td>
-                    <td field-key='name'>{{ $paper->name }}</td>
-                    <td field-key='type'>{{ $paper->type }}</td>
-                    <td field-key='art'>
-                        @foreach ($paper->art as $singleArt)
-                            <a href="{{route('frontend.arts.show',$singleArt->id)}}" class="badge badge-secondary m-md-1" >{{ $singleArt->title }} </a>
-                        @endforeach
-                    </td>
-                    <td field-key='duration'>{{ $paper->duration }}</td>
-                    <td> <a href="{{ route('frontend.papers.show',[$paper->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a> </td>
-                </tr>
-            @endforeach
-        @else
-            <tr>
-                <td colspan="21">@lang('quickadmin.qa_no_entries_in_table')</td>
-            </tr>
-        @endif
-    </tbody>
-</table>
-</div>
+    <div role="tabpanel" class="tab-pane active" id="papers">
+        @include('frontend.papers.table')
+    </div>
 </div>
 
             <p>&nbsp;</p>
