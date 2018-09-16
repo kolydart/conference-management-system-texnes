@@ -3,6 +3,7 @@ namespace App;
 
 use App\Fullpaper;
 use App\Message;
+use App\Subscription;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jedrzej\Searchable\SearchableTrait;
@@ -128,6 +129,9 @@ class Paper extends Model implements HasMedia
         return $query->where('status','accepted');
     }
     
+    public function subscriptions(){
+        return $this->hasMany(Subscription::class,'paper_id');        
+    }
     
 
 }

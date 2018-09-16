@@ -3,6 +3,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * Class Subscription
@@ -19,7 +20,10 @@ class Subscription extends Model
     protected $fillable = ['appeared', 'user_id', 'paper_id'];
     protected $hidden = [];
     
-    
+    use LogsActivity;
+    protected static $logFillable = true;       
+    protected static $logOnlyDirty = true;
+
     public static function boot()
     {
         parent::boot();
