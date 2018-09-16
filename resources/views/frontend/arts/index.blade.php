@@ -5,6 +5,9 @@
     <h3 class="page-title"><i class="fa fa-paint-brush"></i> @lang('quickadmin.arts.title')</h3>
 
     <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="badge badge-dark">@lang('quickadmin.qa_list')</span>
+        </div>
 
         <div class="panel-body table-responsive">
             <table class="table table-bordered table-striped {{ count($arts) > 0 ? 'datatable' : '' }} ">
@@ -21,7 +24,7 @@
                         @foreach ($arts as $art)
                             <tr data-entry-id="{{ $art->id }}">
                                 <td field-key='title'>{{ $art->title }}</td>
-                                <td> <a href="{{ route('frontend.arts.show',[$art->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a> </td>
+                                <td> <a href="{{ route('frontend.arts.show',[$art->id]) }}" class="btn btn-xs btn-outline-primary">@lang('quickadmin.qa_view')</a> </td>
                             </tr>
                         @endforeach
                     @else

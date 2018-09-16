@@ -4,6 +4,9 @@
     <h3 class="page-title mb-3"> <i class="fa fa-newspaper"></i> {{$paper->type}}</h3>
 
     <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="badge badge-dark">@lang('quickadmin.qa_view')</span>
+        </div>        
 
         <div class="panel-body table-responsive">
             <div class="row">

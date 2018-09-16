@@ -5,6 +5,9 @@
     <h3 class="page-title"><i class="far fa-clock"></i> @lang('quickadmin.sessions.title')</h3>
 
     <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="badge badge-dark">@lang('quickadmin.qa_list')</span>
+        </div>
 
         <div class="panel-body table-responsive">
             <table class="table table-bordered table-striped {{ count($sessions) > 0 ? 'datatable' : '' }}">
@@ -28,7 +31,7 @@
                                 <td field-key='room'>{{ $session->room->title or '' }}</td>
                                 <td field-key='start'>{{ $session->start }}</td>
                                 <td field-key='duration'>{{ (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
-                                <td> <a href="{{ route('frontend.sessions.show',[$session->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a></td>
+                                <td> <a href="{{ route('frontend.sessions.show',[$session->id]) }}" class="btn btn-xs btn-ouline-primary">@lang('quickadmin.qa_view')</a></td>
                             </tr>
                         @endforeach
                     @else

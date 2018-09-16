@@ -6,8 +6,9 @@
 </h3>
 <div class="panel panel-default">
     <div class="panel-heading">
-        @lang('quickadmin.qa_view')
-    </div>
+        <span class="badge badge-dark">@lang('quickadmin.qa_view')</span>
+    </div>        
+
     <div class="panel-body table-responsive">
         <div class="row">
             <div class="col-md-6">
@@ -24,16 +25,16 @@
             </div>
         </div>
         <!-- Nav tabs -->
-        {{-- <ul class="nav nav-tabs" role="tablist">
+        <ul class="nav nav-tabs" role="tablist">
             <li class="active" role="presentation">
                 <a aria-controls="papers" data-toggle="tab" href="#papers" role="tab">
-                    Προτάσεις
+                    <span class="badge badge-dark">Εισηγήσεις/Εργαστήρια</span>
                 </a>
             </li>
-        </ul> --}}
+        </ul>
         <!-- Tab panes -->
-        {{-- <div class="tab-content">
-            <div class="tab-pane active" id="papers" role="tabpanel"> --}}
+        <div class="tab-content">
+            <div class="tab-pane active" id="papers" role="tabpanel">
                 <table class="table table-bordered table-striped {{ count($papers) > 0 ? 'datatable' : '' }}">
                     <thead>
                         <tr>
@@ -86,9 +87,7 @@
                                 {{ $paper->name }}
                             </td>
                             <td>
-                                <a class="btn btn-xs btn-primary" href="{{ route('frontend.papers.show',[$paper->id]) }}">
-                                    @lang('quickadmin.qa_view')
-                                </a>
+                                <a class="btn btn-xs btn-primary" href="{{ route('frontend.papers.show',[$paper->id]) }}"> @lang('quickadmin.qa_view') </a>
                             </td>
                         </tr>
                         @endforeach
@@ -101,11 +100,11 @@
                         @endif
                     </tbody>
                 </table>
-            {{-- </div>
-        </div> --}}
+            </div>
+        </div>
         <p>
         </p>
-        <a class="btn btn-default" href="{{ route('frontend.arts.index') }}">
+        <a class="btn btn-outline-info" href="{{ route('frontend.arts.index') }}">
             @lang('quickadmin.qa_back_to_list')
         </a>
     </div>

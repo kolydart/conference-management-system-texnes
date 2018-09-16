@@ -5,8 +5,8 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            @lang('quickadmin.qa_view')
-        </div>
+            <span class="badge badge-dark">@lang('quickadmin.qa_view')</span>
+        </div>        
 
         <div class="panel-body table-responsive">
             <div class="row">
@@ -45,7 +45,7 @@
 
 <ul class="nav nav-tabs" role="tablist">
     
-<li role="presentation" class="active"><a href="#papers" aria-controls="papers" role="tab" data-toggle="tab">Προτάσεις</a></li>
+<li role="presentation" class="active"><a href="#papers" aria-controls="papers" role="tab" data-toggle="tab"><span class="badge badge-dark">Εισηγήσεις/Εργαστήρια</span></a></li>
 </ul>
 
 <!-- Tab panes -->
