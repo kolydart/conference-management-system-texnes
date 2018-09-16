@@ -54,7 +54,7 @@
 
 
                     <li class="nav-item {{ Route::currentRouteName() == 'register' ? 'active' : '' }} ">
-                        <a class="nav-link" href="#"><i class="fab fa-get-pocket"></i> @lang('Εγγραφή ακροατών')</a>
+                        <a class="nav-link" href="{{route('frontend.pages.show',['alias'=>'subscriptions'])}}"><i class="fab fa-get-pocket"></i> @lang('Εγγραφή ακροατών')</a>
                     </li>
                     
 
