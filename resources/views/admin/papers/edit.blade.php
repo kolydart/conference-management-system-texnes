@@ -353,7 +353,7 @@
                     
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('order', trans('quickadmin.papers.fields.order').'', ['class' => 'control-label']) !!}
                     {!! Form::number('order', old('order'), ['class' => 'form-control', 'placeholder' => 'Θέση (σειρά) εντός της συνεδρίας. Αφήστε κενό για ταξινόμηση σύμφωνα με την ιδιότητα']) !!}
@@ -365,7 +365,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('capacity', trans('quickadmin.papers.fields.capacity').'', ['class' => 'control-label']) !!}
                     {!! Form::number('capacity', old('capacity'), ['class' => 'form-control', 'placeholder' => '']) !!}
