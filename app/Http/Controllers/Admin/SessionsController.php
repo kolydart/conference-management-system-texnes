@@ -29,7 +29,7 @@ class SessionsController extends Controller
             }
             $sessions = Session::onlyTrashed()->get();
         } else {
-            $sessions = Session::all();
+            $sessions = Session::all()->reverse();
         }
 
         return view('admin.sessions.index', compact('sessions'));

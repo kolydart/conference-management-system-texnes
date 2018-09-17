@@ -26,7 +26,7 @@ class ContentPagesController extends Controller
         }
 
 
-                $content_pages = ContentPage::all();
+                $content_pages = ContentPage::all()->reverse();
 
         return view('admin.content_pages.index', compact('content_pages'));
     }
