@@ -24,7 +24,7 @@ class UpdateAvailabilitiesRequest extends FormRequest
     {
         return [
             
-            'type' => 'required',
+            'color_id' => 'required',
             'start' => 'required|date_format:'.config('app.date_format').' H:i:s',
             'end' => 'required|date_format:'.config('app.date_format').' H:i:s',
         ];

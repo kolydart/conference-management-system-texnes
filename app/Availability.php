@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * Class Availability
  *
  * @package App
- * @property string $type
+ * @property string $color
  * @property string $start
  * @property string $end
  * @property string $room
@@ -19,7 +19,7 @@ class Availability extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['type', 'start', 'end', 'notes', 'room_id'];
+    protected $fillable = ['start', 'end', 'notes', 'color_id', 'room_id'];
     protected $hidden = [];
     
     
@@ -28,6 +28,15 @@ class Availability extends Model
         parent::boot();
 
         Availability::observe(new \App\Observers\UserActionsObserver);
+    }
+
+    /**
+     * Set to null if empty
+     * @param $input
+     */
+    public function setColorIdAttribute($input)
+    {
+        $this->attributes['color_id'] = $input ? $input : null;
     }
 
     /**
@@ -97,6 +106,11 @@ class Availability extends Model
     public function setRoomIdAttribute($input)
     {
         $this->attributes['room_id'] = $input ? $input : null;
+    }
+    
+    public function color()
+    {
+        return $this->belongsTo(Color::class, 'color_id')->withTrashed();
     }
     
     public function room()

@@ -46,9 +46,10 @@ class AvailabilitiesController extends Controller
             return abort(401);
         }
         
+        $colors = \App\Color::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $rooms = \App\Room::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
-        return view('admin.availabilities.create', compact('rooms'));
+        return view('admin.availabilities.create', compact('colors', 'rooms'));
     }
 
     /**
@@ -82,11 +83,12 @@ class AvailabilitiesController extends Controller
             return abort(401);
         }
         
+        $colors = \App\Color::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $rooms = \App\Room::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         $availability = Availability::findOrFail($id);
 
-        return view('admin.availabilities.edit', compact('availability', 'rooms'));
+        return view('admin.availabilities.edit', compact('availability', 'colors', 'rooms'));
     }
 
     /**
