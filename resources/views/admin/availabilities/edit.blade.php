@@ -13,32 +13,14 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('type', trans('quickadmin.availability.fields.type').'*', ['class' => 'control-label']) !!}
+                    {!! Form::label('color_id', trans('quickadmin.availability.fields.color').'*', ['class' => 'control-label']) !!}
+                    {!! Form::select('color_id', $colors, old('color_id'), ['class' => 'form-control select2', 'required' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('type'))
+                    @if($errors->has('color_id'))
                         <p class="help-block">
-                            {{ $errors->first('type') }}
+                            {{ $errors->first('color_id') }}
                         </p>
                     @endif
-                    <div>
-                        <label>
-                            {!! Form::radio('type', 'green', false, ['required' => '']) !!}
-                            Available (green)
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            {!! Form::radio('type', 'black', false, ['required' => '']) !!}
-                            Occupied (black)
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            {!! Form::radio('type', 'yellow', false, ['required' => '']) !!}
-                            Break (yellow)
-                        </label>
-                    </div>
-                    
                 </div>
             </div>
             <div class="row">

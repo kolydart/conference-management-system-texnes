@@ -13,8 +13,8 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <th>@lang('quickadmin.availability.fields.type')</th>
-                            <td field-key='type'>{{ $availability->type }}</td>
+                            <th>@lang('quickadmin.availability.fields.color')</th>
+                            <td field-key='color'>{{ $availability->color->title or '' }}</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.availability.fields.start')</th>

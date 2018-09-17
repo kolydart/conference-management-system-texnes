@@ -124,7 +124,7 @@
 <table class="table table-bordered table-striped {{ count($availabilities) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
-            <th>@lang('quickadmin.availability.fields.type')</th>
+            <th>@lang('quickadmin.availability.fields.color')</th>
                         <th>@lang('quickadmin.availability.fields.start')</th>
                         <th>@lang('quickadmin.availability.fields.end')</th>
                         <th>@lang('quickadmin.availability.fields.room')</th>
@@ -141,7 +141,7 @@
         @if (count($availabilities) > 0)
             @foreach ($availabilities as $availability)
                 <tr data-entry-id="{{ $availability->id }}">
-                    <td field-key='type'>{{ $availability->type }}</td>
+                    <td field-key='color'>{{ $availability->color->title or '' }}</td>
                                 <td field-key='start'>{{ $availability->start }}</td>
                                 <td field-key='end'>{{ $availability->end }}</td>
                                 <td field-key='room'>{{ $availability->room->title or '' }}</td>

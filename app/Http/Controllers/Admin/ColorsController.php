@@ -115,11 +115,11 @@ class ColorsController extends Controller
         if (! Gate::allows('color_view')) {
             return abort(401);
         }
-        $sessions = \App\Session::where('color_id', $id)->get();
+        $availabilities = \App\Availability::where('color_id', $id)->get();$sessions = \App\Session::where('color_id', $id)->get();
 
         $color = Color::findOrFail($id);
 
-        return view('admin.colors.show', compact('color', 'sessions'));
+        return view('admin.colors.show', compact('color', 'availabilities', 'sessions'));
     }
 
 
