@@ -116,7 +116,6 @@ class UsersController extends Controller
         }
         
         $roles = \App\Role::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
-        $subscriptions = \App\Subscription::where('user_id', $id)->get();
         $reviews = \App\Review::where('user_id', $id)->get();
         $user_actions = \App\UserAction::where('user_id', $id)->latest()->get();
         $loguseragents = \App\Loguseragent::where('user_id', $id)->get();
@@ -127,7 +126,7 @@ class UsersController extends Controller
 
         $user = User::findOrFail($id);
 
-        return view('admin.users.show', compact('user', 'subscriptions', 'reviews', 'user_actions', 'loguseragents', 'papers'));
+        return view('admin.users.show', compact('user', 'reviews', 'user_actions', 'loguseragents', 'papers'));
     }
 
 
