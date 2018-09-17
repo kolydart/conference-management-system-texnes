@@ -51,7 +51,7 @@ class PapersController extends Controller
         
         $arts = \App\Art::get()->pluck('title', 'id');
 
-        $sessions = \App\Session::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '')->map(function($item,$key){return "S".$key.". ".$item; });
+        $sessions = \App\Session::get()->pluck('title', 'id')->map(function($item,$key){return "S".$key.". ".$item; })->prepend(trans('quickadmin.qa_please_select'), '');
         $assigns = \App\User::get()->pluck('name', 'id');
 
 
@@ -100,7 +100,7 @@ class PapersController extends Controller
         
         $arts = \App\Art::get()->pluck('title', 'id');
 
-        $sessions = \App\Session::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '')->map(function($item,$key){return "S".$key.". ".$item; });
+        $sessions = \App\Session::get()->pluck('title', 'id')->map(function($item,$key){return "S".$key.". ".$item; })->prepend(trans('quickadmin.qa_please_select'), '');
         $assigns = \App\User::get()->pluck('name', 'id');
 
 
