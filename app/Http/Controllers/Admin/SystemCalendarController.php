@@ -47,7 +47,7 @@ class SystemCalendarController extends Controller
               'end'   => $slot->end, 
               'resourceId' => $slot->room_id,
               'rendering' => 'background',
-              'color' => $slot->type
+              'color' => $slot->color->value
             ];
           }
         }
