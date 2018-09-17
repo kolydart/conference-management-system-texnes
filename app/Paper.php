@@ -4,6 +4,7 @@ namespace App;
 use App\Fullpaper;
 use App\Message;
 use App\Subscription;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jedrzej\Searchable\SearchableTrait;
@@ -128,6 +129,10 @@ class Paper extends Model implements HasMedia
     public function scopeAccepted($query){
         return $query->where('status','accepted');
     }
-        
+    
+    public function attend() {
+        return $this->belongsToMany(User::class, 'attend');
+    }
+    
 
 }
