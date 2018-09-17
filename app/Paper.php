@@ -128,10 +128,6 @@ class Paper extends Model implements HasMedia
     public function scopeAccepted($query){
         return $query->where('status','accepted');
     }
-    
-    public function subscriptions(){
-        return $this->hasMany(Subscription::class,'paper_id');        
-    }
-    
+        
 
 }

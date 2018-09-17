@@ -81,9 +81,5 @@ class User extends Authenticatable
         return $this->belongsToMany(Paper::class, 'paper_user');
     }
 
-    public function subscriptions(){
-        return $this->hasMany(Subscription::class,'paper_id');        
-    }
-    
 
 }

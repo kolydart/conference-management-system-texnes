@@ -29,6 +29,5 @@ class DatabaseSeeder extends Seeder
         $this->call(RoomsSeed::class);
         $this->call(SessionsSeed::class);
         $this->call(AvailabilitySeed::class);
-        $this->call(SubscriptionSeed::class);
     }
 }
