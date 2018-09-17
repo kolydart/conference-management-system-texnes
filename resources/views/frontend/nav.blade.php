@@ -54,16 +54,22 @@
 
                     <li class="nav-item dropdown">
                         <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" >
-                            <i class="far fa-question-circle"></i> @lang('Οδηγίες')
+                            <i class="fas fa-info-circle"></i> @lang('Πληροφορίες')
                         </a>
                         <div class="dropdown-menu">
+
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','faq') }}">
-                                <i class="fas fa-question"></i> @lang('Συχνές Ερωτήσεις')
+                                <i class="far fa-question-circle"></i> @lang('Συχνές Ερωτήσεις')
                             </a>
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','map') }}">
                                 <i class="fa fa-map"></i> @lang('Χάρτης')
                             </a>
+
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','committees') }}">
+                                <i class="fas fa-users"></i> @lang('Οργανωτική και Επιστημονική Επιτροπή')
+                            </a>
+
                         </div>
                         
                     </li>
