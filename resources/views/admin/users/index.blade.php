@@ -29,6 +29,7 @@
                         <th>@lang('quickadmin.users.fields.email')</th>
                         <th>@lang('quickadmin.users.fields.attribute')</th>
                         <th>@lang('quickadmin.users.fields.role')</th>
+                        <th>@lang('created_at')</th>
                         @can('user_edit')<th>&nbsp;</th>@endcan
                                                 <th>&nbsp;</th>
 
@@ -47,6 +48,7 @@
                                 <td field-key='email'>{{ $user->email }}</td>
                                 <td field-key='attribute'>{{ $user->attribute }}</td>
                                 <td field-key='role'>{{ $user->role->title or '' }}</td>
+                                <td field-key='role'>{{ $user->created_at->format('d M H:i:s') }}</td>
                                 @can('user_edit')
                                     <td>
                                         @if (Hash::check(gateweb\common\Presenter::before($user->email,'@'), $user->password))

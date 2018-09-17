@@ -23,7 +23,7 @@ class UsersController extends Controller
         }
 
 
-                $users = User::all();
+                $users = User::latest()->get();
 
         return view('admin.users.index', compact('users'));
     }
