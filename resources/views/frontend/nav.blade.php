@@ -52,18 +52,21 @@
                         </div>
                     </li>
 
-
-                    <li class="nav-item {{ Route::currentRouteName() == 'register' ? 'active' : '' }} ">
-                        <a class="nav-link" href="{{route('auth.register')}}"><i class="fab fa-get-pocket"></i> @lang('Εγγραφή ακροατών')</a>
-                    </li>
-                    
-
-                    <li class="nav-item {{ Route::currentRouteName() == '/page/map' ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('frontend.pages.show','map') }}">
-                            <i class="fa fa-map"></i>
-                            <span>@lang('Χάρτης')</span>
+                    <li class="nav-item dropdown">
+                        <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" >
+                            <i class="far fa-question-circle"></i> @lang('Οδηγίες')
                         </a>
-                    </li>                  
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','faq') }}">
+                                <i class="fas fa-question"></i> @lang('Συχνές Ερωτήσεις')
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','map') }}">
+                                <i class="fa fa-map"></i> @lang('Χάρτης')
+                            </a>
+                        </div>
+                        
+                    </li>
 
                 </ul>
 
@@ -92,6 +95,11 @@
                             </div>
                         </li>
                     @else
+
+                        <li class="nav-item {{ Route::currentRouteName() == 'register' ? 'active' : '' }} ">
+                            <a class="nav-link" href="{{route('auth.register')}}"><i class="fab fa-get-pocket"></i> @lang('Εγγραφή ακροατών')</a>
+                        </li>
+
                         <li class="nav-item">
                             <a href="{{route('login')}}" class="nav-link">
                                 <i class="fa fa-sign-in-alt"></i> @lang('Login')
