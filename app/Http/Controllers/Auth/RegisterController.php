@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Validator;
+use gateweb\common\Presenter;
 
 class RegisterController extends Controller
 {
@@ -54,6 +55,7 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'attribute' => 'required',
         ],$messages);
     }
 
@@ -65,11 +67,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        Presenter::message( __('Συνδεθήκατε με επιτυχία! Μπορείτε να δηλώσετε τα εργαστήρια που επιθυμείτε να παρακολουθήσετε.'),'success');
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'role_id' => config('quickadmin.default_role_id')
+            'role_id' => config('quickadmin.default_role_id'),
+            'phone' => (new \gateweb\common\Router())->sanitize($data['phone'],'decimal'),
+            'attribute' => $data['attribute']
         ]);
     }
 }

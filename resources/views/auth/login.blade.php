@@ -1,10 +1,10 @@
-@extends('layouts.auth')
+@extends('frontend.app')
 
 @section('content')
 <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-sm-12">
         <div class="panel panel-default">
-            <div class="panel-heading">{{ ucfirst(config('app.name')) }} @lang('quickadmin.qa_login')</div>
+            <div class="panel-heading badge badge-primary mb-3">@lang('quickadmin.qa_login')</div>
             <div class="panel-body">
                 @if (count($errors) > 0)
                 <div class="alert alert-danger">
