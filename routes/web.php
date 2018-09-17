@@ -58,10 +58,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('content_categories_mass_destroy', ['uses' => 'Admin\ContentCategoriesController@massDestroy', 'as' => 'content_categories.mass_destroy']);
     Route::resource('content_tags', 'Admin\ContentTagsController');
     Route::post('content_tags_mass_destroy', ['uses' => 'Admin\ContentTagsController@massDestroy', 'as' => 'content_tags.mass_destroy']);
-    Route::resource('subscriptions', 'Admin\SubscriptionsController');
-    Route::post('subscriptions_mass_destroy', ['uses' => 'Admin\SubscriptionsController@massDestroy', 'as' => 'subscriptions.mass_destroy']);
-    Route::post('subscriptions_restore/{id}', ['uses' => 'Admin\SubscriptionsController@restore', 'as' => 'subscriptions.restore']);
-    Route::delete('subscriptions_perma_del/{id}', ['uses' => 'Admin\SubscriptionsController@perma_del', 'as' => 'subscriptions.perma_del']);
     Route::resource('availabilities', 'Admin\AvailabilitiesController');
     Route::post('availabilities_mass_destroy', ['uses' => 'Admin\AvailabilitiesController@massDestroy', 'as' => 'availabilities.mass_destroy']);
     Route::post('availabilities_restore/{id}', ['uses' => 'Admin\AvailabilitiesController@restore', 'as' => 'availabilities.restore']);

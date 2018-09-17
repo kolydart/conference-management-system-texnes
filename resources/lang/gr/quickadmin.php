@@ -26,7 +26,7 @@ return [
 		'availability' => [		'title' => 'Διαθεσιμότητα αιθουσών',		'fields' => [			'color' => 'Color',			'start' => 'Από',			'end' => 'Έως',			'room' => 'Room',			'notes' => 'Σχόλια',		],	],
 		'color' => [		'title' => 'Χρώματα',		'fields' => [		],	],
 		'colors' => [		'title' => 'Χρώματα',		'fields' => [			'title' => 'Title',			'value' => 'Value',		],	],
-		'subscriptions' => [		'title' => 'Δηλώσεις συμμετοχής',		'fields' => [			'user' => 'User',			'paper' => 'Paper',			'appeared' => 'Appeared',		],	],
+		'subscriptions' => [		'title' => 'Δηλώσεις συμμετοχής',		'fields' => [		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',
