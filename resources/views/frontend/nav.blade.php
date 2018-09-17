@@ -66,8 +66,20 @@
                                 <i class="fa fa-map"></i> @lang('Χάρτης')
                             </a>
 
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','wifi') }}">
+                                <i class="fas fa-wifi"></i> @lang('Ασύρματη πρόσβαση στο Διαδίκτυο')
+                            </a>
+
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','committees') }}">
                                 <i class="fas fa-users"></i> @lang('Οργανωτική και Επιστημονική Επιτροπή')
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','organizers') }}">
+                                <i class="fas fa-university"></i> @lang('Οργανωτές')
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','sponsors') }}">
+                                <i class="far fa-flag"></i> @lang('Χορηγοί')
                             </a>
 
                         </div>
