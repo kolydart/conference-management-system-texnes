@@ -10,7 +10,7 @@
         </div>
         
         <div class="panel-body">
-            <div class="row">
+            <div class="col-md-6 {{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('title', trans('quickadmin.sessions.fields.title').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
@@ -22,7 +22,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6 {{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('room_id', trans('quickadmin.sessions.fields.room').'', ['class' => 'control-label']) !!}
                     {!! Form::select('room_id', $rooms, old('room_id'), ['class' => 'form-control select2']) !!}
@@ -34,7 +34,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6 {{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('start', trans('quickadmin.sessions.fields.start').'', ['class' => 'control-label']) !!}
                     {!! Form::text('start', old('start'), ['class' => 'form-control datetime', 'placeholder' => '']) !!}
@@ -46,7 +46,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6 {{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('duration', trans('quickadmin.sessions.fields.duration').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('duration', old('duration'), ['class' => 'form-control timepicker', 'placeholder' => '', 'required' => '']) !!}
@@ -58,7 +58,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6 {{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('chair', trans('quickadmin.sessions.fields.chair').'', ['class' => 'control-label']) !!}
                     {!! Form::text('chair', old('chair'), ['class' => 'form-control', 'placeholder' => '']) !!}
@@ -70,7 +70,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-6 {{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('color_id', trans('quickadmin.sessions.fields.color').'', ['class' => 'control-label']) !!}
                     {!! Form::select('color_id', $colors, old('color_id'), ['class' => 'form-control select2']) !!}
