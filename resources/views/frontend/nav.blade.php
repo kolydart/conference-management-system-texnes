@@ -70,6 +70,10 @@
                                 <i class="fas fa-wifi"></i> @lang('Ασύρματη πρόσβαση στο Διαδίκτυο')
                             </a>
 
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','keynote') }}">
+                                <i class="fas fa-microphone"></i> @lang('Κεντρικές ομιλίες')
+                            </a>
+
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','committees') }}">
                                 <i class="fas fa-users"></i> @lang('Οργανωτική και Επιστημονική Επιτροπή')
                             </a>
@@ -80,6 +84,10 @@
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','sponsors') }}">
                                 <i class="far fa-flag"></i> @lang('Χορηγοί')
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','credits') }}">
+                                <i class="fas fa-wrench"></i> @lang('Συντελεστές')
                             </a>
 
                         </div>
