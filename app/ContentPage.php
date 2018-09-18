@@ -16,10 +16,10 @@ use Spatie\Activitylog\Traits\LogsActivity;
 */
 class ContentPage extends Model
 {
-    use LogsActivity;
+//    use LogsActivity;
     /** log dirty fillable */
-    protected static $logFillable = true;       
-    protected static $logOnlyDirty = true;          
+//    protected static $logFillable = true;       
+//    protected static $logOnlyDirty = true;          
 
     protected $fillable = ['title', 'alias', 'page_text', 'excerpt', 'featured_image'];
     protected $hidden = [];
