@@ -20,6 +20,15 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.
 // $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('auth.register');
 // $this->post('register', 'Auth\RegisterController@register')->name('auth.register');
 
+$this->get('register', function(){
+    gateweb\common\Presenter::message("Ο μηχανισμός εγγραφής αναβαθμίζεται. Παρακαλώ δοκιμάστε αργότερα.",'warning');
+    return back();
+})->name('auth.register');
+$this->post('register', function(){
+    gateweb\common\Presenter::message("Ο μηχανισμός εγγραφής αναβαθμίζεται. Παρακαλώ δοκιμάστε αργότερα.",'warning');
+    return back();
+})->name('auth.register');
+
 Route::group(['middleware' => ['backend','auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/home', ['uses' => 'HomeController@index', 'as' => 'home']);
     Route::get('/reports/fullpaper-uploads', 'Admin\ReportsController@fullpaperUploads');
