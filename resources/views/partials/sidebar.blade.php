@@ -5,7 +5,7 @@
     <section class="sidebar">
         <ul class="sidebar-menu">
 
-             <img src="http://texnes-ellinikosxoleio.uoa.gr/fileadmin/texnes-ellinikosxoleio.uoa.gr/dept1tmpl.uoa.gr/images/banner-home.jpg" class="img-responsive img-fluid" alt="Image">
+             <img src="/img/banner.jpg" class="img-responsive img-fluid" alt="Image">
 
             <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
                 <a href="{{ route('admin.home') }}">
