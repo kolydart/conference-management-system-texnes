@@ -37,9 +37,8 @@ class SystemCalendarController extends Controller
         }
 
         /**
-         * show availability time slots to backend (admin)
+         * show availability time slots
          */
-        if(Presenter::before(\Route::currentRouteName(),'.') == 'admin'){
           foreach (\App\Availability::all() as $slot) {
             $events[] =[
               'title' => $slot->notes, 
@@ -50,7 +49,6 @@ class SystemCalendarController extends Controller
               'color' => $slot->color->value
             ];
           }
-        }
 
        return view('admin.calendar' , compact('events','resources')); 
     }
