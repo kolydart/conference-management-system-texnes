@@ -16,7 +16,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item {{ Route::currentRouteName() == 'frontend.calendar' ? 'active' : '' }}">
+                    {{-- <li class="nav-item {{ Route::currentRouteName() == 'frontend.calendar' ? 'active' : '' }}">
                         <a class="nav-link" href="{{route('frontend.calendar')}}">
                           <i class="far fa-calendar-alt"></i>
                           <span class="title"> @lang('Calendar') </span>
@@ -50,7 +50,7 @@
                             </a>
 
                         </div>
-                    </li>
+                    </li> --}}
 
                     <li class="nav-item dropdown">
                         <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" >
@@ -58,27 +58,27 @@
                         </a>
                         <div class="dropdown-menu">
 
-                            <a class="dropdown-item" href="{{ route('frontend.pages.show','faq') }}">
+                            {{-- <a class="dropdown-item" href="{{ route('frontend.pages.show','faq') }}">
                                 <i class="far fa-question-circle"></i> @lang('Συχνές Ερωτήσεις')
-                            </a>
+                            </a> --}}
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','map') }}">
                                 <i class="fa fa-map"></i> @lang('Χάρτης')
                             </a>
 
-                            <a class="dropdown-item" href="{{ route('frontend.pages.show','wifi') }}">
+                            {{-- <a class="dropdown-item" href="{{ route('frontend.pages.show','wifi') }}">
                                 <i class="fas fa-wifi"></i> @lang('Ασύρματη πρόσβαση στο Διαδίκτυο')
                             </a>
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','keynote') }}">
                                 <i class="fas fa-microphone"></i> @lang('Κεντρικές ομιλίες')
-                            </a>
+                            </a> --}}
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','committees') }}">
                                 <i class="fas fa-users"></i> @lang('Οργανωτική και Επιστημονική Επιτροπή')
                             </a>
 
-                            <a class="dropdown-item" href="{{ route('frontend.pages.show','organizers') }}">
+                            {{-- <a class="dropdown-item" href="{{ route('frontend.pages.show','organizers') }}">
                                 <i class="fas fa-university"></i> @lang('Οργανωτές')
                             </a>
 
@@ -88,7 +88,7 @@
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','credits') }}">
                                 <i class="fas fa-wrench"></i> @lang('Συντελεστές')
-                            </a>
+                            </a> --}}
 
                         </div>
                         
@@ -122,9 +122,9 @@
                         </li>
                     @else
 
-                        <li class="nav-item {{ Route::currentRouteName() == 'register' ? 'active' : '' }} ">
+                        {{-- <li class="nav-item {{ Route::currentRouteName() == 'register' ? 'active' : '' }} ">
                             <a class="nav-link" href="{{route('auth.register')}}"><i class="fab fa-get-pocket"></i> @lang('Εγγραφή ακροατών')</a>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item">
                             <a href="{{route('login')}}" class="nav-link">
