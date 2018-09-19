@@ -4,8 +4,9 @@ namespace App\Providers;
 
 use App\Role;
 use App\User;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
+use gateweb\common\Presenter;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -32,6 +33,28 @@ class AuthServiceProvider extends ServiceProvider
         // Auth gates for: backend
         Gate::define('backend_access', function ($user) {
             return in_array($user->role_id, [1, 3, 4, 5]);
+        });
+
+        // Auth gates for: attend_delete
+        Gate::define('attend_delete', function ($user,$paper) {
+            return ($paper->attend()->where('id',$user->id)->count()) ? true : false;
+        });
+
+        // Auth gates for: attend_create
+        Gate::define('attend_create', function ($user,$paper) {
+            $max_capacity = 50;
+            $max_user_attends = 7;
+            $capacity = min(array_diff([$paper->capacity,$paper->session->room->capacity], ["",null]))?:$max_capacity;
+            if(
+                Gate::denies('attend_delete',$paper)
+                && Presenter::left($paper->type,10) == 'Εργαστήριο'
+                && $paper->attend()->count() < $capacity
+                && $user->attend()->count() < $max_user_attends
+            ){
+                return true;
+            }else{
+                return false;
+            }
         });
 
         // Auth gates for: Sessions

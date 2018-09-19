@@ -21,5 +21,5 @@ Route::get('/calendar', 'Admin\SystemCalendarController@index')->name('frontend.
 Route::get('/page/{alias}', 'Frontend\ContentPagesController@show')->name('frontend.pages.show');
 
 Route::get('/attend/', 'Frontend\AttendsController@index')->name('frontend.attend.index');
-Route::get('/attend/{id}', 'Frontend\AttendsController@create')->name('frontend.attend.create');
-Route::get('/attend/delete/{id}', 'Frontend\AttendsController@delete')->name('frontend.attend.delete');
+Route::get('/attend/{paper_id}', 'Frontend\AttendsController@create')->name('frontend.attend.create');
+Route::get('/attend/delete/{paper_id}', 'Frontend\AttendsController@delete')->name('frontend.attend.delete');

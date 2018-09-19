@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Paper;
+use App\User;
 use Auth;
 use Gate;
 use Illuminate\Http\Request;
@@ -19,19 +20,22 @@ class AttendsController extends Controller
 
 
 	public function index(){
-		$papers = Paper::accepted()->filtered()->get(); 
+		$papers = User::findOrFail(Auth::id())->attend()->accepted()->filtered()->get();
 		return view('frontend.attends.index',compact('papers'));
 	}
 	
-    public function create($id){
-        if (Auth::check()) {
-            $paper = Paper::findOrFail($id);
+    public function create($paper_id){
+
+        $paper = Paper::findOrFail($paper_id);
+        
+        if (Gate::allows('attend_create',$paper)) {
             $paper->attend()->attach(Auth::id());        
-            Presenter::message(__('Δηλώσατε συμμετοχή στο/ή: '). $paper->type. ", ". $paper->title,"success");
-            return back();
+            Presenter::message(__('Επιτυχής δήλωση: '). $paper->title,"success");
         } else {
-            abort(401,'You are not logged-in.');
+            Presenter::message(__('You are not authorized for this action'),"error");
         }
+
+        return back();
         
     }
 
@@ -42,21 +46,17 @@ class AttendsController extends Controller
      * @param  [type] $user_id [description]
      * @return [type]          [description]
      */
-    public function delete($id){
-        if (Auth::check()) {
-            $router = new Router();
-            if($router->get_var('user_id',false,'int') && Gate::allows('attend_delete')){
-                $user_id = $router->get_var('user_id',false,'int');
-            }else{
-                $user_id = Auth::id();
-            }
-            $paper = Paper::findOrFail($id);
-            $paper->attend()->detach($user_id);        
-            Presenter::message(__('Επιτυχής διαγραφή από: '). $paper->type. ", ". $paper->title, 'warning');
-            return back();
+    public function delete($paper_id){
+        
+        $paper = Paper::findOrFail($paper_id);
+
+        if (Gate::allows('attend_delete',$paper)) {
+            $paper->attend()->detach(Auth::id());
+            Presenter::message(__('Διαγραφή από: '). $paper->title, 'warning');
         } else {
-            abort(401,'You are not logged-in.');
+            Presenter::message(__('You are not authorized for this action'),"error");
         }
         
+        return back();
     }
 }

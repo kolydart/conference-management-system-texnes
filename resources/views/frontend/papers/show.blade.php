@@ -5,9 +5,20 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
+<div class="row">
+    <div class="m-4 ml-auto">
+        
+            @can('attend_create', $paper)
+            <a href="{{route('frontend.attend.create',$paper->id)}}" class="btn btn-lg btn-success"><i class="far fa-check-square"></i> @lang('Δήλωση συμμετοχής')</a>
+            @endcan
+
+            @can('attend_delete', $paper)
+            <a href="{{route('frontend.attend.delete',$paper->id)}}" class="btn btn-lg btn-danger"><i class="far fa-times-circle"></i> @lang('Ακύρωση συμμετοχής')</a>
+            @endcan
+            <a href="/page/faq#register" class="text-secondary" title="Οδηγίες για δήλωση εργαστηρίων"><i class="fas fa-info-circle"></i></a>
+    </div>
+</div>
             <span class="badge badge-dark">@lang('quickadmin.qa_view')</span>
-            <a href="{{route('frontend.attend.create',$paper->id)}}" class="btn btn-lg btn-success m-4"><i class="far fa-check-square"></i> @lang('Δήλωση συμμετοχής')</a>
-            <a href="{{route('frontend.attend.delete',$paper->id)}}" class="btn btn-lg btn-danger m-4"><i class="far fa-times-circle"></i> @lang('Ακύρωση συμμετοχής')</a>
         </div>        
 
         <div class="panel-body">
