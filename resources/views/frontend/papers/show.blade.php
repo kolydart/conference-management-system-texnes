@@ -6,6 +6,8 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <span class="badge badge-dark">@lang('quickadmin.qa_view')</span>
+            <a href="{{route('frontend.attend.create',$paper->id)}}" class="btn btn-lg btn-success m-4"><i class="far fa-check-square"></i> @lang('Δήλωση συμμετοχής')</a>
+            <a href="{{route('frontend.attend.delete',$paper->id)}}" class="btn btn-lg btn-danger m-4"><i class="far fa-times-circle"></i> @lang('Ακύρωση συμμετοχής')</a>
         </div>        
 
         <div class="panel-body">
