@@ -1,6 +1,7 @@
             <table class="table table-bordered table-striped table-responsive {{ count($papers) > 0 ? 'datatable' : '' }}">
                 <thead>
                     <tr>
+                        <th>@lang('id')</th>
                         <th>@lang('quickadmin.papers.fields.title')</th>
                         <th>@lang('quickadmin.papers.fields.name')</th>
                         <th>@lang('quickadmin.papers.fields.type')</th>
@@ -18,6 +19,7 @@
                         @foreach ($papers as $paper)
                             <tr data-entry-id="{{ $paper->id }}">
 
+                                <td field-key='id'>{{$paper->id}}</td>
                                 <td field-key='title'>
                                     <a href="{{ route('frontend.papers.show',[$paper->id]) }}" >{{ $paper->title }}</a>
                                 </td>

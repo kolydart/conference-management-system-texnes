@@ -26,6 +26,10 @@
                 <div class="col-md-12">
                     <table class="table table-bordered table-striped">
                         <tr>
+                            <th>id</th>
+                            <td field-key='id'>{{ $paper->id }}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.papers.fields.title')</th>
                             <td field-key='title'><strong>{{ $paper->title }}</strong></td>
                         </tr>
@@ -77,10 +81,6 @@
                                     <a href="{{route('frontend.arts.show',$singleArt->id)}}" class="badge badge-secondary" >{{ $singleArt->title }}</a>
                                 @endforeach
                             </td>
-                        </tr>
-                        <tr>
-                            <th>id</th>
-                            <td field-key='id'>{{ $paper->id }}</td>
                         </tr>
                     </table>
                 </div>
