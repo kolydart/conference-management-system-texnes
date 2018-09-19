@@ -44,6 +44,7 @@
                         <th>@lang('gw.papers.fields.reviewed')</th>
                         <th>@lang('quickadmin.papers.fields.status')</th>
                         <th>@lang('quickadmin.papers.fields.capacity')</th>
+                        <th>@lang('Δηλώσεις')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -92,6 +93,7 @@
                                 </td>
                                 <td field-key='status'>{{ $paper->status }}</td>
                                 <td field-key='capacity'>{{ $paper->capacity }}</td>
+                                <td field-key='attend'>{{ $paper->attend()->count() }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('paper_delete')

@@ -52,7 +52,7 @@ class AttendsController extends Controller
 
         if (Gate::allows('attend_delete',$paper)) {
             $paper->attend()->detach(Auth::id());
-            Presenter::message(__('Διαγραφή από: '). $paper->title, 'warning');
+            Presenter::message(__('Διαγραφή από: '). $paper->title, 'info');
         } else {
             Presenter::message(__('You are not authorized for this action'),"error");
         }

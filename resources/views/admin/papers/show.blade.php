@@ -100,6 +100,10 @@
                             <th>@lang('quickadmin.papers.fields.capacity')</th>
                             <td field-key='capacity'>{{ $paper->capacity }}</td>
                         </tr>
+                        <tr>
+                            <th>@lang('Δηλώσεις')</th>
+                            <td field-key='attend'>{{ $paper->attend()->count() }}</td>
+                        </tr>
                     </table>
                 </div>
             </div><!-- Nav tabs -->
@@ -110,15 +114,52 @@
             
 <ul class="nav nav-tabs" role="tablist">
     
-<li role="presentation" class="active"><a href="#fullpaper" aria-controls="fullpaper" role="tab" data-toggle="tab">Τελικά κείμενα</a></li>
+<li role="presentation" class="active"><a href="#attend" aria-controls="attend" role="tab" data-toggle="tab">Δηλώσεις</a></li>
+<li role="presentation" class=""><a href="#fullpaper" aria-controls="fullpaper" role="tab" data-toggle="tab">Τελικά κείμενα</a></li>
 <li role="presentation" class=""><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Κρίσεις</a></li>
 <li role="presentation" class=""><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Μηνύματα</a></li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-    
-<div role="tabpanel" class="tab-pane active" id="fullpaper">
+<div role="tabpanel" class="tab-pane active" id="attend">
+<table class="table table-bordered table-striped {{ count($attendees) > 0 ? 'datatable' : '' }}">
+    <thead>
+        <tr>
+            <th>@lang('Όνομα')</th>
+            <th>@lang('Email')</th>
+            <th>@lang('Ιδιότητα')</th>
+            <th>@lang('Ρόλος')</th>
+            <th>@lang('Δηλώσεις')</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (count($attendees) > 0)
+            @foreach ($attendees as $attendee)
+
+                <tr data-entry-id="{{ $attendee->id }}">
+                    <td field-key='name'>{{ $attendee->name or '' }}</td>
+                    <td field-key='email'>{{ $attendee->email or '' }}</td>
+                    <td field-key='attribute'>{{ $attendee->attribute or '' }}</td>
+                    <td field-key='role'>{{ $attendee->role->title or '' }}</td>
+                    <td field-key='count'>{{ $attendee->attend()->count() }}</td>
+                    <td>
+                        @if(Gate::allows('attend_delete_backend',[$paper,$attendee]))
+                            <a href='{{route('admin.attends.delete',[$paper,$attendee])}}' onClick="return confirm('Are you sure?')" class="btn btn-danger">x</a>
+                        @endif
+                    </td>
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="8">@lang('quickadmin.qa_no_entries_in_table')</td>
+            </tr>
+        @endif        
+    </tbody>
+</table>
+</div>
+<div role="tabpanel" class="tab-pane" id="fullpaper">
 <table class="table table-bordered table-striped {{ count($fullpapers) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>

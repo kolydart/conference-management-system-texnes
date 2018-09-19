@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Paper;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\FileUploadTrait;
 use App\Http\Requests\Admin\StorePapersRequest;
 use App\Http\Requests\Admin\UpdatePapersRequest;
-use App\Http\Controllers\Traits\FileUploadTrait;
+use App\Paper;
+use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use gateweb\common\Presenter;
 
 class PapersController extends Controller
 {
@@ -161,8 +163,9 @@ class PapersController extends Controller
 $fullpapers = \App\Fullpaper::where('paper_id', $id)->get();$reviews = \App\Review::where('paper_id', $id)->get();$messages = \App\Message::where('paper_id', $id)->get();
 
         $paper = Paper::findOrFail($id);
+        $attendees = $paper->attend()->get();
 
-        return view('admin.papers.show', compact('paper', 'fullpapers', 'reviews', 'messages'));
+        return view('admin.papers.show', compact('paper', 'fullpapers', 'reviews', 'messages', 'attendees'));
     }
 
 
@@ -236,4 +239,21 @@ $fullpapers = \App\Fullpaper::where('paper_id', $id)->get();$reviews = \App\Revi
 
         return redirect()->route('admin.papers.index');
     }
+
+    public function attendsDelete($paper_id,$user_id){
+        
+        $paper = Paper::findOrFail($paper_id);
+        $attendee = User::findOrFail($user_id);
+
+        if (Gate::allows('attend_delete_backend',[$paper,$attendee])) {
+            $paper->attend()->detach($user_id);
+            Presenter::message(__('Διαγραφή '.$attendee->name.' από '). $paper->title, 'info');
+        } else {
+            Presenter::message(__('You are not authorized for this action'),"error");
+        }
+        
+        return back();
+    }
+
+
 }

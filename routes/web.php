@@ -89,6 +89,7 @@ Route::group(['middleware' => ['backend','auth'], 'prefix' => 'admin', 'as' => '
     Route::post('/spatie/media/upload', 'Admin\SpatieMediaController@create')->name('media.upload');
     Route::post('/spatie/media/remove', 'Admin\SpatieMediaController@destroy')->name('media.remove');
 
+    Route::get('/attends/delete/{paper_id}/{user_id}', 'Admin\PapersController@attendsDelete')->name('attends.delete');
 
 
  
