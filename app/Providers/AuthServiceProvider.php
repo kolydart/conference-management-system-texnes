@@ -57,6 +57,11 @@ class AuthServiceProvider extends ServiceProvider
             }
         });
 
+        // Auth gates for: attend_delete_backend (admins only)
+        Gate::define('attend_delete_backend', function ($user, $paper, $attendee) {
+            return ($paper->attend()->where('id',$attendee->id)->count() && in_array($user->role_id, [1, 3, 4])) ? true : false;
+        });
+
         // Auth gates for: Sessions
         Gate::define('session_access', function ($user) {
             return in_array($user->role_id, [1, 3, 4, 5]);
