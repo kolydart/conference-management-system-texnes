@@ -42,9 +42,8 @@ class AuthServiceProvider extends ServiceProvider
 
         // Auth gates for: attend_create
         Gate::define('attend_create', function ($user,$paper) {
-            $max_capacity = 50;
             $max_user_attends = 7;
-            $capacity = min(array_diff([$paper->capacity,$paper->session->room->capacity], ["",null]))?:$max_capacity;
+            $capacity = $paper->capacity();
             if(
                 Gate::denies('attend_delete',$paper)
                 && Presenter::left($paper->type,10) == 'Εργαστήριο'

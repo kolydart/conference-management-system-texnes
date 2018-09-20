@@ -14,18 +14,6 @@ class aclTest extends TestCase
     use DatabaseTransactions;
 
 
-    function signin_as_manager(){
-        $user = factory(User::class)->create(['role_id' => 3]);
-        $this->actingAs($user);
-        return $user;
-    }
-
-    function signin_as_atendee(){
-        $user = factory(User::class)->create(['role_id' =>7]);
-        $this->actingAs($user);
-        return $user;
-    }    
-
     /** @test */
     public function access_to_root_is_allowed(){
         $response = $this->get('/');

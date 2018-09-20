@@ -138,6 +138,19 @@ class Paper extends Model implements HasMedia
         return $query->whereRaw('type LIKE "Εργαστήριο%"');
     }
     
+    /**
+     * max users allowed to attend
+     * combine paper's $this->capacity with $room->capacity
+     * first, remove any empty values (null,'')
+     * @return [type] [description]
+     */
+    public function capacity(){
+        $max_capacity = 50;
+        if(!$this->capacity && !$this->session->room->capacity)
+            return $max_capacity;
+        return min(array_diff([$this->capacity,$this->session->room->capacity], ["",null]));
+    }
+    
 
 
 }
