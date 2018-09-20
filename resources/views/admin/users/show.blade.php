@@ -32,12 +32,17 @@
                             <th>@lang('quickadmin.users.fields.role')</th>
                             <td field-key='role'>{{ $user->role->title or '' }}</td>
                         </tr>
+                        <tr>
+                            <th>@lang('Δηλώσεις για εργαστήρια')</th>
+                            <td field-key='role'>{{ $user->attend()->count() }}</td>
+                        </tr>
                     </table>
                 </div>
             </div><!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     
-<li role="presentation" class="active"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Κρίσεις</a></li>
+<li role="presentation" class="active"><a href="#attend" aria-controls="reviews" role="tab" data-toggle="tab">Δηλώσεις για εργαστήρια</a></li>
+<li role="presentation" class=""><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Κρίσεις</a></li>
 <li role="presentation" class=""><a href="#user_actions" aria-controls="user_actions" role="tab" data-toggle="tab">Ενέργειες χρηστών</a></li>
 <li role="presentation" class=""><a href="#loguseragent" aria-controls="loguseragent" role="tab" data-toggle="tab">Loguseragent</a></li>
 <li role="presentation" class=""><a href="#papers" aria-controls="papers" role="tab" data-toggle="tab">Προτάσεις</a></li>
@@ -46,7 +51,66 @@
 <!-- Tab panes -->
 <div class="tab-content">
     
-<div role="tabpanel" class="tab-pane active" id="reviews">
+<div role="tabpanel" class="tab-pane active" id="attend">
+<table class="table table-bordered table-striped {{ count($attends) > 0 ? 'datatable' : '' }}">
+    <thead>
+        <tr>
+            <th>@lang('quickadmin.papers.fields.title')</th>
+            <th>@lang('quickadmin.papers.fields.art')</th>
+            <th>@lang('quickadmin.papers.fields.type')</th>
+            <th>@lang('quickadmin.papers.fields.duration')</th>
+            <th>@lang('quickadmin.papers.fields.session')</th>
+            <th>@lang('quickadmin.papers.fields.name')</th>
+            <th>@lang('quickadmin.papers.fields.attribute')</th>
+            <th>@lang('quickadmin.papers.fields.status')</th>
+            <th>@lang('quickadmin.papers.fields.capacity')</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (count($attends) > 0)
+            @foreach ($attends as $attend)
+                <tr data-entry-id="{{ $attend->id }}">
+                        <td field-key='title'>
+                            @if (Gate::allows('paper_view'))
+                                <a href="{{ route('admin.papers.show',[$attend->id]) }}" >{{ $attend->title }}</a>
+                            @else
+                                {{ $attend->title }}
+                            @endif
+                        </td>
+                        <td field-key='art'>
+                            @foreach ($attend->art as $singleArt)
+                                <span class="label label-info label-many">{{ $singleArt->title }}</span>
+                            @endforeach
+                        </td>
+                        <td field-key='type'>{{ $attend->type }}</td>
+                        <td field-key='duration'>{{ $attend->duration }}</td>
+                        <td field-key='session'>{{ $attend->session->title or '' }}</td>
+                        <td field-key='name'>{{ $attend->name }}</td>
+                        <td field-key='attribute'>{{ $attend->attribute }}</td>
+                        <td field-key='status'>{{ $attend->status }}</td>
+                        <td field-key='capacity'>{{ $attend->capacity }}</td>
+                        <td>
+                            @can('paper_view')
+                            <a href="{{ route('admin.papers.show',[$attend->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                            @endcan
+                            @if(Gate::allows('attend_delete_backend',[$attend,$user]))
+                                <a href='{{route('admin.attends.delete',[$attend,$user])}}' onClick="return confirm('Are you sure?')" class="btn btn-xs btn-danger">@lang('Αφαίρεση από το εργαστήριο')</a>
+                            @endif
+
+                        </td>
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="22">@lang('quickadmin.qa_no_entries_in_table')</td>
+            </tr>
+        @endif
+    </tbody>
+</table>
+</div>
+<div role="tabpanel" class="tab-pane" id="reviews">
 <table class="table table-bordered table-striped {{ count($reviews) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>

@@ -29,7 +29,7 @@
                         <th>@lang('quickadmin.users.fields.email')</th>
                         <th>@lang('quickadmin.users.fields.attribute')</th>
                         <th>@lang('quickadmin.users.fields.role')</th>
-                        <th>@lang('Δηλώσεις')</th>
+                        <th>@lang('Εργαστήρια')</th>
                         <th>@lang('created_at')</th>
                         @can('user_edit')<th>&nbsp;</th>@endcan
                                                 <th>&nbsp;</th>

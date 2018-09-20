@@ -146,7 +146,7 @@
                     <td field-key='count'>{{ $attendee->attend()->count() }}</td>
                     <td>
                         @if(Gate::allows('attend_delete_backend',[$paper,$attendee]))
-                            <a href='{{route('admin.attends.delete',[$paper,$attendee])}}' onClick="return confirm('Are you sure?')" class="btn btn-danger">x</a>
+                            <a href='{{route('admin.attends.delete',[$paper,$attendee])}}' onClick="return confirm('Are you sure?')" class="btn btn-xs btn-danger">@lang('Αφαίρεση από το εργαστήριο')</a>
                         @endif
                     </td>
                 </tr>

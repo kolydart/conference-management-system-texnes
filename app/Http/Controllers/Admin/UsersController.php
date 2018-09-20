@@ -125,9 +125,9 @@ class UsersController extends Controller
                     })->get();
 
         $user = User::findOrFail($id);
-        $attendees = $user->attend()->get();
+        $attends = $user->attend()->get();
 
-        return view('admin.users.show', compact('user', 'reviews', 'user_actions', 'loguseragents', 'papers', 'attendees'));
+        return view('admin.users.show', compact('user', 'reviews', 'user_actions', 'loguseragents', 'papers', 'attends'));
     }
 
 
