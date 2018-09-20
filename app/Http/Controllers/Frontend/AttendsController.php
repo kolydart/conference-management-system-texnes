@@ -18,12 +18,20 @@ class AttendsController extends Controller
 		$this->middleware('auth');
 	}
 
-
+    /**
+     * view my attends
+     * @return papers
+     */
 	public function index(){
 		$papers = User::findOrFail(Auth::id())->attend()->accepted()->filtered()->get();
 		return view('frontend.attends.index',compact('papers'));
 	}
-	
+
+    /**
+     * attach $paper to my $user
+     * @param  int $paper_id 
+     * @return back()
+     */
     public function create($paper_id){
 
         $paper = Paper::findOrFail($paper_id);
@@ -35,16 +43,19 @@ class AttendsController extends Controller
             Presenter::message(__('You are not authorized for this action'),"error");
         }
 
+        activity()
+           ->performedOn($paper)
+           ->causedBy(Auth::id())
+           ->log('attend_create');
+
         return back();
         
     }
 
     /**
      * delete attend
-     * accept 2nd parameter (for admin) to delete another user's attend
-     * @param  [type] $id      [description]
-     * @param  [type] $user_id [description]
-     * @return [type]          [description]
+     * @param  int $paper_id
+     * @return back()
      */
     public function delete($paper_id){
         
@@ -56,7 +67,12 @@ class AttendsController extends Controller
         } else {
             Presenter::message(__('You are not authorized for this action'),"error");
         }
-        
+
+        activity()
+           ->performedOn($paper)
+           ->causedBy(Auth::id())
+           ->log('attend_delete');
+
         return back();
     }
 }

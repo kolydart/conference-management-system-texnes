@@ -240,6 +240,12 @@ $fullpapers = \App\Fullpaper::where('paper_id', $id)->get();$reviews = \App\Revi
         return redirect()->route('admin.papers.index');
     }
 
+    /**
+     * delete user's attend
+     * @param  int $paper_id 
+     * @param  int $user_id  
+     * @return back()
+     */
     public function attendsDelete($paper_id,$user_id){
         
         $paper = Paper::findOrFail($paper_id);
@@ -251,7 +257,12 @@ $fullpapers = \App\Fullpaper::where('paper_id', $id)->get();$reviews = \App\Revi
         } else {
             Presenter::message(__('You are not authorized for this action'),"error");
         }
-        
+
+        activity()
+           ->performedOn($paper)
+           ->causedBy($attendee)
+           ->log('attend_delete');
+
         return back();
     }
 
