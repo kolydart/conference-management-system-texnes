@@ -5,19 +5,37 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-<div class="row">
-    <div class="m-4 ml-auto">
-        
-            @can('attend_create', $paper)
-            <a href="{{route('frontend.attend.create',$paper->id)}}" class="btn btn-lg btn-success"><i class="far fa-check-square"></i> @lang('Δήλωση συμμετοχής')</a>
-            @endcan
+            <div class="row">
 
-            @can('attend_delete', $paper)
-            <a href="{{route('frontend.attend.delete',$paper->id)}}" class="btn btn-lg btn-danger"><i class="far fa-times-circle"></i> @lang('Ακύρωση συμμετοχής')</a>
-            @endcan
-            <a href="/page/faq#register" class="text-secondary" title="Οδηγίες για δήλωση εργαστηρίων"><i class="fas fa-info-circle"></i></a>
-    </div>
-</div>
+                {{-- Availability --}}
+                <div class="col-md-4 col-sm-6">
+                @if($paper->lab()->count() && !$paper->attend()->count())
+                    <p class="text-secondary small"> @lang('Διαθεσιμότητα:')
+                    @if ($paper->attend()->count() >= $paper->capacity())
+                         <span class="">@lang('δεν υπάρχουν θέσεις')</span></p>
+                    @elseif ($paper->attend()->count() / $paper->capacity() > 0.7)
+                        <span class="text-warning">@lang('απομένουν λίγες θέσεις')</span></p>
+                    @else
+                        <span class="text-success">@lang('υπάρχουν θέσεις')</span></p>
+                    @endcan
+                @endif
+                </div>
+
+                {{-- Attend button --}}
+                <div class="col-sm-6 col-md-4 offset-md-4 pb-1">
+                    
+                        @can('attend_create', $paper)
+                        <a href="{{route('frontend.attend.create',$paper->id)}}" class="btn btn-lg btn-success"><i class="far fa-check-square"></i> @lang('Δήλωση συμμετοχής')</a>
+                        @endcan
+
+                        @can('attend_delete', $paper)
+                        <a href="{{route('frontend.attend.delete',$paper->id)}}" class="btn btn-lg btn-danger"><i class="far fa-times-circle"></i> @lang('Ακύρωση συμμετοχής')</a>
+                        @endcan
+
+                        <a href="/page/faq#register" class="text-secondary" title="Οδηγίες για δήλωση εργαστηρίων"><i class="fas fa-info-circle"></i></a>
+
+                </div>
+            </div>
             <span class="badge badge-dark">@lang('quickadmin.qa_view')</span>
         </div>        
 
