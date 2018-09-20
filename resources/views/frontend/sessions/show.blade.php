@@ -28,6 +28,11 @@
                             </td>
                         </tr>
                         <tr>
+                            <th>@lang('Τύπος')</th>
+                            <td field-key='color'>{{ $session->color->title or '' }}</td>
+                            
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.sessions.fields.start')</th>
                             <td field-key='start'>{{ (new gateweb\common\DateTime($session->start))->format('l, d M, H:i') }}</td>
                             
