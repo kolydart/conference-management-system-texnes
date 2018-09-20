@@ -27,6 +27,7 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js'></script>
     <script src='/js/scheduler.min.js'></script>
+    <script src='/js/fullcalendar_el.js'></script>
     <script>
         $(document).ready(function () {
             // page is now ready, initialize the calendar...
@@ -82,6 +83,9 @@
 
                 timeFormat: 'H:mm',
                 nowIndicator: true,
+                titleFormat: 'dddd, D MMMM YYYY',
+
+                locale: 'el',
 
             })
         });
