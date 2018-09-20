@@ -2,7 +2,8 @@
 
 Route::get('/', 'Frontend\HomeController@index')->name('frontend.home');
 
-// Route::get('/contact', 'Frontend\HomeController@contact')->name('frontend.contact');
+Route::get('/contact', 'Frontend\HomeController@contact')->name('frontend.contact');
+Route::post('/contact', 'Frontend\HomeController@contact')->name('frontend.contact');
 
 Route::get('arts', 'Frontend\ArtsController@index')->name('frontend.arts.index');
 Route::get('arts/{id}', 'Frontend\ArtsController@show')->name('frontend.arts.show');

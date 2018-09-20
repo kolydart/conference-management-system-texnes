@@ -90,6 +90,10 @@
                                 <i class="fas fa-wrench"></i> @lang('Συντελεστές')
                             </a> --}}
 
+                            <a class="dropdown-item" href="{{ route('frontend.contact') }}">
+                                <i class="fa fa-envelope"></i> @lang('Επικοινωνία')
+                            </a>
+
                         </div>
                         
                     </li>
