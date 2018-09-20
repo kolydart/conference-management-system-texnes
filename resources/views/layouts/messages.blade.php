@@ -3,7 +3,7 @@
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li>{!! $error !!}</li>
             @endforeach
         </ul>
     </div>
@@ -13,7 +13,7 @@
     <div class="alert alert-{{session()->get('gw_message_type','warning')}}">
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <p>
-            {{ session()->get('gw_message_text', 'Could not retrieve message. Error 8LeDJ87SYpiVBcxn.') }}
+            {!! session()->get('gw_message_text', 'Could not retrieve message. Error 8LeDJ87SYpiVBcxn.') !!}
         </p>
     </div>	
 @endif
