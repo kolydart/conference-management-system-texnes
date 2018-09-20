@@ -134,5 +134,10 @@ class Paper extends Model implements HasMedia
         return $this->belongsToMany(User::class, 'attend');
     }
     
+    public function scopeLab($query){
+        return $query->whereRaw('type LIKE "Εργαστήριο%"');
+    }
+    
+
 
 }
