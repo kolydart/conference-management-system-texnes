@@ -1,6 +1,13 @@
 @extends('frontend.app')
 
 @section('content')
+{{-- Do not allow registration until a certain date --}}
+@if (new gateweb\common\DateTime() < new DateTime('2018-09-25'))
+
+    <p class="alert alert-warning">@lang('Ο μηχανισμός εγγραφής δεν είναι διαθέσιμος, διότι πραγματοποιούνται οι δηλώσεις όσων είχαν κάνει προεγγραφή. Θα είναι διαθέσιμος από τις 25 Σεπτεμβρίου.')</p>
+
+@else
+
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -211,4 +218,5 @@
             </div>
         </div>
     </div>
+@endif
 @endsection
