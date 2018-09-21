@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\ContentPage;
+use App\Message;
 use App\Paper;
 use Illuminate\Console\Command;
 use gateweb\common\Mailer;
@@ -70,7 +71,8 @@ class mailPage extends Command
                 $email = $paper->email;
             }
             $subject = $message->title;
-            $body = $message->page_text;
+            $body = "<p>Προς: $name</p><p>Email: $email</p>";
+            $body .= $message->page_text;
 
             /**
              * send message
@@ -82,6 +84,13 @@ class mailPage extends Command
             $mailer->set_to($email, $name);
             if ($mailer->Send()){
                 $this->info("sent message to $email");
+                Message::create([
+                    'name'=> $name,
+                    'email' => $email,
+                    'title'=>$subject,
+                    'body' => $body,
+                    'paper_id' => $paper->id,
+                ]);
             }else{
                 $this->info("ERROR: could not send message to user $user->id");
                 Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error());

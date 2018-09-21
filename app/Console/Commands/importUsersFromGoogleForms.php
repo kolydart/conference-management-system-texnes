@@ -116,6 +116,12 @@ class importUsersFromGoogleForms extends Command
             $mailer->set_to($email, $name);
             if ($mailer->Send()){
                 $this->info("sent message to user $user->id");
+                Message::create([
+                    'name'=> $name,
+                    'email' => $email,
+                    'title'=>$subject,
+                    'body' => $body,
+                ]);                
             }else{
                 $this->info("ERROR: could not send message to user $user->id");
                 Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error());
