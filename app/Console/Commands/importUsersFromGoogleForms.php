@@ -56,7 +56,7 @@ class importUsersFromGoogleForms extends Command
          * foreach
          */
         foreach ($array as $row) {
-            $this->info("## row ".$i."/".count($array).":");
+            $this->info("## row ".$i++."/".count($array).":");
             /**
              * prepare data
              * @param name
