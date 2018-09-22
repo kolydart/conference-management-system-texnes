@@ -18,7 +18,7 @@
         </div>
 
         <div class="panel-body table-responsive">
-            <table class="table table-bordered table-striped {{ count($users) > 0 ? 'datatable' : '' }} @can('user_delete') dt-select @endcan">
+            <table class="table table-bordered table-striped ajaxTable @can('user_delete') dt-select @endcan">
                 <thead>
                     <tr>
                         @can('user_delete')
@@ -33,45 +33,6 @@
 
                     </tr>
                 </thead>
-                
-                <tbody>
-                    @if (count($users) > 0)
-                        @foreach ($users as $user)
-                            <tr data-entry-id="{{ $user->id }}">
-                                @can('user_delete')
-                                    <td></td>
-                                @endcan
-
-                                <td field-key='name'>{{ $user->name }}</td>
-                                <td field-key='email'>{{ $user->email }}</td>
-                                <td field-key='attribute'>{{ $user->attribute }}</td>
-                                <td field-key='role'>{{ $user->role->title or '' }}</td>
-                                                                <td>
-                                    @can('user_view')
-                                    <a href="{{ route('admin.users.show',[$user->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
-                                    @endcan
-                                    @can('user_edit')
-                                    <a href="{{ route('admin.users.edit',[$user->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
-                                    @endcan
-                                    @can('user_delete')
-{!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'DELETE',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.users.destroy', $user->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!}
-                                    @endcan
-                                </td>
-
-                            </tr>
-                        @endforeach
-                    @else
-                        <tr>
-                            <td colspan="12">@lang('quickadmin.qa_no_entries_in_table')</td>
-                        </tr>
-                    @endif
-                </tbody>
             </table>
         </div>
     </div>
@@ -82,6 +43,18 @@
         @can('user_delete')
             window.route_mass_crud_entries_destroy = '{{ route('admin.users.mass_destroy') }}';
         @endcan
-
+        $(document).ready(function () {
+            window.dtDefaultOptions.ajax = '{!! route('admin.users.index') !!}';
+            window.dtDefaultOptions.columns = [@can('user_delete')
+                    {data: 'massDelete', name: 'id', searchable: false, sortable: false},
+                @endcan{data: 'name', name: 'name'},
+                {data: 'email', name: 'email'},
+                {data: 'attribute', name: 'attribute'},
+                {data: 'role.title', name: 'role.title'},
+                
+                {data: 'actions', name: 'actions', searchable: false, sortable: false}
+            ];
+            processAjaxTables();
+        });
     </script>
 @endsection
