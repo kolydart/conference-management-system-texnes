@@ -31,7 +31,7 @@
                         <th>@lang('quickadmin.users.fields.role')</th>
                         <th>@lang('Εργαστήρια')</th>
                         <th>@lang('created_at')</th>
-                        <th>weak</th>
+                        {{-- <th>weak</th> --}}
                                                 <th>&nbsp;</th>
 
                     </tr>
@@ -56,7 +56,7 @@
                 {data: 'role.title', name: 'role.title'},
                 {data: 'attend', name: 'attend'},
                 {data: 'created_at', name: 'created_at'},
-                {data: 'weak_password', name: 'weak_password'},
+                // {data: 'weak_password', name: 'weak_password'},
                 
                 {data: 'actions', name: 'actions', searchable: false, sortable: false}
             ];

@@ -81,10 +81,10 @@ class UsersController extends Controller
                 return $row->created_at->format('d M H:i:s') ;
             });
 
-            $table->addColumn('weak_password', '&nbsp;');
-            $table->editColumn('weak_password', function ($row) {
-                return (Hash::check(Presenter::before($row->email,'@'), $row->password))?1:'';
-            });
+            // $table->addColumn('weak_password', '&nbsp;');
+            // $table->editColumn('weak_password', function ($row) {
+            //     return (Hash::check(Presenter::before($row->email,'@'), $row->password))?1:'';
+            // });
             
             $table->rawColumns(['actions','massDelete']);
 
