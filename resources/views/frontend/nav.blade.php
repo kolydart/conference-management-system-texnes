@@ -30,7 +30,7 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{route('frontend.papers.index')}}">
                               <i class="fa fa-newspaper"></i>
-                              <span class="title"> @lang('Εισηγήσεις/Εργαστήρια') </span>
+                              <span class="title"> @lang('Εισηγήσεις & Εργαστήρια') </span>
                             </a>
 
                             <a class="dropdown-item" href="{{ route('frontend.sessions.index') }}">
@@ -47,6 +47,11 @@
                             <a class="dropdown-item" href="{{ route('frontend.arts.index') }}">
                                 <i class="fa fa-paint-brush"></i>
                                 <span>@lang('quickadmin.arts.title')</span>
+                            </a>
+
+                            <a class="dropdown-item" href="{{route('frontend.papers.index',['type'=>'Εισήγηση'])}}">
+                              <i class="fa fa-newspaper"></i>
+                              <span class="title"> @lang('Εργαστήρια μόνο') </span>
                             </a>
 
                         </div>
