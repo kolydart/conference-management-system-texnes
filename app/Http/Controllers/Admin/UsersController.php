@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreUsersRequest;
 use App\Http\Requests\Admin\UpdateUsersRequest;
+use Yajra\DataTables\DataTables;
 
 class UsersController extends Controller
 {
@@ -23,9 +24,57 @@ class UsersController extends Controller
         }
 
 
-                $users = User::latest()->get();
+        
+        if (request()->ajax()) {
+            $query = User::query();
+            $query->with("role");
+            $template = 'actionsTemplate';
+            
+            $query->select([
+                'users.id',
+                'users.name',
+                'users.email',
+                'users.phone',
+                'users.attribute',
+                'users.password',
+                'users.role_id',
+                'users.remember_token',
+            ]);
+            $table = Datatables::of($query);
 
-        return view('admin.users.index', compact('users'));
+            $table->setRowAttr([
+                'data-entry-id' => '{{$id}}',
+            ]);
+            $table->addColumn('massDelete', '&nbsp;');
+            $table->addColumn('actions', '&nbsp;');
+            $table->editColumn('actions', function ($row) use ($template) {
+                $gateKey  = 'user_';
+                $routeKey = 'admin.users';
+
+                return view($template, compact('row', 'gateKey', 'routeKey'));
+            });
+            $table->editColumn('phone', function ($row) {
+                return $row->phone ? $row->phone : '';
+            });
+            $table->editColumn('attribute', function ($row) {
+                return $row->attribute ? $row->attribute : '';
+            });
+            $table->editColumn('password', function ($row) {
+                return '---';
+            });
+            $table->editColumn('role.title', function ($row) {
+                return $row->role ? $row->role->title : '';
+            });
+            $table->editColumn('remember_token', function ($row) {
+                return $row->remember_token ? $row->remember_token : '';
+            });
+
+            $table->rawColumns(['actions','massDelete']);
+
+            return $table->make(true);
+        }
+
+        return view('admin.users.index');
     }
 
     /**
@@ -115,11 +164,7 @@ class UsersController extends Controller
             return abort(401);
         }
         
-        $roles = \App\Role::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
-        $reviews = \App\Review::where('user_id', $id)->get();
-        $user_actions = \App\UserAction::where('user_id', $id)->latest()->get();
-        $loguseragents = \App\Loguseragent::where('user_id', $id)->get();
-        $papers = \App\Paper::whereHas('assign',
+        $roles = \App\Role::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');$reviews = \App\Review::where('user_id', $id)->get();$user_actions = \App\UserAction::where('user_id', $id)->get();$loguseragents = \App\Loguseragent::where('user_id', $id)->get();$papers = \App\Paper::whereHas('assign',
                     function ($query) use ($id) {
                         $query->where('id', $id);
                     })->get();
