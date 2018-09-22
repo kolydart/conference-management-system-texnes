@@ -49,7 +49,7 @@
                                 <span>@lang('quickadmin.arts.title')</span>
                             </a>
 
-                            <a class="dropdown-item" href="{{route('frontend.papers.index',['type'=>'Εισήγηση'])}}">
+                            <a class="dropdown-item" href="{{route('frontend.papers.index',['type'=>'Εργαστήριο%'])}}">
                               <i class="fa fa-newspaper"></i>
                               <span class="title"> @lang('Εργαστήρια μόνο') </span>
                             </a>
