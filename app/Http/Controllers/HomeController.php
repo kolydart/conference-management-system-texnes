@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\ReportsController;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -22,11 +23,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         
         $fullpapers = \App\Fullpaper::latest()->limit(5)->get(); 
 
-        return view('home', compact( 'fullpapers' ));
+        $attendsReport = (new ReportsController)->attendCreated($request);
+
+        return view('home', array_merge(compact( 'fullpapers' ),$attendsReport));
     }
+
 }
