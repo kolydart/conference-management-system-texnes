@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreUsersRequest;
 use App\Http\Requests\Admin\UpdateUsersRequest;
+use App\User;
+use Hash;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Yajra\DataTables\DataTables;
+use gateweb\common\Presenter;
 
 class UsersController extends Controller
 {
@@ -39,6 +41,7 @@ class UsersController extends Controller
                 'users.password',
                 'users.role_id',
                 'users.remember_token',
+                'users.created_at',
             ]);
             $table = Datatables::of($query);
 
@@ -69,6 +72,20 @@ class UsersController extends Controller
                 return $row->remember_token ? $row->remember_token : '';
             });
 
+            $table->addColumn('attend', '&nbsp;');
+            $table->editColumn('attend', function ($row) {
+                return $row->attend()->count() ;
+            });
+            
+            $table->editColumn('created_at', function ($row) {
+                return $row->created_at->format('d M H:i:s') ;
+            });
+
+            $table->addColumn('weak_password', '&nbsp;');
+            $table->editColumn('weak_password', function ($row) {
+                return (Hash::check(Presenter::before($row->email,'@'), $row->password))?1:'';
+            });
+            
             $table->rawColumns(['actions','massDelete']);
 
             return $table->make(true);
