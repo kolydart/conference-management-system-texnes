@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Message;
 use App\User;
 use Illuminate\Console\Command;
 use gateweb\common\DateTime;
@@ -120,7 +121,7 @@ class importUsersFromGoogleForms extends Command
                     'name'=> $name,
                     'email' => $email,
                     'title'=>$subject,
-                    'body' => $body,
+                    'body' => $message,
                 ]);                
             }else{
                 $this->info("ERROR: could not send message to user $user->id");
