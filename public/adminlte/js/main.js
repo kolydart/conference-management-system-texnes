@@ -11,7 +11,7 @@ $(document).ready(function () {
         dom: '<"col-xs-12"i>lfrtipB<"actions">',
         bLengthChange: false,
         columnDefs: [],
-        "iDisplayLength": 100,
+        "iDisplayLength": 50,
         "aaSorting": [],
         buttons: [
             {
