@@ -85,4 +85,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Paper::class, 'attend');
     }
     
+    public function scopeAttendees($query){
+        return $query->where('role_id',7);
+    }
 }

@@ -64,6 +64,35 @@
         </div>
     </div>
 
+    {{-- Ακροατές --}}
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Στατιστικά ακροατών
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Όλοι</th>
+                            <th>Έχουν δηλώσει εργαστήρια</th>
+                            <th>Δεν έχουν δηλώσει</th>
+                            <th>Μέσος αρ. εργαστηρίων όσων δήλωσαν </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{App\User::attendees()->count()}}</td>
+                            <td>{{App\User::attendees()->whereHas('attend')->count()}}</td>
+                            <td>{{App\User::attendees()->whereDoesnthave('attend')->count()}}</td>
+                            <td>{{round( DB::table('attend')->count() / App\User::attendees()->whereHas('attend')->count(),2)}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
     {{-- Recently created attends --}}
     <div class="col-md-6">
         <div class="panel panel-default">
@@ -93,6 +122,20 @@
                     </tr>
                     @endforeach
                 </table>
+            </div>
+        </div>
+    </div>
+
+    {{-- Recently created users --}}
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Πρόσφατες (10) εγγραφές ακροατών
+            </div>
+            <div class="panel-body table-responsive">
+                @foreach(App\User::attendees()->orderBy('created_at','Desc')->take(10)->get() as $user)
+                    <p>{{$user->name}}, {{$user->email}}, {{$user->attribute}}, {{$user->created_at}}</p>
+                @endforeach
             </div>
         </div>
     </div>
