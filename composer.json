@@ -26,7 +26,8 @@
         "nunomaduro/collision": "~2.0",
         "symfony/thanks": "^1.0",
         "phpunit/phpunit": "< 6.0",        
-    "laravel/dusk": "^3.0.1"
+        "barryvdh/laravel-debugbar": "^3.2",
+        "laravel/dusk": "^3.0.1"
     },
     "autoload": {
         "classmap": [
