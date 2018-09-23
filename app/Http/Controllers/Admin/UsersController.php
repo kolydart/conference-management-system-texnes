@@ -43,6 +43,7 @@ class UsersController extends Controller
                 'users.remember_token',
                 'users.created_at',
             ]);
+            $query->withCount("attend");
             $table = Datatables::of($query);
 
             $table->setRowAttr([
@@ -72,11 +73,6 @@ class UsersController extends Controller
                 return $row->remember_token ? $row->remember_token : '';
             });
 
-            $table->addColumn('attend', '&nbsp;');
-            $table->editColumn('attend', function ($row) {
-                return $row->attend()->count() ;
-            });
-            
             $table->editColumn('created_at', function ($row) {
                 return $row->created_at->format('d M H:i:s') ;
             });

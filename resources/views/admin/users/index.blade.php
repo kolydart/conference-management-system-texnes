@@ -54,7 +54,7 @@
                 {data: 'email', name: 'email'},
                 {data: 'attribute', name: 'attribute'},
                 {data: 'role.title', name: 'role.title'},
-                {data: 'attend', name: 'attend'},
+                {data: 'attend_count', name: 'attend_count'},
                 {data: 'created_at', name: 'created_at'},
                 // {data: 'weak_password', name: 'weak_password'},
                 
