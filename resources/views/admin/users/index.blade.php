@@ -54,10 +54,10 @@
                 {data: 'email', name: 'email'},
                 {data: 'attribute', name: 'attribute'},
                 {data: 'role.title', name: 'role.title'},
-                {data: 'attend_count', name: 'attend_count'},
+                {data: 'attend_count', name: 'attend_count',  "searchable": false, "targets": 0 },
                 {data: 'created_at', name: 'created_at'},
                 // {data: 'weak_password', name: 'weak_password'},
-                
+
                 {data: 'actions', name: 'actions', searchable: false, sortable: false}
             ];
             processAjaxTables();
