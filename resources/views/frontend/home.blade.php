@@ -1,6 +1,10 @@
 @extends('frontend.app')
 
 @section('content')
+	
+	@can('content_page_edit')
+		<a href="{{route('admin.content_pages.edit',3)}}" class="btn btn-warning btn-sm m-4"><i class="fa fa-edit"></i> @lang('Edit')</a>
+	@endif
 
 	{!! App\ContentPage::where('alias','home')->first()->page_text !!}
 	

@@ -9,7 +9,7 @@
 
                 {{-- Availability --}}
                 <div class="col-md-4 col-sm-6">
-                @if( $paper->lab()->count())
+                @if( App\Paper::accepted()->lab()->where('id',$paper->id)->count())
                     <p class="text-secondary small"> @lang('Διαθεσιμότητα:')
                     @if ($paper->attend()->count() >= $paper->capacity())
                          <span class="">@lang('δεν υπάρχουν θέσεις')</span></p>
