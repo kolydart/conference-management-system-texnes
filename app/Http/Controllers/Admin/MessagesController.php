@@ -29,7 +29,7 @@ class MessagesController extends Controller
             }
             $messages = Message::onlyTrashed()->get();
         } else {
-            $messages = Message::all();
+            $messages = Message::all()->reverse();
         }
 
         return view('admin.messages.index', compact('messages'));
