@@ -75,11 +75,11 @@
                                 <i class="fas fa-users"></i> @lang('Οργανωτική και Επιστημονική Επιτροπή')
                             </a>
 
-                            <a class="dropdown-item" href="/uploads/%CE%9F%CE%99%20%CE%A4%CE%95%CE%A7%CE%9D%CE%95%CE%A3%20%CE%A3%CE%A4%CE%9F%20%CE%95%CE%9B%CE%9B%CE%97%CE%9D%CE%99%CE%9A%CE%9F%20%CE%A3%CE%A7%CE%9F%CE%9B%CE%95%CE%99%CE%9F_%CE%9F%CE%9C%CE%99%CE%9B%CE%99%CE%95%CE%A3.pdf">
+                            <a class="dropdown-item" href="{{"/storage/".App\Fullpaper::find(13)->getMedia('finaltext')->first()->id."/".rawurlencode(App\Fullpaper::find(13)->getMedia('finaltext')->first()->file_name)}}">
                                 <i class="far fa-file-alt"></i> @lang('Έντυπο Πρόγραμμα Ομιλιών')
                             </a>
 
-                            <a class="dropdown-item" href="/uploads/%CE%9F%CE%99%20%CE%A4%CE%95%CE%A7%CE%9D%CE%95%CE%A3%20%CE%A3%CE%A4%CE%9F%20%CE%95%CE%9B%CE%9B%CE%97%CE%9D%CE%99%CE%9A%CE%9F%20%CE%A3%CE%A7%CE%9F%CE%9B%CE%95%CE%99%CE%9F_%CE%95%CE%A1%CE%93%CE%91%CE%A3%CE%A4%CE%97%CE%A1%CE%99%CE%91.pdf">
+                            <a class="dropdown-item" href="{{"/storage/".App\Fullpaper::find(12)->getMedia('finaltext')->first()->id."/".rawurlencode(App\Fullpaper::find(12)->getMedia('finaltext')->first()->file_name)}}">
                                 <i class="far fa-file-alt"></i> @lang('Έντυπο Πρόγραμμα Εργαστηρίων')
                             </a>
 
