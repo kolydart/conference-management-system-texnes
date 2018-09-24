@@ -64,15 +64,15 @@
                         <div class="dropdown-menu">
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','faq') }}">
-                                <i class="far fa-question-circle"></i> @lang('Παρακολούθηση - Εγγραφές')
+                                <i class="far fa-question-circle"></i> {{App\ContentPage::where('alias','faq')->first()->title ?? ''}}
                             </a>
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','map') }}">
-                                <i class="fa fa-map"></i> @lang('Χάρτης')
+                                <i class="fa fa-map"></i> {{App\ContentPage::where('alias','map')->first()->title ?? ''}}
                             </a>
                             
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','committees') }}">
-                                <i class="fas fa-users"></i> @lang('Οργανωτική και Επιστημονική Επιτροπή')
+                                <i class="fas fa-users"></i> {{App\ContentPage::where('alias','committees')->first()->title ?? ''}}
                             </a>
 
                             <a class="dropdown-item" href="{{"/storage/".App\Fullpaper::find(13)->getMedia('finaltext')->first()->id."/".rawurlencode(App\Fullpaper::find(13)->getMedia('finaltext')->first()->file_name)}}">
@@ -83,26 +83,30 @@
                                 <i class="far fa-file-alt"></i> @lang('Έντυπο Πρόγραμμα Εργαστηρίων')
                             </a>
 
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','call-for-papers') }}">
+                                <i class="fas fa-bullhorn"></i> {{App\ContentPage::where('alias','call-for-papers')->first()->title ?? ''}}
+                            </a>
+
                             @can('backend_access')
                                 
                             <a class="dropdown-item text-warning" href="{{ route('frontend.pages.show','wifi') }}">
-                                <i class="fas fa-wifi"></i> @lang('Ασύρματη πρόσβαση στο Διαδίκτυο')
+                                <i class="fas fa-wifi"></i> {{App\ContentPage::where('alias','wifi')->first()->title ?? ''}}
                             </a>
 
                             <a class="dropdown-item text-warning" href="{{ route('frontend.pages.show','keynote') }}">
-                                <i class="fas fa-microphone"></i> @lang('Κεντρικές ομιλίες')
+                                <i class="fas fa-microphone"></i> {{App\ContentPage::where('alias','keynote')->first()->title ?? ''}}
                             </a>
 
                             <a class="dropdown-item text-warning" href="{{ route('frontend.pages.show','organizers') }}">
-                                <i class="fas fa-university"></i> @lang('Οργανωτές')
+                                <i class="fas fa-university"></i> {{App\ContentPage::where('alias','organizers')->first()->title ?? ''}}
                             </a>
 
                             <a class="dropdown-item text-warning" href="{{ route('frontend.pages.show','sponsors') }}">
-                                <i class="far fa-flag"></i> @lang('Χορηγοί')
+                                <i class="far fa-flag"></i> {{App\ContentPage::where('alias','sponsors')->first()->title ?? ''}}
                             </a>
 
                             <a class="dropdown-item text-warning" href="{{ route('frontend.pages.show','credits') }}">
-                                <i class="fas fa-wrench"></i> @lang('Συντελεστές')
+                                <i class="fas fa-wrench"></i> {{App\ContentPage::where('alias','credits')->first()->title ?? ''}}
                             </a> 
 
                             @endcan
