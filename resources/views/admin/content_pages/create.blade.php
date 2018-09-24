@@ -10,7 +10,7 @@
         </div>
         
         <div class="panel-body">
-            <div class="row">
+            <div class="col-md-5 {{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('title', trans('quickadmin.content-pages.fields.title').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
@@ -22,7 +22,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-3 {{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('alias', trans('quickadmin.content-pages.fields.alias').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('alias', old('alias'), ['class' => 'form-control', 'placeholder' => 'url slug', 'required' => '']) !!}
@@ -34,7 +34,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-4 {{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('category_id', trans('quickadmin.content-pages.fields.category-id').'*', ['class' => 'control-label']) !!}
                     <button type="button" class="btn btn-primary btn-xs" id="selectbtn-category_id">
