@@ -1,6 +1,7 @@
 <?php
 namespace App;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -47,5 +48,10 @@ class Activitylog extends Model
     {
         $this->attributes['subject_id'] = $input ? $input : null;
     }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'causer_id');
+    }
+    
     
 }

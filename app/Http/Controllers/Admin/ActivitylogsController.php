@@ -27,6 +27,7 @@ class ActivitylogsController extends Controller
         
         if (request()->ajax()) {
             $query = Activitylog::query();
+            $query->with('user');
             $template = 'actionsTemplate';
             
             $query->select([
@@ -62,12 +63,8 @@ class ActivitylogsController extends Controller
             $table->editColumn('causer_type', function ($row) {
                 return $row->causer_type ? $row->causer_type : '';
             });
-            $table->editColumn('causer_id', function ($row) {
-                if($row->causer_type == 'App\User' && \App\User::find($row->causer_id)){
-                    return \App\User::find($row->causer_id)->name;
-                }else{
-                    return $row->causer_id;
-                }
+            $table->editColumn('user.name', function ($row) {
+                return $row->user ? $row->user->name : '';
             });
             $table->editColumn('description', function ($row) {
                 return $row->description ? $row->description : '';

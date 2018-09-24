@@ -52,7 +52,7 @@
                     {data: 'massDelete', name: 'id', searchable: false, sortable: false},
                 @endcan
                 {data: 'created_at', name: 'created_at'},
-                {data: 'causer_id', name: 'causer_id'},
+                {data: 'user.name', name: 'user.name'},
                 {data: 'description', name: 'description'},
                 {data: 'subject_type', name: 'subject_type'},
                 {data: 'subject_id', name: 'subject_id'},
