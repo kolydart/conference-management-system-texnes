@@ -35,13 +35,13 @@ $(document).ready(function () {
                     columns: ':visible'
                 }
             },
-            {
-                extend: 'pdf',
-                text: window.pdfButtonTrans,
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
+            // {
+            //     extend: 'pdf',
+            //     text: window.pdfButtonTrans,
+            //     exportOptions: {
+            //         columns: ':visible'
+            //     }
+            // },
             {
                 extend: 'print',
                 text: window.printButtonTrans,
