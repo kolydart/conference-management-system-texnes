@@ -64,7 +64,7 @@
                         <div class="dropdown-menu">
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','faq') }}">
-                                <i class="far fa-question-circle"></i> @lang('Συχνές Ερωτήσεις')
+                                <i class="far fa-question-circle"></i> @lang('Παρακολούθηση - Εγγραφές')
                             </a>
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','map') }}">
