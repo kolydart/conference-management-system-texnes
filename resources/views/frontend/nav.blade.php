@@ -87,6 +87,10 @@
                                 <i class="fas fa-bullhorn"></i> {{App\ContentPage::where('alias','call-for-papers')->first()->title ?? ''}}
                             </a>
 
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','sponsors') }}">
+                                <i class="far fa-flag"></i> {{App\ContentPage::where('alias','sponsors')->first()->title ?? ''}}
+                            </a>
+
                             @can('backend_access')
                                 
                             <a class="dropdown-item text-warning" href="{{ route('frontend.pages.show','wifi') }}">
@@ -99,10 +103,6 @@
 
                             <a class="dropdown-item text-warning" href="{{ route('frontend.pages.show','organizers') }}">
                                 <i class="fas fa-university"></i> {{App\ContentPage::where('alias','organizers')->first()->title ?? ''}}
-                            </a>
-
-                            <a class="dropdown-item text-warning" href="{{ route('frontend.pages.show','sponsors') }}">
-                                <i class="far fa-flag"></i> {{App\ContentPage::where('alias','sponsors')->first()->title ?? ''}}
                             </a>
 
                             <a class="dropdown-item text-warning" href="{{ route('frontend.pages.show','credits') }}">

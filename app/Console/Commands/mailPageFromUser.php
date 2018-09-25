@@ -44,7 +44,7 @@ class mailPageFromUser extends Command
     public function handle()
     {
 
-        $users = User::where('id','>=','356')->get();
+        $users = User::where('id','>=','469')->get();
 
 
         $i = 1;
@@ -99,7 +99,7 @@ class mailPageFromUser extends Command
                 // Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error());
                 Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.");
             }
-        sleep(30);
+        // sleep(30);
 
             // if( $i % 10 == 0 ){
                 // $this->info('pausing');
