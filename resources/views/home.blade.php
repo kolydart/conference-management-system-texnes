@@ -45,17 +45,17 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Όλα</th>
-                            <th>>1 Ακροατές</th>
-                            <th>0 Ακροατές</th>
+                            {{-- <th>Όλα</th> --}}
+                            {{-- <th>>1 Ακροατές</th> --}}
+                            {{-- <th>0 Ακροατές</th> --}}
                             <th>Μέση πληρότητα</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{{App\Paper::accepted()->whereRaw('`type` LIKE "Εργαστήριο%"')->count()}}</td>
+                            {{-- <td>{{App\Paper::accepted()->whereRaw('`type` LIKE "Εργαστήριο%"')->count()}}</td>
                             <td>{{App\Paper::accepted()->whereHas('attend')->count()}}</td>
-                            <td>{{App\Paper::accepted()->whereRaw('`type` LIKE "Εργαστήριο%"')->whereDoesnthave('attend')->count()}}</td>
+                            <td>{{App\Paper::accepted()->whereRaw('`type` LIKE "Εργαστήριο%"')->whereDoesnthave('attend')->count()}}</td> --}}
                             <td>{{round(DB::table('attend')->count()/App\Paper::accepted()->whereRaw('`type` LIKE "Εργαστήριο%"')->where('capacity','<=',51)->pluck('capacity')->sum()*100,2)}}%</td>
                         </tr>
                     </tbody>
