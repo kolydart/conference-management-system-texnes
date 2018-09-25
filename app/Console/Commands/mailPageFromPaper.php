@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\ContentPage;
 use App\Message;
 use App\Paper;
+use App\User;
 use Illuminate\Console\Command;
 use gateweb\common\Mailer;
 use gateweb\common\Presenter;
@@ -42,6 +43,8 @@ class mailPageFromPaper extends Command
      */
     public function handle()
     {
+        $papers = Paper::accepted()->whereNotIn('email',User::pluck('email'))->get();
+
         $i = 1;
         /**
          * prepare message
@@ -51,7 +54,6 @@ class mailPageFromPaper extends Command
         /**
          * foreach
          */
-        $papers = Paper::accepted()->get();
         foreach ($papers as $paper) {
 
             $this->info("## paper $paper->id. ".$i++."/".count($papers).":");
@@ -92,8 +94,13 @@ class mailPageFromPaper extends Command
                     'paper_id' => $paper->id,
                 ]);
             }else{
-                $this->info("ERROR: could not send message to user $user->id");
+                $this->error("ERROR: could not send message to user $user->id");
                 Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error());
+            }
+            
+            if( $i % 50 == 0 ){
+                $this->info('pausing for 30"');
+                sleep(30);
             }
         }
 

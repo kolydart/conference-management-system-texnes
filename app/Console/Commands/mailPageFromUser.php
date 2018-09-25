@@ -44,7 +44,7 @@ class mailPageFromUser extends Command
     public function handle()
     {
 
-        $users = User::where('id',1)->get();
+        $users = User::where('id','>=','356')->get();
 
 
         $i = 1;
@@ -58,7 +58,7 @@ class mailPageFromUser extends Command
          */
         foreach ($users as $user) {
 
-            $this->info("## user $user->id. ".$i++."/".count($users).":");
+            $this->comment("## user $user->id. ".$i++."/".count($users).":");
 
             /**
              * prepare data
@@ -95,9 +95,17 @@ class mailPageFromUser extends Command
                     'body' => $body,
                 ]);
             }else{
-                $this->info("ERROR: could not send message to user $user->id");
-                Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error());
+                $this->error("ERROR: could not send message to user $user->id. ");
+                // Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error());
+                Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.");
             }
+        sleep(30);
+
+            // if( $i % 10 == 0 ){
+                // $this->info('pausing');
+                // sleep(10);
+            // }
+
         }
 
 

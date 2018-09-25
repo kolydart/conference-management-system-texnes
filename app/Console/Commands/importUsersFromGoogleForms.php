@@ -124,7 +124,7 @@ class importUsersFromGoogleForms extends Command
                     'body' => $message,
                 ]);                
             }else{
-                $this->info("ERROR: could not send message to user $user->id");
+                $this->error("ERROR: could not send message to user $user->id");
                 Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error());
             }
         }
