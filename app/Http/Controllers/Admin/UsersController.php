@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Frontend\AttendsController;
 use App\Http\Requests\Admin\StoreUsersRequest;
 use App\Http\Requests\Admin\UpdateUsersRequest;
 use App\User;
@@ -184,7 +185,8 @@ class UsersController extends Controller
 
         $user = User::findOrFail($id);
         $attends = $user->attend()->get();
-
+        AttendsController::checkForConcurrentSessions($attends);
+        
         return view('admin.users.show', compact('user', 'reviews', 'user_actions', 'loguseragents', 'papers', 'attends'));
     }
 

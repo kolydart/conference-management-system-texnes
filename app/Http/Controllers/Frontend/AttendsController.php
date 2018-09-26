@@ -25,7 +25,7 @@ class AttendsController extends Controller
      */
 	public function index(){
 		$papers = User::findOrFail(Auth::id())->attend()->accepted()->filtered()->get();
-        $this->checkForConcurrentSessions($papers);
+        self::checkForConcurrentSessions($papers);
 		return view('frontend.attends.index',compact('papers'));
 	}
 
@@ -83,7 +83,7 @@ class AttendsController extends Controller
      * @param  eloquent $papers for this.show()
      * @return void (message)
      */
-    protected function checkForConcurrentSessions($papers){
+    public static function checkForConcurrentSessions($papers){
         $unique = true;
         $array = [];
         foreach ($papers as $paper) {
