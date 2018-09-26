@@ -8,6 +8,7 @@ use App\User;
 use Auth;
 use Gate;
 use Illuminate\Http\Request;
+use gateweb\common\DateTime;
 use gateweb\common\Presenter;
 use gateweb\common\Router;
 
@@ -24,6 +25,7 @@ class AttendsController extends Controller
      */
 	public function index(){
 		$papers = User::findOrFail(Auth::id())->attend()->accepted()->filtered()->get();
+        $this->checkForConcurrentSessions($papers);
 		return view('frontend.attends.index',compact('papers'));
 	}
 
@@ -75,4 +77,35 @@ class AttendsController extends Controller
 
         return back();
     }
+
+    /**
+     * check For Concurrent Sessions
+     * @param  eloquent $papers for this.show()
+     * @return void (message)
+     */
+    protected function checkForConcurrentSessions($papers){
+        $unique = true;
+        $array = [];
+        foreach ($papers as $paper) {
+            $array[$paper->id]=$paper->session->start;
+        }
+
+        $unique = array_unique($array);
+        $duplicates = array_diff_assoc($array, $unique);
+
+        if(count($duplicates)){
+            $unique = false;
+            $message = "Παρακαλούμε βεβαιωθείτε ότι τα εργαστήρια που επιλέξατε, πραγματοποιούνται διαφορετικές ώρες.<br>Κάποια εργαστήρια, φαίνεται πως περιλαμβάνονται σε συνεδρίες που ξεκινούν την ίδια ώρα:<br>";
+            foreach ($duplicates as $id => $date) {
+                $message .= (new DateTime($date))->format('l, d M, H:i')."<br>";
+            }
+        }
+
+        if($unique === false){
+            Presenter::message($message,'warning');
+        }
+    }
+    
+
+
 }
