@@ -41,7 +41,7 @@
             </div><!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     
-<li role="presentation" class="active"><a href="#attend" aria-controls="reviews" role="tab" data-toggle="tab">Δηλώσεις για εργαστήρια</a></li>
+<li role="presentation" class="active"><a href="#attend" aria-controls="attend" role="tab" data-toggle="tab">Δηλώσεις για εργαστήρια</a></li>
 <li role="presentation" class=""><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Κρίσεις</a></li>
 <li role="presentation" class=""><a href="#user_actions" aria-controls="user_actions" role="tab" data-toggle="tab">Ενέργειες χρηστών</a></li>
 <li role="presentation" class=""><a href="#loguseragent" aria-controls="loguseragent" role="tab" data-toggle="tab">Loguseragent</a></li>
@@ -59,6 +59,7 @@
             <th>@lang('quickadmin.papers.fields.art')</th>
             <th>@lang('quickadmin.papers.fields.type')</th>
             <th>@lang('quickadmin.papers.fields.duration')</th>
+            <th>@lang('Date')</th>
             <th>@lang('quickadmin.papers.fields.session')</th>
             <th>@lang('quickadmin.papers.fields.name')</th>
             <th>@lang('quickadmin.papers.fields.attribute')</th>
@@ -86,7 +87,8 @@
                         </td>
                         <td field-key='type'>{{ $attend->type }}</td>
                         <td field-key='duration'>{{ $attend->duration }}</td>
-                        <td field-key='session'>{{ $attend->session->title or '' }}</td>
+                        <td field-key='date'>{{ (new gateweb\common\DateTime($attend->session->start))->format('D, d M') }}</td>
+                        <td field-key='session'><a href="{{route('admin.sessions.show',$attend->session->id)}}">{{ $attend->session->title }}</a> <span class="text-secondary text-muted">[ <i class="fa fa-clock"></i> {{(new gateweb\common\DateTime($attend->session->start))->format('H:i')}}]</span></td>
                         <td field-key='name'>{{ $attend->name }}</td>
                         <td field-key='attribute'>{{ $attend->attribute }}</td>
                         <td field-key='status'>{{ $attend->status }}</td>
