@@ -24,6 +24,7 @@ $this->post('register', 'Auth\RegisterController@register')->name('auth.register
 Route::group(['middleware' => ['backend','auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/home', ['uses' => 'HomeController@index', 'as' => 'home']);
     Route::get('/reports/fullpaper-uploads', 'Admin\ReportsController@fullpaperUploads');
+    Route::get('/reports/user-registrations', 'Admin\ReportsController@userRegistrations');
 
     Route::get('/calendar', 'Admin\SystemCalendarController@index'); 
   

@@ -200,6 +200,11 @@
                             <i class="fa fa-line-chart"></i>
                             <span class="title">fullpaper uploads</span>
                         </a>
+                    </li>   <li class="{{ $request->is('/reports/user-registrations') }}">
+                        <a href="{{ url('/admin/reports/user-registrations') }}">
+                            <i class="fa fa-line-chart"></i>
+                            <span class="title">User registrations</span>
+                        </a>
                     </li>
                 </ul>
             </li>
