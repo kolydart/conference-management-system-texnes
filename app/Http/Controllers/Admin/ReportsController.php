@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Fullpaper;
 use App\User;
 use Carbon\Carbon; 
+use App\Activitylog;
 
 class ReportsController extends Controller
 {
