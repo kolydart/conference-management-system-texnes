@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading mb-4 badge badge-primary">@lang('quickadmin.qa_register')</div>
+                    <div class="panel-heading mb-4 text-muted ">@lang('quickadmin.qa_register')</div>
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                             {{ csrf_field() }}

@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="panel panel-default">
-            <div class="panel-heading badge badge-primary mb-3">@lang('quickadmin.qa_login')</div>
+            <div class="panel-heading text-muted mb-3">@lang('quickadmin.qa_login')</div>
             <div class="panel-body">
                 @if (count($errors) > 0)
                 <div class="alert alert-danger">
