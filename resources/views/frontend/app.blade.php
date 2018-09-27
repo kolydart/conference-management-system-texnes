@@ -12,8 +12,8 @@
     <meta property="og:description" content="Συνέδριο 11, 12, 13 Οκτωβρίου 2018, Φιλοσοφική Σχολή. Κύριος σκοπός του συνεδρίου είναι η ανάδειξη της κρίσιμης θέσης των τεχνών στον σχεδιασμό της εκπαιδευτικής πολιτικής για το μελλοντικό σχολείο και η παραγωγή εκπαιδευτικού υλικού." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://texnes-ellinikosxoleio.uoa.gr/" />
-    <meta property="og:image" content="http://texnes-ellinikosxoleio.uoa.gr/uploads/1538045453-Poster-Conference-2018-final1.jpg"/>
-    <meta property="og:image:secure_url" content="https://texnes-ellinikosxoleio.uoa.gr/uploads/1538045453-Poster-Conference-2018-final1.jpg" 
+    <meta property="og:image" content="http://texnes-ellinikosxoleio.uoa.gr/uploads/1538045453-Poster-Conference-2018-final1.jpg" />
+    <meta property="og:image:secure_url" content="https://texnes-ellinikosxoleio.uoa.gr/uploads/1538045453-Poster-Conference-2018-final1.jpg" />
 
     <link rel="stylesheet"
           href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"/>
