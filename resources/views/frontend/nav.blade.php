@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
+<nav class="navbar navbar-expand-sm navbar-light bg-light" id="gw-nav">
         <div class="container">
             {{-- <a class="navbar-brand" href="/"></a> --}}
 

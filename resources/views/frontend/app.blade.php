@@ -13,7 +13,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://texnes-ellinikosxoleio.uoa.gr/" />
     {{-- <meta property="og:image" content="http://texnes-ellinikosxoleio.uoa.gr/uploads/1538045453-Poster-Conference-2018-final1.jpg" /> --}}
-    <meta property="og:image:secure_url" content="https://texnes-ellinikosxoleio.uoa.gr/uploads/1538045453-Poster-Conference-2018-final1.jpg" />
+    <meta property="og:image" content="https://texnes-ellinikosxoleio.uoa.gr/uploads/1538123548-Poster-Conference-2018-final.jpg" />
 
     <link rel="stylesheet"
           href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"/>
@@ -50,12 +50,12 @@
     @include('frontend.nav')
 
 
-    <main role="main" class="container" id="app">
+    <main role="main" class="container pb-5 pt-3" id="app">
         @include('layouts.messages')
         @yield('content')
 
     </main>
-    <div class="footer mt-5 text-right pt-2">
+    <div class="footer text-right" id="gw-footer">
         {!!(new gateweb\common\router\SocialMedia())->link_share_all(5,2)!!}
     </div>
 
@@ -107,6 +107,8 @@
     </script>
 
     @yield('javascript')
+
+    <script src="/js/custom.js"></script>
 
   </body>
 </html>
