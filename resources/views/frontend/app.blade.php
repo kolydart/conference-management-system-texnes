@@ -53,7 +53,11 @@
     <main role="main" class="container" id="app">
         @include('layouts.messages')
         @yield('content')
+
     </main>
+    <div class="footer mt-5 text-right pt-2">
+        {!!(new gateweb\common\router\SocialMedia())->link_share_all(5,2)!!}
+    </div>
 
 
     {!! Form::open(['route' => 'auth.logout', 'style' => 'display:none;', 'id' => 'logout']) !!}
@@ -84,23 +88,23 @@
     <script src="{{ url('adminlte/plugins/fastclick/fastclick.js') }}"></script>
     {{-- <script src="{{ url('adminlte/js/app.min.js') }}"></script> --}}
 
-<script>
-    window.deleteButtonTrans = '{{ trans("quickadmin.qa_delete_selected") }}';
-    window.copyButtonTrans = '{{ trans("quickadmin.qa_copy") }}';
-    window.csvButtonTrans = '{{ trans("quickadmin.qa_csv") }}';
-    window.excelButtonTrans = '{{ trans("quickadmin.qa_excel") }}';
-    window.pdfButtonTrans = '{{ trans("quickadmin.qa_pdf") }}';
-    window.printButtonTrans = '{{ trans("quickadmin.qa_print") }}';
-    window.colvisButtonTrans = '{{ trans("quickadmin.qa_colvis") }}';
-</script>
+    <script>
+        window.deleteButtonTrans = '{{ trans("quickadmin.qa_delete_selected") }}';
+        window.copyButtonTrans = '{{ trans("quickadmin.qa_copy") }}';
+        window.csvButtonTrans = '{{ trans("quickadmin.qa_csv") }}';
+        window.excelButtonTrans = '{{ trans("quickadmin.qa_excel") }}';
+        window.pdfButtonTrans = '{{ trans("quickadmin.qa_pdf") }}';
+        window.printButtonTrans = '{{ trans("quickadmin.qa_print") }}';
+        window.colvisButtonTrans = '{{ trans("quickadmin.qa_colvis") }}';
+    </script>
 
-<script>
-    $.extend(true, $.fn.dataTable.defaults, {
-        "language": {
-            "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Greek.json"
-        }
-    });
-</script>
+    <script>
+        $.extend(true, $.fn.dataTable.defaults, {
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Greek.json"
+            }
+        });
+    </script>
 
     @yield('javascript')
 
