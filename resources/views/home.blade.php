@@ -93,6 +93,45 @@
         </div>
     </div>
 
+    {{-- Empty abstracts --}}
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Προτάσεις χωρίς περίληψη: <b> {{App\Paper::whereNull('abstract')->orWhere('abstract','')->accepted()->count()}}</b>
+            </div>
+            <div class="panel-body table-responsive">
+                <table class="table table-bordered table-striped ajaxTable">
+                    {{-- <thead>
+                        <tr>
+                            <td>
+                                @lang('Όνομα')
+                            </td>
+                            <td>
+                                @lang('quickadmin.papers.fields.title')
+                            </td>
+                            <td>
+                                @lang('Περίληψη')
+                            </td>
+                        </tr>
+                    </thead> --}}
+                    @foreach(App\Paper::whereNull('abstract')->orWhere('abstract','')->accepted()->get() as $paper)
+                    <tr>
+                        <td>
+                            {{$paper->name}}
+                        </td>
+                        <td>
+                            <a href="{{route('admin.papers.show',$paper->id)}}">{{$paper->title}}</a>
+                        </td>
+                        <td>
+                            {{$paper->type}}
+                        </td>
+                    </tr>
+                    @endforeach
+                </table>
+            </div>
+        </div>
+    </div>
+
     {{-- Recently created attends --}}
     <div class="col-md-6">
         <div class="panel panel-default">
