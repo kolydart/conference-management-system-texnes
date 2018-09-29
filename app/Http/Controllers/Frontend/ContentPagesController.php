@@ -21,9 +21,14 @@ class ContentPagesController extends Controller
     {
         
         $page = ContentPage::where('alias', $alias)->firstOrFail();
-        (new LogUserAgent())->snapshot(['item_id'=>$page->id],false);
 
-        return view('frontend.page', compact('page'));
+        /** allow only public category (2) */
+        if (in_array(2, $page->category_id()->pluck('id')->all())){
+            (new LogUserAgent())->snapshot(['item_id'=>$page->id],false);
+            return view('frontend.page', compact('page'));
+        }else{
+            abort(403);
+        }
     }
 
 }
