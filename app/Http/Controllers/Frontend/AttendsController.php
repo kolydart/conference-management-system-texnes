@@ -94,6 +94,7 @@ class AttendsController extends Controller
         $duplicates = array_diff_assoc($array, $unique);
 
         if(count($duplicates)){
+            asort($duplicates);
             $unique = false;
             $message = "Παρακαλούμε βεβαιωθείτε ότι τα εργαστήρια που επιλέξατε, πραγματοποιούνται διαφορετικές ώρες.<br>Κάποια εργαστήρια, φαίνεται πως περιλαμβάνονται σε συνεδρίες που ξεκινούν την ίδια ώρα:<br>";
             foreach ($duplicates as $id => $date) {
