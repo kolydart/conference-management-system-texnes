@@ -56,7 +56,7 @@
                             {{-- <td>{{App\Paper::accepted()->whereRaw('`type` LIKE "Εργαστήριο%"')->count()}}</td>
                             <td>{{App\Paper::accepted()->whereHas('attend')->count()}}</td>
                             <td>{{App\Paper::accepted()->whereRaw('`type` LIKE "Εργαστήριο%"')->whereDoesnthave('attend')->count()}}</td> --}}
-                            <td>{{round(DB::table('attend')->count()/App\Paper::accepted()->whereRaw('`type` LIKE "Εργαστήριο%"')->where('capacity','<=',51)->pluck('capacity')->sum()*100,2)}}%</td>
+                            <td>{{round(DB::table('attend')->count()/App\Paper::accepted()->whereRaw('`type` LIKE "Εργαστήριο%"')->pluck('capacity')->sum()*100,2)}}%</td>
                         </tr>
                     </tbody>
                 </table>
