@@ -41,6 +41,7 @@
                         <th>@lang('Προτάσεις')</th>
                         <th>@lang('Κενό-Πλεόνασμα')</th>
                         <th>@lang('Τύπος(χρώμα)')</th>
+                        <th>@lang('quickadmin.sessions.fields.chair')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -65,6 +66,7 @@
                                 <td field-key='papers'>{{ $session->papers->count() }}</td>
                                 <td field-key='remains'>{{ $session->papers->pluck('duration')->sum() - (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
                                 <td field-key='color'>{{ $session->color->title or ''}}</td>
+                                <td field-key='chair'>{{ $session->chair or ''}}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('session_delete')
