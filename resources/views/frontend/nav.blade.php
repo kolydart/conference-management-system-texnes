@@ -111,6 +111,10 @@
 
                             @endcan
 
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','trailer') }}">
+                                <i class="fas fa-film"></i> {{App\ContentPage::where('alias','trailer')->first()->title ?? ''}}
+                            </a>
+
                             <a class="dropdown-item" href="{{ route('frontend.contact') }}">
                                 <i class="fa fa-envelope"></i> @lang('Επικοινωνία')
                             </a>
