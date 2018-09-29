@@ -126,8 +126,8 @@
 <table class="table table-bordered table-striped {{ count($attendees) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
+            <th>@lang('id')</th>
             <th>@lang('Όνομα')</th>
-            <th>@lang('Email')</th>
             <th>@lang('Ιδιότητα')</th>
             <th>@lang('Ρόλος')</th>
             <th>@lang('Δηλώσεις')</th>
@@ -139,8 +139,8 @@
             @foreach ($attendees as $attendee)
 
                 <tr data-entry-id="{{ $attendee->id }}">
-                    <td field-key='name'>{{ $attendee->name or '' }}</td>
-                    <td field-key='email'>{{ $attendee->email or '' }}</td>
+                    <td field-key='id'>{{ $attendee->id or '' }}</td>
+                    <td field-key='name'><a href="{{route('admin.users.show',$attendee->id)}}">{{ $attendee->name or '' }}</a></td>
                     <td field-key='attribute'>{{ $attendee->attribute or '' }}</td>
                     <td field-key='role'>{{ $attendee->role->title or '' }}</td>
                     <td field-key='count'>{{ $attendee->attend()->count() }}</td>

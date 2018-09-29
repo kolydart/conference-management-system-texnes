@@ -163,7 +163,7 @@ class PapersController extends Controller
 $fullpapers = \App\Fullpaper::where('paper_id', $id)->get();$reviews = \App\Review::where('paper_id', $id)->get();$messages = \App\Message::where('paper_id', $id)->get();
 
         $paper = Paper::findOrFail($id);
-        $attendees = $paper->attend()->get();
+        $attendees = $paper->attend()->orderBy('name')->get();
 
         return view('admin.papers.show', compact('paper', 'fullpapers', 'reviews', 'messages', 'attendees'));
     }
