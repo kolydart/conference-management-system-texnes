@@ -24,6 +24,10 @@
                             <th>@lang('quickadmin.rooms.fields.type')</th>
                             <td field-key='type'>{{ $room->type }}</td>
                         </tr>
+                        <tr>
+                            <th>@lang('quickadmin.rooms.fields.wifi')</th>
+                            <td field-key='type'>{{ $room->wifi }}</td>
+                        </tr>
                     </table>
                 </div>
             </div>

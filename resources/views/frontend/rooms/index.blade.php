@@ -15,6 +15,7 @@
                     <tr>
                         <th>@lang('quickadmin.rooms.fields.title')</th>
                         <th>@lang('quickadmin.rooms.fields.type')</th>
+                        <th>@lang('quickadmin.rooms.fields.wifi')</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -26,6 +27,7 @@
 
                                 <td field-key='title'>{{ $room->title }}</td>
                                 <td field-key='type'>{{ $room->type }}</td>
+                                <td field-key='wifi'>{{ $room->wifi }}</td>
                                 <td> <a href="{{ route('frontend.rooms.show',[$room->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a> </td>
                             </tr>
                         @endforeach
