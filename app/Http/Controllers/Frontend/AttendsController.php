@@ -79,34 +79,64 @@ class AttendsController extends Controller
     }
 
     /**
-     * check For Concurrent Sessions
-     * @param  eloquent $papers for this.show()
+     * notify user For Concurrent Sessions
+     * @param  eloquent $papers
      * @return void (message)
      */
     public static function checkForConcurrentSessions($papers){
-        $unique = true;
-        $array = [];
-        foreach ($papers as $paper) {
-            $array[$paper->id]=$paper->session->start;
-        }
 
-        $unique = array_unique($array);
-        $duplicates = array_diff_assoc($array, $unique);
+        $duplicates = self::concurrent($papers);
 
-        if(count($duplicates)){
+        if($duplicates){
             asort($duplicates);
-            $unique = false;
             $message = "Παρακαλούμε βεβαιωθείτε ότι τα εργαστήρια που επιλέξατε, πραγματοποιούνται διαφορετικές ώρες.<br>Κάποια εργαστήρια, φαίνεται πως περιλαμβάνονται σε συνεδρίες που ξεκινούν την ίδια ώρα:<br>";
             foreach ($duplicates as $id => $date) {
-                $message .= (new DateTime($date))->format('l, d M, H:i')."<br>";
+                $p=Paper::findOrFail($id);
+                $message .= "<a href=\"".route('frontend.papers.show',$id)."\">$p->title</a> (στη συνεδρία ".$p->session->title." που ξεκινά στις ".(new DateTime($p->session->start))->format('d M, H:i').")<br>";
             }
-        }
-
-        if($unique === false){
             Presenter::message($message,'warning');
         }
+
     }
     
 
+    /**
+     * check papers in concurrent Sessions
+     * @param  collection $papers
+     * @return array['id'=>'date']|false duplicate papers
+     */
+    public static function concurrent($papers){
+        /** array to return */
+        $duplicates = [];
+
+        /**
+         * create $eloquent (collection)
+         * @var array
+         */
+        $eloquent = [];
+        foreach ($papers as $paper) {
+            $eloquent[] = [
+                'id'=>$paper->id, 
+                'session' => $paper->session_id, 
+                'date' => $paper->session->start
+            ];
+        }
+        $collection = collect($eloquent);
+
+        /**
+         * find duplicates
+         * @var duplicates
+         */
+        foreach ($collection->groupBy('date') as $group){
+            /** has duplicates AND session->count() > 1 */
+            if($group->count() > 1 && $group->groupBy('session')->count() > 1 ){
+                foreach ($group as $item) {
+                    $duplicates[$item['id']] = $item['date'];
+                }
+            }
+        }
+
+        return count($duplicates)? $duplicates : false;
+    }
 
 }

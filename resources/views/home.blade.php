@@ -93,6 +93,30 @@
         </div>
     </div>
 
+    {{-- Ακροατές με εργαστήρια που ξεκινούν την ίδια ώρα --}}
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Διπλοεγγεγραμμένοι (Ακροατές με εργαστήρια που ξεκινούν την ίδια ώρα)
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <tbody>
+                        @foreach (App\User::has('attend')->get() as $user)
+                            @if (App\Http\Controllers\Frontend\AttendsController::concurrent($user->attend))
+                            <tr>
+                                <td><a href="{{route('admin.users.show',$user->id)}}">{{$user->name}}</a></td>
+                                <td>{{$user->attribute}}</td>
+                                <td>{{count(App\Http\Controllers\Frontend\AttendsController::concurrent($user->attend))}}</td>
+                            </tr>
+                            @endif
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
     {{-- Empty abstracts --}}
     <div class="col-md-6">
         <div class="panel panel-default">
