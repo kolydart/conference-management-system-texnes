@@ -111,6 +111,12 @@
                     </div>
                     <div>
                         <label>
+                            {!! Form::radio('attribute', 'Εκπαιδευτικός ΠΕ 01', false, ['required' => '']) !!}
+                            Εκπαιδευτικός ΠΕ 01
+                        </label>
+                    </div>
+                    <div>
+                        <label>
                             {!! Form::radio('attribute', 'Εκπαιδευτικός ΠΕ 86', false, ['required' => '']) !!}
                             Εκπαιδευτικός ΠΕ 86
                         </label>
