@@ -75,7 +75,7 @@ class mailPageFromUser extends Command
                 $email = $user->email;
             }
             $subject = $message->title;
-            $body = "<p>Προς: $name</p><p>Email: $email</p>";
+            $body = "<p>Προς: $name<br>Email: $email</p>";
             $body .= $message->page_text;
 
             /**
