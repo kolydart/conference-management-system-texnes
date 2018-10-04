@@ -105,10 +105,6 @@
                                 <i class="fas fa-university"></i> {{App\ContentPage::where('alias','organizers')->first()->title ?? ''}}
                             </a>
 
-                            <a class="dropdown-item text-warning" href="{{ route('frontend.pages.show','credits') }}">
-                                <i class="fas fa-wrench"></i> {{App\ContentPage::where('alias','credits')->first()->title ?? ''}}
-                            </a> 
-
                             @endcan
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','trailer') }}">
@@ -118,6 +114,10 @@
                             <a class="dropdown-item" href="{{ route('frontend.contact') }}">
                                 <i class="fa fa-envelope"></i> @lang('Επικοινωνία')
                             </a>
+
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','credits') }}">
+                                <i class="fas fa-wrench"></i> {{App\ContentPage::where('alias','credits')->first()->title ?? ''}}
+                            </a> 
 
                         </div>
                         
