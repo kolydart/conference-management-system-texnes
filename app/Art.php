@@ -25,13 +25,6 @@ class Art extends Model
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Art::observe(new \App\Observers\UserActionsObserver);
-    }
-
     public function papers()
     {
         if(request('show_deleted') == 1)

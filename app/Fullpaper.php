@@ -27,12 +27,6 @@ class Fullpaper extends Model implements HasMedia
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Fullpaper::observe(new \App\Observers\UserActionsObserver);
-    }
 
     /**
      * Set to null if empty

@@ -25,13 +25,6 @@ class Color extends Model
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Color::observe(new \App\Observers\UserActionsObserver);
-    }
-
     public function sessions(){
         if(request('show_deleted') == 1)
             return $this->hasMany(Session::class, 'color_id')->withTrashed();

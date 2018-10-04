@@ -28,12 +28,6 @@ class Room extends Model
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Room::observe(new \App\Observers\UserActionsObserver);
-    }
 
     /**
      * Set attribute to money format

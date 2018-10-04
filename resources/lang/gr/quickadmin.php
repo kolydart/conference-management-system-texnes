@@ -7,7 +7,7 @@ return [
 		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'session' => 'Συνεδρία',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'phone' => 'Τηλέφωνο',			'document' => 'Αρχείο(α) πρότασης',			'abstract' => 'Περίληψη',			'bio' => 'Βιογραφικό Σημείωμα',			'assign' => 'Ανάθεση',			'status' => 'Status',			'informed' => 'Informed',			'order' => 'Order',			'capacity' => 'Μέγιστος αριθμός συμμετεχόντων',		],	],
 		'reviews' => [		'title' => 'Κρίσεις',		'fields' => [			'user' => 'User',			'paper' => 'Paper',			'review' => 'Review',			'comment' => 'Comment',		],	],
 		'arts' => [		'title' => 'Τέχνες',		'fields' => [			'title' => 'Τίτλος',		],	],
-		'user-actions' => [		'title' => 'Ενέργειες χρηστών',		'created_at' => 'Ώρα',		'fields' => [			'user' => 'Χρήστης',			'action' => 'Ενέργεια',			'action-model' => 'Action model',			'action-id' => 'Action id',		],	],
+		'user-actions' => [		'title' => 'Ενέργειες χρηστών',		'created_at' => 'Ώρα',		'fields' => [		],	],
 		'contact-management' => [		'title' => 'Contact management',		'fields' => [		],	],
 		'contact-companies' => [		'title' => 'Companies',		'fields' => [		],	],
 		'contacts' => [		'title' => 'Επαφές',		'fields' => [		],	],

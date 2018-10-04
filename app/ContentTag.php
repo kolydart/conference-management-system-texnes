@@ -22,11 +22,5 @@ class ContentTag extends Model
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        ContentTag::observe(new \App\Observers\UserActionsObserver);
-    }
     
 }

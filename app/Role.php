@@ -22,13 +22,6 @@ class Role extends Model
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Role::observe(new \App\Observers\UserActionsObserver);
-    }
-
     public function users()
     {
         return $this->hasMany(User::class, 'role_id');

@@ -46,12 +46,6 @@ class Paper extends Model implements HasMedia
     use SearchableTrait;
     public $searchable = ['type'];
 
-    public static function boot()
-    {
-        parent::boot();
-
-        Paper::observe(new \App\Observers\UserActionsObserver);
-    }
 
     /**
      * Set to null if empty

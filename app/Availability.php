@@ -27,12 +27,6 @@ class Availability extends Model
     protected static $logOnlyDirty = true;    
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Availability::observe(new \App\Observers\UserActionsObserver);
-    }
 
     /**
      * Set to null if empty

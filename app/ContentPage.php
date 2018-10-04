@@ -25,12 +25,6 @@ class ContentPage extends Model
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        ContentPage::observe(new \App\Observers\UserActionsObserver);
-    }
     
     public function category_id()
     {

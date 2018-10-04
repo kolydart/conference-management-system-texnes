@@ -25,12 +25,6 @@ class Loguseragent extends Model
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Loguseragent::observe(new \App\Observers\UserActionsObserver);
-    }
 
     /**
      * Set attribute to money format
