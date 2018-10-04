@@ -43,7 +43,7 @@ class mailPageFromPaper extends Command
      */
     public function handle()
     {
-        $papers = Paper::accepted()->whereNotIn('email',User::pluck('email'))->get();
+        $papers = Paper::accepted()->lab()->get();
 
         $i = 1;
         /**
@@ -73,7 +73,7 @@ class mailPageFromPaper extends Command
                 $email = $paper->email;
             }
             $subject = $message->title;
-            $body = "<p>Προς: $name</p><p>Email: $email</p>";
+            $body = "<p>Προς: $name<br>Email: $email<br>$paper->type: <i>$paper->title</i><br></p>";
             $body .= $message->page_text;
 
             /**
@@ -96,11 +96,6 @@ class mailPageFromPaper extends Command
             }else{
                 $this->error("ERROR: could not send message to user $user->id");
                 Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error());
-            }
-            
-            if( $i % 50 == 0 ){
-                $this->info('pausing for 30"');
-                sleep(30);
             }
         }
 
