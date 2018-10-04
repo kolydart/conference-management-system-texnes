@@ -19,11 +19,5 @@ class Color extends Model
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Color::observe(new \App\Observers\UserActionsObserver);
-    }
     
 }

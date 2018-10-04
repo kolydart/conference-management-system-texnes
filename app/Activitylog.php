@@ -21,12 +21,6 @@ class Activitylog extends Model
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Activitylog::observe(new \App\Observers\UserActionsObserver);
-    }
 
     /**
      * Set attribute to money format

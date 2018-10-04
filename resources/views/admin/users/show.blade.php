@@ -38,7 +38,6 @@
 <ul class="nav nav-tabs" role="tablist">
     
 <li role="presentation" class="active"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Κρίσεις</a></li>
-<li role="presentation" class=""><a href="#user_actions" aria-controls="user_actions" role="tab" data-toggle="tab">Ενέργειες χρηστών</a></li>
 <li role="presentation" class=""><a href="#loguseragent" aria-controls="loguseragent" role="tab" data-toggle="tab">Loguseragent</a></li>
 <li role="presentation" class=""><a href="#papers" aria-controls="papers" role="tab" data-toggle="tab">Προτάσεις</a></li>
 </ul>
@@ -115,39 +114,6 @@
         @else
             <tr>
                 <td colspan="9">@lang('quickadmin.qa_no_entries_in_table')</td>
-            </tr>
-        @endif
-    </tbody>
-</table>
-</div>
-<div role="tabpanel" class="tab-pane " id="user_actions">
-<table class="table table-bordered table-striped {{ count($user_actions) > 0 ? 'datatable' : '' }}">
-    <thead>
-        <tr>
-            <th>@lang('quickadmin.user-actions.created_at')</th>
-                        <th>@lang('quickadmin.user-actions.fields.user')</th>
-                        <th>@lang('quickadmin.user-actions.fields.action')</th>
-                        <th>@lang('quickadmin.user-actions.fields.action-model')</th>
-                        <th>@lang('quickadmin.user-actions.fields.action-id')</th>
-                        
-        </tr>
-    </thead>
-
-    <tbody>
-        @if (count($user_actions) > 0)
-            @foreach ($user_actions as $user_action)
-                <tr data-entry-id="{{ $user_action->id }}">
-                    <td>{{ $user_action->created_at or '' }}</td>
-                                <td field-key='user'>{{ $user_action->user->name or '' }}</td>
-                                <td field-key='action'>{{ $user_action->action }}</td>
-                                <td field-key='action_model'>{{ $user_action->action_model }}</td>
-                                <td field-key='action_id'>{{ $user_action->action_id }}</td>
-                                
-                </tr>
-            @endforeach
-        @else
-            <tr>
-                <td colspan="7">@lang('quickadmin.qa_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>

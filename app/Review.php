@@ -21,12 +21,6 @@ class Review extends Model
     protected $hidden = [];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        Review::observe(new \App\Observers\UserActionsObserver);
-    }
 
     /**
      * Set to null if empty

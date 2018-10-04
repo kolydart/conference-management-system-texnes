@@ -25,12 +25,6 @@ class User extends Authenticatable
     protected $hidden = ['password', 'remember_token'];
     
     
-    public static function boot()
-    {
-        parent::boot();
-
-        User::observe(new \App\Observers\UserActionsObserver);
-    }
     
     /**
      * Hash password

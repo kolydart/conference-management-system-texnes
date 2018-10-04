@@ -166,14 +166,6 @@
                         </a>
                     </li>@endcan
                     
-                    @can('user_action_access')
-                    <li>
-                        <a href="{{ route('admin.user_actions.index') }}">
-                            <i class="fa fa-th-list"></i>
-                            <span>@lang('quickadmin.user-actions.title')</span>
-                        </a>
-                    </li>@endcan
-                    
                     @can('loguseragent_access')
                     <li>
                         <a href="{{ route('admin.loguseragents.index') }}">
