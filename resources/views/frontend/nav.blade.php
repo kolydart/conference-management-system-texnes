@@ -75,13 +75,11 @@
                                 <i class="fas fa-users"></i> {{App\ContentPage::where('alias','committees')->first()->title ?? ''}}
                             </a>
 
-                            <a class="dropdown-item" href="{{"/storage/".App\Fullpaper::find(13)->getMedia('finaltext')->first()->id."/".rawurlencode(App\Fullpaper::find(13)->getMedia('finaltext')->first()->file_name)}}">
-                                <i class="far fa-file-alt"></i> @lang('Έντυπο Πρόγραμμα Ομιλιών')
-                            </a>
-
-                            <a class="dropdown-item" href="{{"/storage/".App\Fullpaper::find(12)->getMedia('finaltext')->first()->id."/".rawurlencode(App\Fullpaper::find(12)->getMedia('finaltext')->first()->file_name)}}">
-                                <i class="far fa-file-alt"></i> @lang('Έντυπο Πρόγραμμα Εργαστηρίων')
-                            </a>
+                            @if (App\Fullpaper::find(13))
+                                <a class="dropdown-item" href="{{"/storage/".App\Fullpaper::find(13)->getMedia('finaltext')->first()->id."/".rawurlencode(App\Fullpaper::find(13)->getMedia('finaltext')->first()->file_name)}}">
+                                    <i class="far fa-file-alt"></i> @lang('Έντυπο Πρόγραμμα')
+                                </a>
+                            @endif
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','call-for-papers') }}">
                                 <i class="fas fa-bullhorn"></i> {{App\ContentPage::where('alias','call-for-papers')->first()->title ?? ''}}
