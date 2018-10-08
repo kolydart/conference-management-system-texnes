@@ -6,12 +6,15 @@ $(document).ready(function () {
         activeSub.parent().parent().find('.arrow').addClass('open');
         activeSub.parent().parent().addClass('open');
     }
-    window.dtDefaultOptions = {
+    window.dtDefaultOptions = { 
         retrieve: true,
         dom: '<"col-xs-12"i>lfrtipB<"actions">',
-        bLengthChange: false,
         columnDefs: [],
-        "iDisplayLength": 50,
+        
+        "iDisplayLength": 25,
+        lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+        bLengthChange: true,
+
         "aaSorting": [],
         buttons: [
             {
