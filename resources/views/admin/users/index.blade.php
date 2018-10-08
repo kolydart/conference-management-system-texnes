@@ -25,6 +25,7 @@
                             <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
                         @endcan
 
+                        <th>@lang('id')</th>
                         <th>@lang('quickadmin.users.fields.name')</th>
                         <th>@lang('quickadmin.users.fields.email')</th>
                         <th>@lang('quickadmin.users.fields.attribute')</th>
@@ -50,7 +51,9 @@
             window.dtDefaultOptions.ajax = '{!! route('admin.users.index') !!}';
             window.dtDefaultOptions.columns = [@can('user_delete')
                     {data: 'massDelete', name: 'id', searchable: false, sortable: false},
-                @endcan{data: 'name', name: 'name'},
+                @endcan
+                {data: 'id', name: 'id'},
+                {data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},
                 {data: 'attribute', name: 'attribute'},
                 {data: 'role.title', name: 'role.title'},
