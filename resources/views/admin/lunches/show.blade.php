@@ -22,7 +22,7 @@
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.lunch.fields.confirm')</th>
-                            <td field-key='confirm'>{{ Form::checkbox("confirm", 1, $lunch->confirm == 1 ? true : false, ["disabled"]) }}</td>
+                            <td field-key='confirm'>{{ $lunch->confirm }}</td>
                         </tr>
                     </table>
                 </div>

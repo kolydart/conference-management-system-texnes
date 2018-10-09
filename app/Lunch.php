@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @package App
  * @property string $email
  * @property text $menu
- * @property tinyInteger $confirm
+ * @property string $confirm
 */
 class Lunch extends Model
 {

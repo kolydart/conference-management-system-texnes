@@ -38,14 +38,25 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('confirm', trans('quickadmin.lunch.fields.confirm').'', ['class' => 'control-label']) !!}
-                    {!! Form::hidden('confirm', 0) !!}
-                    {!! Form::checkbox('confirm', 1, old('confirm', old('confirm')), []) !!}
                     <p class="help-block"></p>
                     @if($errors->has('confirm'))
                         <p class="help-block">
                             {{ $errors->first('confirm') }}
                         </p>
                     @endif
+                    <div>
+                        <label>
+                            {!! Form::radio('confirm', 'confirmed', false, []) !!}
+                            confirmed
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            {!! Form::radio('confirm', 'cancelled', false, []) !!}
+                            cancelled
+                        </label>
+                    </div>
+                    
                 </div>
             </div>
             
