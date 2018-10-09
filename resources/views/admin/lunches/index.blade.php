@@ -54,7 +54,7 @@
 
                                 <td field-key='email'>{{ $lunch->email }}</td>
                                 <td field-key='menu'>{!! $lunch->menu !!}</td>
-                                <td field-key='confirm'>{{ Form::checkbox("confirm", 1, $lunch->confirm == 1 ? true : false, ["disabled"]) }}</td>
+                                <td field-key='confirm'>{{ $lunch->confirm }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('lunch_delete')
