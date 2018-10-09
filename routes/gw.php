@@ -24,3 +24,14 @@ Route::get('/page/{alias}', 'Frontend\ContentPagesController@show')->name('front
 Route::get('/attend/', 'Frontend\AttendsController@index')->name('frontend.attend.index');
 Route::get('/attend/{paper_id}', 'Frontend\AttendsController@create')->name('frontend.attend.create');
 Route::get('/attend/delete/{paper_id}', 'Frontend\AttendsController@delete')->name('frontend.attend.delete');
+
+Route::get('/lunch/confirm/{lunch_id}', function (\Illuminate\Http\Request $request) {
+    if (! $request->hasValidSignature()) {
+        abort(401);
+    }
+    $lunch = \App\Lunch::findOrFail($request->lunch_id);
+    $lunch->update(['confirm' => 'confirmed']);
+    \gateweb\common\Presenter::message("Η δήλωσή σας για το γεύμα επιβεβαιώθηκε ($lunch->menu)","success");
+    return redirect(route('frontend.home'));
+
+})->name('frontend.lunch.confirm');
