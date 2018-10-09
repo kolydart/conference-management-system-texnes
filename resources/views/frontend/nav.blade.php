@@ -73,31 +73,31 @@
                         <div class="dropdown-menu">
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','faq') }}">
-                                <i class="far fa-question-circle"></i> {{App\ContentPage::where('alias','faq')->first()->title ?? ''}}
+                                <i class="fas fa-feather-alt"></i> {{App\ContentPage::where('alias','faq')->first()->title ?? ''}}
                             </a>
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','map') }}">
                                 <i class="fa fa-map"></i> {{App\ContentPage::where('alias','map')->first()->title ?? ''}}
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','wifi') }}">
+                                <i class="fas fa-wifi"></i> {{App\ContentPage::where('alias','wifi')->first()->title ?? ''}}
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','faq-2') }}">
+                                <i class="far fa-question-circle"></i> {{App\ContentPage::where('alias','faq-2')->first()->title ?? ''}}
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','sponsors') }}">
+                                <i class="far fa-flag"></i> {{App\ContentPage::where('alias','sponsors')->first()->title ?? ''}}
                             </a>
                             
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','committees') }}">
                                 <i class="fas fa-users"></i> {{App\ContentPage::where('alias','committees')->first()->title ?? ''}}
                             </a>
 
-                            <a class="dropdown-item" href="{{ route('frontend.pages.show','call-for-papers') }}">
-                                <i class="fas fa-bullhorn"></i> {{App\ContentPage::where('alias','call-for-papers')->first()->title ?? ''}}
-                            </a>
-
-                            <a class="dropdown-item" href="{{ route('frontend.pages.show','sponsors') }}">
-                                <i class="far fa-flag"></i> {{App\ContentPage::where('alias','sponsors')->first()->title ?? ''}}
-                            </a>
-
                             @can('backend_access')
                                 
-                            <a class="dropdown-item text-warning" href="{{ route('frontend.pages.show','wifi') }}">
-                                <i class="fas fa-wifi"></i> {{App\ContentPage::where('alias','wifi')->first()->title ?? ''}}
-                            </a>
-
                             <a class="dropdown-item text-warning" href="{{ route('frontend.pages.show','keynote') }}">
                                 <i class="fas fa-microphone"></i> {{App\ContentPage::where('alias','keynote')->first()->title ?? ''}}
                             </a>
@@ -114,6 +114,10 @@
 
                             <a class="dropdown-item" href="{{ route('frontend.contact') }}">
                                 <i class="fa fa-envelope"></i> @lang('Επικοινωνία')
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','call-for-papers') }}">
+                                <i class="fas fa-bullhorn"></i> {{App\ContentPage::where('alias','call-for-papers')->first()->title ?? ''}}
                             </a>
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','credits') }}">
