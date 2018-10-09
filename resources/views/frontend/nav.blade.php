@@ -57,6 +57,15 @@
                         </div>
                     </li>
 
+                    @if (App\Fullpaper::find(13))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{"/storage/".App\Fullpaper::find(13)->getMedia('finaltext')->first()->id."/".rawurlencode(App\Fullpaper::find(13)->getMedia('finaltext')->first()->file_name)}}">
+                              <i class="far fa-file-alt"></i> 
+                              <span class="title"> @lang('Έντυπο Πρόγραμμα') </span>
+                            </a>
+                        </li>
+                    @endif
+
                     <li class="nav-item dropdown">
                         <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" >
                             <i class="fas fa-info-circle"></i> @lang('Πληροφορίες')
@@ -74,12 +83,6 @@
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','committees') }}">
                                 <i class="fas fa-users"></i> {{App\ContentPage::where('alias','committees')->first()->title ?? ''}}
                             </a>
-
-                            @if (App\Fullpaper::find(13))
-                                <a class="dropdown-item" href="{{"/storage/".App\Fullpaper::find(13)->getMedia('finaltext')->first()->id."/".rawurlencode(App\Fullpaper::find(13)->getMedia('finaltext')->first()->file_name)}}">
-                                    <i class="far fa-file-alt"></i> @lang('Έντυπο Πρόγραμμα')
-                                </a>
-                            @endif
 
                             <a class="dropdown-item" href="{{ route('frontend.pages.show','call-for-papers') }}">
                                 <i class="fas fa-bullhorn"></i> {{App\ContentPage::where('alias','call-for-papers')->first()->title ?? ''}}
@@ -120,6 +123,8 @@
                         </div>
                         
                     </li>
+
+
 
                 </ul>
 
