@@ -11,7 +11,7 @@
         </div>
 
         <div class="panel-body">
-            <div class="row">
+            <div class="{{-- row --}} col-md-6">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('name', trans('quickadmin.users.fields.name').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
@@ -23,7 +23,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="{{-- row --}} col-md-6">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('email', trans('quickadmin.users.fields.email').'*', ['class' => 'control-label']) !!}
                     {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
@@ -35,7 +35,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="{{-- row --}} col-md-6">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('checkin', trans('quickadmin.users.fields.checkin').'', ['class' => 'control-label']) !!}
                     <p class="help-block">in Reception</p>
@@ -59,7 +59,7 @@
                     
                 </div>
             </div>
-            <div class="row">
+            <div class="{{-- row --}} col-md-6">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('phone', trans('quickadmin.users.fields.phone').'', ['class' => 'control-label']) !!}
                     {!! Form::text('phone', old('phone'), ['class' => 'form-control', 'placeholder' => '']) !!}
@@ -71,7 +71,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="{{-- row --}} col-md-6">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('attribute', trans('quickadmin.users.fields.attribute').'*', ['class' => 'control-label']) !!}
                     <p class="help-block"></p>
@@ -203,7 +203,7 @@
                     
                 </div>
             </div>
-            <div class="row">
+            <div class="{{-- row --}} col-md-6">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('password', trans('quickadmin.users.fields.password').'*', ['class' => 'control-label']) !!}
                     {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '']) !!}
@@ -215,7 +215,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="{{-- row --}} col-md-6">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('role_id', trans('quickadmin.users.fields.role').'*', ['class' => 'control-label']) !!}
                     {!! Form::select('role_id', $roles, old('role_id'), ['class' => 'form-control select2', 'required' => '']) !!}
