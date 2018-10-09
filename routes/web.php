@@ -77,6 +77,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('activitylogs_mass_destroy', ['uses' => 'Admin\ActivitylogsController@massDestroy', 'as' => 'activitylogs.mass_destroy']);
     Route::resource('loguseragents', 'Admin\LoguseragentsController');
     Route::post('loguseragents_mass_destroy', ['uses' => 'Admin\LoguseragentsController@massDestroy', 'as' => 'loguseragents.mass_destroy']);
+    Route::resource('lunches', 'Admin\LunchesController');
+    Route::post('lunches_mass_destroy', ['uses' => 'Admin\LunchesController@massDestroy', 'as' => 'lunches.mass_destroy']);
+    Route::post('lunches_restore/{id}', ['uses' => 'Admin\LunchesController@restore', 'as' => 'lunches.restore']);
+    Route::delete('lunches_perma_del/{id}', ['uses' => 'Admin\LunchesController@perma_del', 'as' => 'lunches.perma_del']);
     Route::post('/spatie/media/upload', 'Admin\SpatieMediaController@create')->name('media.upload');
     Route::post('/spatie/media/remove', 'Admin\SpatieMediaController@destroy')->name('media.remove');
 
