@@ -8,6 +8,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         "name" => $faker->name,
         "email" => $email,
+        "checkin" => collect(["Checked-in","Αbsent",])->random(),
         "password" => $password,
         "role_id" => App\Role::all()->random()->id,
         "remember_token" => $password,

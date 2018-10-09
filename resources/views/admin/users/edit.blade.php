@@ -37,6 +37,30 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
+                    {!! Form::label('checkin', trans('quickadmin.users.fields.checkin').'', ['class' => 'control-label']) !!}
+                    <p class="help-block">in Reception</p>
+                    @if($errors->has('checkin'))
+                        <p class="help-block">
+                            {{ $errors->first('checkin') }}
+                        </p>
+                    @endif
+                    <div>
+                        <label>
+                            {!! Form::radio('checkin', 'Checked-in', false, []) !!}
+                            Checked-in
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            {!! Form::radio('checkin', 'Αbsent', false, []) !!}
+                            Αbsent
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
                     {!! Form::label('phone', trans('quickadmin.users.fields.phone').'', ['class' => 'control-label']) !!}
                     {!! Form::text('phone', old('phone'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>

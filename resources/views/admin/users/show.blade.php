@@ -21,6 +21,10 @@
                             <td field-key='email'>{{ $user->email }}</td>
                         </tr>
                         <tr>
+                            <th>@lang('quickadmin.users.fields.checkin')</th>
+                            <td field-key='checkin'>{{ $user->checkin }}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.users.fields.phone')</th>
                             <td field-key='phone'>{{ $user->phone }}</td>
                         </tr>

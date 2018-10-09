@@ -15,6 +15,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @package App
  * @property string $name
  * @property string $email
+ * @property string $checkin
  * @property string $phone
  * @property string $attribute
  * @property string $password
@@ -29,7 +30,7 @@ class User extends Authenticatable
     protected static $logOnlyDirty = true;          
 
     use Notifiable;
-    protected $fillable = ['name', 'email', 'phone', 'attribute', 'password', 'remember_token', 'role_id'];
+    protected $fillable = ['name', 'email', 'checkin', 'phone', 'attribute', 'password', 'remember_token', 'role_id'];
     protected $hidden = ['password', 'remember_token'];
     
     

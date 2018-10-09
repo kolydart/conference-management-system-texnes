@@ -28,6 +28,7 @@
                         <th>@lang('id')</th>
                         <th>@lang('quickadmin.users.fields.name')</th>
                         <th>@lang('quickadmin.users.fields.email')</th>
+                        <th>@lang('quickadmin.users.fields.checkin')</th>
                         <th>@lang('quickadmin.users.fields.attribute')</th>
                         <th>@lang('quickadmin.users.fields.role')</th>
                         <th>@lang('Εργαστήρια')</th>
@@ -55,6 +56,7 @@
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},
+                {data: 'checkin', name: 'checkin'},
                 {data: 'attribute', name: 'attribute'},
                 {data: 'role.title', name: 'role.title'},
                 {data: 'attend_count', name: 'attend_count',  "searchable": false, "targets": 0 },

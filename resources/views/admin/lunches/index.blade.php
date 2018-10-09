@@ -35,6 +35,7 @@
 
                         <th>@lang('quickadmin.lunch.fields.email')</th>
                         <th>@lang('quickadmin.lunch.fields.menu')</th>
+                        <th>@lang('quickadmin.lunch.fields.confirm')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -53,6 +54,7 @@
 
                                 <td field-key='email'>{{ $lunch->email }}</td>
                                 <td field-key='menu'>{!! $lunch->menu !!}</td>
+                                <td field-key='confirm'>{{ Form::checkbox("confirm", 1, $lunch->confirm == 1 ? true : false, ["disabled"]) }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('lunch_delete')
@@ -97,7 +99,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="7">@lang('quickadmin.qa_no_entries_in_table')</td>
+                            <td colspan="8">@lang('quickadmin.qa_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>

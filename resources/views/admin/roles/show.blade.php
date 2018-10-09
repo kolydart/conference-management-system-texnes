@@ -33,6 +33,7 @@
         <tr>
             <th>@lang('quickadmin.users.fields.name')</th>
                         <th>@lang('quickadmin.users.fields.email')</th>
+                        <th>@lang('quickadmin.users.fields.checkin')</th>
                         <th>@lang('quickadmin.users.fields.attribute')</th>
                         <th>@lang('quickadmin.users.fields.role')</th>
                                                 <th>&nbsp;</th>
@@ -46,6 +47,7 @@
                 <tr data-entry-id="{{ $user->id }}">
                     <td field-key='name'>{{ $user->name }}</td>
                                 <td field-key='email'>{{ $user->email }}</td>
+                                <td field-key='checkin'>{{ $user->checkin }}</td>
                                 <td field-key='attribute'>{{ $user->attribute }}</td>
                                 <td field-key='role'>{{ $user->role->title or '' }}</td>
                                                                 <td>
@@ -70,7 +72,7 @@
             @endforeach
         @else
             <tr>
-                <td colspan="12">@lang('quickadmin.qa_no_entries_in_table')</td>
+                <td colspan="13">@lang('quickadmin.qa_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>
