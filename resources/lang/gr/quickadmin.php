@@ -27,6 +27,7 @@ return [
 		'color' => [		'title' => 'Χρώματα',		'fields' => [		],	],
 		'colors' => [		'title' => 'Χρώματα',		'fields' => [			'title' => 'Title',			'value' => 'Value',		],	],
 		'subscriptions' => [		'title' => 'Δηλώσεις συμμετοχής',		'fields' => [		],	],
+		'lunch' => [		'title' => 'Lunch',		'fields' => [			'email' => 'Email',			'menu' => 'Menu',		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',

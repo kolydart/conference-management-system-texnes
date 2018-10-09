@@ -337,5 +337,22 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1]);
         });
 
+        // Auth gates for: Lunch
+        Gate::define('lunch_access', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+        Gate::define('lunch_create', function ($user) {
+            return in_array($user->role_id, [1, 3]);
+        });
+        Gate::define('lunch_edit', function ($user) {
+            return in_array($user->role_id, [1, 3]);
+        });
+        Gate::define('lunch_view', function ($user) {
+            return in_array($user->role_id, [1, 3, 4]);
+        });
+        Gate::define('lunch_delete', function ($user) {
+            return in_array($user->role_id, [1, 3]);
+        });
+
     }
 }

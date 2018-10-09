@@ -126,6 +126,14 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
+                    @can('lunch_access')
+                    <li>
+                        <a href="{{ route('admin.lunches.index') }}">
+                            <i class="fa fa-spoon"></i>
+                            <span>@lang('quickadmin.lunch.title')</span>
+                        </a>
+                    </li>@endcan
+                    
                     @can('availability_access')
                     <li>
                         <a href="{{ route('admin.availabilities.index') }}">
