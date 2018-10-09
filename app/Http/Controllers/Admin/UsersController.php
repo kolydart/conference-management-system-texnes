@@ -34,6 +34,7 @@ class UsersController extends Controller
                 'users.id',
                 'users.name',
                 'users.email',
+                'users.checkin',
                 'users.phone',
                 'users.attribute',
                 'users.password',
@@ -52,6 +53,9 @@ class UsersController extends Controller
                 $routeKey = 'admin.users';
 
                 return view($template, compact('row', 'gateKey', 'routeKey'));
+            });
+            $table->editColumn('checkin', function ($row) {
+                return $row->checkin ? $row->checkin : '';
             });
             $table->editColumn('phone', function ($row) {
                 return $row->phone ? $row->phone : '';

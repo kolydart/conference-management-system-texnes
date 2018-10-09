@@ -27,6 +27,7 @@
 
                         <th>@lang('quickadmin.users.fields.name')</th>
                         <th>@lang('quickadmin.users.fields.email')</th>
+                        <th>@lang('quickadmin.users.fields.checkin')</th>
                         <th>@lang('quickadmin.users.fields.attribute')</th>
                         <th>@lang('quickadmin.users.fields.role')</th>
                                                 <th>&nbsp;</th>
@@ -49,6 +50,7 @@
                     {data: 'massDelete', name: 'id', searchable: false, sortable: false},
                 @endcan{data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},
+                {data: 'checkin', name: 'checkin'},
                 {data: 'attribute', name: 'attribute'},
                 {data: 'role.title', name: 'role.title'},
                 

@@ -3,7 +3,7 @@
 return [
 		'management' => [		'title' => 'Διαχείριση',		'fields' => [		],	],
 		'roles' => [		'title' => 'Ρόλοι',		'fields' => [			'title' => 'Τίτλος',		],	],
-		'users' => [		'title' => 'Χρήστες',		'fields' => [			'name' => 'Όνομα',			'email' => 'Email',			'phone' => 'Phone',			'attribute' => 'Attribute',			'password' => 'Κωδικός',			'role' => 'Ρόλος',			'remember-token' => 'Να με θυμάσαι',		],	],
+		'users' => [		'title' => 'Χρήστες',		'fields' => [			'name' => 'Όνομα',			'email' => 'Email',			'checkin' => 'Checkin',			'phone' => 'Phone',			'attribute' => 'Attribute',			'password' => 'Κωδικός',			'role' => 'Ρόλος',			'remember-token' => 'Να με θυμάσαι',		],	],
 		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'session' => 'Συνεδρία',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'phone' => 'Τηλέφωνο',			'document' => 'Αρχείο(α) πρότασης',			'abstract' => 'Περίληψη',			'bio' => 'Βιογραφικό Σημείωμα',			'assign' => 'Ανάθεση',			'status' => 'Status',			'informed' => 'Informed',			'order' => 'Order',			'capacity' => 'Μέγιστος αριθμός συμμετεχόντων',		],	],
 		'reviews' => [		'title' => 'Κρίσεις',		'fields' => [			'user' => 'User',			'paper' => 'Paper',			'review' => 'Review',			'comment' => 'Comment',		],	],
 		'arts' => [		'title' => 'Τέχνες',		'fields' => [			'title' => 'Τίτλος',		],	],
@@ -27,7 +27,7 @@ return [
 		'color' => [		'title' => 'Χρώματα',		'fields' => [		],	],
 		'colors' => [		'title' => 'Χρώματα',		'fields' => [			'title' => 'Title',			'value' => 'Value',		],	],
 		'subscriptions' => [		'title' => 'Δηλώσεις συμμετοχής',		'fields' => [		],	],
-		'lunch' => [		'title' => 'Lunch',		'fields' => [			'email' => 'Email',			'menu' => 'Menu',		],	],
+		'lunch' => [		'title' => 'Lunch',		'fields' => [			'email' => 'Email',			'menu' => 'Menu',			'confirm' => 'Confirm',		],	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',
