@@ -10,3 +10,12 @@
 	padding: 2px 4px;  	
   }
 }
+
+   /*.fc-content > .fc-time {
+    font-size: 0.75em !important;
+	}*/
+
+  .fc-event-container {
+	padding: 0 1px;
+	font-size: 0.75em;
+	}
