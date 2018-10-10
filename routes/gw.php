@@ -27,11 +27,12 @@ Route::get('/attend/delete/{paper_id}', 'Frontend\AttendsController@delete')->na
 
 Route::get('/lunch/confirm/{lunch_id}', function (\Illuminate\Http\Request $request) {
     if (! $request->hasValidSignature()) {
-        abort(401);
+	    \gateweb\common\Presenter::message("<h4>Η προθεσμία επιβεβαίωσης παρήλθε. Επικοινωνήστε με την γραμματεία.</h3>","warning");
+    }else{
+	    $lunch = \App\Lunch::findOrFail($request->lunch_id);
+	    $lunch->update(['confirm' => 'confirmed']);
+	    \gateweb\common\Presenter::message("<h4>Η δήλωσή σας για το γεύμα επιβεβαιώθηκε ($lunch->menu)</h4>","success");
     }
-    $lunch = \App\Lunch::findOrFail($request->lunch_id);
-    $lunch->update(['confirm' => 'confirmed']);
-    \gateweb\common\Presenter::message("Η δήλωσή σας για το γεύμα επιβεβαιώθηκε ($lunch->menu)","success");
     return redirect(route('frontend.home'));
 
 })->name('frontend.lunch.confirm');
