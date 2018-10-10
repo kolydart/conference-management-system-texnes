@@ -148,7 +148,7 @@ class AuthServiceProvider extends ServiceProvider
 
         // Auth gates for: Users
         Gate::define('user_access', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
+            return in_array($user->role_id, [1, 3, 4]);
         });
         Gate::define('user_create', function ($user) {
             return in_array($user->role_id, [1, 3]);
@@ -157,7 +157,7 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1, 3]);
         });
         Gate::define('user_view', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
+            return in_array($user->role_id, [1, 3, 4]);
         });
         Gate::define('user_delete', function ($user) {
             return in_array($user->role_id, [1, 3]);
