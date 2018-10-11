@@ -45,6 +45,7 @@
                         <th>@lang('quickadmin.papers.fields.status')</th>
                         <th>@lang('quickadmin.papers.fields.capacity')</th>
                         <th>@lang('Δηλώσεις')</th>
+                        <th>@lang('θέσεις')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -94,6 +95,7 @@
                                 <td field-key='status'>{{ $paper->status }}</td>
                                 <td field-key='capacity'>{{ $paper->capacity }}</td>
                                 <td field-key='attend'>{{ $paper->attend()->count() }}</td>
+                                <td field-key='availability'>@if ($paper->availability) <span class="text-success" style="font-size: 1.2em">✓</span> @else <span class="text-muted" style="font-size: 1.2em">x</span @endif</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('paper_delete')

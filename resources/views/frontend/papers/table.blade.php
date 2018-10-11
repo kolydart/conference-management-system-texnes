@@ -10,6 +10,7 @@
                         <th>@lang('Room')</th>
                         <th>@lang('quickadmin.papers.fields.art')</th>
                         <th>@lang('quickadmin.papers.fields.duration')</th>
+                        <th>@lang('Θέσεις')</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -48,6 +49,7 @@
                                     @endforeach
                                 </td>
                                 <td field-key='duration'>{{ $paper->duration }}'</td>
+                                <td field-key='availability'>@if ($paper->availability) <span class="text-success font-weight-bold">✓</span> @else <span class="text-secondary font-weight-bold">x</span @endif</td>
                                 <td field-key='button'><a class="btn btn-xs btn-primary" href="{{ route('frontend.papers.show',[$paper->id]) }}"> @lang('quickadmin.qa_view') </a></td>
                             </tr>
                         @endforeach

@@ -140,11 +140,18 @@ class Paper extends Model implements HasMedia
      */
     public function capacity(){
         $max_capacity = 50;
-        if(!$this->capacity && !$this->session->room->capacity)
+        if(!isset($this->session->room->capacity) || (!$this->capacity && !$this->session->room->capacity))
             return $max_capacity;
         return min(array_diff([$this->capacity,$this->session->room->capacity], ["",null]));
     }
     
-
+    /**
+     * get free seats
+     * @return int > 0
+     */
+    public function getAvailabilityAttribute() {
+        $result = $this->capacity() - $this->attend()->count();
+        return  $result > 0 ? $result : 0 ;
+    }
 
 }
