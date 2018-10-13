@@ -38,17 +38,18 @@ class AttendsController extends Controller
 
         $paper = Paper::findOrFail($paper_id);
         
-        if (Gate::allows('attend_create',$paper)) {
-            $paper->attend()->attach(Auth::id());        
-            Presenter::message(__('Επιτυχής δήλωση: '). $paper->title,"success");
-        } else {
-            Presenter::message(__('You are not authorized for this action'),"error");
-        }
+        Presenter::message(__('Η περίοδος δηλώσεων έχει παρέλθει.'), 'info');
+        // if (Gate::allows('attend_create',$paper)) {
+        //     $paper->attend()->attach(Auth::id());        
+        //     Presenter::message(__('Επιτυχής δήλωση: '). $paper->title,"success");
+        // } else {
+        //     Presenter::message(__('You are not authorized for this action'),"error");
+        // }
 
-        activity()
-           ->performedOn($paper)
-           ->causedBy(Auth::id())
-           ->log('attend_create');
+        // activity()
+        //    ->performedOn($paper)
+        //    ->causedBy(Auth::id())
+        //    ->log('attend_create');
 
         return back();
         
@@ -63,17 +64,18 @@ class AttendsController extends Controller
         
         $paper = Paper::findOrFail($paper_id);
 
-        if (Gate::allows('attend_delete',$paper)) {
-            $paper->attend()->detach(Auth::id());
-            Presenter::message(__('Διαγραφή από: '). $paper->title, 'info');
-        } else {
-            Presenter::message(__('You are not authorized for this action'),"error");
-        }
+        Presenter::message(__('Η περίοδος δηλώσεων έχει παρέλθει.'), 'info');
+        // if (Gate::allows('attend_delete',$paper)) {
+        //     $paper->attend()->detach(Auth::id());
+        //     Presenter::message(__('Διαγραφή από: '). $paper->title, 'info');
+        // } else {
+        //     Presenter::message(__('You are not authorized for this action'),"error");
+        // }
 
-        activity()
-           ->performedOn($paper)
-           ->causedBy(Auth::id())
-           ->log('attend_delete');
+        // activity()
+        //    ->performedOn($paper)
+        //    ->causedBy(Auth::id())
+        //    ->log('attend_delete');
 
         return back();
     }
