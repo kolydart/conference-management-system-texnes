@@ -21,7 +21,7 @@ $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('au
 $this->post('register', 'Auth\RegisterController@register')->name('auth.register');
 
 // Admin 
-Route::group(['middleware' => ['backend','auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['middleware' => ['backend','auth','approved'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/home', ['uses' => 'HomeController@index', 'as' => 'home']);
     Route::get('/reports/fullpaper-uploads', 'Admin\ReportsController@fullpaperUploads');
     Route::get('/reports/user-registrations', 'Admin\ReportsController@userRegistrations');

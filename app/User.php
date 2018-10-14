@@ -21,6 +21,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property string $password
  * @property string $role
  * @property string $remember_token
+ * @property tinyInteger $approved
 */
 class User extends Authenticatable
 {
@@ -30,7 +31,7 @@ class User extends Authenticatable
     protected static $logOnlyDirty = true;          
 
     use Notifiable;
-    protected $fillable = ['name', 'email', 'checkin', 'phone', 'attribute', 'password', 'remember_token', 'role_id'];
+    protected $fillable = ['name', 'email', 'checkin', 'phone', 'attribute', 'password', 'remember_token', 'approved', 'role_id'];
     protected $hidden = ['password', 'remember_token'];
     
     

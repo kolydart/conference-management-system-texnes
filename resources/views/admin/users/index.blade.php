@@ -34,6 +34,7 @@
                         <th>@lang('Εργαστήρια')</th>
                         <th>@lang('created_at')</th>
                         {{-- <th>weak</th> --}}
+                        <th>@lang('quickadmin.users.fields.approved')</th>
                                                 <th>&nbsp;</th>
 
                     </tr>
@@ -62,7 +63,7 @@
                 {data: 'attend_count', name: 'attend_count',  "searchable": false, "targets": 0 },
                 {data: 'created_at', name: 'created_at'},
                 // {data: 'weak_password', name: 'weak_password'},
-
+                {data: 'approved', name: 'approved'},
                 {data: 'actions', name: 'actions', searchable: false, sortable: false}
             ];
             processAjaxTables();

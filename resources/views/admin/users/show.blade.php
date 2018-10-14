@@ -39,6 +39,8 @@
                         <tr>
                             <th>@lang('Δηλώσεις για εργαστήρια')</th>
                             <td field-key='role'>{{ $user->attend()->count() }}</td>
+                            <th>@lang('quickadmin.users.fields.approved')</th>
+                            <td field-key='approved'>{{ Form::checkbox("approved", 1, $user->approved == 1 ? true : false, ["disabled"]) }}</td>
                         </tr>
                     </table>
                 </div>
