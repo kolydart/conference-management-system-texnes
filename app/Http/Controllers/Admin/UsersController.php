@@ -44,6 +44,7 @@ class UsersController extends Controller
                 'users.role_id',
                 'users.remember_token',
                 'users.created_at',
+                'users.approved',
             ]);
             $query->withCount("attend");
             $table = Datatables::of($query);
@@ -77,9 +78,11 @@ class UsersController extends Controller
             $table->editColumn('remember_token', function ($row) {
                 return $row->remember_token ? $row->remember_token : '';
             });
-
             $table->editColumn('created_at', function ($row) {
                 return $row->created_at->format('d M H:i:s') ;
+            });
+            $table->editColumn('approved', function ($row) {
+                return \Form::checkbox("approved", 1, $row->approved == 1, ["disabled"]);
             });
 
             // $table->addColumn('weak_password', '&nbsp;');
