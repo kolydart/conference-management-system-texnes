@@ -85,7 +85,9 @@
                             <td>{{App\User::attendees()->count()}}</td>
                             <td>{{App\User::attendees()->whereHas('attend')->count()}}</td>
                             <td>{{App\User::attendees()->whereDoesnthave('attend')->count()}}</td>
-                            <td>{{round( DB::table('attend')->count() / App\User::attendees()->whereHas('attend')->count(),2)}}</td>
+                            <td>@if (App\User::attendees()->whereHas('attend')->count())
+                                {{round( DB::table('attend')->count() / App\User::attendees()->whereHas('attend')->count(),2)}}
+                            @endif</td>
                         </tr>
                     </tbody>
                 </table>
