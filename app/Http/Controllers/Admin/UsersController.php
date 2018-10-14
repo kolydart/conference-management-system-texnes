@@ -40,6 +40,7 @@ class UsersController extends Controller
                 'users.password',
                 'users.role_id',
                 'users.remember_token',
+                'users.approved',
             ]);
             $table = Datatables::of($query);
 
@@ -72,8 +73,11 @@ class UsersController extends Controller
             $table->editColumn('remember_token', function ($row) {
                 return $row->remember_token ? $row->remember_token : '';
             });
+            $table->editColumn('approved', function ($row) {
+                return \Form::checkbox("approved", 1, $row->approved == 1, ["disabled"]);
+            });
 
-            $table->rawColumns(['actions','massDelete']);
+            $table->rawColumns(['actions','massDelete','approved']);
 
             return $table->make(true);
         }

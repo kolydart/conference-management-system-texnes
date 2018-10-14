@@ -20,7 +20,7 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.
 $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('auth.register');
 $this->post('register', 'Auth\RegisterController@register')->name('auth.register');
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['middleware' => ['auth', 'approved'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/home', 'HomeController@index');
     Route::get('/reports/fullpaper-uploads', 'Admin\ReportsController@fullpaperUploads');
     Route::get('/reports/user-registrations', 'Admin\ReportsController@userRegistrations');

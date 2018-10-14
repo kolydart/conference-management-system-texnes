@@ -10,5 +10,6 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         "password" => str_random(10),
         "role_id" => factory('App\Role')->create(),
         "remember_token" => $faker->name,
+        "approved" => 0,
     ];
 });

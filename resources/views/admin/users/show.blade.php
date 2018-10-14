@@ -36,6 +36,10 @@
                             <th>@lang('quickadmin.users.fields.role')</th>
                             <td field-key='role'>{{ $user->role->title or '' }}</td>
                         </tr>
+                        <tr>
+                            <th>@lang('quickadmin.users.fields.approved')</th>
+                            <td field-key='approved'>{{ Form::checkbox("approved", 1, $user->approved == 1 ? true : false, ["disabled"]) }}</td>
+                        </tr>
                     </table>
                 </div>
             </div><!-- Nav tabs -->

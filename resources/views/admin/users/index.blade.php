@@ -30,6 +30,7 @@
                         <th>@lang('quickadmin.users.fields.checkin')</th>
                         <th>@lang('quickadmin.users.fields.attribute')</th>
                         <th>@lang('quickadmin.users.fields.role')</th>
+                        <th>@lang('quickadmin.users.fields.approved')</th>
                                                 <th>&nbsp;</th>
 
                     </tr>
@@ -53,6 +54,7 @@
                 {data: 'checkin', name: 'checkin'},
                 {data: 'attribute', name: 'attribute'},
                 {data: 'role.title', name: 'role.title'},
+                {data: 'approved', name: 'approved'},
                 
                 {data: 'actions', name: 'actions', searchable: false, sortable: false}
             ];
