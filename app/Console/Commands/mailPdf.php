@@ -44,7 +44,7 @@ class mailPdf extends Command
     public function handle()
     {
 
-        $users = User::where('id','=','1')->get();
+        $users = User::where('id','=','2')->get();
 
 
         $i = 1;
@@ -97,8 +97,10 @@ class mailPdf extends Command
             // now write some text above the imported page
             $pdf->SetTextColor(0,0,100);
             $pdf->SetXY(75, 115); //mm
-            $str = "ο/η $name";
-            $pdf->Write(0, $str); 
+            $str = "ο/η  $name";
+            $pdf->Write(0, $str);
+            $attachment_path = "/tmp/".$this->argument('alias')."-".$user->id.".pdf";
+            $pdf->Output($attachment_path,'F');            
 
             /**
              * send message
@@ -108,7 +110,7 @@ class mailPdf extends Command
             $mailer->set_subject($subject);
             $mailer->set_body($body,true);
             $mailer->set_to($email, $name);
-            $mailer->addStringAttachment($pdf->Output(),'cert.pdf');
+            $mailer->addAttachment($attachment_path);
 
             if ($mailer->Send()){
                 $this->info("sent message to $email");
@@ -118,17 +120,12 @@ class mailPdf extends Command
                     'title'=>$subject,
                     'body' => $body,
                 ]);
+                \File::delete($attachment_path);
             }else{
                 $this->error("ERROR: could not send message to user $user->id. ");
                 // Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error());
                 Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.");
             }
-        // sleep(30);
-
-            // if( $i % 10 == 0 ){
-                // $this->info('pausing');
-                // sleep(10);
-            // }
 
         }
 
