@@ -93,7 +93,7 @@ class mailPdf extends Command
             $pdf->useTemplate($template);
             // custom font (tfpdf => utf-8)
             $pdf->AddFont('DejaVu','','DejaVuSansCondensed.ttf',true);
-            $pdf->SetFont('DejaVu','',14);
+            $pdf->SetFont('DejaVu','',13);
             // now write some text above the imported page
             $pdf->SetTextColor(0,0,100);
             $pdf->SetXY(75, 115); //mm
@@ -127,6 +127,7 @@ class mailPdf extends Command
                 Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.");
             }
 
+            sleep (4);
         }
 
 
