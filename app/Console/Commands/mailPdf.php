@@ -44,7 +44,7 @@ class mailPdf extends Command
     public function handle()
     {
 
-        $users = User::where('id','=','2')->get();
+        $users = User::where('checkin','=','Checked-in')->get();
 
 
         $i = 1;
