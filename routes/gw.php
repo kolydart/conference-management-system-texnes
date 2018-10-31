@@ -36,3 +36,10 @@ Route::get('/lunch/confirm/{lunch_id}', function (\Illuminate\Http\Request $requ
     return redirect(route('frontend.home'));
 
 })->name('frontend.lunch.confirm');
+
+
+/** disable registration */
+Route::any('/register', function() {
+	\gateweb\common\Presenter::message(__('Registration is disabled'));
+    return redirect('/');
+});
