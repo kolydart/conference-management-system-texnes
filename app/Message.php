@@ -17,11 +17,6 @@ use Spatie\Activitylog\Traits\LogsActivity;
 */
 class Message extends Model
 {
-    use LogsActivity;
-    /** log dirty fillable */
-    protected static $logFillable = true;       
-    protected static $logOnlyDirty = true;          
-
     use SoftDeletes;
 
     protected $fillable = ['name', 'email', 'title', 'body', 'paper_id'];
