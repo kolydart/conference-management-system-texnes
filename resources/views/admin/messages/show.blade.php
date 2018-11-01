@@ -25,12 +25,20 @@
                             <td field-key='title'>{{ $message->title }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.messages.fields.paper')</th>
-                            <td field-key='paper'>{{ $message->paper->title or '' }}</td>
-                        </tr>
-                        <tr>
                             <th>@lang('quickadmin.messages.fields.body')</th>
                             <td field-key='body'>{!! $message->body !!}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.messages.fields.user')</th>
+                            <td field-key='user'>{{ $message->user->name or '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.messages.fields.page')</th>
+                            <td field-key='page'>{{ $message->page->title or '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.messages.fields.paper')</th>
+                            <td field-key='paper'>{{ $message->paper->title or '' }}</td>
                         </tr>
                     </table>
                 </div>

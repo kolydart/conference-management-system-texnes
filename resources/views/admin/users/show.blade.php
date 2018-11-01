@@ -46,6 +46,7 @@
 <ul class="nav nav-tabs" role="tablist">
     
 <li role="presentation" class="active"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Κρίσεις</a></li>
+<li role="presentation" class=""><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Μηνύματα</a></li>
 <li role="presentation" class=""><a href="#loguseragent" aria-controls="loguseragent" role="tab" data-toggle="tab">Loguseragent</a></li>
 <li role="presentation" class=""><a href="#papers" aria-controls="papers" role="tab" data-toggle="tab">Προτάσεις</a></li>
 </ul>
@@ -122,6 +123,78 @@
         @else
             <tr>
                 <td colspan="9">@lang('quickadmin.qa_no_entries_in_table')</td>
+            </tr>
+        @endif
+    </tbody>
+</table>
+</div>
+<div role="tabpanel" class="tab-pane " id="messages">
+<table class="table table-bordered table-striped {{ count($messages) > 0 ? 'datatable' : '' }}">
+    <thead>
+        <tr>
+            <th>@lang('quickadmin.messages.fields.name')</th>
+                        <th>@lang('quickadmin.messages.fields.email')</th>
+                        <th>@lang('quickadmin.messages.fields.title')</th>
+                        @if( request('show_deleted') == 1 )
+                        <th>&nbsp;</th>
+                        @else
+                        <th>&nbsp;</th>
+                        @endif
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (count($messages) > 0)
+            @foreach ($messages as $message)
+                <tr data-entry-id="{{ $message->id }}">
+                    <td field-key='name'>{{ $message->name }}</td>
+                                <td field-key='email'>{{ $message->email }}</td>
+                                <td field-key='title'>{{ $message->title }}</td>
+                                @if( request('show_deleted') == 1 )
+                                <td>
+                                    @can('message_delete')
+                                                                        {!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'POST',
+                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                        'route' => ['admin.messages.restore', $message->id])) !!}
+                                    {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
+                                    {!! Form::close() !!}
+                                @endcan
+                                    @can('message_delete')
+                                                                        {!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                        'route' => ['admin.messages.perma_del', $message->id])) !!}
+                                    {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                    {!! Form::close() !!}
+                                @endcan
+                                </td>
+                                @else
+                                <td>
+                                    @can('message_view')
+                                    <a href="{{ route('admin.messages.show',[$message->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    @endcan
+                                    @can('message_edit')
+                                    <a href="{{ route('admin.messages.edit',[$message->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                    @endcan
+                                    @can('message_delete')
+{!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                        'route' => ['admin.messages.destroy', $message->id])) !!}
+                                    {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                    {!! Form::close() !!}
+                                    @endcan
+                                </td>
+                                @endif
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="12">@lang('quickadmin.qa_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>

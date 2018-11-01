@@ -172,14 +172,14 @@ class UsersController extends Controller
             return abort(401);
         }
         
-        $roles = \App\Role::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');$reviews = \App\Review::where('user_id', $id)->get();$loguseragents = \App\Loguseragent::where('user_id', $id)->get();$papers = \App\Paper::whereHas('assign',
+        $roles = \App\Role::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');$reviews = \App\Review::where('user_id', $id)->get();$messages = \App\Message::where('user_id', $id)->get();$loguseragents = \App\Loguseragent::where('user_id', $id)->get();$papers = \App\Paper::whereHas('assign',
                     function ($query) use ($id) {
                         $query->where('id', $id);
                     })->get();
 
         $user = User::findOrFail($id);
 
-        return view('admin.users.show', compact('user', 'reviews', 'loguseragents', 'papers'));
+        return view('admin.users.show', compact('user', 'reviews', 'messages', 'loguseragents', 'papers'));
     }
 
 
