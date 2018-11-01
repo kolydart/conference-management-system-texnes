@@ -34,8 +34,8 @@
                         @endcan
 
                         <th>@lang('quickadmin.messages.fields.name')</th>
+                        <th>@lang('quickadmin.messages.fields.email')</th>
                         <th>@lang('quickadmin.messages.fields.title')</th>
-                        <th>@lang('quickadmin.messages.fields.paper')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -53,12 +53,8 @@
                                 @endcan
 
                                 <td field-key='name'>{{ $message->name }}</td>
+                                <td field-key='email'>{{ $message->email }}</td>
                                 <td field-key='title'>{{ $message->title }}</td>
-                                <td field-key='paper'>
-                                    @if ($message->paper)
-                                        <a href="{{ route('admin.papers.show',[$message->paper->id]) }}" >{{ $message->paper->title or '' }}</a>
-                                    @endif
-                                </td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('message_delete')
@@ -103,7 +99,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="10">@lang('quickadmin.qa_no_entries_in_table')</td>
+                            <td colspan="12">@lang('quickadmin.qa_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>

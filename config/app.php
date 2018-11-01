@@ -186,8 +186,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
-        /** disabled Filemanager */
-        // Unisharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
+        #UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         
         App\Providers\GatewebServiceProvider::class,

@@ -46,9 +46,11 @@ class MessagesController extends Controller
             return abort(401);
         }
         
+        $users = \App\User::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $pages = \App\ContentPage::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $papers = \App\Paper::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
-        return view('admin.messages.create', compact('papers'));
+        return view('admin.messages.create', compact('users', 'pages', 'papers'));
     }
 
     /**
@@ -82,11 +84,13 @@ class MessagesController extends Controller
             return abort(401);
         }
         
+        $users = \App\User::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $pages = \App\ContentPage::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $papers = \App\Paper::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         $message = Message::findOrFail($id);
 
-        return view('admin.messages.edit', compact('message', 'papers'));
+        return view('admin.messages.edit', compact('message', 'users', 'pages', 'papers'));
     }
 
     /**

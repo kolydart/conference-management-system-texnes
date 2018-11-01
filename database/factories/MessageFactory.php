@@ -7,5 +7,7 @@ $factory->define(App\Message::class, function (Faker\Generator $faker) {
         "title" => $faker->sentence,
         "email" => $faker->safeEmail,
         "body" => $faker->paragraph,
+        "user_id" => App\User::all()->random(),
+        "page_id" => App\ContentPage::all()->random(),
     ];
 });

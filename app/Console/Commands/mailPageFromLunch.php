@@ -99,6 +99,7 @@ class mailPageFromLunch extends Command
                     'email' => $email,
                     'title'=>$subject,
                     'body' => $body,
+                    'page_id' => $message->id
                 ]);
             }else{
                 $this->error("ERROR: could not send message to lunch $lunch->id. ");

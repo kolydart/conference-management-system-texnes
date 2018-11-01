@@ -129,9 +129,15 @@ class ContentPagesController extends Controller
         if (! Gate::allows('content_page_view')) {
             return abort(401);
         }
+        
+        $category_ids = \App\ContentCategory::get()->pluck('title', 'id');
+
+        $tag_ids = \App\ContentTag::get()->pluck('title', 'id');
+$messages = \App\Message::where('page_id', $id)->get();
+
         $content_page = ContentPage::findOrFail($id);
 
-        return view('admin.content_pages.show', compact('content_page'));
+        return view('admin.content_pages.show', compact('content_page', 'messages'));
     }
 
 
