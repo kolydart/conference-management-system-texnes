@@ -45,6 +45,7 @@ class mailPdf extends Command
     {
 
         $users = User::where('checkin','=','Checked-in')->get();
+        // $users = User::where('checkin','=','Checked-in')->whereNotIn('id',Message::where('page_id',34)->where('user_id','>',1)->pluck('user_id')->all())->get();
 
 
         $i = 1;
@@ -119,15 +120,18 @@ class mailPdf extends Command
                     'email' => $email,
                     'title'=>$subject,
                     'body' => $body,
+                    'user_id' => $user->id,
+                    'page_id' => $message->id,                    
                 ]);
-                \File::delete($attachment_path);
             }else{
                 $this->error("ERROR: could not send message to user $user->id. ");
                 // Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error());
                 Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.");
             }
+            
+            \File::delete($attachment_path);
 
-            sleep (4);
+            // sleep (4);
         }
 
 

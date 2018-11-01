@@ -92,6 +92,7 @@ class mailPageFromPaper extends Command
                     'title'=>$subject,
                     'body' => $body,
                     'paper_id' => $paper->id,
+                    'page_id' => $message->id,
                 ]);
             }else{
                 $this->error("ERROR: could not send message to user $user->id");
