@@ -96,7 +96,7 @@ class mailPdf extends Command
             $pdf->AddFont('DejaVu','','DejaVuSansCondensed.ttf',true);
             $pdf->SetFont('DejaVu','',13);
             // now write some text above the imported page
-            $pdf->SetTextColor(0,0,100);
+            $pdf->SetTextColor(0,0,0);
             $pdf->SetXY(75, 115); //mm
             $str = "ο/η  $name";
             $pdf->Write(0, $str);
