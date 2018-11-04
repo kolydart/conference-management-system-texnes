@@ -125,7 +125,7 @@ class mailPdfPage extends Command
                     'email' => $email,
                     'title'=>$subject,
                     'body' => $body,
-                    'user_id' => $paper->id,
+                    'paper_id' => $paper->id,
                     'page_id' => $message->id,                    
                 ]);
             }else{
