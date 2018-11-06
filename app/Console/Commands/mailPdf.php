@@ -17,7 +17,7 @@ class mailPdf extends Command
      *
      * @var string
      */
-    protected $signature = 'mail:pdf {alias} {--test}';
+    protected $signature = 'mail:pdf {alias} {--test} {--id=}';
 
     /**
      * The console command description.
@@ -44,8 +44,10 @@ class mailPdf extends Command
     public function handle()
     {
 
-        $users = User::where('checkin','=','Checked-in')->get();
-        // $users = User::where('checkin','=','Checked-in')->whereNotIn('id',Message::where('page_id',34)->where('user_id','>',1)->pluck('user_id')->all())->get();
+        if($this->option('id'))
+            $users = User::where('id',$this->option('id'))->get();
+        else
+            $users = User::where('checkin','=','Checked-in')->get();
 
 
         $i = 1;
