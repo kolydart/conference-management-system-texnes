@@ -17,7 +17,7 @@ class mailPdfPage extends Command
      *
      * @var string
      */
-    protected $signature = 'mail:pdfPage {alias} {--test}';
+    protected $signature = 'mail:pdfPage {alias} {--test} {--id=}';
 
     /**
      * The console command description.
@@ -43,8 +43,10 @@ class mailPdfPage extends Command
      */
     public function handle()
     {
-
-        $papers = Paper::accepted()->where('session_id','>',1)->get();
+        if($this->option('id'))
+            $papers = Paper::accepted()->where('id',$this->option('id'))->get();
+        else
+            $papers = Paper::accepted()->where('session_id','>',1)->get();
 
         $i = 1;
         /**
