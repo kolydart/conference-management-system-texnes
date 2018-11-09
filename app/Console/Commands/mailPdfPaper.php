@@ -10,14 +10,14 @@ use Illuminate\Console\Command;
 use gateweb\common\Mailer;
 use gateweb\common\Presenter;
 
-class mailPdfPage extends Command
+class mailPdfPaper extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'mail:pdfPage {alias} {--test} {--id=}';
+    protected $signature = 'mail:pdfPaper {alias} {--test} {--id=}';
 
     /**
      * The console command description.
