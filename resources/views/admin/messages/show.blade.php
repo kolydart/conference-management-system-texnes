@@ -53,6 +53,10 @@
                             </td>
                             <td field-key='paper'>{{ $message->paper->title or '' }}</td>
                         </tr>
+                        <tr>
+                            <th>@lang('created_at')</th>
+                            <td field-key='created_at'>{{ $message->created_at }}</td>
+                        </tr>
                     </table>
                 </div>
             </div>
