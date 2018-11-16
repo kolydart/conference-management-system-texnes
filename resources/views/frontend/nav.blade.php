@@ -72,7 +72,11 @@
                         </a>
                         <div class="dropdown-menu">
 
-                            <a class="dropdown-item" href="{{ route('frontend.pages.show','faq') }}">
+                            <a class="dropdown-item" href="/storage/607/%CE%A0%CE%BF%CF%81%CE%B9%CC%81%CF%83%CE%BC%CE%B1%CF%84%CE%B1%20%CE%A3%CF%85%CE%BD%CE%B5%CE%B4%CF%81%CE%B9%CC%81%CE%BF%CF%85%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%B9%CF%82%20%CE%A4%CE%B5%CC%81%CF%87%CE%BD%CE%B5%CF%82%20%CF%83%CF%84%CE%BF%20%CE%95%CE%BB%CE%BB%CE%B7%CE%BD%CE%B9%CE%BA%CE%BF%CC%81%20%CE%A3%CF%87%CE%BF%CE%BB%CE%B5%CE%B9%CC%81%CE%BF.pdf">
+                                <i class="fas fa-file-contract"></i> Πορίσματα του Συνεδρίου
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('frontend.pages.show','faq') }}" target="_blank">
                                 <i class="fas fa-feather-alt"></i> {{App\ContentPage::where('alias','faq')->first()->title ?? ''}}
                             </a>
 
