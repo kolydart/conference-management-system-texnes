@@ -5,9 +5,9 @@
     line-height: 1.1;
   }
 
-  .jumbotron p.lead a.btn-primary {
+  .jumbotron p.lead a.btn {
   	font-size:70%;
-	padding: 2px 4px;  	
+    padding: 2px 4px;  	
   }
 }
 
