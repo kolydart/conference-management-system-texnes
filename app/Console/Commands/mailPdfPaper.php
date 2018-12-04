@@ -10,6 +10,10 @@ use Illuminate\Console\Command;
 use gateweb\common\Mailer;
 use gateweb\common\Presenter;
 
+/**
+ * @example
+ * php artisan mail:pdfPage paper-cert --id=330
+ */
 class mailPdfPaper extends Command
 {
     /**
