@@ -20,5 +20,12 @@ $factory->define(App\Paper::class, function (Faker\Generator $faker) {
         "informed" => collect(['Unaware','Informed'])->random(),
         "order" => $faker->randomNumber(2),
         "capacity" => $faker->randomNumber(2),
+        "objectives" => $faker->name,
+        "materials" => $faker->name,
+        "description" => $faker->name,
+        "evaluation" => $faker->name,
+        "video" => $faker->name,
+        "bibliography" => $faker->name,
+        "lab_approved" => 0,
     ];
 });

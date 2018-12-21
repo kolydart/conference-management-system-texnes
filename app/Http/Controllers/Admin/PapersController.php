@@ -83,6 +83,12 @@ class PapersController extends Controller
             $file->model_id = $paper->id;
             $file->save();
         }
+        foreach ($request->input('images_id', []) as $index => $id) {
+            $model          = config('laravel-medialibrary.media_model');
+            $file           = $model::find($id);
+            $file->model_id = $paper->id;
+            $file->save();
+        }
 
         return redirect()->route('admin.papers.index');
     }
@@ -139,6 +145,15 @@ class PapersController extends Controller
             $media[] = $file->toArray();
         }
         $paper->updateMedia($media, 'document');
+        $media = [];
+        foreach ($request->input('images_id', []) as $index => $id) {
+            $model          = config('laravel-medialibrary.media_model');
+            $file           = $model::find($id);
+            $file->model_id = $paper->id;
+            $file->save();
+            $media[] = $file->toArray();
+        }
+        $paper->updateMedia($media, 'images');
 
         return redirect()->route('admin.papers.index');
     }

@@ -104,6 +104,43 @@
                             <th>@lang('Δηλώσεις')</th>
                             <td field-key='attend'>{{ $paper->attend()->count() }}</td>
                         </tr>
+                        <tr>
+                            <th>@lang('quickadmin.papers.fields.objectives')</th>
+                            <td field-key='objectives'>{!! $paper->objectives !!}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.papers.fields.materials')</th>
+                            <td field-key='materials'>{!! $paper->materials !!}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.papers.fields.description')</th>
+                            <td field-key='description'>{!! $paper->description !!}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.papers.fields.evaluation')</th>
+                            <td field-key='evaluation'>{!! $paper->evaluation !!}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.papers.fields.images')</th>
+                            <td field-key='images's> @foreach($paper->getMedia('images') as $media)
+                                <p class="form-group">
+                                    <a href="{{ $media->getUrl() }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
+                                </p>
+                            @endforeach</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.papers.fields.video')</th>
+                            <td field-key='video'>{{ $paper->video }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.papers.fields.bibliography')</th>
+                            <td field-key='bibliography'>{!! $paper->bibliography !!}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.papers.fields.lab-approved')</th>
+                            <td field-key='lab_approved'>{{ Form::checkbox("lab_approved", 1, $paper->lab_approved == 1 ? true : false, ["disabled"]) }}</td>
+>>>>>>> 69e5367... Paper new fields for user editing
+                        </tr>
                     </table>
                 </div>
             </div><!-- Nav tabs -->

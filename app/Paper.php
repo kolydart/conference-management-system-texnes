@@ -30,6 +30,13 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
  * @property string $informed
  * @property integer $order
  * @property integer $capacity
+ * @property text $objectives
+ * @property text $materials
+ * @property text $description
+ * @property text $evaluation
+ * @property string $video
+ * @property text $bibliography
+ * @property tinyInteger $lab_approved
 */
 class Paper extends Model implements HasMedia
 {
@@ -40,7 +47,7 @@ class Paper extends Model implements HasMedia
 
     use SoftDeletes, HasMediaTrait;
 
-    protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'phone', 'abstract', 'bio', 'status', 'informed', 'order', 'capacity', 'session_id'];
+    protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'phone', 'abstract', 'bio', 'status', 'informed', 'order', 'capacity', 'objectives', 'materials', 'description', 'evaluation', 'video', 'bibliography', 'lab_approved', 'session_id'];
     protected $hidden = [];
     
     use SearchableTrait;
