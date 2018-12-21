@@ -41,6 +41,7 @@
                         <th>@lang('quickadmin.papers.fields.status')</th>
                         <th>@lang('quickadmin.papers.fields.order')</th>
                         <th>@lang('quickadmin.papers.fields.capacity')</th>
+                        <th>@lang('quickadmin.papers.fields.lab-approved')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -67,6 +68,7 @@
                                 <td field-key='status'>{{ $paper->status }}</td>
                                 <td field-key='order'>{{ $paper->order }}</td>
                                 <td field-key='capacity'>{{ $paper->capacity }}</td>
+                                <td field-key='lab_approved'>{{ Form::checkbox("lab_approved", 1, $paper->lab_approved == 1 ? true : false, ["disabled"]) }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('paper_delete')
@@ -111,7 +113,7 @@
             @endforeach
         @else
             <tr>
-                <td colspan="22">@lang('quickadmin.qa_no_entries_in_table')</td>
+                <td colspan="30">@lang('quickadmin.qa_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>
