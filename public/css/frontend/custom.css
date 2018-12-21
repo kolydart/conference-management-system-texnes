@@ -19,3 +19,13 @@
 	padding: 0 1px;
 	font-size: 0.75em;
 	}
+
+
+.control-label{
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.help-block{
+  color: grey;
+}

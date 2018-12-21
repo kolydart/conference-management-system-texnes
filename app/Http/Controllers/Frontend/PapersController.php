@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\FileUploadTrait;
 use App\Paper;
 use Gate;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ use gateweb\common\database\LogUserAgent;
 
 class PapersController extends Controller
 {
+    use FileUploadTrait;
     /**
      * Display a listing of Paper.
      *
