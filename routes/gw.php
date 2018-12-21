@@ -27,7 +27,7 @@ Route::get('/attend/delete/{paper_id}', 'Frontend\AttendsController@delete')->na
 
 Route::get('/lunch/confirm/{lunch_id}', function (\Illuminate\Http\Request $request) {
     if (! $request->hasValidSignature()) {
-	    \gateweb\common\Presenter::message("<h4>Η προθεσμία επιβεβαίωσης παρήλθε. Επικοινωνήστε με την γραμματεία.</h3>","warning");
+	    \gateweb\common\Presenter::message("<h4>Η προθεσμία επιβεβαίωσης παρήλθε. Επικοινωνήστε με την γραμματεία.</h4>","warning");
     }else{
 	    $lunch = \App\Lunch::findOrFail($request->lunch_id);
 	    $lunch->update(['confirm' => 'confirmed']);
@@ -36,6 +36,11 @@ Route::get('/lunch/confirm/{lunch_id}', function (\Illuminate\Http\Request $requ
     return redirect(route('frontend.home'));
 
 })->name('frontend.lunch.confirm');
+
+/* edit lab with signed url */
+Route::get('/papers/{paper}/edit', 'Frontend\PapersController@edit')->name('frontend.papers.edit');
+/* store is protected with csrf */
+Route::put('/papers/{paper}', 'Frontend\PapersController@update')->name('frontend.papers.update');
 
 
 /** disable registration */

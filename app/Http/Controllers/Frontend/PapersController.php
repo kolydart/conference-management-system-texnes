@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Paper;
 use Gate;
 use Illuminate\Http\Request;
+use gateweb\common\Presenter;
+use gateweb\common\Router;
 use gateweb\common\database\LogUserAgent;
 
 class PapersController extends Controller
@@ -39,5 +41,76 @@ class PapersController extends Controller
 
         return view('frontend.papers.show', compact('paper'));
     }
+
+    /**
+     * Show the form for editing Paper.
+     * valid only with signed url
+     *
+     * @param  Request  $request
+     * @param  paper  $paper
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Request $request, Paper $paper)
+    {
+
+        /** check valid signature */
+        if (! $request->hasValidSignature()) {
+            Presenter::message("<p>Δεν έχετε δικαιώματα επεξεργασίας στο αντικείμενο.</p>","warning");
+            return redirect(route('frontend.home'));
+        }else{
+            Presenter::message("<p>Επεξεργασία εργαστηρίου.</p><p>Συμπληρώστε προσεκτικά τα πεδία. Μετά την υποβολή της φόρμας, δεν θα έχετε δυνατότητα περαιτέρω επεξεργασίας</p>","success");
+        }
+        
+        $paper = Paper::findOrFail($paper->id);
+
+        return view('frontend.papers.edit', compact('paper'));
+    }
+
+    /**
+     * Update a Paper in storage.
+     * protected by csrf (I hope)
+     *
+     * @param  Request  $request
+     * @param  paper  $paper
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Paper $paper)
+    {
+
+        $request->validate([
+            'title' => 'required|regex:'.Router::PREG_VALIDATE_TEXT,
+            'abstract' => 'required',
+            'video' => 'url',
+            'images' => 'image',
+        ]);
+
+        $request = $this->saveFiles($request);
+
+        // dd($request->all());
+        $paper->update([
+            'title' => $request->title,
+            'abstract' => $request->abstract,
+            'objectives' => $request->objectives,
+            'materials' => $request->materials,
+            'description' => $request->description,
+            'evaluation' => $request->evaluation,
+            'images' => $request->images,
+            'video' => $request->video,
+            'bibliography' => $request->bibliography,            
+        ]);
+
+        $media = [];
+        foreach ($request->input('images_id', []) as $index => $id) {
+            $model          = config('laravel-medialibrary.media_model');
+            $file           = $model::find($id);
+            $file->model_id = $paper->id;
+            $file->save();
+            $media[] = $file->toArray();
+        }
+        $paper->updateMedia($media, 'images');
+
+        return redirect()->route('admin.papers.index');
+    }
+
 
 }
