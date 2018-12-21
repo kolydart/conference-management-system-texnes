@@ -139,7 +139,6 @@
                         <tr>
                             <th>@lang('quickadmin.papers.fields.lab-approved')</th>
                             <td field-key='lab_approved'>{{ Form::checkbox("lab_approved", 1, $paper->lab_approved == 1 ? true : false, ["disabled"]) }}</td>
->>>>>>> 69e5367... Paper new fields for user editing
                         </tr>
                     </table>
                 </div>
