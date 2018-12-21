@@ -8,7 +8,7 @@
             <div class="row">
 
                 {{-- Availability --}}
-                <div class="col-md-4 col-sm-6">
+                {{-- <div class="col-md-4 col-sm-6">
                 @if( App\Paper::accepted()->lab()->where('id',$paper->id)->count())
                     <p class="text-secondary small"> @lang('Διαθεσιμότητα:')
                     @if ($paper->attend()->count() >= $paper->capacity())
@@ -19,10 +19,10 @@
                         <span class="text-success">@lang('υπάρχουν θέσεις')</span></p>
                     @endcan
                 @endif
-                </div>
+                </div> --}}
 
                 {{-- Attend button --}}
-                <div class="col-sm-6 col-md-4 offset-md-4 pb-1">
+                {{-- <div class="col-sm-6 col-md-4 offset-md-4 pb-1">
                     
                         @can('attend_create', $paper)
                         <a href="{{route('frontend.attend.create',$paper->id)}}" class="btn btn-lg btn-success"><i class="far fa-check-square"></i> @lang('Δήλωση συμμετοχής')</a>
@@ -34,7 +34,7 @@
 
                         <a href="/page/faq#register" class="text-secondary" title="Οδηγίες για δήλωση εργαστηρίων"><i class="fas fa-info-circle"></i></a>
 
-                </div>
+                </div> --}}
             </div>
             <span class="badge badge-dark">@lang('quickadmin.qa_view')</span>
         </div>        
