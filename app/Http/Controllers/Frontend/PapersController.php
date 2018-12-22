@@ -80,6 +80,10 @@ class PapersController extends Controller
         $request->validate([
             'title' => 'required|regex:'.Router::PREG_VALIDATE_TEXT,
             'abstract' => 'required',
+            'objectives' => 'required',
+            'materials' => 'required',
+            'description' => 'required',
+            'evaluation' => 'required',
             'video' => 'url',
             'images' => 'image',
         ]);
