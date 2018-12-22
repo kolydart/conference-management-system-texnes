@@ -21,7 +21,7 @@
                 <div class="col-md-10 offset-md-1 form-group w-100">
                     {!! Form::label('abstract', trans('quickadmin.papers.fields.abstract').'', ['class' => 'control-label mt-3']) !!}
                     {!! Form::textarea('abstract', old('abstract'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
+                    <p class="help-block text-secondary">(έως 200 λέξεις)</p>
                     @if($errors->has('abstract'))
                         <p class="help-block"> {{ $errors->first('abstract') }} </p>
                     @endif
