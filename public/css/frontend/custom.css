@@ -22,10 +22,6 @@
 
 
 .control-label{
-  font-size: 120%;
+  font-size: 110%;
   font-weight: bold;
-}
-
-.help-block{
-  color: grey;
 }
