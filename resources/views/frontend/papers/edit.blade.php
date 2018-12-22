@@ -8,7 +8,7 @@
     
     {!! Form::model($paper, ['method' => 'PUT', 'route' => ['frontend.papers.update', $paper->id], 'files' => true,]) !!}
             <div class="row mt-5 ">
-                <div class="col-md-10 form-group input-group">
+                <div class="col-md-10 form-group w-100">
                     {!! Form::label('title', trans('quickadmin.papers.fields.title').'', ['class' => 'control-label mt-2 pr-3 pb-3']) !!}
                     {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block text-secondary"></p>
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-12 form-group w-100">
                     {!! Form::label('abstract', trans('quickadmin.papers.fields.abstract').'', ['class' => 'control-label mt-3']) !!}
                     {!! Form::textarea('abstract', old('abstract'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-12 form-group w-100">
                     {!! Form::label('objectives', trans('quickadmin.papers.fields.objectives').'', ['class' => 'control-label mt-3']) !!}
                     <p class="help-block text-secondary">(Διδακτικοι / Μαθησιακοί)</p>
                     {!! Form::textarea('objectives', old('objectives'), ['class' => 'form-control editor', 'placeholder' => 'Στόχοι (Διδακτικοι / Μαθησιακοί)']) !!}
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-12 form-group w-100">
                     {!! Form::label('materials', trans('quickadmin.papers.fields.materials').'', ['class' => 'control-label mt-3']) !!}
                     <p class="help-block text-secondary">(Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)</p>
                     {!! Form::textarea('materials', old('materials'), ['class' => 'form-control editor', 'placeholder' => 'Υλικό (Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)']) !!}
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-12 form-group w-100">
                     {!! Form::label('description', trans('quickadmin.papers.fields.description').'', ['class' => 'control-label mt-3']) !!}
                     <p class="help-block text-secondary">Σχέδιο ανάπτυξης (Φάσεις, δραστηριότητες, πορεία εργαστηρίου, αποτελέσματα, με έκταση έως 2000 λέξεις)</p>
                     {!! Form::textarea('description', old('description'), ['class' => 'form-control editor', 'placeholder' => 'Σχέδιο ανάπτυξης / περιγραφή (Φάσεις, δραστηριότητες, πορεία εργαστηρίου, αποτελέσματα, με έκταση έως 2000 λέξεις)']) !!}
@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-12 form-group w-100">
                     {!! Form::label('evaluation', trans('quickadmin.papers.fields.evaluation').'', ['class' => 'control-label mt-3']) !!}
                     <p class="help-block text-secondary">(Αναλύεται πώς είδατε προσωπικά το εργαστήριο που υλοποιήσατε)</p>
                     {!! Form::textarea('evaluation', old('evaluation'), ['class' => 'form-control editor', 'placeholder' => 'Προσωπική αποτίμηση (Αναλύεται πώς είδατε προσωπικά το εργαστήριο που υλοποιήσατε)']) !!}
@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-12 form-group w-100">
                     {!! Form::label('images', trans('quickadmin.papers.fields.images').'', ['class' => 'control-label mt-3']) !!}
                     {!! Form::file('images[]', [
                         'multiple',
@@ -106,7 +106,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-12 form-group w-100">
                     {!! Form::label('video', trans('quickadmin.papers.fields.video').'', ['class' => 'control-label mt-3']) !!}
                     <p class="help-block text-secondary">Βίντεο του εργαστηρίου (Με link στην πλατφόρμα όπου το έχετε αναρτήσει: vod-new.sch.gr , vimeo.com, youtube.com κ.λπ.)</p>
                     {!! Form::text('video', old('video'), ['class' => 'form-control', 'placeholder' => 'Βίντεο του εργαστηρίου (Με link στην πλατφόρμα όπου το έχετε αναρτήσει: vod-new.sch.gr , vimeo.com, youtube.com κ.λπ.)']) !!}
@@ -118,7 +118,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-12 form-group w-100">
                     {!! Form::label('bibliography', trans('quickadmin.papers.fields.bibliography').'', ['class' => 'control-label mt-3']) !!}
                     {!! Form::textarea('bibliography', old('bibliography'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
                     <p class="help-block text-secondary"></p>
