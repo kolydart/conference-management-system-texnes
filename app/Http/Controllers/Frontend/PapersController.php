@@ -56,7 +56,7 @@ class PapersController extends Controller
     {
 
         /** check valid signature */
-        if (! $request->hasValidSignature()) {
+        if (! $request->hasValidSignature() || $paper->lab_approved) {
             Presenter::message("Δεν έχετε δικαιώματα επεξεργασίας στο αντικείμενο.","warning");
             return redirect(route('frontend.home'));
         }
