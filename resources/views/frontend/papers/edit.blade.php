@@ -87,7 +87,7 @@
                         ]) !!}
                     <p class="help-block text-secondary">Υλικό τεκμηρίωσης (Έως 5 φωτογραφίες, ενδεικτικές της δράσης του εργαστηρίου)</p>
                     <div class="photo-block">
-                        <div class="progress-bar form-group">&nbsp;</div>
+                        {{-- <div class="progress-bar form-group">&nbsp;</div> --}}
                         <div class="files-list">
                             @foreach($paper->getMedia('images') as $media)
                                 <p class="form-group">
