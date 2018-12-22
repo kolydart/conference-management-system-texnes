@@ -57,10 +57,8 @@ class PapersController extends Controller
 
         /** check valid signature */
         if (! $request->hasValidSignature()) {
-            Presenter::message("<p>Δεν έχετε δικαιώματα επεξεργασίας στο αντικείμενο.</p>","warning");
+            Presenter::message("Δεν έχετε δικαιώματα επεξεργασίας στο αντικείμενο.","warning");
             return redirect(route('frontend.home'));
-        }else{
-            Presenter::message("<p>Επεξεργασία εργαστηρίου.</p><p>Συμπληρώστε προσεκτικά τα πεδία. Μετά την υποβολή της φόρμας, δεν θα έχετε δυνατότητα περαιτέρω επεξεργασίας</p>","success");
         }
         
         $paper = Paper::findOrFail($paper->id);
@@ -111,7 +109,9 @@ class PapersController extends Controller
         }
         $paper->updateMedia($media, 'images');
 
-        return redirect()->route('admin.papers.index');
+        Presenter::message("Η εγγραφή ενημερώθηκε.<br>Θα δημοσιευτεί μετά την επιβεβαίωση από την οργανωτική επιτροπή.<br>Ευχαριστούμε.","info");
+
+        return redirect()->route('frontend.papers.show',['id'=>$paper->id]);
     }
 
 
