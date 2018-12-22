@@ -12,7 +12,7 @@
                     {!! Form::label('title', trans('quickadmin.papers.fields.title').'', ['class' => 'control-label']) !!}
                     {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block text-secondary"></p>
-                    @if($errors->has('title'))
+                    @if($errors->has('title text-danger'))
                         <p class="help-block"> {{ $errors->first('title') }} </p>
                     @endif
                 </div>
@@ -22,7 +22,7 @@
                     {!! Form::label('abstract', trans('quickadmin.papers.fields.abstract').'', ['class' => 'control-label mt-3']) !!}
                     {!! Form::textarea('abstract', old('abstract'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
                     <p class="help-block text-secondary">(έως 200 λέξεις)</p>
-                    @if($errors->has('abstract'))
+                    @if($errors->has('abstract text-danger'))
                         <p class="help-block"> {{ $errors->first('abstract') }} </p>
                     @endif
                 </div>
@@ -33,7 +33,7 @@
                     <p class="help-block text-secondary">(Διδακτικοι / Μαθησιακοί)</p>
                     {!! Form::textarea('objectives', old('objectives'), ['class' => 'form-control editor', 'placeholder' => 'Στόχοι (Διδακτικοι / Μαθησιακοί)']) !!}
                     @if($errors->has('objectives'))
-                        <p class="help-block">
+                        <p class="help-block text-danger">
                             {{ $errors->first('objectives') }}
                         </p>
                     @endif
@@ -45,7 +45,7 @@
                     <p class="help-block text-secondary">(Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)</p>
                     {!! Form::textarea('materials', old('materials'), ['class' => 'form-control editor', 'placeholder' => 'Υλικό (Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)']) !!}
                     @if($errors->has('materials'))
-                        <p class="help-block">
+                        <p class="help-block text-danger">
                             {{ $errors->first('materials') }}
                         </p>
                     @endif
@@ -57,7 +57,7 @@
                     <p class="help-block text-secondary">Σχέδιο ανάπτυξης (Φάσεις, δραστηριότητες, πορεία εργαστηρίου, αποτελέσματα, με έκταση έως 2000 λέξεις)</p>
                     {!! Form::textarea('description', old('description'), ['class' => 'form-control editor', 'placeholder' => 'Σχέδιο ανάπτυξης / περιγραφή (Φάσεις, δραστηριότητες, πορεία εργαστηρίου, αποτελέσματα, με έκταση έως 2000 λέξεις)']) !!}
                     @if($errors->has('description'))
-                        <p class="help-block">
+                        <p class="help-block text-danger">
                             {{ $errors->first('description') }}
                         </p>
                     @endif
@@ -69,7 +69,7 @@
                     <p class="help-block text-secondary">(Αναλύεται πώς είδατε προσωπικά το εργαστήριο που υλοποιήσατε)</p>
                     {!! Form::textarea('evaluation', old('evaluation'), ['class' => 'form-control editor', 'placeholder' => 'Προσωπική αποτίμηση (Αναλύεται πώς είδατε προσωπικά το εργαστήριο που υλοποιήσατε)']) !!}
                     @if($errors->has('evaluation'))
-                        <p class="help-block">
+                        <p class="help-block text-danger">
                             {{ $errors->first('evaluation') }}
                         </p>
                     @endif
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     @if($errors->has('images'))
-                        <p class="help-block">
+                        <p class="help-block text-danger">
                             {{ $errors->first('images') }}
                         </p>
                     @endif
@@ -111,7 +111,7 @@
                     <p class="help-block text-secondary">Βίντεο του εργαστηρίου (Με link στην πλατφόρμα όπου το έχετε αναρτήσει: vod-new.sch.gr , vimeo.com, youtube.com κ.λπ.)</p>
                     {!! Form::text('video', old('video'), ['class' => 'form-control']) !!}
                     @if($errors->has('video'))
-                        <p class="help-block">
+                        <p class="help-block text-danger">
                             {{ $errors->first('video') }}
                         </p>
                     @endif
@@ -123,7 +123,7 @@
                     {!! Form::textarea('bibliography', old('bibliography'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
                     <p class="help-block text-secondary"></p>
                     @if($errors->has('bibliography'))
-                        <p class="help-block">
+                        <p class="help-block text-danger">
                             {{ $errors->first('bibliography') }}
                         </p>
                     @endif
