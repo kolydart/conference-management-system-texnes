@@ -5,8 +5,12 @@ CKEDITOR.editorConfig = function( config ) {
 	// allow custom code (fontawesome, classes)
 	config.protectedSource.push( /<i class[\s\S]*?\>/g );
 	config.protectedSource.push( /<\/i>/g );
-	config.allowedContent = true;
-	
+	// config.allowedContent = true;
+	config.allowedContent =
+	    'p blockquote strong em b i ul li ol sub sup;' +
+	    'a[!href];' +
+	    'style[text-align];' +
+	    'img[!src,alt,width,height];';
 	config.toolbarGroups = [
 		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
 		{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
