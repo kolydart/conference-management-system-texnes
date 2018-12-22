@@ -4,40 +4,34 @@
 
 @section('content')
     
+    <legend class="text-info">Επεξεργασία εργαστηρίου</legend>
+    
     {!! Form::model($paper, ['method' => 'PUT', 'route' => ['frontend.papers.update', $paper->id], 'files' => true,]) !!}
-
-    <div class="panel panel-default">
-
-        <div class="panel-body row">
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('title', trans('quickadmin.papers.fields.title').'', ['class' => 'control-label']) !!}
+            <div class="row mt-5 ">
+                <div class="col-md-10 form-group input-group">
+                    {!! Form::label('title', trans('quickadmin.papers.fields.title').'', ['class' => 'control-label mt-2 pr-3 pb-3']) !!}
                     {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
+                    <p class="help-block text-secondary"></p>
                     @if($errors->has('title'))
-                        <p class="help-block">
-                            {{ $errors->first('title') }}
-                        </p>
+                        <p class="help-block"> {{ $errors->first('title') }} </p>
                     @endif
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('abstract', trans('quickadmin.papers.fields.abstract').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('abstract', trans('quickadmin.papers.fields.abstract').'', ['class' => 'control-label mt-3']) !!}
                     {!! Form::textarea('abstract', old('abstract'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('abstract'))
-                        <p class="help-block">
-                            {{ $errors->first('abstract') }}
-                        </p>
+                        <p class="help-block"> {{ $errors->first('abstract') }} </p>
                     @endif
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('objectives', trans('quickadmin.papers.fields.objectives').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('objectives', trans('quickadmin.papers.fields.objectives').'', ['class' => 'control-label mt-3']) !!}
+                    <p class="help-block text-secondary">(Διδακτικοι / Μαθησιακοί)</p>
                     {!! Form::textarea('objectives', old('objectives'), ['class' => 'form-control editor', 'placeholder' => 'Στόχοι (Διδακτικοι / Μαθησιακοί)']) !!}
-                    <p class="help-block">Στόχοι (Διδακτικοι / Μαθησιακοί)</p>
                     @if($errors->has('objectives'))
                         <p class="help-block">
                             {{ $errors->first('objectives') }}
@@ -47,9 +41,9 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('materials', trans('quickadmin.papers.fields.materials').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('materials', trans('quickadmin.papers.fields.materials').'', ['class' => 'control-label mt-3']) !!}
+                    <p class="help-block text-secondary">(Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)</p>
                     {!! Form::textarea('materials', old('materials'), ['class' => 'form-control editor', 'placeholder' => 'Υλικό (Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)']) !!}
-                    <p class="help-block">Υλικό (Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)</p>
                     @if($errors->has('materials'))
                         <p class="help-block">
                             {{ $errors->first('materials') }}
@@ -59,9 +53,9 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('description', trans('quickadmin.papers.fields.description').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('description', trans('quickadmin.papers.fields.description').'', ['class' => 'control-label mt-3']) !!}
+                    <p class="help-block text-secondary">Σχέδιο ανάπτυξης (Φάσεις, δραστηριότητες, πορεία εργαστηρίου, αποτελέσματα, με έκταση έως 2000 λέξεις)</p>
                     {!! Form::textarea('description', old('description'), ['class' => 'form-control editor', 'placeholder' => 'Σχέδιο ανάπτυξης / περιγραφή (Φάσεις, δραστηριότητες, πορεία εργαστηρίου, αποτελέσματα, με έκταση έως 2000 λέξεις)']) !!}
-                    <p class="help-block">Σχέδιο ανάπτυξης / περιγραφή (Φάσεις, δραστηριότητες, πορεία εργαστηρίου, αποτελέσματα, με έκταση έως 2000 λέξεις)</p>
                     @if($errors->has('description'))
                         <p class="help-block">
                             {{ $errors->first('description') }}
@@ -71,9 +65,9 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('evaluation', trans('quickadmin.papers.fields.evaluation').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('evaluation', trans('quickadmin.papers.fields.evaluation').'', ['class' => 'control-label mt-3']) !!}
+                    <p class="help-block text-secondary">(Αναλύεται πώς είδατε προσωπικά το εργαστήριο που υλοποιήσατε)</p>
                     {!! Form::textarea('evaluation', old('evaluation'), ['class' => 'form-control editor', 'placeholder' => 'Προσωπική αποτίμηση (Αναλύεται πώς είδατε προσωπικά το εργαστήριο που υλοποιήσατε)']) !!}
-                    <p class="help-block">Προσωπική αποτίμηση (Αναλύεται πώς είδατε προσωπικά το εργαστήριο που υλοποιήσατε)</p>
                     @if($errors->has('evaluation'))
                         <p class="help-block">
                             {{ $errors->first('evaluation') }}
@@ -83,7 +77,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('images', trans('quickadmin.papers.fields.images').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('images', trans('quickadmin.papers.fields.images').'', ['class' => 'control-label mt-3']) !!}
                     {!! Form::file('images[]', [
                         'multiple',
                         'class' => 'form-control file-upload',
@@ -91,8 +85,8 @@
                         'data-bucket' => 'images',
                         'data-filekey' => 'images',
                         ]) !!}
-                    <p class="help-block">Υλικό τεκμηρίωσης (Έως 5 φωτογραφίες, ενδεικτικές της δράσης του εργαστηρίου)</p>
-                    {{-- <div class="photo-block">
+                    <p class="help-block text-secondary">Υλικό τεκμηρίωσης (Έως 5 φωτογραφίες, ενδεικτικές της δράσης του εργαστηρίου)</p>
+                    <div class="photo-block">
                         <div class="progress-bar form-group">&nbsp;</div>
                         <div class="files-list">
                             @foreach($paper->getMedia('images') as $media)
@@ -103,7 +97,7 @@
                                 </p>
                             @endforeach
                         </div>
-                    </div> --}}
+                    </div>
                     @if($errors->has('images'))
                         <p class="help-block">
                             {{ $errors->first('images') }}
@@ -113,9 +107,9 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('video', trans('quickadmin.papers.fields.video').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('video', trans('quickadmin.papers.fields.video').'', ['class' => 'control-label mt-3']) !!}
+                    <p class="help-block text-secondary">Βίντεο του εργαστηρίου (Με link στην πλατφόρμα όπου το έχετε αναρτήσει: vod-new.sch.gr , vimeo.com, youtube.com κ.λπ.)</p>
                     {!! Form::text('video', old('video'), ['class' => 'form-control', 'placeholder' => 'Βίντεο του εργαστηρίου (Με link στην πλατφόρμα όπου το έχετε αναρτήσει: vod-new.sch.gr , vimeo.com, youtube.com κ.λπ.)']) !!}
-                    <p class="help-block">Βίντεο του εργαστηρίου (Με link στην πλατφόρμα όπου το έχετε αναρτήσει: vod-new.sch.gr , vimeo.com, youtube.com κ.λπ.)</p>
                     @if($errors->has('video'))
                         <p class="help-block">
                             {{ $errors->first('video') }}
@@ -125,9 +119,9 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('bibliography', trans('quickadmin.papers.fields.bibliography').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('bibliography', trans('quickadmin.papers.fields.bibliography').'', ['class' => 'control-label mt-3']) !!}
                     {!! Form::textarea('bibliography', old('bibliography'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
+                    <p class="help-block text-secondary"></p>
                     @if($errors->has('bibliography'))
                         <p class="help-block">
                             {{ $errors->first('bibliography') }}
@@ -135,10 +129,8 @@
                     @endif
                 </div>
             </div>            
-        </div>
-    </div>
 
-    {!! Form::submit(trans('quickadmin.qa_update'), ['class' => 'btn btn-warning']) !!}
+    {!! Form::submit(trans('quickadmin.qa_update'), ['class' => 'btn btn-info mb-5']) !!}
     {!! Form::close() !!}
 @stop
 
@@ -148,10 +140,11 @@
     <script>
         $('.editor').each(function () {
                   CKEDITOR.replace($(this).attr('id'),{
-                    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                    // filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
                     // filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
-                    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-                    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}'
+                    // filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                    // filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}',
+                    customConfig: '/js/ckeditor_config_frontend.js' 
             });
         });
     </script>
