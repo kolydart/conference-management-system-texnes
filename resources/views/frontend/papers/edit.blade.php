@@ -139,14 +139,14 @@
     {{-- <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script> --}}
     <script src="/adminlte/plugins/ckeditor/ckeditor.js"></script>
     <script>
-        $('.editor').each(function () {
-                  CKEDITOR.replace($(this).attr('id'),{
-                    // filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-                    // filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
-                    // filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-                    // filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}',
-                    customConfig: '/js/ckeditor_config_frontend.js' 
-            });
+        $('.editor').not('#abstract').not('#description').each(function () {
+            CKEDITOR.replace($(this).attr('id'),{customConfig: '/js/ckeditor_config_frontend.js'});
+        });
+        $('#abstract').each(function () {
+            CKEDITOR.replace($(this).attr('id'),{customConfig: '/js/ckeditor_config_frontend_200words.js'});
+        });
+        $('#description').each(function () {
+            CKEDITOR.replace($(this).attr('id'),{customConfig: '/js/ckeditor_config_frontend_2000words.js'});
         });
     </script>
 
