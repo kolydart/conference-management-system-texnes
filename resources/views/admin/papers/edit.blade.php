@@ -377,6 +377,9 @@
                     @endif
                 </div>
             </div>
+
+            {{-- Lab only fields --}}
+            @if (App\Paper::lab()->where('id',$paper->id)->count() == 1)
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('objectives', trans('quickadmin.papers.fields.objectives').'', ['class' => 'control-label']) !!}
@@ -492,6 +495,7 @@
                     @endif
                 </div>
             </div>
+            @endif
             
         </div>
     </div>
