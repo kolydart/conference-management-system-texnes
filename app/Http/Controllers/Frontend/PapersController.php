@@ -113,7 +113,7 @@ class PapersController extends Controller
         }
         $paper->updateMedia($media, 'images');
 
-        Presenter::message("Η εγγραφή ενημερώθηκε.<br>Θα δημοσιευτεί μετά την επιβεβαίωση από την οργανωτική επιτροπή.<br>Ευχαριστούμε.","info");
+        Presenter::message("Η καρτέλα ενημερώθηκε.<br>Θα είναι δημόσια προσβάσιμη αφού επιβεβαιωθεί από τους επιμελητές των πρακτικών.<br>Ευχαριστούμε.","info");
 
         return redirect()->route('frontend.papers.show',['id'=>$paper->id]);
     }
