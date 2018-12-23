@@ -20,8 +20,8 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1 form-group w-100">
                     {!! Form::label('abstract', trans('quickadmin.papers.fields.abstract').'', ['class' => 'control-label mt-3']) !!}
-                    {!! Form::textarea('abstract', old('abstract'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
                     <p class="help-block text-secondary">(έως 200 λέξεις)</p>
+                    {!! Form::textarea('abstract', old('abstract'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
                     @if($errors->has('abstract text-danger'))
                         <p class="help-block"> {{ $errors->first('abstract') }} </p>
                     @endif
