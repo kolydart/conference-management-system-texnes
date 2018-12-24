@@ -515,7 +515,7 @@
                     filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
                     filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
                     filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}',
-                    customConfig: '/js/ckeditor_config.js'
+                    customConfig: '/js/ckeditor_config_paper_backend.js'
             });
         });
     </script>
