@@ -89,7 +89,7 @@ class mailProc extends Command
                 $email = $paper->email;
             }
             $subject = $message->title;
-            $body = "<p>Προς: $name<br>Email: $email<br>$paper->type: <i>$paper->title</i><br></p>";
+            $body = "<p style=\"margin-bottom:40px; \">Προς: $name<br>Email: $email<br>$paper->type: <i>$paper->title</i><br></p>";
             $body .= $message->page_text;
 
             if ($is_lab) {
