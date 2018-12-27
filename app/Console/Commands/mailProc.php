@@ -92,11 +92,22 @@ class mailProc extends Command
             $body = "<p style=\"margin-bottom:40px; \">Προς: $name<br>Email: $email<br>$paper->type: <i>$paper->title</i><br></p>";
             $body .= $message->page_text;
 
+            /** lab edit form */
             if ($is_lab) {
-                $body .= "<p style=\"text-align:center; font-weight: bold; margin-bottom:40px;\"><a href=\"".\URL::temporarySignedRoute('frontend.papers.edit',now()->addDays(40), ['paper'=>$paper->id])."\">Φόρμα επεξεργασίας</a></p>";
+                $body .= "<p style=\"text-align:center; font-weight: bold; margin-top:20px; margin-bottom:20px;\"><a href=\"".\URL::temporarySignedRoute('frontend.papers.edit',now()->addDays(40), ['paper'=>$paper->id])."\">Φόρμα επεξεργασίας</a></p>";
+            }
+
+            /** instructions & signature */
+            if ($is_lab) {
+                $body .= "<p>Δείτε τις <a href=\"".route('frontend.fullpapers.download',"0a91348d-56d8-465e-8a3c-ad95502a55b9")."\">αναλυτικές οδηγίες</a> για τη συμπλήρωση της φόρμας.</p>
+                <p><span style=\"font-family:trebuchet ms,helvetica,sans-serif;\">Σας ευχόμαστε να έχετε καλή Πρωτοχρονιά και ευτυχισμένο το νέο έτος.</span></p>
+                <p><span style=\"font-family:trebuchet ms,helvetica,sans-serif; margin-bottom:40px;\">Η επιτροπή επιμέλειας των πρακτικών του συνεδρίου</span></p>";               
             }else{
-                $body .= "";
-            }            
+                $body .= "<p>Δείτε τις <a href=\"".route('frontend.fullpapers.download',"82382136-33ab-43f2-b7b5-4f167fee0aea")."\">αναλυτικές οδηγίες</a> για τη συμπλήρωση της φόρμας.</p>
+                <p><span style=\"font-family:trebuchet ms,helvetica,sans-serif;\">Σας ευχόμαστε να έχετε καλή Πρωτοχρονιά και ευτυχισμένο το νέο έτος.</span></p>
+                <p><span style=\"font-family:trebuchet ms,helvetica,sans-serif; margin-bottom:40px;\">Η επιτροπή επιμέλειας των πρακτικών του συνεδρίου</span></p>";
+            }
+
 
             /**
              * send message
