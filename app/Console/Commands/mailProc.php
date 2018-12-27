@@ -99,11 +99,11 @@ class mailProc extends Command
 
             /** instructions & signature */
             if ($is_lab) {
-                $body .= "<p>Δείτε τις <a href=\"".route('frontend.fullpapers.download',"0a91348d-56d8-465e-8a3c-ad95502a55b9")."\">αναλυτικές οδηγίες</a> για τη συμπλήρωση της φόρμας.</p>
+                $body .= "<p>Δείτε τις <a href=\"".route('frontend.fullpapers.download',["0a91348d-56d8-465e-8a3c-ad95502a55b9",$paper->id])."\">αναλυτικές οδηγίες</a> για τη συμπλήρωση της φόρμας.</p>
                 <p><span style=\"font-family:trebuchet ms,helvetica,sans-serif;\">Σας ευχόμαστε να έχετε καλή Πρωτοχρονιά και ευτυχισμένο το νέο έτος.</span></p>
                 <p><span style=\"font-family:trebuchet ms,helvetica,sans-serif; margin-bottom:40px;\">Η επιτροπή επιμέλειας των πρακτικών του συνεδρίου</span></p>";               
             }else{
-                $body .= "<p>Δείτε τις <a href=\"".route('frontend.fullpapers.download',"82382136-33ab-43f2-b7b5-4f167fee0aea")."\">αναλυτικές οδηγίες</a> για τη συμπλήρωση της φόρμας.</p>
+                $body .= "<p>Δείτε τις <a href=\"".route('frontend.fullpapers.download',["82382136-33ab-43f2-b7b5-4f167fee0aea",$paper->id])."\">αναλυτικές οδηγίες</a> για τη συμπλήρωση της φόρμας.</p>
                 <p><span style=\"font-family:trebuchet ms,helvetica,sans-serif;\">Σας ευχόμαστε να έχετε καλή Πρωτοχρονιά και ευτυχισμένο το νέο έτος.</span></p>
                 <p><span style=\"font-family:trebuchet ms,helvetica,sans-serif; margin-bottom:40px;\">Η επιτροπή επιμέλειας των πρακτικών του συνεδρίου</span></p>";
             }
