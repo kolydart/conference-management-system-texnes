@@ -46,6 +46,7 @@
                         <th>@lang('quickadmin.papers.fields.capacity')</th>
                         <th>@lang('Δηλώσεις')</th>
                         <th>@lang('θέσεις')</th>
+                        <th>@lang('Lab updated')</th>
                         <th>@lang('quickadmin.papers.fields.lab-approved')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
@@ -97,7 +98,8 @@
                                 <td field-key='capacity'>{{ $paper->capacity }}</td>
                                 <td field-key='attend'>{{ $paper->attend()->count() }}</td>
                                 <td field-key='availability'>@if ($paper->availability) <span class="text-success" style="font-size: 1.2em">✓</span> @else <span class="text-muted" style="font-size: 1.2em">x</span @endif</td>
-                                <td field-key='lab_approved'>{{ Form::checkbox("lab_approved", 1, $paper->lab_approved == 1 ? true : false, ["disabled"]) }}</td>
+                                <td field-key='lab_updated'>@if ($paper->description) <span class="text-success" style="font-size: 1.2em">✓</span>@endif</td>
+                                <td field-key='lab_approved'>@if ($paper->lab_approved) <span class="text-success" style="font-size: 1.2em">✓</span>@endif</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('paper_delete')
