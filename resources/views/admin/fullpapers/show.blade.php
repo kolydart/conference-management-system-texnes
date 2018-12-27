@@ -28,6 +28,10 @@
                             <th>@lang('quickadmin.fullpaper.fields.description')</th>
                             <td field-key='description'>{{ $fullpaper->description }}</td>
                         </tr>
+                        <tr>
+                            <th>@lang('quickadmin.fullpaper.fields.uuid')</th>
+                            <td field-key='uuid'>{{ $fullpaper->uuid }}</td>
+                        </tr>
                     </table>
                 </div>
             </div>

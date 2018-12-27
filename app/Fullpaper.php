@@ -12,12 +12,13 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
  * @package App
  * @property string $paper
  * @property string $description
+ * @property string $uuid
 */
 class Fullpaper extends Model implements HasMedia
 {
     use SoftDeletes, HasMediaTrait;
 
-    protected $fillable = ['description', 'paper_id'];
+    protected $fillable = ['description', 'uuid', 'paper_id'];
     protected $hidden = [];
     
     

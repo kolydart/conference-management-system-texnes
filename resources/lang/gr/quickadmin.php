@@ -17,7 +17,7 @@ return [
 		'content-pages' => [		'title' => 'Σελίδες',		'fields' => [			'title' => 'Τίτλος',			'alias' => 'Alias',			'category-id' => 'Κατηγορίες',			'page-text' => 'Κείμενο',			'excerpt' => 'Απόσπασμα',			'featured-image' => 'Εικόνα εμφάνισης',			'tag-id' => 'Ετικέτες',		],	],
 		'files' => [		'title' => 'Τελικά κείμενα',		'fields' => [		],	],
 		'messages' => [		'title' => 'Μηνύματα',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'title' => 'Title',			'body' => 'Body',			'user' => 'User',			'page' => 'Page',			'paper' => 'Paper',		],	],
-		'fullpaper' => [		'title' => 'Τελικά κείμενα',		'fields' => [			'paper' => 'Paper',			'finaltext' => 'Αρχείο(α)',			'description' => 'Σύντομη περιγραφή',		],	],
+		'fullpaper' => [		'title' => 'Τελικά κείμενα',		'fields' => [			'paper' => 'Paper',			'finaltext' => 'Αρχείο(α)',			'description' => 'Σύντομη περιγραφή',			'uuid' => 'uuid',		],	],
 		'activitylog' => [		'title' => 'activity-log',		'fields' => [			'log-name' => 'Log name',			'causer-type' => 'Causer type',			'causer-id' => 'Causer id',			'description' => 'Description',			'subject-type' => 'Subject type',			'subject-id' => 'Subject id',			'properties' => 'Properties',		],	],
 		'rooms' => [		'title' => 'Αίθουσες',		'fields' => [			'title' => 'Όνομα',			'description' => 'Περιγραφή',			'type' => 'Είδος',			'wifi' => 'Public wi-fi access',			'capacity' => 'Χωρητικότητα',		],	],
 		'sessions' => [		'title' => 'Συνεδρίες',		'fields' => [			'title' => 'Τίτλος',			'room' => 'Αίθουσα',			'start' => 'Έναρξη',			'duration' => 'Διάρκεια',			'chair' => 'Chair',			'color' => 'Color',		],	],
