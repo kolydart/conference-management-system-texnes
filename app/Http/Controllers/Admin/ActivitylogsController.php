@@ -64,7 +64,12 @@ class ActivitylogsController extends Controller
                 return $row->causer_type ? $row->causer_type : '';
             });
             $table->editColumn('user.name', function ($row) {
-                return $row->user ? $row->user->name : '';
+                if($row->causer_type == 'App\User')
+                    return $row->user ? $row->user->name : '';
+                elseif($row->causer_type == 'App\Paper')
+                    return $row->causer_id;
+                else 
+                    return '';
             });
             $table->editColumn('description', function ($row) {
                 return $row->description ? $row->description : '';
