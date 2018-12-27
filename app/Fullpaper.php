@@ -34,7 +34,7 @@ class Fullpaper extends Model implements HasMedia
     {
         parent::boot();
         self::creating(function ($model) {
-            $model->uuid = (string) \Uuid::generate(4);
+            $model->uuid = (string) \Illuminate\Support\Str::uuid();
         });
     }
     
