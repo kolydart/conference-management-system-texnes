@@ -41,7 +41,8 @@ Route::get('/lunch/confirm/{lunch_id}', function (\Illuminate\Http\Request $requ
 Route::get('/papers/{paper}/edit', 'Frontend\PapersController@edit')->name('frontend.papers.edit');
 /* store is protected with csrf */
 Route::put('/papers/{paper}', 'Frontend\PapersController@update')->name('frontend.papers.update');
-
+/** secure download Fullpaper using uuid */
+Route::get('/fullpapers/{uuid}/download', 'Frontend\FullpapersController@download')->name('frontend.fullpapers.download');
 
 /** disable registration */
 Route::any('/register', function() {
