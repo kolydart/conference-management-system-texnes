@@ -14,10 +14,17 @@ class Update1545910555FullpapersTable extends Migration
     {
         Schema::table('fullpapers', function (Blueprint $table) {
             
-if (!Schema::hasColumn('fullpapers', 'uuid')) {
-                $table->string('uuid')->nullable();
-                }
+            if (!Schema::hasColumn('fullpapers', 'uuid')) {
+                $table->string('uuid')->nullable()->unique();
+            }
         });
+        
+        $fullpapers = (new App\Fullpaper())->all();
+        foreach ($fullpapers as $fullpaper) {
+            $fullpaper->uuid = (string) \Illuminate\Support\Str::uuid();
+            if(!$fullpaper->save())
+                throw new \Exception("Could not create fullpaper $fullpaper->id => $uuid",500);
+        }
 
     }
 
