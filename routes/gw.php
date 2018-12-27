@@ -42,7 +42,7 @@ Route::get('/papers/{paper}/edit', 'Frontend\PapersController@edit')->name('fron
 /* store is protected with csrf */
 Route::put('/papers/{paper}', 'Frontend\PapersController@update')->name('frontend.papers.update');
 /** secure download Fullpaper using uuid */
-Route::get('/fullpapers/{uuid}/download', 'Frontend\FullpapersController@download')->name('frontend.fullpapers.download');
+Route::get('/fullpapers/{uuid}/download/{paper_id?}', 'Frontend\FullpapersController@download')->name('frontend.fullpapers.download');
 
 /** disable registration */
 Route::any('/register', function() {
