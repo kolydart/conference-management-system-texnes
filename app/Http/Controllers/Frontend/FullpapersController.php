@@ -10,8 +10,7 @@ use App\Http\Controllers\Controller;
 class FullpapersController extends Controller
 {
     public function download($uuid) {
-        $fullpaper = Fullpaper::where('uuid', $uuid)->firstOrFail();
-        $path = Fullpaper::first()->getFirstMedia('finaltext')->getPath();
+        $path = Fullpaper::where('uuid', $uuid)->firstOrFail()->getFirstMedia('finaltext')->getPath();
         return response()->download($path);
     }
  
