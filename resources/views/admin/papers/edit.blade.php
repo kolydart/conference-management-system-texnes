@@ -74,7 +74,7 @@
             <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('duration', trans('quickadmin.papers.fields.duration').'', ['class' => 'control-label']) !!}
-                    <p class="help-block"></p>
+                    <p class="help-block">Συνολικός χρόνος σε λεπτά της ώρας</p>
                     @if($errors->has('duration'))
                         <p class="help-block">
                             {{ $errors->first('duration') }}
@@ -261,7 +261,7 @@
                 <div class="col-xs-12 form-group">
                     {!! Form::label('abstract', trans('quickadmin.papers.fields.abstract').'', ['class' => 'control-label']) !!}
                     {!! Form::textarea('abstract', old('abstract'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
+                    <p class="help-block">Περίληψη (έως 200 λέξεις)</p>
                     @if($errors->has('abstract'))
                         <p class="help-block">
                             {{ $errors->first('abstract') }}
@@ -369,7 +369,7 @@
                 <div class="col-xs-12 form-group">
                     {!! Form::label('capacity', trans('quickadmin.papers.fields.capacity').'', ['class' => 'control-label']) !!}
                     {!! Form::number('capacity', old('capacity'), ['class' => 'form-control', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
+                    <p class="help-block">Αριθμός μελών ομάδας</p>
                     @if($errors->has('capacity'))
                         <p class="help-block">
                             {{ $errors->first('capacity') }}
@@ -381,55 +381,7 @@
             {{-- Lab only fields --}}
             @if (App\Paper::lab()->where('id',$paper->id)->count() == 1)
             
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('objectives', trans('quickadmin.papers.fields.objectives').'', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('objectives', old('objectives'), ['class' => 'form-control editor', 'placeholder' => 'Στόχοι (Διδακτικοί / Μαθησιακοί)']) !!}
-                    <p class="help-block">Στόχοι (Διδακτικοί / Μαθησιακοί)</p>
-                    @if($errors->has('objectives'))
-                        <p class="help-block">
-                            {{ $errors->first('objectives') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('materials', trans('quickadmin.papers.fields.materials').'', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('materials', old('materials'), ['class' => 'form-control editor', 'placeholder' => 'Υλικό (Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)']) !!}
-                    <p class="help-block">Υλικό (Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)</p>
-                    @if($errors->has('materials'))
-                        <p class="help-block">
-                            {{ $errors->first('materials') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('description', trans('quickadmin.papers.fields.description').'', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('description', old('description'), ['class' => 'form-control editor', 'placeholder' => 'Σχέδιο ανάπτυξης / περιγραφή (Φάσεις, δραστηριότητες, πορεία εργαστηρίου, αποτελέσματα, με έκταση έως 2000 λέξεις)']) !!}
-                    <p class="help-block">Σχέδιο ανάπτυξης / περιγραφή (Φάσεις, δραστηριότητες, πορεία εργαστηρίου, αποτελέσματα, με έκταση έως 2000 λέξεις)</p>
-                    @if($errors->has('description'))
-                        <p class="help-block">
-                            {{ $errors->first('description') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('evaluation', trans('quickadmin.papers.fields.evaluation').'', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('evaluation', old('evaluation'), ['class' => 'form-control editor', 'placeholder' => 'Προσωπική αποτίμηση (Αναλύεται πώς είδατε προσωπικά το εργαστήριο που υλοποιήσατε)']) !!}
-                    <p class="help-block">Προσωπική αποτίμηση (Αναλύεται πώς είδατε προσωπικά το εργαστήριο που υλοποιήσατε)</p>
-                    @if($errors->has('evaluation'))
-                        <p class="help-block">
-                            {{ $errors->first('evaluation') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
+            <div class="col-md-12{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('age', trans('quickadmin.papers.fields.age').'', ['class' => 'control-label']) !!}
                     {!! Form::text('age', old('age'), ['class' => 'form-control', 'placeholder' => 'Ηλικίες ή σχολικές τάξεις στις οποίες απευθύνεται']) !!}
@@ -440,8 +392,56 @@
                         </p>
                     @endif
                 </div>
+            </div>            
+            <div class="col-md-12{{-- row --}}">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('objectives', trans('quickadmin.papers.fields.objectives').'', ['class' => 'control-label']) !!}
+                    {!! Form::textarea('objectives', old('objectives'), ['class' => 'form-control editor', 'placeholder' => 'Στόχοι (Διδακτικοί / Μαθησιακοί)']) !!}
+                    <p class="help-block">Στόχοι (Διδακτικοί / Μαθησιακοί/ Βασικοί / Επί μέρους/ Μη σχετικοί στόχοι)</p>
+                    @if($errors->has('objectives'))
+                        <p class="help-block">
+                            {{ $errors->first('objectives') }}
+                        </p>
+                    @endif
+                </div>
             </div>
-            <div class="row">
+            <div class="col-md-12{{-- row --}}">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('materials', trans('quickadmin.papers.fields.materials').'', ['class' => 'control-label']) !!}
+                    {!! Form::textarea('materials', old('materials'), ['class' => 'form-control editor', 'placeholder' => 'Υλικό (Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)']) !!}
+                    <p class="help-block">Υλικά και μέσα (Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)</p>
+                    @if($errors->has('materials'))
+                        <p class="help-block">
+                            {{ $errors->first('materials') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="col-md-12{{-- row --}}">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('description', trans('quickadmin.papers.fields.description').'', ['class' => 'control-label']) !!}
+                    {!! Form::textarea('description', old('description'), ['class' => 'form-control editor', 'placeholder' => 'Σχέδιο ανάπτυξης / περιγραφή (Φάσεις, δραστηριότητες, πορεία εργαστηρίου, αποτελέσματα, με έκταση έως 2000 λέξεις)']) !!}
+                    <p class="help-block">Σχέδιο εισαγωγής, ανάπτυξης, κλεισίματος εργαστήριου / περιγραφή (Φάσεις, χρονική διάρκεια κάθε φάσης, δραστηριότητες, οδηγίες, πορεία εργαστηρίου, σημειώσεις – προτάσεις για τον εμψυχωτή/διδάσκοντα, αποτελέσματα, παραλλαγές ασκήσεων / δράσεων,  με έκταση έως 2000 λέξεις)</p>
+                    @if($errors->has('description'))
+                        <p class="help-block">
+                            {{ $errors->first('description') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="col-md-12{{-- row --}}">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('evaluation', trans('quickadmin.papers.fields.evaluation').'', ['class' => 'control-label']) !!}
+                    {!! Form::textarea('evaluation', old('evaluation'), ['class' => 'form-control editor', 'placeholder' => 'Προσωπική αποτίμηση (Αναλύεται πώς είδατε προσωπικά το εργαστήριο που υλοποιήσατε)']) !!}
+                    <p class="help-block">Προσωπική αποτίμηση (αναλύετε πώς είδατε προσωπικά το εργαστήριο που υλοποιήσατε)</p>
+                    @if($errors->has('evaluation'))
+                        <p class="help-block">
+                            {{ $errors->first('evaluation') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="col-md-12{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('images', trans('quickadmin.papers.fields.images').'', ['class' => 'control-label']) !!}
                     {!! Form::file('images[]', [
@@ -451,7 +451,7 @@
                         'data-bucket' => 'images',
                         'data-filekey' => 'images',
                         ]) !!}
-                    <p class="help-block">Υλικό τεκμηρίωσης (Έως 5 φωτογραφίες, ενδεικτικές της δράσης του εργαστηρίου)</p>
+                    <p class="help-block">Υλικό τεκμηρίωσης (έως 5 φωτογραφίες, ενδεικτικές της δράσης του εργαστηρίου)</p>
                     <div class="photo-block">
                         <div class="progress-bar form-group">&nbsp;</div>
                         <div class="files-list">
@@ -471,11 +471,11 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-12{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('video', trans('quickadmin.papers.fields.video').'', ['class' => 'control-label']) !!}
                     {!! Form::text('video', old('video'), ['class' => 'form-control', 'placeholder' => 'Βίντεο του εργαστηρίου (Με link στην πλατφόρμα όπου το έχετε αναρτήσει: vod-new.sch.gr , vimeo.com, youtube.com κ.λπ.)']) !!}
-                    <p class="help-block">Βίντεο του εργαστηρίου (Με link στην πλατφόρμα όπου το έχετε αναρτήσει: vod-new.sch.gr , vimeo.com, youtube.com κ.λπ.)</p>
+                    <p class="help-block">Βίντεο του εργαστηρίου (με link στην πλατφόρμα όπου το έχετε αναρτήσει: vod-new.sch.gr , vimeo.com, youtube.com κ.λπ.)</p>
                     @if($errors->has('video'))
                         <p class="help-block">
                             {{ $errors->first('video') }}
@@ -483,7 +483,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-12{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('bibliography', trans('quickadmin.papers.fields.bibliography').'', ['class' => 'control-label']) !!}
                     {!! Form::textarea('bibliography', old('bibliography'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
@@ -495,7 +495,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-12{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('keywords', trans('quickadmin.papers.fields.keywords').'', ['class' => 'control-label']) !!}
                     {!! Form::text('keywords', old('keywords'), ['class' => 'form-control', 'placeholder' => '']) !!}
@@ -507,7 +507,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-12{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('lab_approved', trans('quickadmin.papers.fields.lab-approved').'', ['class' => 'control-label']) !!}
                     {!! Form::hidden('lab_approved', 0) !!}

@@ -18,10 +18,10 @@
                 </div>
             </div>
             <div class="row ">
-                <div class="col-sm-3 offset-sm-1 form-group w-100">
+                <div class="col-sm-4 offset-sm-1 form-group w-100">
                     {!! Form::label('duration', trans('Διάρκεια').'', ['class' => 'control-label']) !!}
-                    {!! Form::text('duration', old('duration'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block text-secondary">Συνολικός χρόνος σε λεπτά της ώρας</p>
+                    {!! Form::text('duration', old('duration'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     @if($errors->has('duration text-danger'))
                         <p class="help-block"> {{ $errors->first('duration') }} </p>
                     @endif
@@ -39,8 +39,32 @@
             </div>
             <div class="row">
                 <div class="col-md-10 offset-md-1 form-group w-100">
+                    {!! Form::label('age', trans('quickadmin.papers.fields.age').'', ['class' => 'control-label']) !!}
+                    <p class="help-block text-secondary">Ηλικίες ή σχολικές τάξεις στις οποίες απευθύνεται</p>
+                    {!! Form::text('age', old('age'), ['class' => 'form-control', 'placeholder' => 'Ηλικίες ή σχολικές τάξεις στις οποίες απευθύνεται']) !!}
+                    @if($errors->has('age'))
+                        <p class="help-block">
+                            {{ $errors->first('age') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 offset-md-1 form-group w-100">
+                    {!! Form::label('capacity', trans('Αριθμός μελών ομάδας').'', ['class' => 'control-label']) !!}
+                    <p class="help-block text-secondary"></p>
+                    {!! Form::number('capacity', old('capacity'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    @if($errors->has('capacity'))
+                        <p class="help-block">
+                            {{ $errors->first('capacity') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 offset-md-1 form-group w-100">
                     {!! Form::label('objectives', trans('quickadmin.papers.fields.objectives').'', ['class' => 'control-label mt-3']) !!}
-                    <p class="help-block text-secondary">(Διδακτικοί / Μαθησιακοί)</p>
+                    <p class="help-block text-secondary">(Διδακτικοί / Μαθησιακοί/ Βασικοί / Επί μέρους/ Μη σχετικοί στόχοι)</p>
                     {!! Form::textarea('objectives', old('objectives'), ['class' => 'form-control editor', 'placeholder' => 'Στόχοι (Διδακτικοί / Μαθησιακοί)']) !!}
                     @if($errors->has('objectives'))
                         <p class="help-block text-danger">
@@ -52,7 +76,7 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1 form-group w-100">
                     {!! Form::label('materials', trans('quickadmin.papers.fields.materials').'', ['class' => 'control-label mt-3']) !!}
-                    <p class="help-block text-secondary">(Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)</p>
+                    <p class="help-block text-secondary">Υλικά και μέσα (Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)</p>
                     {!! Form::textarea('materials', old('materials'), ['class' => 'form-control editor', 'placeholder' => 'Υλικό (Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)']) !!}
                     @if($errors->has('materials'))
                         <p class="help-block text-danger">
@@ -64,7 +88,7 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1 form-group w-100">
                     {!! Form::label('description', trans('quickadmin.papers.fields.description').'', ['class' => 'control-label mt-3']) !!}
-                    <p class="help-block text-secondary">Σχέδιο ανάπτυξης (Φάσεις, δραστηριότητες, πορεία εργαστηρίου, αποτελέσματα, με έκταση έως 2000 λέξεις)</p>
+                    <p class="help-block text-secondary">Σχέδιο εισαγωγής, ανάπτυξης, κλεισίματος εργαστήριου / περιγραφή (Φάσεις, χρονική διάρκεια κάθε φάσης, δραστηριότητες, οδηγίες, πορεία εργαστηρίου, σημειώσεις – προτάσεις για τον εμψυχωτή/διδάσκοντα, αποτελέσματα, παραλλαγές ασκήσεων / δράσεων,  με έκταση έως 2000 λέξεις)</p>
                     {!! Form::textarea('description', old('description'), ['class' => 'form-control editor', 'placeholder' => 'Σχέδιο ανάπτυξης / περιγραφή (Φάσεις, δραστηριότητες, πορεία εργαστηρίου, αποτελέσματα, με έκταση έως 2000 λέξεις)']) !!}
                     @if($errors->has('description'))
                         <p class="help-block text-danger">
@@ -76,7 +100,7 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1 form-group w-100">
                     {!! Form::label('evaluation', trans('quickadmin.papers.fields.evaluation').'', ['class' => 'control-label mt-3']) !!}
-                    <p class="help-block text-secondary">(Αναλύεται πώς είδατε προσωπικά το εργαστήριο που υλοποιήσατε)</p>
+                    <p class="help-block text-secondary">Προσωπική αποτίμηση (αναλύετε πώς είδατε προσωπικά το εργαστήριο που υλοποιήσατε)</p>
                     {!! Form::textarea('evaluation', old('evaluation'), ['class' => 'form-control editor', 'placeholder' => 'Προσωπική αποτίμηση (Αναλύεται πώς είδατε προσωπικά το εργαστήριο που υλοποιήσατε)']) !!}
                     @if($errors->has('evaluation'))
                         <p class="help-block text-danger">
@@ -95,7 +119,7 @@
                         'data-bucket' => 'images',
                         'data-filekey' => 'images',
                         ]) !!}
-                    <p class="help-block text-secondary">Υλικό τεκμηρίωσης (Έως 5 φωτογραφίες, ενδεικτικές της δράσης του εργαστηρίου)</p>
+                    <p class="help-block text-secondary">Υλικό τεκμηρίωσης (έως 5 φωτογραφίες, ενδεικτικές της δράσης του εργαστηρίου)</p>
                     <div class="photo-block">
                         {{-- <div class="progress-bar form-group">&nbsp;</div> --}}
                         <div class="files-list">
@@ -118,11 +142,23 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1 form-group w-100">
                     {!! Form::label('video', trans('quickadmin.papers.fields.video').'', ['class' => 'control-label mt-3']) !!}
-                    <p class="help-block text-secondary">Βίντεο του εργαστηρίου (Με link στην πλατφόρμα όπου το έχετε αναρτήσει: vod-new.sch.gr , vimeo.com, youtube.com κ.λπ.)</p>
+                    <p class="help-block text-secondary">Βίντεο του εργαστηρίου (με link στην πλατφόρμα όπου το έχετε αναρτήσει: vod-new.sch.gr , vimeo.com, youtube.com κ.λπ.)</p>
                     {!! Form::text('video', old('video'), ['class' => 'form-control']) !!}
                     @if($errors->has('video'))
                         <p class="help-block text-danger">
                             {{ $errors->first('video') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 offset-md-1 form-group w-100">
+                    {!! Form::label('keywords', trans('quickadmin.papers.fields.keywords').'', ['class' => 'control-label']) !!}
+                    <p class="help-block"></p>
+                    {!! Form::text('keywords', old('keywords'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    @if($errors->has('keywords'))
+                        <p class="help-block">
+                            {{ $errors->first('keywords') }}
                         </p>
                     @endif
                 </div>
