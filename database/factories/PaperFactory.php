@@ -19,9 +19,11 @@ $factory->define(App\Paper::class, function (Faker\Generator $faker) {
         "objectives" => $faker->name,
         "materials" => $faker->name,
         "description" => $faker->name,
+        "age" => $faker->name,
         "evaluation" => $faker->name,
         "video" => $faker->name,
         "bibliography" => $faker->name,
+        "keywords" => $faker->name,
         "lab_approved" => 0,
     ];
 });

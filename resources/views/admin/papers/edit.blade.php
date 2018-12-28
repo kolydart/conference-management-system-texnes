@@ -380,8 +380,8 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('objectives', trans('quickadmin.papers.fields.objectives').'', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('objectives', old('objectives'), ['class' => 'form-control editor', 'placeholder' => 'Στόχοι (Διδακτικοι / Μαθησιακοί)']) !!}
-                    <p class="help-block">Στόχοι (Διδακτικοι / Μαθησιακοί)</p>
+                    {!! Form::textarea('objectives', old('objectives'), ['class' => 'form-control editor', 'placeholder' => '(Διδακτικοί / Μαθησιακοί)']) !!}
+                    <p class="help-block">(Διδακτικοί / Μαθησιακοί)</p>
                     @if($errors->has('objectives'))
                         <p class="help-block">
                             {{ $errors->first('objectives') }}
@@ -392,8 +392,8 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('materials', trans('quickadmin.papers.fields.materials').'', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('materials', old('materials'), ['class' => 'form-control editor', 'placeholder' => 'Υλικό (Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)']) !!}
-                    <p class="help-block">Υλικό (Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)</p>
+                    {!! Form::textarea('materials', old('materials'), ['class' => 'form-control editor', 'placeholder' => '(Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)']) !!}
+                    <p class="help-block">(Εποπτικά μέσα / Εξοπλισμός / Εργαλεία)</p>
                     @if($errors->has('materials'))
                         <p class="help-block">
                             {{ $errors->first('materials') }}
@@ -409,6 +409,18 @@
                     @if($errors->has('description'))
                         <p class="help-block">
                             {{ $errors->first('description') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('age', trans('quickadmin.papers.fields.age').'', ['class' => 'control-label']) !!}
+                    {!! Form::text('age', old('age'), ['class' => 'form-control', 'placeholder' => 'Ηλικίες ή σχολικές τάξεις στις οποίες απευθύνεται']) !!}
+                    <p class="help-block">Ηλικίες ή σχολικές τάξεις στις οποίες απευθύνεται</p>
+                    @if($errors->has('age'))
+                        <p class="help-block">
+                            {{ $errors->first('age') }}
                         </p>
                     @endif
                 </div>
@@ -475,6 +487,18 @@
                     @if($errors->has('bibliography'))
                         <p class="help-block">
                             {{ $errors->first('bibliography') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('keywords', trans('quickadmin.papers.fields.keywords').'', ['class' => 'control-label']) !!}
+                    {!! Form::text('keywords', old('keywords'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('keywords'))
+                        <p class="help-block">
+                            {{ $errors->first('keywords') }}
                         </p>
                     @endif
                 </div>
