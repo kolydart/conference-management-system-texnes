@@ -94,7 +94,7 @@ class mailProc extends Command
 
             /** lab edit form */
             if ($is_lab) {
-                $body .= "<p style=\"text-align:center; font-weight: bold; margin-top:20px; margin-bottom:20px;\"><a href=\"".\URL::temporarySignedRoute('frontend.papers.edit',now()->addDays(40), ['paper'=>$paper->id])."\">Φόρμα επεξεργασίας</a></p>";
+                $body .= "<p style=\"text-align:center; font-weight: bold; margin-top:20px; margin-bottom:20px;\"><a href=\"".\URL::temporarySignedRoute('frontend.papers.edit',now()->addDays(40), ['paper'=>$paper->id])."\">Συμπλήρωση φόρμας</a></p>";
             }
 
             /** instructions & signature */
