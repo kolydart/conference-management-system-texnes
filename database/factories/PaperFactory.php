@@ -21,11 +21,13 @@ $factory->define(App\Paper::class, function (Faker\Generator $faker) {
         "order" => $faker->randomNumber(2),
         "capacity" => $faker->randomNumber(2),
         // "objectives" => $faker->paragraph,
+        // "age" => $faker->name,
         // "materials" => $faker->paragraph,
         // "description" => $faker->paragraph,
         // "evaluation" => $faker->paragraph,
         // "video" => $faker->url,
         // "bibliography" => $faker->sentence,
+        // "keywords" => $faker->name,
         // "lab_approved" => 0,
     ];
 });

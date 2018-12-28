@@ -117,6 +117,10 @@
                             <td field-key='description'>{!! $paper->description !!}</td>
                         </tr>
                         <tr>
+                            <th>@lang('quickadmin.papers.fields.age')</th>
+                            <td field-key='age'>{{ $paper->age }}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.papers.fields.evaluation')</th>
                             <td field-key='evaluation'>{!! $paper->evaluation !!}</td>
                         </tr>
@@ -135,6 +139,10 @@
                         <tr>
                             <th>@lang('quickadmin.papers.fields.bibliography')</th>
                             <td field-key='bibliography'>{!! $paper->bibliography !!}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.papers.fields.keywords')</th>
+                            <td field-key='keywords'>{{ $paper->keywords }}</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.papers.fields.lab-approved')</th>
