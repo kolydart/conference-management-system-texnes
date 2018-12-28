@@ -17,6 +17,16 @@
                     @endif
                 </div>
             </div>
+            <div class="row ">
+                <div class="col-sm-3 offset-sm-1 form-group w-100">
+                    {!! Form::label('duration', trans('Διάρκεια').'', ['class' => 'control-label']) !!}
+                    {!! Form::text('duration', old('duration'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block text-secondary">Συνολικός χρόνος σε λεπτά της ώρας</p>
+                    @if($errors->has('duration text-danger'))
+                        <p class="help-block"> {{ $errors->first('duration') }} </p>
+                    @endif
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-10 offset-md-1 form-group w-100">
                     {!! Form::label('abstract', trans('quickadmin.papers.fields.abstract').'', ['class' => 'control-label mt-3']) !!}
