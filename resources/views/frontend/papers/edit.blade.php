@@ -119,7 +119,7 @@
                         'data-bucket' => 'images',
                         'data-filekey' => 'images',
                         ]) !!}
-                    <p class="help-block text-secondary">Υλικό τεκμηρίωσης (έως 5 φωτογραφίες, ενδεικτικές της δράσης του εργαστηρίου)</p>
+                    <p class="help-block text-secondary">Υλικό τεκμηρίωσης (έως 5 φωτογραφίες, ενδεικτικές της δράσης του εργαστηρίου) <span class="text-info">[προαιρετικό]</span></p>
                     <div class="photo-block">
                         {{-- <div class="progress-bar form-group">&nbsp;</div> --}}
                         <div class="files-list">
@@ -142,7 +142,7 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1 form-group w-100">
                     {!! Form::label('video', trans('quickadmin.papers.fields.video').'', ['class' => 'control-label mt-3']) !!}
-                    <p class="help-block text-secondary">Βίντεο του εργαστηρίου (με link στην πλατφόρμα όπου το έχετε αναρτήσει: vod-new.sch.gr , vimeo.com, youtube.com κ.λπ.)</p>
+                    <p class="help-block text-secondary">Βίντεο του εργαστηρίου (με link στην πλατφόρμα όπου το έχετε αναρτήσει: vod-new.sch.gr , vimeo.com, youtube.com κ.λπ.) <span class="text-info">[προαιρετικό]</span></p>
                     {!! Form::text('video', old('video'), ['class' => 'form-control']) !!}
                     @if($errors->has('video'))
                         <p class="help-block text-danger">
@@ -166,8 +166,8 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1 form-group w-100">
                     {!! Form::label('bibliography', trans('quickadmin.papers.fields.bibliography').'', ['class' => 'control-label mt-3']) !!}
+                    <p class="help-block text-secondary"> <span class="text-info">[προαιρετικό]</span></p>
                     {!! Form::textarea('bibliography', old('bibliography'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
-                    <p class="help-block text-secondary"></p>
                     @if($errors->has('bibliography'))
                         <p class="help-block text-danger">
                             {{ $errors->first('bibliography') }}
