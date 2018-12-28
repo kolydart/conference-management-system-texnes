@@ -13,7 +13,7 @@
                     {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block text-secondary"></p>
                     @if($errors->has('title text-danger'))
-                        <p class="help-block"> {{ $errors->first('title') }} </p>
+                        <p class="help-block text-danger"> {{ $errors->first('title') }} </p>
                     @endif
                 </div>
             </div>
@@ -23,7 +23,7 @@
                     <p class="help-block text-secondary">Συνολικός χρόνος σε λεπτά της ώρας</p>
                     {!! Form::text('duration', old('duration'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     @if($errors->has('duration text-danger'))
-                        <p class="help-block"> {{ $errors->first('duration') }} </p>
+                        <p class="help-block text-danger"> {{ $errors->first('duration') }} </p>
                     @endif
                 </div>
             </div>
@@ -33,7 +33,7 @@
                     <p class="help-block text-secondary">(έως 200 λέξεις)</p>
                     {!! Form::textarea('abstract', old('abstract'), ['class' => 'form-control editor', 'placeholder' => '']) !!}
                     @if($errors->has('abstract text-danger'))
-                        <p class="help-block"> {{ $errors->first('abstract') }} </p>
+                        <p class="help-block text-danger"> {{ $errors->first('abstract') }} </p>
                     @endif
                 </div>
             </div>
@@ -43,7 +43,7 @@
                     <p class="help-block text-secondary">Ηλικίες ή σχολικές τάξεις στις οποίες απευθύνεται</p>
                     {!! Form::text('age', old('age'), ['class' => 'form-control', 'placeholder' => 'Ηλικίες ή σχολικές τάξεις στις οποίες απευθύνεται']) !!}
                     @if($errors->has('age'))
-                        <p class="help-block">
+                        <p class="help-block text-danger">
                             {{ $errors->first('age') }}
                         </p>
                     @endif
@@ -55,7 +55,7 @@
                     <p class="help-block text-secondary"></p>
                     {!! Form::number('capacity', old('capacity'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     @if($errors->has('capacity'))
-                        <p class="help-block">
+                        <p class="help-block text-danger">
                             {{ $errors->first('capacity') }}
                         </p>
                     @endif
@@ -154,10 +154,10 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1 form-group w-100">
                     {!! Form::label('keywords', trans('quickadmin.papers.fields.keywords').'', ['class' => 'control-label']) !!}
-                    <p class="help-block"></p>
+                    <p class="help-block text-secondary"></p>
                     {!! Form::text('keywords', old('keywords'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     @if($errors->has('keywords'))
-                        <p class="help-block">
+                        <p class="help-block text-danger">
                             {{ $errors->first('keywords') }}
                         </p>
                     @endif
