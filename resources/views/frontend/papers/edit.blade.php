@@ -30,8 +30,8 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1 form-group w-100">
                     {!! Form::label('objectives', trans('quickadmin.papers.fields.objectives').'', ['class' => 'control-label mt-3']) !!}
-                    <p class="help-block text-secondary">(Διδακτικοι / Μαθησιακοί)</p>
-                    {!! Form::textarea('objectives', old('objectives'), ['class' => 'form-control editor', 'placeholder' => 'Στόχοι (Διδακτικοι / Μαθησιακοί)']) !!}
+                    <p class="help-block text-secondary">(Διδακτικοί / Μαθησιακοί)</p>
+                    {!! Form::textarea('objectives', old('objectives'), ['class' => 'form-control editor', 'placeholder' => 'Στόχοι (Διδακτικοί / Μαθησιακοί)']) !!}
                     @if($errors->has('objectives'))
                         <p class="help-block text-danger">
                             {{ $errors->first('objectives') }}

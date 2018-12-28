@@ -383,8 +383,8 @@
                 <div class="row">
                     <div class="col-xs-12 form-group">
                         {!! Form::label('objectives', trans('quickadmin.papers.fields.objectives').'', ['class' => 'control-label']) !!}
-                        {!! Form::textarea('objectives', old('objectives'), ['class' => 'form-control editor', 'placeholder' => 'Στόχοι (Διδακτικοι / Μαθησιακοί)']) !!}
-                        <p class="help-block">Στόχοι (Διδακτικοι / Μαθησιακοί)</p>
+                        {!! Form::textarea('objectives', old('objectives'), ['class' => 'form-control editor', 'placeholder' => 'Στόχοι (Διδακτικοί / Μαθησιακοί)']) !!}
+                        <p class="help-block">Στόχοι (Διδακτικοί / Μαθησιακοί)</p>
                         @if($errors->has('objectives'))
                             <p class="help-block">
                                 {{ $errors->first('objectives') }}
