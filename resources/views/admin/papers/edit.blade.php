@@ -368,7 +368,7 @@
             <div class="col-md-6{{-- row --}}">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('capacity', trans('quickadmin.papers.fields.capacity').'', ['class' => 'control-label']) !!}
-                    {!! Form::number('capacity', old('capacity'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::number('capacity', old('capacity'), ['class' => 'form-control', 'placeholder' => 'Μέγιστος αριθμός συμμετεχόντων']) !!}
                     <p class="help-block">Αριθμός μελών ομάδας</p>
                     @if($errors->has('capacity'))
                         <p class="help-block">
