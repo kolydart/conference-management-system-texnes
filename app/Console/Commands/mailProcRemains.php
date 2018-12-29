@@ -55,7 +55,7 @@ class mailProcRemains extends Command
 
         $i = 1;
 
-        $date = new \Illuminate\Support\Carbon('February 18');
+        $date = new \Illuminate\Support\Carbon('February 18, 2019');
         
         /**
          * foreach

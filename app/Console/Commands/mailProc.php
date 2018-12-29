@@ -52,6 +52,7 @@ class mailProc extends Command
         else
             $papers = Paper::accepted()->get();
 
+        $date = new \Illuminate\Support\Carbon('February 18, 2019');
 
         $i = 1;
         
@@ -94,7 +95,7 @@ class mailProc extends Command
 
             /** lab edit form */
             if ($is_lab) {
-                $body .= "<p style=\"text-align:center; font-weight: bold; margin-top:20px; margin-bottom:20px;\"><a href=\"".\URL::temporarySignedRoute('frontend.papers.edit',now()->addDays(40), ['paper'=>$paper->id])."\">Συμπλήρωση φόρμας</a></p>";
+                $body .= "<p style=\"text-align:center; font-weight: bold; margin-top:20px; margin-bottom:20px;\"><a href=\"".\URL::temporarySignedRoute('frontend.papers.edit',$date, ['paper'=>$paper->id])."\">Συμπλήρωση φόρμας</a></p>";
             }
 
             /** instructions & signature */
