@@ -29,6 +29,8 @@
                             <td field-key='causer_id'>
                                 @if ($activitylog->causer_type == 'App\User' && App\User::find($activitylog->causer_id))
                                     <a href="{{route('admin.users.show',$activitylog->causer_id)}}">{{ App\User::find($activitylog->causer_id)->name }}</a>
+                                @elseif ($activitylog->causer_type == 'App\Paper' && App\Paper::find($activitylog->causer_id))
+                                    <a href="{{route('admin.papers.show',$activitylog->causer_id)}}">{{ App\Paper::find($activitylog->causer_id)->name }}</a>
                                 @else
                                     {{ $activitylog->causer_id }}
                                 @endif

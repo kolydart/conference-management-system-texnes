@@ -28,6 +28,7 @@ class ActivitylogsController extends Controller
         if (request()->ajax()) {
             $query = Activitylog::query();
             $query->with('user');
+            $query->with('paper');
             $template = 'actionsTemplate';
             
             $query->select([
@@ -67,7 +68,7 @@ class ActivitylogsController extends Controller
                 if($row->causer_type == 'App\User')
                     return $row->user ? $row->user->name : '';
                 elseif($row->causer_type == 'App\Paper')
-                    return $row->causer_id;
+                    return $row->paper ? $row->paper->name : '';
                 else 
                     return '';
             });

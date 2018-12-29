@@ -1,6 +1,7 @@
 <?php
 namespace App;
 
+use App\Paper;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -45,6 +46,10 @@ class Activitylog extends Model
 
     public function user(){
         return $this->belongsTo(User::class, 'causer_id');
+    }
+
+    public function paper(){
+        return $this->belongsTo(Paper::class, 'causer_id');
     }
     
     
