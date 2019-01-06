@@ -24,6 +24,7 @@ class UpdatePapersRequest extends FormRequest
     {
         return [
             
+            'title' => 'max:1024',
             'art' => 'required',
             'art.*' => 'exists:arts,id',
             'email' => 'required|email',

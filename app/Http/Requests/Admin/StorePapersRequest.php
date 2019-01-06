@@ -23,6 +23,7 @@ class StorePapersRequest extends FormRequest
     public function rules()
     {
         return [
+            'title' => 'max:1024',
             'art' => 'required',
             'art.*' => 'exists:arts,id',
             'email' => 'required|email',
