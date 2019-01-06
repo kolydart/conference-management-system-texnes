@@ -13,6 +13,7 @@ class Add5c31c7589f87aRelationshipsToPaperTable extends Migration
     public function up()
     {
         Schema::table('papers', function(Blueprint $table) {
+             $table->string('title', 1024)->change();
             if (!Schema::hasColumn('papers', 'session_id')) {
                 $table->integer('session_id')->unsigned()->nullable();
                 $table->foreign('session_id', '190652_5b657bbc7a22c')->references('id')->on('sessions')->onDelete('cascade');
@@ -29,7 +30,7 @@ class Add5c31c7589f87aRelationshipsToPaperTable extends Migration
     public function down()
     {
         Schema::table('papers', function(Blueprint $table) {
-            
+            $table->string('title', 191)->change();            
         });
     }
 }
