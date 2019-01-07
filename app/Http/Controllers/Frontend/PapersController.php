@@ -78,7 +78,7 @@ class PapersController extends Controller
     {
 
         $request->validate([
-            'title' => 'required|regex:'.Router::PREG_VALIDATE_TEXT,
+            'title' => 'required|max:1024',
             'abstract' => 'required',
             'age' => 'required',
             'capacity' => 'required',
