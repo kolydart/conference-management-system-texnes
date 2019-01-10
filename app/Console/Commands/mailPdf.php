@@ -12,8 +12,8 @@ use gateweb\common\Presenter;
 
 /**
  * @example 
- * php artisan mail:pdf attendee-cert --id=997 --test
- * php artisan mail:pdf attendee-cert --id=997 
+ * php artisan mail:pdf {attendee-cert} --id=997 --test
+ * php artisan mail:pdf {attendee-cert} --id=997 
  */
 class mailPdf extends Command
 {
@@ -22,7 +22,7 @@ class mailPdf extends Command
      *
      * @var string
      */
-    protected $signature = 'mail:pdf {alias} {--test} {--id=}';
+    protected $signature = 'mail:pdf {--test} {--id=}';
 
     /**
      * The console command description.
@@ -59,7 +59,7 @@ class mailPdf extends Command
         /**
          * prepare message
          */
-        $message = ContentPage::where('alias',$this->argument('alias'))->firstOrFail();
+        $message = ContentPage::where('alias','attendee-cert')->firstOrFail();
         
         /**
          * foreach
@@ -107,7 +107,7 @@ class mailPdf extends Command
             $pdf->SetXY(75, 115); //mm
             $str = "ο/η  $name";
             $pdf->Write(0, $str);
-            $attachment_path = "/tmp/".$this->argument('alias')."-".$user->id.".pdf";
+            $attachment_path = "/tmp/attendee-cert-".$user->id.".pdf";
             $pdf->Output($attachment_path,'F');            
 
             /**

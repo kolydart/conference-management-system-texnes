@@ -12,7 +12,7 @@ use gateweb\common\Presenter;
 
 /**
  * @example
- * php artisan mail:pdfPage paper-cert --id=330
+ * php artisan mail:pdfPage {paper-cert} --id=330
  */
 class mailPdfPaper extends Command
 {
@@ -21,7 +21,7 @@ class mailPdfPaper extends Command
      *
      * @var string
      */
-    protected $signature = 'mail:pdfPaper {alias} {--test} {--id=}';
+    protected $signature = 'mail:pdfPaper {--test} {--id=}';
 
     /**
      * The console command description.
@@ -56,7 +56,7 @@ class mailPdfPaper extends Command
         /**
          * prepare message
          */
-        $message = ContentPage::where('alias',$this->argument('alias'))->firstOrFail();
+        $message = ContentPage::where('alias','paper-cert')->firstOrFail();
         
         /**
          * foreach
@@ -111,7 +111,7 @@ class mailPdfPaper extends Command
             $str.="$paper->name\nΤίτλος: $paper->title";
             $pdf->MultiCell(128,5,$str,0,'L');
             // $pdf->Write(0, $str);
-            $attachment_path = "/tmp/".$this->argument('alias')."-".$paper->id.".pdf";
+            $attachment_path = "/tmp/paper-cert-".$paper->id.".pdf";
             $pdf->Output($attachment_path,'F');            
 
             /**
