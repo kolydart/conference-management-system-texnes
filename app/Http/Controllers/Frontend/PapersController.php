@@ -79,14 +79,15 @@ class PapersController extends Controller
 
         $request->validate([
             'title' => 'required|max:1024',
+            'duration' => 'required',
             'abstract' => 'required',
             'age' => 'required',
             'capacity' => 'required',
-            'keywords' => 'required',
             'objectives' => 'required',
             'materials' => 'required',
             'description' => 'required',
             'evaluation' => 'required',
+            'keywords' => 'required',
             'video' => 'url',
             'images' => 'image',
         ]);
@@ -96,13 +97,17 @@ class PapersController extends Controller
         // dd($request->all());
         $paper->update([
             'title' => $request->title,
+            'duration' => $request->duration,
             'abstract' => $request->abstract,
+            'age' => $request->age,
+            'capacity' => $request->capacity,
             'objectives' => $request->objectives,
             'materials' => $request->materials,
             'description' => $request->description,
             'evaluation' => $request->evaluation,
             'images' => $request->images,
             'video' => $request->video,
+            'keywords' => $request->keywords,
             'bibliography' => $request->bibliography,            
         ]);
 
