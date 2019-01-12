@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\FileUploadTrait;
+use App\Http\Requests\Frontend\UpdatePapersRequest;
 use App\Paper;
 use Gate;
 use Illuminate\Http\Request;
@@ -74,23 +75,8 @@ class PapersController extends Controller
      * @param  paper  $paper
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Paper $paper)
+    public function update(UpdatePapersRequest $request, Paper $paper)
     {
-
-        $request->validate([
-            'title' => 'required|max:1024',
-            'duration' => 'required',
-            'abstract' => 'required',
-            'age' => 'required',
-            'capacity' => 'required',
-            'objectives' => 'required',
-            'materials' => 'required',
-            'description' => 'required',
-            'evaluation' => 'required',
-            'keywords' => 'required',
-            'video' => 'url',
-            'images' => 'image',
-        ]);
 
         $request = $this->saveFiles($request);
 
