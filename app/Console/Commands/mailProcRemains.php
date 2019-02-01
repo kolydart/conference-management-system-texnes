@@ -12,6 +12,8 @@ use gateweb\common\Presenter;
 
 /** 
  * send mail for proceedings 
+ * to labs which have not filled their fields
+ * in order to fix date bug in signed url
  * lab is provided with a signed url, in order to edit wihout login
  */
 class mailProcRemains extends Command
@@ -52,10 +54,9 @@ class mailProcRemains extends Command
         else
             $papers = Paper::lab()->accepted()->where('description','<>','')->get();
 
-
         $i = 1;
 
-        $date = new \Illuminate\Support\Carbon('February 18, 2019');
+        $date = new \Illuminate\Support\Carbon('February 24, 2019');
         
         /**
          * foreach
