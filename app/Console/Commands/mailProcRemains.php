@@ -52,7 +52,7 @@ class mailProcRemains extends Command
         if($this->option('id'))
             $papers = Paper::accepted()->where('id',$this->option('id'))->get();
         else
-            $papers = Paper::lab()->accepted()->where('description','<>','')->get();
+            $papers = Paper::lab()->accepted()->whereNull('description')->get();
 
         $i = 1;
 
@@ -93,7 +93,7 @@ class mailProcRemains extends Command
             }
             $subject = $message->title;
             $body = "<p style=\"margin-bottom:40px; \">Προς: $name<br>Email: $email<br>$paper->type: <i>$paper->title</i><br></p>";
-            $body .= "<p>Σας υπενθυμίζουμε ότι η καταληκτική ημερομηνία για την συμπλήρωση των πεδίων είναι η εξής: ".$date->subDay()->toFormattedDateString()."</p>";
+            $body .= "<p>Θα θέλαμε να σας υπενθυμίσουμε την δυνατότητα καταγραφής του εργαστηρίου σας στο πλαίσιο του συνεδρίου. Παρακαλούμε ακολουθήστε τους ενημερωμένους συνδέσμους που παρατίθενται στο τέλος του μηνύματος.</p>";
             $body .= $message->page_text;
 
             /** lab edit form */
@@ -104,7 +104,6 @@ class mailProcRemains extends Command
             /** instructions & signature */
             if ($is_lab) {
                 $body .= "<p>Δείτε τις <a href=\"".route('frontend.fullpapers.download',["0a91348d-56d8-465e-8a3c-ad95502a55b9",$paper->id])."\">αναλυτικές οδηγίες</a> για τη συμπλήρωση της φόρμας.</p>
-                <p><span style=\"font-family:trebuchet ms,helvetica,sans-serif;\">Σας ευχόμαστε να έχετε καλή Πρωτοχρονιά και ευτυχισμένο το νέο έτος.</span></p>
                 <p><span style=\"font-family:trebuchet ms,helvetica,sans-serif; margin-bottom:40px;\">Η επιτροπή επιμέλειας των πρακτικών του συνεδρίου</span></p>";               
             }else{
                 $body .= "<p>Δείτε τις <a href=\"".route('frontend.fullpapers.download',["82382136-33ab-43f2-b7b5-4f167fee0aea",$paper->id])."\">αναλυτικές οδηγίες</a> για τη συμπλήρωση της φόρμας.</p>
