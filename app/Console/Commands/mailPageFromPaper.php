@@ -13,7 +13,7 @@ use gateweb\common\Presenter;
 class mailPageFromPaper extends Command
 {
     /**
-     * The name and signature of the console command.
+     * Send message from CMS to all accepted Paper authors
      *
      * @var string
      */
@@ -43,7 +43,7 @@ class mailPageFromPaper extends Command
      */
     public function handle()
     {
-        $papers = Paper::accepted()->lab()->get();
+        $papers = Paper::accepted()->get(); // ->lab() (only for lab)
 
         $i = 1;
         /**
