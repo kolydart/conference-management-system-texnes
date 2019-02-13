@@ -357,14 +357,15 @@
 <table class="table table-bordered table-striped {{ count($messages) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
+            <th>@lang('quickadmin.messages.fields.title')</th>
             <th>@lang('quickadmin.messages.fields.name')</th>
-                        <th>@lang('quickadmin.messages.fields.email')</th>
-                        <th>@lang('quickadmin.messages.fields.title')</th>
-                        @if( request('show_deleted') == 1 )
-                        <th>&nbsp;</th>
-                        @else
-                        <th>&nbsp;</th>
-                        @endif
+            <th>@lang('quickadmin.messages.fields.email')</th>
+            <th>Date</th>
+            @if( request('show_deleted') == 1 )
+            <th>&nbsp;</th>
+            @else
+            <th>&nbsp;</th>
+            @endif
         </tr>
     </thead>
 
@@ -372,49 +373,50 @@
         @if (count($messages) > 0)
             @foreach ($messages as $message)
                 <tr data-entry-id="{{ $message->id }}">
+                    <td field-key='title'>{{ $message->title }}</td>
                     <td field-key='name'>{{ $message->name }}</td>
-                                <td field-key='email'>{{ $message->email }}</td>
-                                <td field-key='title'>{{ $message->title }}</td>
-                                @if( request('show_deleted') == 1 )
-                                <td>
-                                    @can('message_delete')
-                                                                        {!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'POST',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.messages.restore', $message->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
-                                    {!! Form::close() !!}
-                                @endcan
-                                    @can('message_delete')
-                                                                        {!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'DELETE',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.messages.perma_del', $message->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!}
-                                @endcan
-                                </td>
-                                @else
-                                <td>
-                                    @can('message_view')
-                                    <a href="{{ route('admin.messages.show',[$message->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
-                                    @endcan
-                                    @can('message_edit')
-                                    <a href="{{ route('admin.messages.edit',[$message->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
-                                    @endcan
-                                    @can('message_delete')
-{!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'DELETE',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.messages.destroy', $message->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!}
-                                    @endcan
-                                </td>
-                                @endif
+                    <td field-key='email'>{{ $message->email }}</td>
+                    <td field-key='date'>{{ $message->created_at }}</td>
+                    @if( request('show_deleted') == 1 )
+                    <td>
+                        @can('message_delete')
+                                                            {!! Form::open(array(
+                            'style' => 'display: inline-block;',
+                            'method' => 'POST',
+                            'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                            'route' => ['admin.messages.restore', $message->id])) !!}
+                        {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
+                        {!! Form::close() !!}
+                    @endcan
+                        @can('message_delete')
+                                                            {!! Form::open(array(
+                            'style' => 'display: inline-block;',
+                            'method' => 'DELETE',
+                            'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                            'route' => ['admin.messages.perma_del', $message->id])) !!}
+                        {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
+                        {!! Form::close() !!}
+                    @endcan
+                    </td>
+                    @else
+                    <td>
+                        @can('message_view')
+                        <a href="{{ route('admin.messages.show',[$message->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                        @endcan
+                        @can('message_edit')
+                        <a href="{{ route('admin.messages.edit',[$message->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                        @endcan
+                        @can('message_delete')
+                    {!! Form::open(array(
+                            'style' => 'display: inline-block;',
+                            'method' => 'DELETE',
+                            'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                            'route' => ['admin.messages.destroy', $message->id])) !!}
+                        {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                        {!! Form::close() !!}
+                        @endcan
+                    </td>
+                    @endif
                 </tr>
             @endforeach
         @else
