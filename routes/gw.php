@@ -39,6 +39,8 @@ Route::get('/lunch/confirm/{lunch_id}', function (\Illuminate\Http\Request $requ
 
 /* edit lab with signed url */
 Route::get('/papers/{paper}/edit', 'Frontend\PapersController@edit')->name('frontend.papers.edit');
+Route::post('/frontend/spatie/media/upload', 'Frontend\SpatieMediaController@create')->name('frontend.media.upload');
+
 /* store is protected with csrf */
 Route::put('/papers/{paper}', 'Frontend\PapersController@update')->name('frontend.papers.update');
 /** secure download Fullpaper using uuid */
