@@ -12,7 +12,7 @@ use gateweb\common\Presenter;
 
 /**
  * @example
- * php artisan mail:pdfPage {paper-cert} --id=330
+ * php artisan mail:pdfPaper {paper-cert} --id=330
  */
 class mailPdfPaper extends Command
 {
