@@ -31,7 +31,7 @@ class UpdatePapersRequest extends FormRequest
             'capacity' => 'max:2147483647|nullable|numeric',
             'objectives' => 'required',
             'materials' => 'required',
-            'description' => 'required|max:6000',
+            'description' => 'required',
             'evaluation' => 'required',
             'keywords' => 'required|max:256',
             'video' => 'url',
