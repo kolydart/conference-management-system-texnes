@@ -36,6 +36,14 @@
                             <td field-key='description'>{{ $fullpaper->description }}</td>
                         </tr>
                         <tr>
+                            <th>@lang('quickadmin.papers.fields.art')</th>
+                            <td field-key='art'>
+                                @foreach ($fullpaper->paper->art as $singleArt)
+                                    <span class="label label-info label-many">{{ $singleArt->title }}</span>
+                                @endforeach
+                            </td>                            
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.fullpaper.fields.uuid')</th>
                             <td field-key='uuid'>{{ $fullpaper->uuid }}</td>
                         </tr>

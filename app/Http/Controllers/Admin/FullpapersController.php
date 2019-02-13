@@ -30,9 +30,9 @@ class FullpapersController extends Controller
             if (! Gate::allows('fullpaper_delete')) {
                 return abort(401);
             }
-            $fullpapers = Fullpaper::onlyTrashed()->get();
+            $fullpapers = Fullpaper::onlyTrashed()->with('paper')->get();
         } else {
-            $fullpapers = Fullpaper::all()->reverse();
+            $fullpapers = Fullpaper::with('paper')->get()->reverse();
         }
 
         return view('admin.fullpapers.index', compact('fullpapers'));

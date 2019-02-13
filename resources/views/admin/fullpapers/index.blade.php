@@ -35,6 +35,7 @@
 
                         <th>@lang('quickadmin.fullpaper.fields.paper')</th>
                         <th>@lang('quickadmin.fullpaper.fields.finaltext')</th>
+                        <th>@lang('quickadmin.papers.fields.art')</th>
                         <th>@lang('quickadmin.fullpaper.fields.description')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
@@ -60,10 +61,16 @@
                                     @endif
                                 </td>
                                 <td field-key='finaltext'> @foreach($fullpaper->getMedia('finaltext') as $media)
-                                <p class="form-group">
-                                    <a href="{{ "/storage/".$media->id."/".rawurlencode($media->file_name) }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
-                                </p>
-                            @endforeach</td>
+                                    <p class="form-group">
+                                        <a href="{{ "/storage/".$media->id."/".rawurlencode($media->file_name) }}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
+                                    </p>
+                                    @endforeach
+                                </td>
+                                <td field-key='art'>
+                                    @foreach ($fullpaper->paper->art as $singleArt)
+                                        <span class="label label-info label-many">{{ $singleArt->title }}</span>
+                                    @endforeach
+                                </td>
                                 <td field-key='description'>{{ $fullpaper->description }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
