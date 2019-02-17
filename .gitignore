@@ -17,3 +17,4 @@ _ide_helper_models.php
 .phpstorm.meta.php
 composer.lock
 /storage/debugbar
+/public/google*.html
