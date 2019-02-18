@@ -43,7 +43,8 @@ class mailPageFromPaper extends Command
      */
     public function handle()
     {
-        $papers = Paper::accepted()->get(); // ->lab() (only for lab)
+        $papers = Paper::accepted()->get();
+        // $papers = Paper::accepted()->labNot()->doesntHave('fullpapers')->get(); // ->lab() (only for lab)
 
         $i = 1;
         /**
