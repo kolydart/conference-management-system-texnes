@@ -141,6 +141,10 @@ class Paper extends Model implements HasMedia
         return $query->whereRaw('type LIKE "Εργαστήριο%"');
     }
     
+    public function scopeLabNot($query){
+        return $query->whereRaw('type NOT LIKE "Εργαστήριο%"');
+    }
+    
     /**
      * max users allowed to attend
      * combine paper's $this->capacity with $room->capacity
