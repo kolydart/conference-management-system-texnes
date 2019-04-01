@@ -40,7 +40,8 @@ class PapersController extends Controller
     {
         
         $paper = Paper::accepted()->findOrFail($id);
-        (new LogUserAgent())->snapshot(['item_id'=>$id],false);
+        if ((new Router)->validate($id,'int'))
+            (new LogUserAgent())->snapshot(['item_id'=>$id],false);
 
         return view('frontend.papers.show', compact('paper'));
     }
