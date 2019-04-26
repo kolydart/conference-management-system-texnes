@@ -13,7 +13,7 @@ class UserAttributeText extends Migration
      */
     public function up()
     {
-        DB::statement('ALTER TABLE '.(new \App\User)->getTable().' CHANGE `attribute` `attribute` TEXT;');
+        DB::statement('ALTER TABLE '.\Config::get('database.connections.mysql.prefix').(new \App\User)->getTable().' CHANGE `attribute` `attribute` TEXT;');
     }
 
     /**
@@ -23,6 +23,6 @@ class UserAttributeText extends Migration
      */
     public function down()
     {
-        DB::statement('ALTER TABLE '.(new \App\User)->getTable().' CHANGE `attribute` `attribute` varchar(191);');
+        DB::statement('ALTER TABLE '.\Config::get('database.connections.mysql.prefix').(new \App\User)->getTable().' CHANGE `attribute` `attribute` varchar(191);');
     }
 }

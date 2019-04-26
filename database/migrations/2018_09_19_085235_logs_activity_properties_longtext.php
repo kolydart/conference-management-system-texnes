@@ -13,7 +13,7 @@ class LogsActivityPropertiesLongtext extends Migration
      */
     public function up()
     {        
-        DB::statement('ALTER TABLE '.(new \App\Activitylog)->getTable().' CHANGE properties properties LONGTEXT;');
+        DB::statement('ALTER TABLE '.\Config::get('database.connections.mysql.prefix').(new \App\Activitylog)->getTable().' CHANGE properties properties LONGTEXT;');
     }
 
     /**
@@ -23,6 +23,6 @@ class LogsActivityPropertiesLongtext extends Migration
      */
     public function down()
     {
-        DB::statement('ALTER TABLE '.(new \App\Activitylog)->getTable().' CHANGE properties properties TEXT;');
+        DB::statement('ALTER TABLE '.\Config::get('database.connections.mysql.prefix').(new \App\Activitylog)->getTable().' CHANGE properties properties TEXT;');
     }
 }
