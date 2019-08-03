@@ -158,15 +158,15 @@
             
 <ul class="nav nav-tabs" role="tablist">
     
-<li role="presentation" class="active"><a href="#attend" aria-controls="attend" role="tab" data-toggle="tab">Δηλώσεις</a></li>
-<li role="presentation" class=""><a href="#fullpaper" aria-controls="fullpaper" role="tab" data-toggle="tab">Τελικά κείμενα</a></li>
+<li role="presentation" class=""><a href="#attend" aria-controls="attend" role="tab" data-toggle="tab">Δηλώσεις</a></li>
+<li role="presentation" class="active"><a href="#fullpaper" aria-controls="fullpaper" role="tab" data-toggle="tab">Τελικά κείμενα</a></li>
 <li role="presentation" class=""><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Κρίσεις</a></li>
 <li role="presentation" class=""><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Μηνύματα</a></li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-<div role="tabpanel" class="tab-pane active" id="attend">
+<div role="tabpanel" class="tab-pane" id="attend">
 <table class="table table-bordered table-striped {{ count($attendees) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
@@ -203,7 +203,7 @@
     </tbody>
 </table>
 </div>
-<div role="tabpanel" class="tab-pane" id="fullpaper">
+<div role="tabpanel" class="tab-pane active" id="fullpaper">
 <table class="table table-bordered table-striped {{ count($fullpapers) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
