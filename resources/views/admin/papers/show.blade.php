@@ -148,6 +148,11 @@
                             <th>@lang('quickadmin.papers.fields.lab-approved')</th>
                             <td field-key='lab_approved'>{{ Form::checkbox("lab_approved", 1, $paper->lab_approved == 1 ? true : false, ["disabled"]) }}</td>
                         </tr>
+                        <tr>
+                            <th>emergency</th>
+                            <td field-key='link'><a href="{{ \URL::temporarySignedRoute('frontend.papers.edit',today()->addDay(10), ['paper'=>$paper->id]) }}">Σύνδεσμος επεξεργασίας χωρίς login </a></td>
+                        </tr>
+
                     </table>
                 </div>
             </div><!-- Nav tabs -->
