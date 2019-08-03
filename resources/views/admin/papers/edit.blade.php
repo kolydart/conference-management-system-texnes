@@ -507,12 +507,16 @@
                     @endif
                 </div>
             </div>
+            @endif
+
+            {{-- show only on accepted --}}
+            @if (App\Paper::accepted()->where('id',$paper->id)->count() == 1)
             <div class="col-md-12{{-- row --}}">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('lab_approved', trans('quickadmin.papers.fields.lab-approved').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('lab_approved', trans('Approved').'', ['class' => 'control-label']) !!}
                     {!! Form::hidden('lab_approved', 0) !!}
                     {!! Form::checkbox('lab_approved', 1, old('lab_approved', old('lab_approved')), []) !!}
-                    <p class="help-block">Δημοσίευση των πεδίων που επεξεργάστηκε ο χρήστης</p>
+                    <p class="help-block">Αποδοχή περιεχομένου για πρακτικά</p>
                     @if($errors->has('lab_approved'))
                         <p class="help-block">
                             {{ $errors->first('lab_approved') }}
@@ -521,8 +525,7 @@
                 </div>
             </div>
 
-            @endif
-            
+            @endif            
         </div>
     </div>
 

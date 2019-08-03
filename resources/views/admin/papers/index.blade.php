@@ -46,8 +46,8 @@
                         <th>@lang('quickadmin.papers.fields.capacity')</th>
                         <th>@lang('Δηλώσεις')</th>
                         <th>@lang('θέσεις')</th>
-                        <th>@lang('Lab updated')</th>
-                        <th>@lang('quickadmin.papers.fields.lab-approved')</th>
+                        <th>@lang('Content for proceedings')</th>
+                        <th>@lang('Approved')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else

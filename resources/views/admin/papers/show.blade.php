@@ -145,7 +145,7 @@
                             <td field-key='keywords'>{{ $paper->keywords }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.papers.fields.lab-approved')</th>
+                            <th>@lang('Approved')</th>
                             <td field-key='lab_approved'>{{ Form::checkbox("lab_approved", 1, $paper->lab_approved == 1 ? true : false, ["disabled"]) }}</td>
                         </tr>
                     </table>
