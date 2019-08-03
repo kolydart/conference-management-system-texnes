@@ -41,6 +41,53 @@ class PapersController extends Controller
     }
 
     /**
+     * Display a listing of accepted Papers for proceedings.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function proceedingsPapers()
+    {
+        if (! Gate::allows('paper_access')) {
+            return abort(401);
+        }
+
+        if (request('show_deleted') == 1) {
+            if (! Gate::allows('paper_delete')) {
+                return abort(401);
+            }
+            $papers = Paper::onlyTrashed()->get();
+        } else {
+            $papers = Paper::accepted()->labNot()->get()->reverse();
+        }
+
+        return view('admin.papers.proceedings', compact('papers'));
+    }
+
+    /**
+     * Display a listing of accepted Labs for proceedings.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function proceedingsLabs()
+    {
+        if (! Gate::allows('paper_access')) {
+            return abort(401);
+        }
+
+        if (request('show_deleted') == 1) {
+            if (! Gate::allows('paper_delete')) {
+                return abort(401);
+            }
+            $papers = Paper::onlyTrashed()->get();
+        } else {
+            $papers = Paper::accepted()->lab()->get()->reverse();
+        }
+
+        return view('admin.papers.proceedings', compact('papers'));
+    }
+
+
+    /**
      * Show the form for creating new Paper.
      *
      * @return \Illuminate\Http\Response

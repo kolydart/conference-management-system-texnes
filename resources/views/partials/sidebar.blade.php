@@ -41,11 +41,24 @@
             
             @can('paper_access')
             <li>
+                <a href="{{ route('admin.proceedings.papers') }}">
+                    <i class="fa fa-book"></i>
+                    <span>@lang('Πρακτικά Εισηγήσεων')</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.proceedings.labs') }}">
+                    <i class="fa fa-flask"></i>
+                    <span>@lang('Πρακτικά Εργαστηρίων')</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('admin.papers.index') }}">
                     <i class="fa fa-newspaper-o"></i>
                     <span>@lang('quickadmin.papers.title')</span>
                 </a>
-            </li>@endcan
+            </li>
+            @endcan
             
             @can('fullpaper_access')
             <li>

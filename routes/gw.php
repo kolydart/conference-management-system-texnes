@@ -46,5 +46,10 @@ Route::put('/papers/{paper}', 'Frontend\PapersController@update')->name('fronten
 /** secure download Fullpaper using uuid */
 Route::get('/fullpapers/{uuid}/download/{paper_id?}', 'Frontend\FullpapersController@download')->name('frontend.fullpapers.download');
 
+/** proceedings */
+Route::get('/admin/proceedings/papers', 'Admin\PapersController@proceedingsPapers')->name('admin.proceedings.papers')->middleware(['backend','auth','approved']);
+Route::get('/admin/proceedings/labs', 'Admin\PapersController@proceedingsLabs')->name('admin.proceedings.labs')->middleware(['backend','auth','approved']);
+
+
 /** disable registration */
 Route::redirect('/register', '/');
