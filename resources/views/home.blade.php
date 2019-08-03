@@ -24,7 +24,7 @@
     </div>
 
     {{-- Δηλώσεις συμμετοχής σε εργαστήρια (chart) --}}
-    <div class="col-md-6">
+    {{-- <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Δηλώσεις συμμετοχής σε εργαστήρια
@@ -33,10 +33,10 @@
                    @include('admin.partials.reports.html')
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- Πληρότητα εργαστηρίων --}}
-    <div class="col-md-6">
+    <?php /*<div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Πληρότητα εργαστηρίων
@@ -62,10 +62,10 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div>*/?>
 
     {{-- Ακροατές --}}
-    <div class="col-md-6">
+    {{-- <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Στατιστικά ακροατών
@@ -93,10 +93,10 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- Ακροατές με εργαστήρια που ξεκινούν την ίδια ώρα --}}
-    <div class="col-md-6">
+    {{-- <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Διπλοεγγεγραμμένοι (Ακροατές με εργαστήρια που ξεκινούν την ίδια ώρα)
@@ -117,7 +117,7 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- Empty abstracts --}}
     <div class="col-md-6">
@@ -159,7 +159,7 @@
     </div>
 
     {{-- Recently created attends --}}
-    <div class="col-md-6">
+    <?php /*<div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Πρόσφατες (10) δηλώσεις σε εργαστήρια
@@ -189,10 +189,10 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div>*/?>
 
     {{-- Recently created users --}}
-    <div class="col-md-6">
+    {{-- <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Πρόσφατες (10) εγγραφές ακροατών
@@ -203,7 +203,7 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- Recently added fullpapers --}}
     <div class="col-md-6">
