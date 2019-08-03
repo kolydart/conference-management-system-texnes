@@ -36,16 +36,8 @@
                         <th>id</th>
                         <th>@lang('quickadmin.papers.fields.title')</th>
                         <th>@lang('quickadmin.papers.fields.art')</th>
-                        <th>@lang('quickadmin.papers.fields.type')</th>
-                        <th>@lang('quickadmin.papers.fields.duration')</th>
-                        <th>@lang('quickadmin.papers.fields.session')</th>
                         <th>@lang('quickadmin.papers.fields.name')</th>
                         <th>@lang('quickadmin.papers.fields.attribute')</th>
-                        <th>@lang('gw.papers.fields.reviewed')</th>
-                        <th>@lang('quickadmin.papers.fields.status')</th>
-                        <th>@lang('quickadmin.papers.fields.capacity')</th>
-                        <th>@lang('Δηλώσεις')</th>
-                        <th>@lang('θέσεις')</th>
                         <th>@lang('Lab updated')</th>
                         <th>@lang('quickadmin.papers.fields.lab-approved')</th>
                         @if( request('show_deleted') == 1 )
@@ -77,27 +69,8 @@
                                         <span class="label label-info label-many">{{ $singleArt->title }}</span>
                                     @endforeach
                                 </td>
-                                <td field-key='type'>{{ $paper->type }}</td>
-                                <td field-key='duration'>{{ $paper->duration }}</td>
-                                <td field-key='session'>
-                                    @if ($paper->session)
-                                        <a href="{{route('admin.sessions.show',$paper->session->id)}}">{{ "S". $paper->session->id.". ".$paper->session->title }}</a>
-                                    @endif
-                                </td>
                                 <td field-key='name'>{{ $paper->name }}</td>
                                 <td field-key='attribute'>{{ $paper->attribute }}</td>
-                                <td field-key='reviewed'>
-                                    @if ($paper->assign->count())
-                                        {{round($paper->reviews->count()*100/$paper->assign->count(),0)}}%
-                                    @endif
-                                    @if ($paper->reviews->count())
-                                        {{"[".implode($paper->reviews->pluck('review')->all(),', ')."]"}}
-                                    @endif
-                                </td>
-                                <td field-key='status'>{{ $paper->status }}</td>
-                                <td field-key='capacity'>{{ $paper->capacity }}</td>
-                                <td field-key='attend'>{{ $paper->attend()->count() }}</td>
-                                <td field-key='availability'>@if ($paper->availability) <span class="text-success" style="font-size: 1.2em">✓</span> @else <span class="text-muted" style="font-size: 1.2em">x</span @endif</td>
                                 <td field-key='lab_updated'>@if ($paper->description) <span class="text-success" style="font-size: 1.2em">✓</span>@endif</td>
                                 <td field-key='lab_approved'>@if ($paper->lab_approved) <span class="text-success" style="font-size: 1.2em">✓</span>@endif</td>
                                 @if( request('show_deleted') == 1 )
