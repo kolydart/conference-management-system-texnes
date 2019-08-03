@@ -13,7 +13,20 @@
                     <span class="title">@lang('gw.home')</span>
                 </a>
             </li>
-
+            @can('paper_access')
+            <li>
+                <a href="{{ route('admin.proceedings.papers') }}">
+                    <i class="fa fa-book"></i>
+                    <span>@lang('Πρακτικά Εισηγήσεων')</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.proceedings.labs') }}">
+                    <i class="fa fa-flask"></i>
+                    <span>@lang('Πρακτικά Εργαστηρίων')</span>
+                </a>
+            </li>            
+            @endcan
             <li>
                 <a href="{{url('admin/calendar')}}">
                   <i class="fa fa-calendar"></i>
@@ -40,18 +53,6 @@
             </li>@endcan
             
             @can('paper_access')
-            <li>
-                <a href="{{ route('admin.proceedings.papers') }}">
-                    <i class="fa fa-book"></i>
-                    <span>@lang('Πρακτικά Εισηγήσεων')</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('admin.proceedings.labs') }}">
-                    <i class="fa fa-flask"></i>
-                    <span>@lang('Πρακτικά Εργαστηρίων')</span>
-                </a>
-            </li>
             <li>
                 <a href="{{ route('admin.papers.index') }}">
                     <i class="fa fa-newspaper-o"></i>
