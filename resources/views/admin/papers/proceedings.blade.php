@@ -34,10 +34,9 @@
                         @endcan
 
                         <th>id</th>
+                        <th>@lang('quickadmin.papers.fields.name')</th>
                         <th>@lang('quickadmin.papers.fields.title')</th>
                         <th>@lang('quickadmin.papers.fields.art')</th>
-                        <th>@lang('quickadmin.papers.fields.name')</th>
-                        <th>@lang('quickadmin.papers.fields.attribute')</th>
                         <th>@lang('Lab updated')</th>
                         <th>@lang('quickadmin.papers.fields.lab-approved')</th>
                         @if( request('show_deleted') == 1 )
@@ -57,6 +56,7 @@
                                 @endcan
 
                                 <td field-key='id'>{{$paper->id}}</td>
+                                <td field-key='name'>{{ $paper->name }}</td>
                                 <td field-key='title'>
                                     @if (Gate::allows('paper_view'))
                                         <a href="{{ route('admin.papers.show',[$paper->id]) }}" >{{ $paper->title }}</a>
@@ -69,8 +69,6 @@
                                         <span class="label label-info label-many">{{ $singleArt->title }}</span>
                                     @endforeach
                                 </td>
-                                <td field-key='name'>{{ $paper->name }}</td>
-                                <td field-key='attribute'>{{ $paper->attribute }}</td>
                                 <td field-key='lab_updated'>@if ($paper->description) <span class="text-success" style="font-size: 1.2em">✓</span>@endif</td>
                                 <td field-key='lab_approved'>@if ($paper->lab_approved) <span class="text-success" style="font-size: 1.2em">✓</span>@endif</td>
                                 @if( request('show_deleted') == 1 )
