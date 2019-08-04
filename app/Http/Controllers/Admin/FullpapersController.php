@@ -126,7 +126,7 @@ class FullpapersController extends Controller
         }
         $fullpaper->updateMedia($media, 'finaltext');
 
-        return redirect()->route('admin.fullpapers.index');
+        return redirect()->route('admin.fullpapers.show',$fullpaper);
     }
 
 
