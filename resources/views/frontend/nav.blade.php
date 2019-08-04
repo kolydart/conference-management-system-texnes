@@ -145,15 +145,15 @@
                             </a>
                             <div class="dropdown-menu">
 
-                                <a class="dropdown-item" href="{{ route('frontend.attend.index') }}">
-                                    <i class="fa fa-newspaper"></i>
-                                    <span>@lang('Τα Εργαστήριά μου')</span>
-                                </a>
-
                                 @can('backend_access')
                                 <a href="{{route('admin.home')}}" class="dropdown-item">
                                     <i class="fa fa-tachometer-alt"></i> @lang('Διαχείριση backend')
                                 </a>@endcan
+
+                                <a class="dropdown-item" href="{{ route('frontend.attend.index') }}">
+                                    <i class="fa fa-newspaper"></i>
+                                    <span>@lang('Τα Εργαστήριά μου')</span>
+                                </a>
 
                                 <a href="{{route('auth.change_password')}}" class="dropdown-item">
                                     <i class="fa fa-key"></i> @lang('quickadmin.qa_change_password')
