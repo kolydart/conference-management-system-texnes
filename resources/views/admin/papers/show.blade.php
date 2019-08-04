@@ -34,7 +34,7 @@
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.papers.fields.user')</th>
-                            <td field-key='user'>{{ $paper->user->name or '' }}</td>
+                            <td field-key='user'><a @if($paper->user) href="{{route('admin.users.show',$paper->user)}}" @endif>{{ $paper->user->name or '' }}</a></td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.papers.fields.type')</th>
