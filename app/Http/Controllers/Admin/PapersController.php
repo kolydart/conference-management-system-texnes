@@ -154,7 +154,7 @@ class PapersController extends Controller
             return abort(401);
         }
         
-        $users = \App\User::whereIn('id', [1, 10, 807, 8, 2, 902, 1652, 11, 19, ])->get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $users = \App\User::whereIn('id', [1, 10, 807, 8, 2, 920, 1652, 11, 19, ])->get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $arts = \App\Art::get()->pluck('title', 'id');
 
         $sessions = \App\Session::get()->pluck('title', 'id')->map(function($item,$key){return "S".$key.". ".$item; })->prepend(trans('quickadmin.qa_please_select'), '');
