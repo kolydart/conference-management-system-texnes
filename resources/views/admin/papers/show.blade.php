@@ -13,6 +13,10 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr>
+                            <th>@lang('quickadmin.papers.fields.user')</th>
+                            <td field-key='user'>{{ $paper->user->name or '' }}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.papers.fields.title')</th>
                             <td field-key='title'>{{ $paper->title }}</td>
                         </tr>

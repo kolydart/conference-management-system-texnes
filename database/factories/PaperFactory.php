@@ -2,6 +2,7 @@
 
 $factory->define(App\Paper::class, function (Faker\Generator $faker) {
     return [
+        "user_id" => factory('App\User')->create(),
         "title" => $faker->name,
         "type" => collect(["Εισήγηση","Εργαστήριο: βιωματικές δράσεις","Εργαστήριο: καλές πρακτικές",])->random(),
         "duration" => collect(["20","45","90",])->random(),

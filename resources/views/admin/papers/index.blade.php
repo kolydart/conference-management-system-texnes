@@ -33,6 +33,7 @@
                             @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
                         @endcan
 
+                        <th>@lang('quickadmin.papers.fields.user')</th>
                         <th>@lang('quickadmin.papers.fields.title')</th>
                         <th>@lang('quickadmin.papers.fields.art')</th>
                         <th>@lang('quickadmin.papers.fields.type')</th>
@@ -60,6 +61,7 @@
                                     @if ( request('show_deleted') != 1 )<td></td>@endif
                                 @endcan
 
+                                <td field-key='user'>{{ $paper->user->name or '' }}</td>
                                 <td field-key='title'>{{ $paper->title }}</td>
                                 <td field-key='art'>
                                     @foreach ($paper->art as $singleArt)
@@ -119,7 +121,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="32">@lang('quickadmin.qa_no_entries_in_table')</td>
+                            <td colspan="33">@lang('quickadmin.qa_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>

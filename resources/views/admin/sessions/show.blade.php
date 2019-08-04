@@ -51,7 +51,8 @@
 <table class="table table-bordered table-striped {{ count($papers) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
-            <th>@lang('quickadmin.papers.fields.title')</th>
+            <th>@lang('quickadmin.papers.fields.user')</th>
+                        <th>@lang('quickadmin.papers.fields.title')</th>
                         <th>@lang('quickadmin.papers.fields.art')</th>
                         <th>@lang('quickadmin.papers.fields.type')</th>
                         <th>@lang('quickadmin.papers.fields.duration')</th>
@@ -74,7 +75,8 @@
         @if (count($papers) > 0)
             @foreach ($papers as $paper)
                 <tr data-entry-id="{{ $paper->id }}">
-                    <td field-key='title'>{{ $paper->title }}</td>
+                    <td field-key='user'>{{ $paper->user->name or '' }}</td>
+                                <td field-key='title'>{{ $paper->title }}</td>
                                 <td field-key='art'>
                                     @foreach ($paper->art as $singleArt)
                                         <span class="label label-info label-many">{{ $singleArt->title }}</span>
@@ -133,7 +135,7 @@
             @endforeach
         @else
             <tr>
-                <td colspan="32">@lang('quickadmin.qa_no_entries_in_table')</td>
+                <td colspan="33">@lang('quickadmin.qa_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>
