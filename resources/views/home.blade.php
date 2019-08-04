@@ -23,6 +23,39 @@
         </div>
     </div>
 
+    {{-- Papers report --}}
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b>Συγκεντρωτικά Δεδομένα για Πρακτικά</b>
+            </div>
+            <div class="panel-body table-responsive">
+                <table class="table table-bordered table-striped ajaxTable">
+                    <thead>
+                        <tr>
+                            <th> Κατηγορία </th>
+                            <th> Σύνολο </th>
+                            <th> Με περιεχόμενο για πρακτικά </th>
+                            <th> Ολοκληρωμένα </th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td> Εισηγήσεις </td>
+                        <td> {{ App\Paper::accepted()->labNot()->count() }} </td>
+                        <td> {{ App\Paper::accepted()->labNot()->whereHas('fullpapers')->count() }} </td>
+                        <td> {{ App\Paper::accepted()->labNot()->whereHas('fullpapers')->where('lab_approved',1)->count() }} </td>
+                    </tr>
+                    <tr>
+                        <td> Εργαστήρια </td>
+                        <td> {{ App\Paper::accepted()->lab()->count() }} </td>
+                        <td> {{ App\Paper::accepted()->lab()->where('description','<>','')->count() }} </td>
+                        <td> {{ App\Paper::accepted()->lab()->where('description','<>','')->where('lab_approved',1)->count() }} </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
     {{-- Δηλώσεις συμμετοχής σε εργαστήρια (chart) --}}
     {{-- <div class="col-md-6">
         <div class="panel panel-default">
@@ -120,7 +153,7 @@
     </div> --}}
 
     {{-- Empty abstracts --}}
-    <div class="col-md-6">
+    <?php /*<div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Προτάσεις χωρίς περίληψη: <b> {{App\Paper::whereNull('abstract')->orWhere('abstract','')->accepted()->count()}}</b>
@@ -156,7 +189,7 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div>*/?>    
 
     {{-- Recently created attends --}}
     <?php /*<div class="col-md-6">
@@ -206,7 +239,7 @@
     </div> --}}
 
     {{-- Recently added fullpapers --}}
-    <div class="col-md-6">
+    <?php /*<div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Recently added fullpapers
@@ -236,7 +269,7 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div>*/?>
 
 
 </div>
