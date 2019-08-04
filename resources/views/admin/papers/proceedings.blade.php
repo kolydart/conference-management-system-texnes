@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.papers.title')</h3>
+    <h3 class="page-title">@lang('Πρακτικά')</h3>
     @can('paper_create')
     <p>
         <a href="{{ route('admin.papers.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
