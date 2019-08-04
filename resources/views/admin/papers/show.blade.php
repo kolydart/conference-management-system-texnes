@@ -17,6 +17,10 @@
                             <td field-key='id'>{{ $paper->id }}</td>
                         </tr>
                         <tr>
+                            <th>@lang('quickadmin.papers.fields.user')</th>
+                            <td field-key='user'>{{ $paper->user->name or '' }}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.papers.fields.title')</th>
                             <td field-key='title'>{{ $paper->title }}</td>
                         </tr>

@@ -37,6 +37,7 @@
                         <th>@lang('quickadmin.papers.fields.name')</th>
                         <th>@lang('quickadmin.papers.fields.title')</th>
                         <th>@lang('quickadmin.papers.fields.art')</th>
+                        <th>@lang('quickadmin.papers.fields.user')</th>
                         <th>@lang('Content for proceedings')</th>
                         <th>@lang('Approved')</th>
                         @if( request('show_deleted') == 1 )
@@ -69,6 +70,7 @@
                                         <span class="label label-info label-many">{{ $singleArt->title }}</span>
                                     @endforeach
                                 </td>
+                                <td field-key='user'>{{ $paper->user->name or '' }}</td>
                                 <td field-key='lab_updated'>@if ($paper->description || $paper->fullpapers->count() ) <span class="text-success" style="font-size: 1.2em">✓</span>@endif</td>
                                 <td field-key='lab_approved'>@if ($paper->lab_approved) <span class="text-success" style="font-size: 1.2em">✓</span>@endif</td>
                                 @if( request('show_deleted') == 1 )
@@ -115,7 +117,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="32">@lang('quickadmin.qa_no_entries_in_table')</td>
+                            <td colspan="9">@lang('quickadmin.qa_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>

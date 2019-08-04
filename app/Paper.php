@@ -16,6 +16,7 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
  * Class Paper
  *
  * @package App
+ * @property string $user
  * @property string $title
  * @property string $type
  * @property string $duration
@@ -49,12 +50,21 @@ class Paper extends Model implements HasMedia
 
     use SoftDeletes, HasMediaTrait;
 
-    protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'phone', 'abstract', 'bio', 'status', 'informed', 'order', 'capacity', 'objectives', 'materials', 'description', 'age', 'evaluation', 'video', 'bibliography', 'keywords', 'lab_approved', 'session_id'];
+    protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'phone', 'abstract', 'bio', 'status', 'informed', 'order', 'capacity', 'objectives', 'materials', 'description', 'age', 'evaluation', 'video', 'bibliography', 'keywords', 'lab_approved', 'user_id', 'session_id'];
     protected $hidden = [];
     
     use SearchableTrait;
     public $searchable = ['type'];
 
+
+    /**
+     * Set to null if empty
+     * @param $input
+     */
+    public function setUserIdAttribute($input)
+    {
+        $this->attributes['user_id'] = $input ? $input : null;
+    }
 
     /**
      * Set to null if empty
@@ -81,6 +91,11 @@ class Paper extends Model implements HasMedia
     public function setCapacityAttribute($input)
     {
         $this->attributes['capacity'] = $input ? $input : null;
+    }
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
     
     public function art()

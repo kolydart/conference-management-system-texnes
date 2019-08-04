@@ -5,6 +5,7 @@ $factory->define(App\Paper::class, function (Faker\Generator $faker) {
     $durations = ["20","45","90",];
     $i = collect([0,1,2])->random();
     return [
+        // "user_id" => \App\User::all()->random()->id;
         "title" => $faker->sentence,
         "type" => $types[$i],
         "duration" => $durations[$i],

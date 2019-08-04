@@ -98,13 +98,14 @@ class PapersController extends Controller
             return abort(401);
         }
         
+        $users = \App\User::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $arts = \App\Art::get()->pluck('title', 'id');
 
         $sessions = \App\Session::get()->pluck('title', 'id')->map(function($item,$key){return "S".$key.". ".$item; })->prepend(trans('quickadmin.qa_please_select'), '');
         $assigns = \App\User::get()->pluck('name', 'id');
 
 
-        return view('admin.papers.create', compact('arts', 'sessions', 'assigns'));
+        return view('admin.papers.create', compact('users', 'arts', 'sessions', 'assigns'));
     }
 
     /**
@@ -153,6 +154,7 @@ class PapersController extends Controller
             return abort(401);
         }
         
+        $users = \App\User::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $arts = \App\Art::get()->pluck('title', 'id');
 
         $sessions = \App\Session::get()->pluck('title', 'id')->map(function($item,$key){return "S".$key.". ".$item; })->prepend(trans('quickadmin.qa_please_select'), '');
@@ -161,7 +163,7 @@ class PapersController extends Controller
 
         $paper = Paper::findOrFail($id);
 
-        return view('admin.papers.edit', compact('paper', 'arts', 'sessions', 'assigns'));
+        return view('admin.papers.edit', compact('paper', 'users', 'arts', 'sessions', 'assigns'));
     }
 
     /**
@@ -218,6 +220,7 @@ class PapersController extends Controller
             return abort(401);
         }
         
+        $users = \App\User::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $arts = \App\Art::get()->pluck('title', 'id');
 
         $sessions = \App\Session::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
