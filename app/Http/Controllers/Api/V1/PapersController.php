@@ -7,9 +7,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StorePapersRequest;
 use App\Http\Requests\Admin\UpdatePapersRequest;
+// use App\Http\Controllers\Traits\FileUploadTrait;
 
 class PapersController extends Controller
 {
+    // use FileUploadTrait;
+
     public function index()
     {
         return Paper::all();
@@ -22,6 +25,7 @@ class PapersController extends Controller
 
     public function update(UpdatePapersRequest $request, $id)
     {
+        // $request = $this->saveFiles($request);
         $paper = Paper::findOrFail($id);
         $paper->update($request->all());
         
@@ -31,6 +35,7 @@ class PapersController extends Controller
 
     public function store(StorePapersRequest $request)
     {
+        // $request = $this->saveFiles($request);
         $paper = Paper::create($request->all());
         
 
