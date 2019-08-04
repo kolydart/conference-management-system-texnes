@@ -204,7 +204,7 @@ class PapersController extends Controller
         }
         $paper->updateMedia($media, 'images');
 
-        return redirect()->route('admin.papers.index');
+        return redirect()->route('admin.papers.show',$paper);
     }
 
 
