@@ -37,6 +37,7 @@
                         <th>@lang('quickadmin.fullpaper.fields.finaltext')</th>
                         <th>@lang('quickadmin.papers.fields.art')</th>
                         <th>@lang('quickadmin.fullpaper.fields.description')</th>
+                        <th>@lang('created_at')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -72,6 +73,7 @@
                                     @endforeach
                                 </td>
                                 <td field-key='description'>{{ $fullpaper->description }}</td>
+                                <td field-key='created_at'>{{ $fullpaper->created_at }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('fullpaper_delete')

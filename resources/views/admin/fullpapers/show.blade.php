@@ -44,6 +44,14 @@
                             </td>                            
                         </tr>
                         <tr>
+                            <th>@lang('created at')</th>
+                            <td field-key='created_at'>{{ $fullpaper->created_at->toDayDateTimeString() }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('updated at')</th>
+                            <td field-key='updated_at'>{{ $fullpaper->updated_at->toDayDateTimeString() }}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.fullpaper.fields.uuid')</th>
                             <td field-key='uuid'>{{ $fullpaper->uuid }}</td>
                         </tr>
