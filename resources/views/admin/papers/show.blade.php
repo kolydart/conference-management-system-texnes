@@ -17,8 +17,8 @@
                             <td field-key='id'>{{ $paper->id }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.papers.fields.user')</th>
-                            <td field-key='user'>{{ $paper->user->name or '' }}</td>
+                            <th>@lang('quickadmin.papers.fields.name')</th>
+                            <td field-key='name'>{{ $paper->name }}</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.papers.fields.title')</th>
@@ -31,6 +31,10 @@
                                     <span class="label label-info label-many">{{ $singleArt->title }}</span>
                                 @endforeach
                             </td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.papers.fields.user')</th>
+                            <td field-key='user'>{{ $paper->user->name or '' }}</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.papers.fields.type')</th>
@@ -47,10 +51,6 @@
                                     <a href="{{route('admin.sessions.show',$paper->session->id)}}">{{ $paper->session->title or '' }}</a>    
                                 @endif
                             </td>
-                        </tr>
-                        <tr>
-                            <th>@lang('quickadmin.papers.fields.name')</th>
-                            <td field-key='name'>{{ $paper->name }}</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.papers.fields.email')</th>

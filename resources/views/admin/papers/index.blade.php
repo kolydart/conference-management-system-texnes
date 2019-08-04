@@ -34,12 +34,13 @@
                         @endcan
 
                         <th>id</th>
+                        <th>@lang('quickadmin.papers.fields.name')</th>
                         <th>@lang('quickadmin.papers.fields.title')</th>
                         <th>@lang('quickadmin.papers.fields.art')</th>
+                        <th>@lang('quickadmin.papers.fields.user')</th>
                         <th>@lang('quickadmin.papers.fields.type')</th>
                         <th>@lang('quickadmin.papers.fields.duration')</th>
                         <th>@lang('quickadmin.papers.fields.session')</th>
-                        <th>@lang('quickadmin.papers.fields.name')</th>
                         <th>@lang('quickadmin.papers.fields.attribute')</th>
                         <th>@lang('gw.papers.fields.reviewed')</th>
                         <th>@lang('quickadmin.papers.fields.status')</th>
@@ -65,6 +66,7 @@
                                 @endcan
 
                                 <td field-key='id'>{{$paper->id}}</td>
+                                <td field-key='name'>{{ $paper->name }}</td>
                                 <td field-key='title'>
                                     @if (Gate::allows('paper_view'))
                                         <a href="{{ route('admin.papers.show',[$paper->id]) }}" >{{ $paper->title }}</a>
@@ -77,6 +79,7 @@
                                         <span class="label label-info label-many">{{ $singleArt->title }}</span>
                                     @endforeach
                                 </td>
+                                <td field-key='user'>{{ $paper->user->name or '' }}</td>
                                 <td field-key='type'>{{ $paper->type }}</td>
                                 <td field-key='duration'>{{ $paper->duration }}</td>
                                 <td field-key='session'>
@@ -84,7 +87,6 @@
                                         <a href="{{route('admin.sessions.show',$paper->session->id)}}">{{ "S". $paper->session->id.". ".$paper->session->title }}</a>
                                     @endif
                                 </td>
-                                <td field-key='name'>{{ $paper->name }}</td>
                                 <td field-key='attribute'>{{ $paper->attribute }}</td>
                                 <td field-key='reviewed'>
                                     @if ($paper->assign->count())
