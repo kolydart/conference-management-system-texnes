@@ -72,7 +72,7 @@
                                 </td>
                                 <td field-key='user'>{{ $paper->user->name or '' }}</td>
                                 <td field-key='lab_updated'>@if ($paper->description || $paper->fullpapers->count() ) <span class="text-success" style="font-size: 1.2em">✓</span>@endif</td>
-                                <td field-key='lab_approved'>@if ($paper->lab_approved) <span class="text-success" style="font-size: 1.2em">✓</span>@endif</td>
+                                <td field-key='lab_approved'>@if ($paper->lab_approved) <span class="text-success" style="font-size: 1.2em">✔︎</span>@endif</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('paper_delete')
