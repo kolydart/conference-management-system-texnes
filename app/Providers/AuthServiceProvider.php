@@ -97,16 +97,16 @@ class AuthServiceProvider extends ServiceProvider
 
         // Auth gates for: Papers
         Gate::define('paper_access', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
+            return in_array($user->role_id, [1, 3, 4, 5, 10]);
         });
         Gate::define('paper_create', function ($user) {
             return in_array($user->role_id, [1, 3]);
         });
         Gate::define('paper_edit', function ($user) {
-            return in_array($user->role_id, [1, 3]);
+            return in_array($user->role_id, [1, 3, 4, 10]);
         });
         Gate::define('paper_view', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
+            return in_array($user->role_id, [1, 3, 4, 5, 10]);
         });
         Gate::define('paper_delete', function ($user) {
             return in_array($user->role_id, [1, 3]);
@@ -114,7 +114,7 @@ class AuthServiceProvider extends ServiceProvider
 
         // Auth gates for: Fullpaper
         Gate::define('fullpaper_access', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
+            return in_array($user->role_id, [1, 3, 4, 5, 10]);
         });
         Gate::define('fullpaper_create', function ($user) {
             return in_array($user->role_id, [1, 3]);
@@ -123,10 +123,10 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1, 3]);
         });
         Gate::define('fullpaper_view', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5]);
+            return in_array($user->role_id, [1, 3, 4, 5, 10]);
         });
         Gate::define('fullpaper_delete', function ($user) {
-            return in_array($user->role_id, [1, 3]);
+            return in_array($user->role_id, [1, 3, 4, 5, 10]);
         });
 
         // Auth gates for: Arts

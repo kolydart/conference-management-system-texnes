@@ -17,8 +17,8 @@ $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.password.reset');
 
 // Registration Routes..
-$this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('auth.register');
-$this->post('register', 'Auth\RegisterController@register')->name('auth.register');
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('auth.register');
+Route::post('register', 'Auth\RegisterController@register')->name('auth.register');
 
 // Admin 
 Route::group(['middleware' => ['backend','auth','approved'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
