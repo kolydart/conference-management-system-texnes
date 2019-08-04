@@ -47,7 +47,8 @@
             </div><!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     
-<li role="presentation" class="active"><a href="#attend" aria-controls="attend" role="tab" data-toggle="tab">Δηλώσεις για εργαστήρια</a></li>
+<li role="presentation" class="active"><a href="#proceedings" aria-controls="proceedings" role="tab" data-toggle="tab">Περιεχόμενο για Πρακτικά</a></li>
+<li role="presentation" class=""><a href="#attend" aria-controls="attend" role="tab" data-toggle="tab">Δηλώσεις για εργαστήρια</a></li>
 <li role="presentation" class=""><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Κρίσεις</a></li>
 <li role="presentation" class=""><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Μηνύματα</a></li>
 <li role="presentation" class=""><a href="#loguseragent" aria-controls="loguseragent" role="tab" data-toggle="tab">Loguseragent</a></li>
@@ -57,7 +58,94 @@
 <!-- Tab panes -->
 <div class="tab-content">
     
-<div role="tabpanel" class="tab-pane active" id="attend">
+<div role="tabpanel" class="tab-pane active" id="proceedings">
+<table class="table table-bordered table-striped {{ count($proceedings) > 0 ? 'datatable' : '' }}">
+    <thead>
+        <tr>
+            <th>@lang('id')</th>
+            <th>@lang('quickadmin.papers.fields.name')</th>
+            <th>@lang('quickadmin.papers.fields.title')</th>
+            <th>@lang('quickadmin.papers.fields.art')</th>
+            <th>@lang('quickadmin.papers.fields.lab-approved')</th>
+            @if( request('show_deleted') == 1 )
+            <th>&nbsp;</th>
+            @else
+            <th>&nbsp;</th>
+            @endif
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (count($proceedings) > 0)
+            @foreach ($proceedings as $paper)
+                <tr data-entry-id="{{ $paper->id }}">
+                    <td field-key='id'>{{ $paper->id }}</td>
+                    <td field-key='name'>{{ $paper->name }}</td>
+                    <td field-key='title'>
+                        @if (Gate::allows('paper_view'))
+                            <a href="{{ route('admin.papers.show',[$paper->id]) }}" >{{ $paper->title }}</a>
+                        @else
+                            {{ $paper->title }}
+                        @endif
+                    </td>
+                        <td field-key='art'>
+                            @foreach ($paper->art as $singleArt)
+                                <span class="label label-info label-many">{{ $singleArt->title }}</span>
+                            @endforeach
+                    </td>
+                    <td field-key='lab_approved'>{{ Form::checkbox("lab_approved", 1, $paper->lab_approved == 1 ? true : false, ["disabled"]) }}</td>
+                    @if( request('show_deleted') == 1 )
+                        <td>
+                            @can('paper_delete')
+                                                                {!! Form::open(array(
+                                'style' => 'display: inline-block;',
+                                'method' => 'POST',
+                                'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                'route' => ['admin.papers.restore', $paper->id])) !!}
+                            {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
+                            {!! Form::close() !!}
+                            @endcan
+                            @can('paper_delete')
+                                                                {!! Form::open(array(
+                                'style' => 'display: inline-block;',
+                                'method' => 'DELETE',
+                                'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                'route' => ['admin.papers.perma_del', $paper->id])) !!}
+                            {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
+                            {!! Form::close() !!}
+                            @endcan
+                        </td>
+                    @else
+                    <td>
+                        @can('paper_view')
+                        <a href="{{ route('admin.papers.show',[$paper->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                        @endcan
+                        @can('paper_edit')
+                        <a href="{{ route('admin.papers.edit',[$paper->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                        @endcan
+                        @can('paper_delete')
+                        {!! Form::open(array(
+                            'style' => 'display: inline-block;',
+                            'method' => 'DELETE',
+                            'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                            'route' => ['admin.papers.destroy', $paper->id])) !!}
+                        {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                        {!! Form::close() !!}
+                        @endcan
+                    </td>
+                    @endif
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="32">@lang('quickadmin.qa_no_entries_in_table')</td>
+            </tr>
+        @endif
+    </tbody>
+</table>
+</div>
+
+<div role="tabpanel" class="tab-pane" id="attend">
 <table class="table table-bordered table-striped {{ count($attends) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
