@@ -126,7 +126,8 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1, 3, 4, 5, 10]);
         });
         Gate::define('fullpaper_delete', function ($user) {
-            return in_array($user->role_id, [1, 3, 4, 5, 10]);
+            return false;
+            // return in_array($user->role_id, [1, 3, 4, 5, 10]);
         });
 
         // Auth gates for: Arts
