@@ -30,7 +30,9 @@ class HomeController extends Controller
 
         $attendsReport = (new ReportsController)->attendCreated($request);
 
-        return view('home', array_merge(compact( 'fullpapers' ),$attendsReport));
+        $editors = \App\User::whereIn('id', [1, 10, 11, 1652, 19, 2, 8, 807, 920])->orderBy('name')->get();
+
+        return view('home', array_merge(compact( ['fullpapers','editors'] ),$attendsReport));
     }
 
 }

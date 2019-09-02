@@ -56,6 +56,32 @@
         </div>
     </div>
 
+    {{-- editors report --}}
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b>Συγκεντρωτικά Δεδομένα για Επιμελητές Πρακτικών</b>
+            </div>
+            <div class="panel-body table-responsive">
+                <table class="table table-bordered table-striped ajaxTable">
+                    <thead>
+                        <tr>
+                            <th> Όνομα </th>
+                            <th> Ποσοστό επεξεργασμένων εισηγήσεων για πρακτικά </th>
+                        </tr>
+                    </thead>
+                    @foreach ($editors as $editor)
+                        
+                    <tr>
+                        <td> <a href="{{ route('admin.users.show',$editor->id) }}">{{ $editor->name }}</a> </td>
+                        <td> {{ number_format(App\Paper::where('user_id',$editor->id)->where('lab_approved',1)->count() / App\Paper::where('user_id',$editor->id)->count() * 100,2) }}% </td>
+                    </tr>
+                    @endforeach
+                </table>
+            </div>
+        </div>
+    </div>
+
     {{-- Δηλώσεις συμμετοχής σε εργαστήρια (chart) --}}
     {{-- <div class="col-md-6">
         <div class="panel panel-default">

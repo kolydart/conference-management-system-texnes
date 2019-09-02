@@ -1,33 +1,273 @@
 <?php
 
 return [
-		'management' => [		'title' => 'Διαχείριση',		'fields' => [		],	],
-		'roles' => [		'title' => 'Ρόλοι',		'fields' => [			'title' => 'Τίτλος',		],	],
-		'users' => [		'title' => 'Χρήστες',		'fields' => [			'name' => 'Όνομα',			'email' => 'Email',			'checkin' => 'Checkin',			'phone' => 'Phone',			'attribute' => 'Attribute',			'password' => 'Κωδικός',			'role' => 'Ρόλος',			'remember-token' => 'Να με θυμάσαι',			'approved' => 'Approved',		],	],
-		'papers' => [		'title' => 'Προτάσεις',		'fields' => [			'user' => 'Επιμελητής',			'title' => 'Τίτλος',			'art' => 'Τέχνη',			'type' => 'Τύπος',			'duration' => 'Διάρκεια',			'session' => 'Συνεδρία',			'name' => 'Ονοματεπώνυμο',			'email' => 'Email',			'attribute' => 'Ιδιότητα',			'phone' => 'Τηλέφωνο',			'document' => 'Αρχείο(α) πρότασης',			'abstract' => 'Περίληψη',			'bio' => 'Βιογραφικό Σημείωμα',			'assign' => 'Ανάθεση',			'status' => 'Status',			'informed' => 'Informed',			'order' => 'Order',			'capacity' => 'Χωρητικότητα',			'objectives' => 'Στόχοι',			'materials' => 'Υλικό',			'description' => 'Περιγραφή',			'age' => 'Ηλικίες',			'evaluation' => 'Αποτίμηση',			'images' => 'Εικόνες',			'video' => 'Video',			'bibliography' => 'Βιβλιογραφία',			'keywords' => 'Λέξεις - κλειδιά',			'lab-approved' => 'Lab approved',		],	],
-		'reviews' => [		'title' => 'Κρίσεις',		'fields' => [			'user' => 'User',			'paper' => 'Paper',			'review' => 'Review',			'comment' => 'Comment',		],	],
-		'arts' => [		'title' => 'Τέχνες',		'fields' => [			'title' => 'Τίτλος',		],	],
-		'user-actions' => [		'title' => 'Ενέργειες χρηστών',		'created_at' => 'Ώρα',		'fields' => [		],	],
-		'contact-management' => [		'title' => 'Contact management',		'fields' => [		],	],
-		'contact-companies' => [		'title' => 'Companies',		'fields' => [		],	],
-		'contacts' => [		'title' => 'Επαφές',		'fields' => [		],	],
-		'content-management' => [		'title' => 'Στατικό περιεχόμενο',		'fields' => [		],	],
-		'content-categories' => [		'title' => 'Κατηγορίες',		'fields' => [			'title' => 'Κατηγορία',			'slug' => 'Slug',		],	],
-		'content-tags' => [		'title' => 'Ετικέτες',		'fields' => [			'title' => 'Ετικέτα',			'slug' => 'Slug',		],	],
-		'content-pages' => [		'title' => 'Σελίδες',		'fields' => [			'title' => 'Τίτλος',			'alias' => 'Alias',			'category-id' => 'Κατηγορίες',			'page-text' => 'Κείμενο',			'excerpt' => 'Απόσπασμα',			'featured-image' => 'Εικόνα εμφάνισης',			'tag-id' => 'Ετικέτες',		],	],
-		'files' => [		'title' => 'Τελικά κείμενα',		'fields' => [		],	],
-		'messages' => [		'title' => 'Μηνύματα',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'title' => 'Title',			'body' => 'Body',			'user' => 'User',			'page' => 'Page',			'paper' => 'Paper',		],	],
-		'fullpaper' => [		'title' => 'Τελικά κείμενα',		'fields' => [			'paper' => 'Paper',			'finaltext' => 'Αρχείο(α)',			'description' => 'Σύντομη περιγραφή',			'uuid' => 'uuid',		],	],
-		'activitylog' => [		'title' => 'activity-log',		'fields' => [			'log-name' => 'Log name',			'causer-type' => 'Causer type',			'causer-id' => 'Causer id',			'description' => 'Description',			'subject-type' => 'Subject type',			'subject-id' => 'Subject id',			'properties' => 'Properties',		],	],
-		'rooms' => [		'title' => 'Αίθουσες',		'fields' => [			'title' => 'Όνομα',			'description' => 'Περιγραφή',			'type' => 'Είδος',			'wifi' => 'Public wi-fi access',			'capacity' => 'Χωρητικότητα',		],	],
-		'sessions' => [		'title' => 'Συνεδρίες',		'fields' => [			'title' => 'Τίτλος',			'room' => 'Αίθουσα',			'start' => 'Έναρξη',			'duration' => 'Διάρκεια',			'chair' => 'Chair',			'color' => 'Color',		],	],
-		'logs' => [		'title' => 'Logs',		'fields' => [		],	],
-		'loguseragent' => [		'title' => 'Loguseragent',		'fields' => [			'os' => 'OS',			'os-version' => 'OS version',			'browser' => 'Browser',			'browser-version' => 'Browser version',			'device' => 'Device',			'language' => 'Language',			'item-id' => 'item_id',			'ipv6' => 'ipv6',			'uri' => 'Uri',			'form-submitted' => 'Form submitted',			'user' => 'User',		],	],
-		'availability' => [		'title' => 'Διαθεσιμότητα αιθουσών',		'fields' => [			'color' => 'Color',			'start' => 'Από',			'end' => 'Έως',			'room' => 'Room',			'notes' => 'Σχόλια',		],	],
-		'color' => [		'title' => 'Χρώματα',		'fields' => [		],	],
-		'colors' => [		'title' => 'Χρώματα',		'fields' => [			'title' => 'Title',			'value' => 'Value',		],	],
-		'subscriptions' => [		'title' => 'Δηλώσεις συμμετοχής',		'fields' => [		],	],
-		'lunch' => [		'title' => 'Lunch',		'fields' => [			'email' => 'Email',			'menu' => 'Menu',			'confirm' => 'Confirm',		],	],
+	
+	'management' => [
+		'title' => 'Διαχείριση',
+		'fields' => [
+		],
+	],
+	
+	'roles' => [
+		'title' => 'Ρόλοι',
+		'fields' => [
+			'title' => 'Τίτλος',
+		],
+	],
+	
+	'users' => [
+		'title' => 'Χρήστες',
+		'fields' => [
+			'name' => 'Όνομα',
+			'email' => 'Email',
+			'checkin' => 'Checkin',
+			'phone' => 'Phone',
+			'attribute' => 'Attribute',
+			'password' => 'Κωδικός',
+			'role' => 'Ρόλος',
+			'remember-token' => 'Να με θυμάσαι',
+			'approved' => 'Approved',
+		],
+	],
+	
+	'papers' => [
+		'title' => 'Προτάσεις',
+		'fields' => [
+			'user' => 'Επιμελητής',
+			'title' => 'Τίτλος',
+			'art' => 'Τέχνη',
+			'type' => 'Τύπος',
+			'duration' => 'Διάρκεια',
+			'session' => 'Συνεδρία',
+			'name' => 'Ονοματεπώνυμο',
+			'email' => 'Email',
+			'attribute' => 'Ιδιότητα',
+			'phone' => 'Τηλέφωνο',
+			'document' => 'Αρχείο(α) πρότασης',
+			'abstract' => 'Περίληψη',
+			'bio' => 'Βιογραφικό Σημείωμα',
+			'assign' => 'Ανάθεση',
+			'status' => 'Status',
+			'informed' => 'Informed',
+			'order' => 'Order',
+			'capacity' => 'Χωρητικότητα',
+			'objectives' => 'Στόχοι',
+			'materials' => 'Υλικό',
+			'description' => 'Περιγραφή',
+			'age' => 'Ηλικίες',
+			'evaluation' => 'Αποτίμηση',
+			'images' => 'Εικόνες',
+			'video' => 'Video',
+			'bibliography' => 'Βιβλιογραφία',
+			'keywords' => 'Λέξεις - κλειδιά',
+			'lab-approved' => 'Approved',
+		],
+	],
+	
+	'reviews' => [
+		'title' => 'Κρίσεις',
+		'fields' => [
+			'user' => 'User',
+			'paper' => 'Paper',
+			'review' => 'Review',
+			'comment' => 'Comment',
+		],
+	],
+	
+	'arts' => [
+		'title' => 'Τέχνες',
+		'fields' => [
+			'title' => 'Τίτλος',
+		],
+	],
+	
+	'user-actions' => [
+		'title' => 'Ενέργειες χρηστών',
+		'created_at' => 'Ώρα',
+		'fields' => [
+		],
+	],
+	
+	'contact-management' => [
+		'title' => 'Contact management',
+		'fields' => [
+		],
+	],
+	
+	'contact-companies' => [
+		'title' => 'Companies',
+		'fields' => [
+		],
+	],
+	
+	'contacts' => [
+		'title' => 'Επαφές',
+		'fields' => [
+		],
+	],
+	
+	'content-management' => [
+		'title' => 'Στατικό περιεχόμενο',
+		'fields' => [
+		],
+	],
+	
+	'content-categories' => [
+		'title' => 'Κατηγορίες',
+		'fields' => [
+			'title' => 'Κατηγορία',
+			'slug' => 'Slug',
+		],
+	],
+	
+	'content-tags' => [
+		'title' => 'Ετικέτες',
+		'fields' => [
+			'title' => 'Ετικέτα',
+			'slug' => 'Slug',
+		],
+	],
+	
+	'content-pages' => [
+		'title' => 'Σελίδες',
+		'fields' => [
+			'title' => 'Τίτλος',
+			'alias' => 'Alias',
+			'category-id' => 'Κατηγορίες',
+			'page-text' => 'Κείμενο',
+			'excerpt' => 'Απόσπασμα',
+			'featured-image' => 'Εικόνα εμφάνισης',
+			'tag-id' => 'Ετικέτες',
+		],
+	],
+	
+	'files' => [
+		'title' => 'Τελικά κείμενα',
+		'fields' => [
+		],
+	],
+	
+	'messages' => [
+		'title' => 'Μηνύματα',
+		'fields' => [
+			'name' => 'Name',
+			'email' => 'Email',
+			'title' => 'Title',
+			'body' => 'Body',
+			'user' => 'User',
+			'page' => 'Page',
+			'paper' => 'Paper',
+		],
+	],
+	
+	'fullpaper' => [
+		'title' => 'Τελικά κείμενα',
+		'fields' => [
+			'paper' => 'Paper',
+			'finaltext' => 'Αρχείο(α)',
+			'description' => 'Σύντομη περιγραφή',
+			'uuid' => 'uuid',
+		],
+	],
+	
+	'activitylog' => [
+		'title' => 'activity-log',
+		'fields' => [
+			'log-name' => 'Log name',
+			'causer-type' => 'Causer type',
+			'causer-id' => 'Causer id',
+			'description' => 'Description',
+			'subject-type' => 'Subject type',
+			'subject-id' => 'Subject id',
+			'properties' => 'Properties',
+		],
+	],
+	
+	'rooms' => [
+		'title' => 'Αίθουσες',
+		'fields' => [
+			'title' => 'Όνομα',
+			'description' => 'Περιγραφή',
+			'type' => 'Είδος',
+			'wifi' => 'Public wi-fi access',
+			'capacity' => 'Χωρητικότητα',
+		],
+	],
+	
+	'sessions' => [
+		'title' => 'Συνεδρίες',
+		'fields' => [
+			'title' => 'Τίτλος',
+			'room' => 'Αίθουσα',
+			'start' => 'Έναρξη',
+			'duration' => 'Διάρκεια',
+			'chair' => 'Chair',
+			'color' => 'Color',
+		],
+	],
+	
+	'logs' => [
+		'title' => 'Logs',
+		'fields' => [
+		],
+	],
+	
+	'loguseragent' => [
+		'title' => 'Loguseragent',
+		'fields' => [
+			'os' => 'OS',
+			'os-version' => 'OS version',
+			'browser' => 'Browser',
+			'browser-version' => 'Browser version',
+			'device' => 'Device',
+			'language' => 'Language',
+			'item-id' => 'item_id',
+			'ipv6' => 'ipv6',
+			'uri' => 'Uri',
+			'form-submitted' => 'Form submitted',
+			'user' => 'User',
+		],
+	],
+	
+	'availability' => [
+		'title' => 'Διαθεσιμότητα αιθουσών',
+		'fields' => [
+			'color' => 'Color',
+			'start' => 'Από',
+			'end' => 'Έως',
+			'room' => 'Room',
+			'notes' => 'Σχόλια',
+		],
+	],
+	
+	'color' => [
+		'title' => 'Χρώματα',
+		'fields' => [
+		],
+	],
+	
+	'colors' => [
+		'title' => 'Χρώματα',
+		'fields' => [
+			'title' => 'Title',
+			'value' => 'Value',
+		],
+	],
+	
+	'subscriptions' => [
+		'title' => 'Δηλώσεις συμμετοχής',
+		'fields' => [
+		],
+	],
+	
+	'lunch' => [
+		'title' => 'Lunch',
+		'fields' => [
+			'email' => 'Email',
+			'menu' => 'Menu',
+			'confirm' => 'Confirm',
+		],
+	],
 	'qa_create' => 'Δημιουργία',
 	'qa_save' => 'Αποθήκευση',
 	'qa_edit' => 'Επεξεργασία',
