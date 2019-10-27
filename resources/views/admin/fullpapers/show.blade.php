@@ -44,6 +44,19 @@
                             </td>                            
                         </tr>
                         <tr>
+                            <th>@lang('creator')</th>
+                            <td field-key='creator'>{{ 
+                                (new App\User())->find(
+                                    (new App\Activitylog())->where([
+                                        ['subject_type', 'App\Fullpaper'],
+                                        ['description','created'],
+                                        ['subject_id',219]
+                                    ])->first()->causer_id
+                                )->name
+                                }}
+                            </td>
+                        </tr>
+                        <tr>
                             <th>@lang('created at')</th>
                             <td field-key='created_at'>{{ $fullpaper->created_at->toDayDateTimeString() }}</td>
                         </tr>
