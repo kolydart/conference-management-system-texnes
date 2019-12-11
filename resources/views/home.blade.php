@@ -60,7 +60,9 @@
     <div class="col-md-8">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <b>Συγκεντρωτικά Δεδομένα για Επιμελητές Πρακτικών</b>
+                <b>Συγκεντρωτικά Δεδομένα για Επιμελητές Πρακτικών.</b>
+                Δείτε τις <a href="/uploads/editor_guide.mp4" target="_blank" >σχετικές οδηγίες <i class="fa fa-film"></i></a>
+                
             </div>
             <div class="panel-body table-responsive">
                 <table class="table table-bordered table-striped ajaxTable">
