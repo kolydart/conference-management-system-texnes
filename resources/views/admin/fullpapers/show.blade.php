@@ -45,15 +45,13 @@
                         </tr>
                         <tr>
                             <th>@lang('creator')</th>
-                            <td field-key='creator'>{{ 
-                                (new App\User())->find(
+                            <td field-key='creator'>{{(new App\User())->find(
                                     (new App\Activitylog())->where([
                                         ['subject_type', 'App\Fullpaper'],
                                         ['description','created'],
-                                        ['subject_id',219]
+                                        ['subject_id', $fullpaper->id]
                                     ])->first()->causer_id
-                                )->name
-                                }}
+                                )->name}}
                             </td>
                         </tr>
                         <tr>
