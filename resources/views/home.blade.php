@@ -78,7 +78,11 @@
                     <tr>
                         <td> <a href="{{ route('admin.users.show',$editor->id) }}">{{ $editor->name }}</a> </td>
                         <td> {{ App\Paper::where('user_id',$editor->id)->count() }} </td>
-                        <td> {{ number_format(App\Paper::where('user_id',$editor->id)->where('lab_approved',1)->count() / App\Paper::where('user_id',$editor->id)->count() * 100,2) }}% </td>
+                        <td>
+                            @if (App\Paper::where('user_id',$editor->id)->count())
+                                {{number_format(App\Paper::where('user_id',$editor->id)->where('lab_approved',1)->count() / App\Paper::where('user_id',$editor->id)->count() * 100,2 ) }}%
+                            @endif 
+                        </td>
                     </tr>
                     @endforeach
                 </table>

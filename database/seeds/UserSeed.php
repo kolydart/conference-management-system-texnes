@@ -11,16 +11,7 @@ class UserSeed extends Seeder
      */
     public function run()
     {
-        $items = [
-            
-            ['id' => 1, 'name' => 'admin', 'email' => 'n-vue.quickadminpanel.com@gateweb.gr', 'checkin' => null, 'phone' => null, 'attribute' => null, 'password' => '$2y$10$eJGoqrdu7M0x9nYMhDhBxOeW25eMBoMtsgM7hT4VfSQl44Ht37pdm', 'role_id' => 1, 'remember_token' => '', 'approved' => 1,],
-
-        ];
-
-        foreach ($items as $item) {
-            \App\User::create($item);
-        }
-
+        factory(\App\User::class)->create(['email'=>'admin@admin.com', 'password'=>Hash::make('password'), 'role_id'=>5]);
         factory(\App\User::class,13)->create();
         factory(\App\User::class,5)->create(['role_id'=>5]);
         factory(\App\User::class,5)->create(['role_id'=>7]);
