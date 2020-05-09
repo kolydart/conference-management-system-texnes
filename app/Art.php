@@ -17,7 +17,8 @@ class Art extends Model
 	use LogsActivity;
 	/** log dirty fillable */
 	protected static $logFillable = true;	    
-	protected static $logOnlyDirty = true;			
+	protected static $logOnlyDirty = true;
+    public $table = "arts";
 
     use SoftDeletes;
 
