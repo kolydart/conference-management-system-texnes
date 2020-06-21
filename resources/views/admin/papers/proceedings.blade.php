@@ -38,7 +38,7 @@
                         <th>@lang('quickadmin.papers.fields.title')</th>
                         <th>@lang('quickadmin.papers.fields.art')</th>
                         <th>@lang('quickadmin.papers.fields.user')</th>
-                        <th>@lang('Content for proceedings')</th>
+                        <th title="υπάρχει κατατεθειμένη σύνοψη ή fullpaper">@lang('Content for proceedings')</th>
                         <th>@lang('Approved')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
