@@ -80,7 +80,7 @@ class PapersController extends Controller
             }
             $papers = Paper::onlyTrashed()->get();
         } else {
-            $papers = Paper::accepted()->lab()->get()->reverse();
+            $papers = Paper::accepted()->lab()->where('description','<>','')->get()->reverse();
         }
 
         return view('admin.papers.proceedings', compact('papers'));
