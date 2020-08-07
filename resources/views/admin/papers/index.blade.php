@@ -93,7 +93,7 @@
                                         {{round($paper->reviews->count()*100/$paper->assign->count(),0)}}%
                                     @endif
                                     @if ($paper->reviews->count())
-                                        {{"[".implode($paper->reviews->pluck('review')->all(),', ')."]"}}
+                                        {{"[".implode(', ',$paper->reviews->pluck('review')->all())."]"}}
                                     @endif
                                 </td>
                                 <td field-key='status'>{{ $paper->status }}</td>
