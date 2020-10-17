@@ -38,7 +38,8 @@
             "../_class/vendor"
         ],
         "exclude-from-classmap":[
-           "../_class/vendor/illuminate"
+           "../_class/vendor/illuminate",
+           "../_class/vendor/symfony"
         ],
         "psr-4": {
             "App\\": "app/"
