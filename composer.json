@@ -34,12 +34,9 @@
     "autoload": {
         "classmap": [
             "database/seeds",
-            "database/factories",
-            "../_class/vendor"
+            "database/factories"
         ],
         "exclude-from-classmap":[
-           "../_class/vendor/illuminate",
-           "../_class/vendor/symfony"
         ],
         "psr-4": {
             "App\\": "app/"
