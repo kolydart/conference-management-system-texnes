@@ -43,34 +43,32 @@ class exportLabsToFile extends Command
         /** open file */
         $file = fopen('storage/export/labs.html', 'w');
         $head = '<!DOCTYPE html> <html lang="el"> <head> <meta charset="utf-8"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> <style type="text/css">';
+
+        /** trick to create paragraph styles in word */
         $head.='
-            body{
-                font-family: Georgia, serif;
-                line-height: 120%;
-            }
-
-            h1.section{
-                font-size: 24px;
-                font-weight: bold;
-                text-align: center;
-            }
-
-            h2.title{
-                font-size: 18px;
-                font-weight: bold;
-                text-align: center;
-            }
-
-            h2.author {
-                font-size: 16px;
-                font-weight: bold
-                text-align: right;
-            }
-
-            h3.description{font-size: 14px;}
-            div.description{font-size: 12px;}
-
+            h1.section{color:black;}
+            h2.title{color:black;}
+            h2.author{color:black;}
+            h3.keywords{color:black;}
+            div.keywords{color:black;}
+            h3.age{color:black;}
+            div.age{color:black;}
+            h3.objectives{color:black;}
+            div.objectives{color:black;}
+            h3.materials{color:black;}
+            div.materials{color:black;}
+            h3.description{color:black;}
+            div.description{color:black;}
+            h3.evaluation{color:black;}
+            div.evaluation{color:black;}
+            h3.video{color:black;}
+            div.video{color:black;}
+            h3.bibliography{color:black;}
+            div.bibliography{color:black;}
+            h3.bio{color:black;}
+            div.bio{color:black;}            
         ';
+        
         $head.='</style></head> <body><div class="container">';
         fwrite($file, $head);
 
@@ -128,9 +126,9 @@ class exportLabsToFile extends Command
             // 'capacity'
             
             // 'abstract'
-            if($item->keywords){
-                $buffer.= "<h3 class='keywords'>".__('quickadmin.papers.fields.keywords')."</h3>\n";
-                $buffer.= "<div class='keywords'>".$item->keywords."</div>\n";
+            if($item->abstract){
+                $buffer.= "<h3 class='abstract'>".__('quickadmin.papers.fields.abstract')."</h3>\n";
+                $buffer.= "<div class='abstract'>".$item->abstract."</div>\n";
             }
 
             // 'keywords'
@@ -190,6 +188,7 @@ class exportLabsToFile extends Command
 
             // 'lab_approved'
             // 'user_id'
+
 
             $buffer .= "</article>\n";
 
