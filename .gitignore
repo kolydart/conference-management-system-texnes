@@ -15,4 +15,5 @@ yarn-error.log
 .phpstorm.meta.php
 composer.lock
 /storage/debugbar
+/storage/export
 /public/google*.html
