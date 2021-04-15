@@ -37,6 +37,8 @@ class exportLabsToFile extends Command
      */
     public function handle()
     {
-        //
+        $this->info('Starting export');
+        // $this->error ('error');
+        $this->info('Finished export');
     }
 }
