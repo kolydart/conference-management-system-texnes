@@ -42,28 +42,29 @@ class exportLabsToFile extends Command
 
         /** open file */
         $file = fopen('storage/export/labs.html', 'w');
+        fwrite($file, '<!DOCTYPE html> <html lang="el"> <head> <meta charset="utf-8"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> </head> <body style="font-family: Georgia;"><div class="container">');
 
         /** get all labs */
         $labs = Paper::accepted()->lab()->where('description','<>','');
 
-        /** Εργαστήριο: βιωματικές δράσεις */
-        $collection = $labs->where('type','Εργαστήριο: βιωματικές δράσεις');
-
-        foreach ($collection as $item) {
-            $this->compile($item);
-            fwrite($file, $buffer."\n");
-        }            
-
         /** Εργαστήριο: καλές πρακτικές */
         $collection = $labs->where('type','Εργαστήριο: καλές πρακτικές');
 
+        fwrite($file, "<h1>Καλές Πρακτικές</h1>\n");
         foreach ($collection as $item) {
-            $this->compile($item);
-            fwrite($file, $buffer."\n");
+            fwrite($file, $this->compile($item)."\n");
         }            
 
+        /** Εργαστήριο: βιωματικές δράσεις */
+        $collection = $labs->where('type','Εργαστήριο: βιωματικές δράσεις');
+
+        fwrite($file, "<h1>Βιωματικές Δράσεις</h1>\n");
+        foreach ($collection as $item) {
+            fwrite($file, $this->compile($item)."\n");
+        }            
 
         /** close file */
+        fwrite($file, '</div></body></html>');
         fclose($file);
 
         $this->info('Finished export');
@@ -72,6 +73,8 @@ class exportLabsToFile extends Command
     public function compile($item){
         
             $buffer = '';
+
+            $buffer.= $item->id;
             // 'title', 'type', 'duration', 'name', 'email', 'attribute', 'phone', 'abstract', 'bio', 'status', 'informed', 'order', 'capacity', 'objectives', 'materials', 'description', 'age', 'evaluation', 'video', 'bibliography', 'keywords', 'lab_approved', 'user_id'
 
             return $buffer;
