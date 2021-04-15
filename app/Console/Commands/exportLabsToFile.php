@@ -49,26 +49,26 @@ class exportLabsToFile extends Command
                 line-height: 120%;
             }
 
-            h1.Section{
+            h1.section{
                 font-size: 24px;
                 font-weight: bold;
                 text-align: center;
             }
 
-            h2.Title{
+            h2.title{
                 font-size: 18px;
                 font-weight: bold;
                 text-align: center;
             }
 
-            h2.Author {
+            h2.author {
                 font-size: 16px;
                 font-weight: bold
                 text-align: right;
             }
 
-            h3.Description{font-size: 14px;}
-            div.Description{font-size: 12px;}
+            h3.description{font-size: 14px;}
+            div.description{font-size: 12px;}
 
         ';
         $head.='</style></head> <body><div class="container">';
@@ -77,20 +77,16 @@ class exportLabsToFile extends Command
         /** Εργαστήριο: καλές πρακτικές */
         $collection = Paper::accepted()->lab()->where('description','<>','')->where('type','Εργαστήριο: καλές πρακτικές')->orderBy('order');
 
-        fwrite($file, "<h1 class='Section'>Καλές Πρακτικές</h1>\n");
-        $this->info('### Καλές Πρακτικές ###');
+        fwrite($file, "<h1 class='section'>Καλές Πρακτικές</h1>\n");
         foreach ($collection->get() as $item) {
-            $this->info("# ".$item->name. ", ".$item->title);
             fwrite($file, $this->compile($item)."\n");
         }            
 
         /** Εργαστήριο: βιωματικές δράσεις */
         $collection = Paper::accepted()->lab()->where('description','<>','')->where('type','Εργαστήριο: βιωματικές δράσεις')->orderBy('order');
 
-        fwrite($file, "<h1 class='Section'>Βιωματικές Δράσεις</h1>\n");
-        $this->info('### Βιωματικές Δράσεις ###');
+        fwrite($file, "<h1 class='section'>Βιωματικές Δράσεις</h1>\n");
         foreach ($collection->get() as $item) {
-            $this->info("# ".$item->name. ", ".$item->title);
             fwrite($file, $this->compile($item)."\n");
         }
 
@@ -98,6 +94,11 @@ class exportLabsToFile extends Command
         /**
          * @todo
          */
+        fwrite($file, "<h1 class='section'>Βιωματικές Δράσεις</h1>\n");
+        foreach ($collection->get() as $item) {
+            fwrite($file, $this->compile($item)."\n");
+        }
+
 
         /** close file */
         fwrite($file, '</div></body></html>');
@@ -111,10 +112,10 @@ class exportLabsToFile extends Command
             $buffer = "<article>\n";
 
             // 'title'
-            $buffer.= "<h2 class='Title'>$item->title</h3>\n";
+            $buffer.= "<h2 class='title'>$item->title</h3>\n";
 
             // 'name'
-            $buffer.= "<h2 class='Author'>$item->name</h2>\n";
+            $buffer.= "<h2 class='author'>$item->name</h2>\n";
 
             // 'type'
             // 'duration'
@@ -126,23 +127,69 @@ class exportLabsToFile extends Command
             // 'order'
             // 'capacity'
             
+            // 'abstract'
+            if($item->keywords){
+                $buffer.= "<h3 class='keywords'>".__('quickadmin.papers.fields.keywords')."</h3>\n";
+                $buffer.= "<div class='keywords'>".$item->keywords."</div>\n";
+            }
+
+            // 'keywords'
+            if($item->keywords){
+                $buffer.= "<h3 class='keywords'>".__('quickadmin.papers.fields.keywords')."</h3>\n";
+                $buffer.= "<div class='keywords'>".$item->keywords."</div>\n";
+            }
+
+            // 'age'
+            if($item->age){
+                $buffer.= "<h3 class='age'>".__('quickadmin.papers.fields.age')."</h3>\n";
+                $buffer.= "<div class='age'>".$item->age."</div>\n";
+            }
+
             // 'objectives'
+            if($item->objectives){
+                $buffer.= "<h3 class='objectives'>".__('quickadmin.papers.fields.objectives')."</h3>\n";
+                $buffer.= "<div class='objectives'>".$item->objectives."</div>\n";
+            }
             
             // 'materials'
+            if($item->materials){
+                $buffer.= "<h3 class='materials'>".__('quickadmin.papers.fields.materials')."</h3>\n";
+                $buffer.= "<div class='materials'>".$item->materials."</div>\n";
+            }
             
             // 'description'
-            $buffer.= "<h3 class='Description'>Περιγραφή</h3>\n";
-            $buffer.= "<div class='Description'>".$item->description."</div>\n";
-            // 'age'
+            if($item->description){
+                $buffer.= "<h3 class='description'>".__('quickadmin.papers.fields.description')."</h3>\n";
+                $buffer.= "<div class='description'>".$item->description."</div>\n";
+            }
+
+
             // 'evaluation'
+            if($item->evaluation){
+                $buffer.= "<h3 class='evaluation'>".__('quickadmin.papers.fields.evaluation')."</h3>\n";
+                $buffer.= "<div class='evaluation'>".$item->evaluation."</div>\n";
+            }
+
             // 'video'
+            if($item->video){
+                $buffer.= "<h3 class='video'>".__('quickadmin.papers.fields.video')."</h3>\n";
+                $buffer.= "<div class='video'>".$item->video."</div>\n";
+            }
+
             // 'bibliography'
-            // 'keywords'
+            if($item->bibliography){
+                $buffer.= "<h3 class='bibliography'>".__('quickadmin.papers.fields.bibliography')."</h3>\n";
+                $buffer.= "<div class='bibliography'>".$item->bibliography."</div>\n";
+            }
+
+            // 'bio'
+            if($item->bio){
+                $buffer.= "<h3 class='bio'>".__('quickadmin.papers.fields.bio')."</h3>\n";
+                $buffer.= "<div class='bio'>".$item->bio."</div>\n";
+            }
+
             // 'lab_approved'
             // 'user_id'
-
-            // 'abstract'
-            // 'bio'
 
             $buffer .= "</article>\n";
 
