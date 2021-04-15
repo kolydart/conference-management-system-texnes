@@ -48,7 +48,7 @@ class exportLabsToFile extends Command
         $head.='
             h1.section{color:black;}
             h2.title{color:black;}
-            h2.author{color:black;}
+            h3.author{color:black;}
             h3.keywords{color:black;}
             div.keywords{color:black;}
             h3.age{color:black;}
@@ -68,7 +68,7 @@ class exportLabsToFile extends Command
             h3.bio{color:black;}
             div.bio{color:black;}            
         ';
-        
+
         $head.='</style></head> <body><div class="container">';
         fwrite($file, $head);
 
@@ -113,7 +113,7 @@ class exportLabsToFile extends Command
             $buffer.= "<h2 class='title'>$item->title</h3>\n";
 
             // 'name'
-            $buffer.= "<h2 class='author'>$item->name</h2>\n";
+            $buffer.= "<h3 class='author'>$item->name</h3>\n";
 
             // 'type'
             // 'duration'
