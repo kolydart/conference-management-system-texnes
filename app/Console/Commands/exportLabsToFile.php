@@ -41,22 +41,15 @@ class exportLabsToFile extends Command
         // $this->info('Starting export');
 
         /** main command */
-        // $result = Paper::accepted()->lab()->where('description','<>','');
+        $labs = Paper::accepted()->lab()->where('description','<>','')->get();
 
         /** prepare file */
         $file = fopen('storage/export/labs.html', 'w');
-        fwrite($file, 'test');
-        // foreach ($all as $row) {
-        //   fputcsv($file, $row->to_array());
-        // }
+        foreach ($labs as $lab) {
+          fwrite($file, $lab->id."\n");
+        }
         fclose($file);
 
-        // $this->info($result);
-
-
-
-
-        // $this->error ('error');
-        // $this->info('Finished export');
+        $this->info('Finished export');
     }
 }
