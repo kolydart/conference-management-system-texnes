@@ -87,17 +87,7 @@ class exportLabsToFile extends Command
         foreach ($collection->get() as $item) {
             fwrite($file, $this->compile($item)."\n");
         }
-
-        /** abstracts, bio */
-        /**
-         * @todo
-         */
-        fwrite($file, "<h1 class='section'>Βιωματικές Δράσεις</h1>\n");
-        foreach ($collection->get() as $item) {
-            fwrite($file, $this->compile($item)."\n");
-        }
-
-
+        
         /** close file */
         fwrite($file, '</div></body></html>');
         fclose($file);
