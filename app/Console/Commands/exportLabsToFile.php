@@ -61,11 +61,14 @@ class exportLabsToFile extends Command
                 text-align: center;
             }
 
-            p.Author {
+            h2.Author {
                 font-size: 16px;
                 font-weight: bold
                 text-align: right;
             }
+
+            h3.Description{font-size: 14px;}
+            div.Description{font-size: 12px;}
 
         ';
         $head.='</style></head> <body><div class="container">';
@@ -111,7 +114,7 @@ class exportLabsToFile extends Command
             $buffer.= "<h2 class='Title'>$item->title</h3>\n";
 
             // 'name'
-            $buffer.= "<p class='Author'>$item->name</p>\n";
+            $buffer.= "<h2 class='Author'>$item->name</h2>\n";
 
             // 'type'
             // 'duration'
@@ -122,10 +125,14 @@ class exportLabsToFile extends Command
             // 'informed'
             // 'order'
             // 'capacity'
+            
             // 'objectives'
+            
             // 'materials'
+            
             // 'description'
-            $buffer.= "<p class='Description'>$item->description</p>\n";
+            $buffer.= "<h3 class='Description'>Περιγραφή</h3>\n";
+            $buffer.= "<div class='Description'>".$item->description."</div>\n";
             // 'age'
             // 'evaluation'
             // 'video'
