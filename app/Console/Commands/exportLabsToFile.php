@@ -72,20 +72,29 @@ class exportLabsToFile extends Command
         fwrite($file, $head);
 
         /** Εργαστήριο: καλές πρακτικές */
-        $collection = Paper::accepted()->lab()->where('description','<>','')->where('type','Εργαστήριο: καλές πρακτικές');
+        $collection = Paper::accepted()->lab()->where('description','<>','')->where('type','Εργαστήριο: καλές πρακτικές')->orderBy('order');
 
         fwrite($file, "<h1 class='Section'>Καλές Πρακτικές</h1>\n");
+        $this->info('### Καλές Πρακτικές ###');
         foreach ($collection->get() as $item) {
+            $this->info("# ".$item->name. ", ".$item->title);
             fwrite($file, $this->compile($item)."\n");
         }            
 
         /** Εργαστήριο: βιωματικές δράσεις */
-        $collection = Paper::accepted()->lab()->where('description','<>','')->where('type','Εργαστήριο: βιωματικές δράσεις');
+        $collection = Paper::accepted()->lab()->where('description','<>','')->where('type','Εργαστήριο: βιωματικές δράσεις')->orderBy('order');
 
         fwrite($file, "<h1 class='Section'>Βιωματικές Δράσεις</h1>\n");
+        $this->info('### Βιωματικές Δράσεις ###');
         foreach ($collection->get() as $item) {
+            $this->info("# ".$item->name. ", ".$item->title);
             fwrite($file, $this->compile($item)."\n");
-        }            
+        }
+
+        /** abstracts, bio */
+        /**
+         * @todo
+         */
 
         /** close file */
         fwrite($file, '</div></body></html>');
@@ -105,14 +114,10 @@ class exportLabsToFile extends Command
             $buffer.= "<p class='Author'>$item->name</p>\n";
 
             // 'type'
-            
             // 'duration'
-            
             // 'email'
             // 'attribute'
             // 'phone'
-            // 'abstract'
-            // 'bio'
             // 'status'
             // 'informed'
             // 'order'
@@ -128,6 +133,9 @@ class exportLabsToFile extends Command
             // 'keywords'
             // 'lab_approved'
             // 'user_id'
+
+            // 'abstract'
+            // 'bio'
 
             $buffer .= "</article>\n";
 
