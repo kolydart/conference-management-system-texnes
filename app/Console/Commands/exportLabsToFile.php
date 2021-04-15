@@ -38,18 +38,44 @@ class exportLabsToFile extends Command
      */
     public function handle()
     {
-        // $this->info('Starting export');
+        $this->info('Starting export');
 
-        /** main command */
-        $labs = Paper::accepted()->lab()->where('description','<>','')->get();
-
-        /** prepare file */
+        /** open file */
         $file = fopen('storage/export/labs.html', 'w');
-        foreach ($labs as $lab) {
-          fwrite($file, $lab->id."\n");
-        }
+
+        /** get all labs */
+        $labs = Paper::accepted()->lab()->where('description','<>','');
+
+        /** Εργαστήριο: βιωματικές δράσεις */
+        $collection = $labs->where('type','Εργαστήριο: βιωματικές δράσεις');
+
+        foreach ($collection as $item) {
+            $this->compile($item);
+            fwrite($file, $buffer."\n");
+        }            
+
+        /** Εργαστήριο: καλές πρακτικές */
+        $collection = $labs->where('type','Εργαστήριο: καλές πρακτικές');
+
+        foreach ($collection as $item) {
+            $this->compile($item);
+            fwrite($file, $buffer."\n");
+        }            
+
+
+        /** close file */
         fclose($file);
 
         $this->info('Finished export');
     }
+
+    public function compile($item){
+        
+            $buffer = '';
+            // 'title', 'type', 'duration', 'name', 'email', 'attribute', 'phone', 'abstract', 'bio', 'status', 'informed', 'order', 'capacity', 'objectives', 'materials', 'description', 'age', 'evaluation', 'video', 'bibliography', 'keywords', 'lab_approved', 'user_id'
+
+            return $buffer;
+        
+    }
+    
 }
