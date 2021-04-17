@@ -87,6 +87,11 @@ Route::group(['middleware' => ['backend','auth','approved'], 'prefix' => 'admin'
 
     Route::get('/attends/delete/{paper_id}/{user_id}', 'Admin\PapersController@attendsDelete')->name('attends.delete');
 
+    Route::get('/export/labs', 
+        function() {
+            // return response()->download(__DIR__.'/../storage/export/labs.html');
+            return \File::get(base_path() . '/storage/export/labs.html');
+        })->name('export.labs');
 
  
 });
