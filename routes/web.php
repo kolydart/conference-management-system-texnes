@@ -89,7 +89,7 @@ Route::group(['middleware' => ['backend','auth','approved'], 'prefix' => 'admin'
 
     Route::get('/export/labs', 
         function() {
-            // return response()->download(__DIR__.'/../storage/export/labs.html');
+            \Artisan::call('export:labs2file');
             return \File::get(base_path() . '/storage/export/labs.html');
         })->name('export.labs');
 

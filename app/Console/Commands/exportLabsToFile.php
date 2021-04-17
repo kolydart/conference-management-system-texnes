@@ -41,7 +41,7 @@ class exportLabsToFile extends Command
         $this->info('Starting export');
 
         /** open file */
-        $file = fopen('storage/export/labs.html', 'w');
+        $file = fopen(base_path().'/storage/export/labs.html', 'w');
         $head = '<!DOCTYPE html> <html lang="el"> <head> <meta charset="utf-8"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> <style type="text/css">';
 
         /** trick to create paragraph styles in word */
