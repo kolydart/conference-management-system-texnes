@@ -125,63 +125,63 @@ class exportLabsToFile extends Command
             
             // 'abstract'
             if($item->abstract){
-                $buffer.= "<h3 class='abstract'>".__('quickadmin.papers.fields.abstract')."</h3>\n";
-                $buffer.= "<div class='abstract'>".$item->abstract."</div>\n";
+                $buffer.= "<h3 class=\"abstract\">".__('quickadmin.papers.fields.abstract')."</h3>\n";
+                $buffer.= "<div class=\"abstract\">".$item->abstract."</div>\n";
             }
 
             // 'keywords'
             if($item->keywords){
-                $buffer.= "<h3 class='keywords'>".__('quickadmin.papers.fields.keywords')."</h3>\n";
-                $buffer.= "<div class='keywords'>".$item->keywords."</div>\n";
+                $buffer.= "<h3 class=\"keywords\">".__('quickadmin.papers.fields.keywords')."</h3>\n";
+                $buffer.= "<div class=\"keywords\">".$item->keywords."</div>\n";
             }
 
             // 'age'
             if($item->age){
-                $buffer.= "<h3 class='age'>".__('quickadmin.papers.fields.age')."</h3>\n";
-                $buffer.= "<div class='age'>".$item->age."</div>\n";
+                $buffer.= "<h3 class=\"age\">".__('quickadmin.papers.fields.age')."</h3>\n";
+                $buffer.= "<div class=\"age\">".$item->age."</div>\n";
             }
 
             // 'objectives'
             if($item->objectives){
-                $buffer.= "<h3 class='objectives'>".__('quickadmin.papers.fields.objectives')."</h3>\n";
-                $buffer.= "<div class='objectives'>".$item->objectives."</div>\n";
+                $buffer.= "<h3 class=\"objectives\">".__('quickadmin.papers.fields.objectives')."</h3>\n";
+                $buffer.= "<div class=\"objectives\">".$item->objectives."</div>\n";
             }
             
             // 'materials'
             if($item->materials){
-                $buffer.= "<h3 class='materials'>".__('quickadmin.papers.fields.materials')."</h3>\n";
-                $buffer.= "<div class='materials'>".$item->materials."</div>\n";
+                $buffer.= "<h3 class=\"materials\">".__('quickadmin.papers.fields.materials')."</h3>\n";
+                $buffer.= "<div class=\"materials\">".$item->materials."</div>\n";
             }
             
             // 'description'
             if($item->description){
-                $buffer.= "<h3 class='description'>".__('quickadmin.papers.fields.description')."</h3>\n";
-                $buffer.= "<div class='description'>".$item->description."</div>\n";
+                $buffer.= "<h3 class=\"description\">".__('quickadmin.papers.fields.description')."</h3>\n";
+                $buffer.= "<div class=\"description\">".$item->description."</div>\n";
             }
 
 
             // 'evaluation'
             if($item->evaluation){
-                $buffer.= "<h3 class='evaluation'>".__('quickadmin.papers.fields.evaluation')."</h3>\n";
-                $buffer.= "<div class='evaluation'>".$item->evaluation."</div>\n";
+                $buffer.= "<h3 class=\"evaluation\">".__('quickadmin.papers.fields.evaluation')."</h3>\n";
+                $buffer.= "<div class=\"evaluation\">".$item->evaluation."</div>\n";
             }
 
             // 'video'
             if($item->video){
-                $buffer.= "<h3 class='video'>".__('quickadmin.papers.fields.video')."</h3>\n";
-                $buffer.= "<div class='video'>".$item->video."</div>\n";
+                $buffer.= "<h3 class=\"video\">".__('quickadmin.papers.fields.video')."</h3>\n";
+                $buffer.= "<div class=\"video\">".$item->video."</div>\n";
             }
 
             // 'bibliography'
             if($item->bibliography){
-                $buffer.= "<h3 class='bibliography'>".__('quickadmin.papers.fields.bibliography')."</h3>\n";
-                $buffer.= "<div class='bibliography'>".$item->bibliography."</div>\n";
+                $buffer.= "<h3 class=\"bibliography\">".__('quickadmin.papers.fields.bibliography')."</h3>\n";
+                $buffer.= "<div class=\"bibliography\">".$item->bibliography."</div>\n";
             }
 
             // 'bio'
             if($item->bio){
-                $buffer.= "<h3 class='bio'>".__('quickadmin.papers.fields.bio')."</h3>\n";
-                $buffer.= "<div class='bio'>".$item->bio."</div>\n";
+                $buffer.= "<h3 class=\"bio\">".__('quickadmin.papers.fields.bio')."</h3>\n";
+                $buffer.= "<div class=\"bio\">".$item->bio."</div>\n";
             }
 
             // 'lab_approved'
