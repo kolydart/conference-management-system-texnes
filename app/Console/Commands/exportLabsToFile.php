@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Art;
 use App\Paper;
 use Illuminate\Console\Command;
 
@@ -47,6 +48,7 @@ class exportLabsToFile extends Command
         /** trick to create paragraph styles in word */
         $head.='
             h1.section{color:black;}
+            h1.art{color:black;}
             h2.title{color:black;}
             h3.author{color:black;}
             h3.keywords{color:black;}
@@ -78,14 +80,26 @@ class exportLabsToFile extends Command
             ->where('lab_approved',1)
             ->orderBy('order');
 
-        /** Εργαστήριο: καλές πρακτικές */
-        $kales_praktikes = clone $labs;
-        $kales_praktikes->where('type','Εργαστήριο: καλές πρακτικές');
+        $arts = Art::pluck('title');
 
-        fwrite($file, "<h1 class='section'>Καλές Πρακτικές</h1>\n");
-        foreach ($kales_praktikes->get() as $item) {
-            fwrite($file, $this->compile($item)."\n");
-        }            
+        /** Εργαστήριο: καλές πρακτικές */
+        $lab_type = clone $labs;
+        $lab_type->where('type','Εργαστήριο: καλές πρακτικές');
+
+        fwrite($file, "<h1 class=\"section\">Καλές Πρακτικές</h1>\n");
+
+        foreach ($arts as $art) {
+
+            fwrite($file, "<h1 class=\"art\">$art</h1>\n");
+
+            $lab_type_art = clone $lab_type;
+            $lab_type_art->whereHas('art',function($query) use($art){$query->where('title',$art);});
+
+            foreach ($lab_type_art->get() as $item) {
+                fwrite($file, $this->compile($item)."\n");
+            }
+
+        }
 
         /** Εργαστήριο: βιωματικές δράσεις */
         $viomatikes_draseis = clone $labs;
