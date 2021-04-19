@@ -72,19 +72,27 @@ class exportLabsToFile extends Command
         $head.='</style></head> <body><div class="container">';
         fwrite($file, $head);
 
+        $labs = Paper::accepted()
+            ->lab()
+            ->where('description','<>','')
+            ->where('lab_approved',1)
+            ->orderBy('order');
+
         /** Εργαστήριο: καλές πρακτικές */
-        $collection = Paper::accepted()->lab()->where('description','<>','')->where('type','Εργαστήριο: καλές πρακτικές')->orderBy('order');
+        $kales_praktikes = clone $labs;
+        $kales_praktikes->where('type','Εργαστήριο: καλές πρακτικές');
 
         fwrite($file, "<h1 class='section'>Καλές Πρακτικές</h1>\n");
-        foreach ($collection->get() as $item) {
+        foreach ($kales_praktikes->get() as $item) {
             fwrite($file, $this->compile($item)."\n");
         }            
 
         /** Εργαστήριο: βιωματικές δράσεις */
-        $collection = Paper::accepted()->lab()->where('description','<>','')->where('type','Εργαστήριο: βιωματικές δράσεις')->orderBy('order');
+        $viomatikes_draseis = clone $labs;
+        $viomatikes_draseis->where('type','Εργαστήριο: βιωματικές δράσεις');
 
         fwrite($file, "<h1 class='section'>Βιωματικές Δράσεις</h1>\n");
-        foreach ($collection->get() as $item) {
+        foreach ($viomatikes_draseis->get() as $item) {
             fwrite($file, $this->compile($item)."\n");
         }
         
