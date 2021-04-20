@@ -128,7 +128,7 @@ class exportLabsToFile extends Command
             // 'name'
             $buffer.= "<h3 class='author'>$item->name</h3>\n";
 
-            // 'name'
+            // 'art'
             $buffer.= "<h3 class='art'>".implode(", ",$item->art()->pluck('title')->all())."</h3>\n";
 
             // 'type'
