@@ -239,6 +239,10 @@ class exportLabsToFile extends Command
                 $buffer.= "<div class=\"bibliography\">".$item->bibliography."</div>\n";
             }
 
+            // 'online_link'
+                $buffer.= "<h3 class=\"online_link\">Σύνδεσμος εργαστηρίου</h3>\n";
+                $buffer.= "<div class=\"online_link\"><a href=\"".route('frontend.papers.show',$item)."\">".route('frontend.papers.show',$item)."</a></div>\n";
+            
             // 'bio'
             // if($item->bio){
             //     $buffer.= "<h3 class=\"bio\">".__('quickadmin.papers.fields.bio')."</h3>\n";
