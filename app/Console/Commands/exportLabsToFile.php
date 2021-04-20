@@ -81,6 +81,8 @@ class exportLabsToFile extends Command
             ->where('lab_approved',1)
             ->orderBy('order');
 
+        /** reusable BEGIN */
+
         $arts = Art::pluck('title');
 
         /** Εργαστήριο: καλές πρακτικές */
@@ -89,27 +91,41 @@ class exportLabsToFile extends Command
 
         fwrite($file, "<h1 class=\"section\">Καλές Πρακτικές</h1>\n");
 
+        /** labs with one (1) related art */
         foreach ($arts as $art) {
 
-            fwrite($file, "<h1 class=\"art\">$art</h1>\n");
-
             $lab_type_art = clone $lab_type;
-            $lab_type_art->whereHas('art',function($query) use($art){$query->where('title',$art);});
+            $lab_type_art->has('art','=',1)->whereHas('art',function($query) use($art){$query->where('title',$art);});
+
+            if($lab_type_art->count()){
+                fwrite($file, "<h1 class=\"art\">$art</h1>\n");
+            }
 
             foreach ($lab_type_art->get() as $item) {
                 fwrite($file, $this->compile($item)."\n");
             }
-
         }
 
-        /** Εργαστήριο: βιωματικές δράσεις */
-        $viomatikes_draseis = clone $labs;
-        $viomatikes_draseis->where('type','Εργαστήριο: βιωματικές δράσεις');
+        /** labs with multiple related arts */
+        fwrite($file, "<h1 class=\"art\">(Πολύτεχνα)</h1>\n");
 
-        fwrite($file, "<h1 class='section'>Βιωματικές Δράσεις</h1>\n");
-        foreach ($viomatikes_draseis->get() as $item) {
+        $lab_type_all = clone $lab_type;
+        $lab_type_all->has('art','>',1);
+
+        foreach ($lab_type_all->get() as $item) {
             fwrite($file, $this->compile($item)."\n");
         }
+
+        /** reusable END */
+
+        /** Εργαστήριο: βιωματικές δράσεις */
+        // $viomatikes_draseis = clone $labs;
+        // $viomatikes_draseis->where('type','Εργαστήριο: βιωματικές δράσεις');
+
+        // fwrite($file, "<h1 class='section'>Βιωματικές Δράσεις</h1>\n");
+        // foreach ($viomatikes_draseis->get() as $item) {
+        //     fwrite($file, $this->compile($item)."\n");
+        // }
         
         /** close file */
         fwrite($file, '</div></body></html>');
