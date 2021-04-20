@@ -85,7 +85,9 @@ class exportLabsToFile extends Command
 
         $arts = Art::pluck('title');
 
-        /** Εργαστήριο: καλές πρακτικές */
+        /** ### */
+
+        /** Εργαστήριο: καλές πρακτικές BEGIN*/
         $lab_type = clone $labs;
         $lab_type->where('type','Εργαστήριο: καλές πρακτικές');
 
@@ -115,18 +117,41 @@ class exportLabsToFile extends Command
         foreach ($lab_type_all->get() as $item) {
             fwrite($file, $this->compile($item)."\n");
         }
+        /** Εργαστήριο: καλές πρακτικές END*/
 
-        /** reusable END */
 
-        /** Εργαστήριο: βιωματικές δράσεις */
-        // $viomatikes_draseis = clone $labs;
-        // $viomatikes_draseis->where('type','Εργαστήριο: βιωματικές δράσεις');
+        /** Εργαστήριο: βιωματικές δράσεις BEGIN*/
+        $lab_type = clone $labs;
+        $lab_type->where('type','Εργαστήριο: βιωματικές δράσεις');
 
-        // fwrite($file, "<h1 class='section'>Βιωματικές Δράσεις</h1>\n");
-        // foreach ($viomatikes_draseis->get() as $item) {
-        //     fwrite($file, $this->compile($item)."\n");
-        // }
-        
+        fwrite($file, "<h1 class=\"section\">Βιωματικές Δράσεις</h1>\n");
+
+        /** labs with one (1) related art */
+        foreach ($arts as $art) {
+
+            $lab_type_art = clone $lab_type;
+            $lab_type_art->has('art','=',1)->whereHas('art',function($query) use($art){$query->where('title',$art);});
+
+            if($lab_type_art->count()){
+                fwrite($file, "<h1 class=\"art\">$art</h1>\n");
+            }
+
+            foreach ($lab_type_art->get() as $item) {
+                fwrite($file, $this->compile($item)."\n");
+            }
+        }
+
+        /** labs with multiple related arts */
+        fwrite($file, "<h1 class=\"art\">(Πολύτεχνα)</h1>\n");
+
+        $lab_type_all = clone $lab_type;
+        $lab_type_all->has('art','>',1);
+
+        foreach ($lab_type_all->get() as $item) {
+            fwrite($file, $this->compile($item)."\n");
+        }
+        /** Εργαστήριο: βιωματικές δράσεις END*/
+
         /** close file */
         fwrite($file, '</div></body></html>');
         fclose($file);
