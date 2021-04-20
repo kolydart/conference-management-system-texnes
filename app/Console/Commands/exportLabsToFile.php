@@ -240,10 +240,10 @@ class exportLabsToFile extends Command
             }
 
             // 'bio'
-            if($item->bio){
-                $buffer.= "<h3 class=\"bio\">".__('quickadmin.papers.fields.bio')."</h3>\n";
-                $buffer.= "<div class=\"bio\">".$item->bio."</div>\n";
-            }
+            // if($item->bio){
+            //     $buffer.= "<h3 class=\"bio\">".__('quickadmin.papers.fields.bio')."</h3>\n";
+            //     $buffer.= "<div class=\"bio\">".$item->bio."</div>\n";
+            // }
 
             // 'lab_approved'
             // 'user_id'
