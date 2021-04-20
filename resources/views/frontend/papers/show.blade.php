@@ -84,11 +84,6 @@
                             <td field-key='abstract'>{!! $paper->abstract !!}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.papers.fields.bio')</th>
-                            <td field-key='bio'>{!! $paper->bio !!}</td>
-                        </tr>
-
-                        <tr>
                             <th>@lang('quickadmin.papers.fields.duration')</th>
                             <td field-key='duration'>{{ $paper->duration }}'</td>
                         </tr>
@@ -100,6 +95,72 @@
                                 @endforeach
                             </td>
                         </tr>
+
+                    @if ($paper->lab_approved)
+
+                        @if ($paper->keywords)
+                            <tr>
+                                <th>@lang('quickadmin.papers.fields.keywords')</th>
+                                <td field-key='keywords'>{!! $paper->keywords !!}</td>
+                            </tr>
+                        @endif
+
+                        @if ($paper->age)
+                            <tr>
+                                <th>@lang('quickadmin.papers.fields.age')</th>
+                                <td field-key='age'>{!! $paper->age !!}</td>
+                            </tr>
+                        @endif
+
+                        @if ($paper->objectives)
+                            <tr>
+                                <th>@lang('quickadmin.papers.fields.objectives')</th>
+                                <td field-key='objectives'>{!! $paper->objectives !!}</td>
+                            </tr>
+                        @endif
+
+                        @if ($paper->materials)
+                            <tr>
+                                <th>@lang('quickadmin.papers.fields.materials')</th>
+                                <td field-key='materials'>{!! $paper->materials !!}</td>
+                            </tr>
+                        @endif
+
+                        @if ($paper->description)
+                            <tr>
+                                <th>@lang('quickadmin.papers.fields.description')</th>
+                                <td field-key='description'>{!! $paper->description !!}</td>
+                            </tr>
+                        @endif
+
+                        @if ($paper->evaluation)
+                            <tr>
+                                <th>@lang('quickadmin.papers.fields.evaluation')</th>
+                                <td field-key='evaluation'>{!! $paper->evaluation !!}</td>
+                            </tr>
+                        @endif
+
+                        @if ($paper->video)
+                            <tr>
+                                <th>@lang('quickadmin.papers.fields.video')</th>
+                                <td field-key='video'>{!! $paper->video !!}</td>
+                            </tr>
+                        @endif
+
+                        @if ($paper->bibliography)
+                            <tr>
+                                <th>@lang('quickadmin.papers.fields.bibliography')</th>
+                                <td field-key='bibliography'>{!! $paper->bibliography !!}</td>
+                            </tr>
+                        @endif
+                    @endif
+                    
+                        <tr>
+                            <th>@lang('quickadmin.papers.fields.bio')</th>
+                            <td field-key='bio'>{!! $paper->bio !!}</td>
+                        </tr>
+
+
                     </table>
                 </div>
             </div>
