@@ -50,6 +50,7 @@ class exportLabsToFile extends Command
             h1.section{color:black;}
             h1.art{color:black;}
             h2.title{color:black;}
+            h3.art{color:black;}
             h3.author{color:black;}
             h3.keywords{color:black;}
             div.keywords{color:black;}
@@ -126,6 +127,9 @@ class exportLabsToFile extends Command
 
             // 'name'
             $buffer.= "<h3 class='author'>$item->name</h3>\n";
+
+            // 'name'
+            $buffer.= "<h3 class='art'>".implode(", ",$item->art()->pluck('title')->all())."</h3>\n";
 
             // 'type'
             // 'duration'
