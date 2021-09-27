@@ -55,8 +55,9 @@
         @yield('content')
 
     </main>
-    <div class="footer text-right" id="gw-footer">
-        {!!(new gateweb\common\router\SocialMedia())->link_share_all(5,2)!!}
+    <div class="footer mr-2 mb-2" id="gw-footer">
+        {{-- {!!(new gateweb\common\router\SocialMedia())->link_share_all(5,2)!!} --}}
+        {!! \gateweb\common\presenter\Laraview::signature() !!}
     </div>
 
 
