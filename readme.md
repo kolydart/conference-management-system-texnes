@@ -29,3 +29,10 @@ And that's it, go to your domain and login:
 Username: `admin@admin.com`
 
 Password: `password`
+
+##### Demo deployment
+
+You may view a demo deployment with fake data here:
+https://conference-management-system.gateweb.gr/
+
+Use the same credentials as above.
