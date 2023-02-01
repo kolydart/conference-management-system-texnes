@@ -1,5 +1,6 @@
 /node_modules
 /public/hot
+/public/robots.txt
 /public/storage
 /public/uploads
 /storage/*.key
@@ -18,4 +19,3 @@ composer.lock
 /storage/export
 /public/google*.html
 /documentation/
-robots.txt
