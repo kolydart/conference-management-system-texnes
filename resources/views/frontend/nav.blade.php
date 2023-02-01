@@ -57,7 +57,7 @@
                         </div>
                     </li>
 
-                    @if (App\Fullpaper::find(13))
+                    @if (App\Fullpaper::find(13) && App::environment() == 'production')
                         <li class="nav-item">
                             <a class="nav-link" href="{{"/storage/".App\Fullpaper::find(13)->getMedia('finaltext')->first()->id."/".rawurlencode(App\Fullpaper::find(13)->getMedia('finaltext')->first()->file_name)}}">
                               <i class="far fa-file-alt"></i> 
@@ -66,6 +66,7 @@
                         </li>
                     @endif
 
+                    @if (App::environment() == 'production')
                     <li class="nav-item dropdown">
                         <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" >
                             <i class="fas fa-info-circle"></i> @lang('Πληροφορίες')
@@ -131,6 +132,8 @@
                         </div>
                         
                     </li>
+                    @endif
+
 
 
 
