@@ -47,6 +47,9 @@
 
                 </div>
             </div>
+            <div class="text-right">
+                {!! \gateweb\common\presenter\Laraview::signature() !!}
+            </div>
         </section>
     </div>
 </div>
