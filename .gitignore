@@ -18,3 +18,4 @@ composer.lock
 /storage/export
 /public/google*.html
 /documentation/
+robots.txt
