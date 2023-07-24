@@ -20,8 +20,6 @@ https://texnes-ellinikosxoleio.uoa.gr/
 
 5.  Run `php artisan key:generate` command.
 
-6.  If you have file/photo fields, run `php artisan storage:link` command.
-
 And that's it, go to your domain and login:
 
 ##### Default credentials
@@ -36,6 +34,8 @@ You may view a demo deployment with fake data here:
 https://conference-management-system.gateweb.gr/
 
 Use the same credentials as above.
+
+Database data are reset each day.
 
 #### License
 
