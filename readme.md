@@ -22,7 +22,7 @@ https://texnes-ellinikosxoleio.uoa.gr/
 
 6.  Run `php serve` command.
 
-And that's it, go to 127.0.0.1:3000 and login:
+And that's it, go to `http://127.0.0.1:3000` and login:
 
 ##### Default credentials
 
