@@ -20,7 +20,9 @@ https://texnes-ellinikosxoleio.uoa.gr/
 
 5.  Run `php artisan key:generate` command.
 
-And that's it, go to your domain and login:
+6.  Run `php serve` command.
+
+And that's it, go to 127.0.0.1:3000 and login:
 
 ##### Default credentials
 
