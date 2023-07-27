@@ -19,3 +19,4 @@ composer.lock
 /storage/export
 /public/google*.html
 /documentation/
+/lock/tmp_sql/export.sql
