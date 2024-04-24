@@ -71,7 +71,7 @@ class mailPageFromLunch extends Command
              */
             $name = User::where('email',$lunch->email)->first()?User::where('email',$lunch->email)->first()->name:'';
             if($this->option('test') || \App::environment() == 'local'){
-                $email = "n-mail-$i@gateweb.gr";
+                $email = "n-mail-$i@example.com";
             }else{
                 $email = $lunch->email;
             }

@@ -87,7 +87,7 @@ class mailProcRemains extends Command
              */
             $name = htmlspecialchars($paper->name);
             if($this->option('test') || \App::environment() == 'local'){
-                $email = "n-mail-$i@gateweb.gr";
+                $email = "n-mail-$i@example.com";
             }else{
                 $email = $paper->email;
             }

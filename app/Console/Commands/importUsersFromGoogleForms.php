@@ -69,7 +69,7 @@ class importUsersFromGoogleForms extends Command
             $role_id = 7; // important!!
             $name = htmlspecialchars($row['name']);
             if($this->option('test') || \App::environment() == 'local'){
-                $email = "n-imported-".$i++."@gateweb.gr";
+                $email = "n-imported-".$i++."@example.com";
             }else{
                 $email = $row['email'];
             }
