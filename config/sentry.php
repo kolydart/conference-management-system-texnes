@@ -1,14 +1,14 @@
 <?php
 
-return array(
+return [
     'dsn' => env('SENTRY_LARAVEL_DSN'),
 
     // capture release as git sha
     // 'release' => trim(exec('git log --pretty="%h" -n1 HEAD')),
 
-    // Capture bindings on SQL queries
-    'breadcrumbs.sql_bindings' => true,
+    // Send default PII like user info
+    'send_default_pii' => false,
 
-    // Capture default user context
-    'user_context' => false,
-);
+    // Environment
+    'environment' => env('APP_ENV', 'production'),
+];

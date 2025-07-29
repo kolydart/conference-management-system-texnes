@@ -3,6 +3,7 @@ namespace App;
 
 use App\Paper;
 use App\Session;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -18,7 +19,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 */
 class Room extends Model
 {
-    use \Spatie\Activitylog\Traits\LogsActivity;
+    use HasFactory, \Spatie\Activitylog\Traits\LogsActivity;
     protected static $logFillable = true;       
     protected static $logOnlyDirty = true;
 

@@ -3,8 +3,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
@@ -22,7 +22,7 @@ class Fullpaper extends Model implements HasMedia
     protected static $logFillable = true;       
     protected static $logOnlyDirty = true;          
 
-    use SoftDeletes, HasMediaTrait;
+    use SoftDeletes, InteractsWithMedia;
 
     protected $fillable = ['description', 'paper_id'];
     protected $hidden = [];

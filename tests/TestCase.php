@@ -28,13 +28,13 @@ abstract class TestCase extends BaseTestCase
 
     // Legacy methods for backward compatibility
     function signin_as_manager(){
-        $user = factory(User::class)->create(['role_id' => 3]);
+        $user = User::factory()->create(['role_id' => 3]);
         $this->actingAs($user);
         return $user;
     }
 
     function signin_as_atendee(){
-        $user = factory(User::class)->create(['role_id' => 7]);
+        $user = User::factory()->create(['role_id' => 7]);
         $this->actingAs($user);
         return $user;
     }
@@ -89,11 +89,7 @@ abstract class TestCase extends BaseTestCase
 
         $userData = array_merge(['role_id' => $role->id], $definition);
         
-        if ($definition) {
-            $user = factory(User::class)->create($userData);
-        } else {
-            $user = factory(User::class)->create($userData);
-        }
+        $user = User::factory()->create($userData);
 
         return $user;
     }
@@ -159,11 +155,11 @@ abstract class TestCase extends BaseTestCase
     }
 
     /**
-     * assertDatabaseCount for Laravel 5.6 compatibility
+     * assertDatabaseCount for Laravel 8 compatibility
      */
-    public function assertDatabaseCount($table, $count)
+    public function assertDatabaseCount($table, int $count, $connection = null)
     {
-        $this->assertEquals($count, \DB::table($table)->count());
+        $this->assertEquals($count, \DB::connection($connection)->table($table)->count());
     }
 
     /**

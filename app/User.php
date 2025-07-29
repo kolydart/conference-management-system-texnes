@@ -5,6 +5,7 @@ use App\Paper;
 use App\Review;
 use Hash;
 use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -25,7 +26,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 */
 class User extends Authenticatable
 {
-    use LogsActivity;
+    use HasFactory, LogsActivity;
     /** log dirty fillable */
     protected static $logFillable = true;       
     protected static $logOnlyDirty = true;          

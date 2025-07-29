@@ -21,7 +21,7 @@ class RoomsTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Room::class, 5)->create();
+        $instance = \App\Room::factory()->count(5)->create();
 
         $response = $this->get(route("$this->route_path.index"));
         $response->assertSessionHasNoErrors();
@@ -34,7 +34,7 @@ class RoomsTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Room::class)->create();
+        $instance = \App\Room::factory()->create();
 
         $response = $this->get(route("$this->route_path.show", $instance));
         $response->assertSessionHasNoErrors();
@@ -47,7 +47,7 @@ class RoomsTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Room::class)->make();
+        $instance = \App\Room::factory()->make();
 
         $this->assertDatabaseCount($this->table, 0);
         $response = $this->post(route("$this->route_path.store"), $instance->toArray());
@@ -61,7 +61,7 @@ class RoomsTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Room::class)->create();
+        $instance = \App\Room::factory()->create();
 
         $response = $this->get(route("$this->route_path.edit", $instance));
         $response->assertSessionHasNoErrors();
@@ -74,7 +74,7 @@ class RoomsTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Room::class)->create();
+        $instance = \App\Room::factory()->create();
         $updateData = $instance->toArray();
         
         $response = $this->put(route("$this->route_path.update", $instance), $updateData);
@@ -91,7 +91,7 @@ class RoomsTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Room::class)->create();
+        $instance = \App\Room::factory()->create();
 
         $response = $this->delete(route("$this->route_path.destroy", $instance));
 

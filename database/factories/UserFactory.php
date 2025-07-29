@@ -1,17 +1,62 @@
 <?php
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
-	$email = $faker->safeEmail;
-	$password = substr($email, 0, strpos($email, '@')); // Replace Presenter::before with PHP substr
-    return [
-        "name" => $faker->name,
-        "email" => $email,
-        "checkin" => collect(["Checked-in","Αbsent",])->random(),
-        "password" => $password,
-        "role_id" => App\Role::all()->random()->id,
-        "remember_token" => $password,
-        "phone" => $faker->phoneNumber,
-        "attribute" => collect(["Εκπαιδευτικός ΠΕ 91.01","Εκπαιδευτικός ΠΕ 79.01","Εκπαιδευτικός ΠΕ 08","Εκπαιδευτικός ΠΕ 70","Εκπαιδευτικός ΠΕ 60","Εκπαιδευτικός ΠΕ 02","Εκπαιδευτικός ΠΕ 11","Εκπαιδευτικός ΠΕ 05 / 06 / 07 / 34 / 40","Εκπαιδευτικός ΠΕ 03/ 04","Εκπαιδευτικός ΠΕ 01","Εκπαιδευτικός ΠΕ 86","Εκπαιδευτικός ΠΕ 36","Προπτυχιακός/ή Φοιτητής /τρια","Μεταπτυχιακός /η Φοιτητής / τρια","Διδάκτορας","Ανεξάρτητος Ερευνητής","Μέλος ΕΔΙΠ / ΕΕΠ","Μέλος ΔΕΠ","Ομότιμος Καθηγητής / τρια","Άλλο",])->random(),
-        "approved" => 1,
-    ];
-});
+namespace Database\Factories;
+
+use App\User;
+use App\Role;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
+class UserFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = User::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        $email = $this->faker->safeEmail;
+        $password = substr($email, 0, strpos($email, '@'));
+        
+        return [
+            'name' => $this->faker->name,
+            'email' => $email,
+            'checkin' => $this->faker->randomElement(['Checked-in', 'Αbsent']),
+            'password' => $password,
+            'role_id' => Role::all()->random()->id,
+            'remember_token' => $password,
+            'phone' => $this->faker->phoneNumber,
+            'attribute' => $this->faker->randomElement([
+                'Εκπαιδευτικός ΠΕ 91.01',
+                'Εκπαιδευτικός ΠΕ 79.01',
+                'Εκπαιδευτικός ΠΕ 08',
+                'Εκπαιδευτικός ΠΕ 70',
+                'Εκπαιδευτικός ΠΕ 60',
+                'Εκπαιδευτικός ΠΕ 02',
+                'Εκπαιδευτικός ΠΕ 11',
+                'Εκπαιδευτικός ΠΕ 05 / 06 / 07 / 34 / 40',
+                'Εκπαιδευτικός ΠΕ 03/ 04',
+                'Εκπαιδευτικός ΠΕ 01',
+                'Εκπαιδευτικός ΠΕ 86',
+                'Εκπαιδευτικός ΠΕ 36',
+                'Προπτυχιακός/ή Φοιτητής /τρια',
+                'Μεταπτυχιακός /η Φοιτητής / τρια',
+                'Διδάκτορας',
+                'Ανεξάρτητος Ερευνητής',
+                'Μέλος ΕΔΙΠ / ΕΕΠ',
+                'Μέλος ΔΕΠ',
+                'Ομότιμος Καθηγητής / τρια',
+                'Άλλο'
+            ]),
+            'approved' => 1,
+        ];
+    }
+}

@@ -5,12 +5,13 @@ use App\Fullpaper;
 use App\Message;
 use App\Subscription;
 use App\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jedrzej\Searchable\SearchableTrait;
 use Spatie\Activitylog\Traits\LogsActivity;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\HasMedia;
 
 /**
  * Class Paper
@@ -43,12 +44,12 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 */
 class Paper extends Model implements HasMedia
 {
-    use LogsActivity;
+    use HasFactory, LogsActivity;
     /** log dirty fillable */
     protected static $logFillable = true;       
     protected static $logOnlyDirty = true;          
 
-    use SoftDeletes, HasMediaTrait;
+    use SoftDeletes, InteractsWithMedia;
 
     protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'phone', 'abstract', 'bio', 'status', 'informed', 'order', 'capacity', 'objectives', 'materials', 'description', 'age', 'evaluation', 'video', 'bibliography', 'keywords', 'lab_approved', 'user_id', 'session_id'];
     protected $hidden = [];
