@@ -8,9 +8,9 @@ use App\Http\Requests\Frontend\UpdatePapersRequest;
 use App\Paper;
 use Gate;
 use Illuminate\Http\Request;
-use gateweb\common\Presenter;
-use gateweb\common\Router;
-use gateweb\common\database\LogUserAgent;
+// use gateweb\common\Presenter; // Removed during gateweb cleanup
+// use gateweb\common\Router; // Removed during gateweb cleanup
+// use gateweb\common\database\LogUserAgent; // Removed during gateweb cleanup
 
 class PapersController extends Controller
 {
@@ -40,8 +40,8 @@ class PapersController extends Controller
     {
         
         $paper = Paper::accepted()->findOrFail($id);
-        if ((new Router)->validate($id,'int'))
-            (new LogUserAgent())->snapshot(['item_id'=>$id],false);
+        // if ((new Router)->validate($id,'int'))
+        //     (new LogUserAgent())->snapshot(['item_id'=>$id],false); // Removed during gateweb cleanup
 
         return view('frontend.papers.show', compact('paper'));
     }
@@ -59,7 +59,7 @@ class PapersController extends Controller
 
         /** check valid signature */
         if (! $request->hasValidSignature() || $paper->lab_approved) {
-            Presenter::message("Δεν έχετε δικαιώματα επεξεργασίας στο αντικείμενο.","warning");
+            session()->flash('warning', "Δεν έχετε δικαιώματα επεξεργασίας στο αντικείμενο.");
             return redirect(route('frontend.home'));
         }
         
@@ -108,7 +108,7 @@ class PapersController extends Controller
         }
         $paper->updateMedia($media, 'images');
 
-        Presenter::message("Η καρτέλα ενημερώθηκε.<br>Θα είναι δημόσια προσβάσιμη αφού επιβεβαιωθεί από τους επιμελητές των πρακτικών.<br>Ευχαριστούμε.","info");
+        session()->flash('info', "Η καρτέλα ενημερώθηκε.<br>Θα είναι δημόσια προσβάσιμη αφού επιβεβαιωθεί από τους επιμελητές των πρακτικών.<br>Ευχαριστούμε.");
 
         return redirect()->route('frontend.papers.show',['id'=>$paper->id]);
     }

@@ -6,7 +6,7 @@ use App\ContentPage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-use gateweb\common\database\LogUserAgent;
+// use gateweb\common\database\LogUserAgent; // Removed during gateweb cleanup
 
 class ContentPagesController extends Controller
 {
@@ -24,7 +24,7 @@ class ContentPagesController extends Controller
 
         /** allow only public category (2) */
         if (in_array(2, $page->category_id()->pluck('id')->all())){
-            (new LogUserAgent())->snapshot(['item_id'=>$page->id],false);
+            // (new LogUserAgent())->snapshot(['item_id'=>$page->id],false); // Removed during gateweb cleanup
             return view('frontend.page', compact('page'));
         }else{
             abort(403);

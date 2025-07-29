@@ -189,7 +189,7 @@ return [
         #UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         
-        App\Providers\GatewebServiceProvider::class,
+        // App\Providers\GatewebServiceProvider::class, // Removed during gateweb cleanup
         /*
          * Application Service Providers...
          */
