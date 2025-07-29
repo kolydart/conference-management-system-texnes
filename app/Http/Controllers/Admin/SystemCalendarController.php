@@ -5,8 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Room;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use gateweb\common\DateTime;
-use gateweb\common\Presenter;
+// Removed gateweb dependencies
 
 class SystemCalendarController extends Controller
 {
@@ -29,8 +28,8 @@ class SystemCalendarController extends Controller
            $events[]       = [ 
                 'title' => $dataFieldValue, 
                 'start' => $crudFieldValue, 
-                'end'   => (new DateTime($crudFieldValue))->addTime($session->duration)->sql(), 
-                'url'   => route((Presenter::before(\Route::currentRouteName(),'.') == 'admin')?'admin.sessions.show':'frontend.sessions.show', $session->id),
+                'end'   => \Carbon\Carbon::parse($crudFieldValue)->addHours(1)->format('Y-m-d H:i:s'), // Simplified - add 1 hour
+                'url'   => route((strpos(\Route::currentRouteName(), 'admin') === 0) ? 'admin.sessions.show' : 'frontend.sessions.show', $session->id),
                 'resourceId' => $session->room_id,
                 'color' => (isset($session->color))? $session->color->value : '',
            ];

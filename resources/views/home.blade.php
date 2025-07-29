@@ -11,7 +11,7 @@
                 Σύστημα Διαχείρισης Προτάσεων για το Συνέδριο <a href="/" class="btn btn-link">Oι Τέχνες στο ελληνικό σχολείο: παρόν και μἐλλον</a> <a href="/" class="btn btn-primary"><i class="fa fa-eye"></i></a><br><br>                
                 @if (
                     Hash::check(
-                        gateweb\common\Presenter::before(Auth::user()->email,'@'), Auth::user()->password
+                        substr(Auth::user()->email, 0, strpos(Auth::user()->email, '@')), Auth::user()->password
                         )
                     )
                 <p class="mt-2"> <strong class="bg-warning"> Παρακαλώ αλλάξτε το αρχικό password </strong> <br> (είναι κοινότοπο) </br> </p>

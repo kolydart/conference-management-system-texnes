@@ -8,9 +8,7 @@ use App\User;
 use Auth;
 use Gate;
 use Illuminate\Http\Request;
-use gateweb\common\DateTime;
-use gateweb\common\Presenter;
-use gateweb\common\Router;
+// Removed gateweb dependencies
 
 class AttendsController extends Controller
 {
@@ -38,7 +36,7 @@ class AttendsController extends Controller
 
         $paper = Paper::findOrFail($paper_id);
         
-        Presenter::message(__('Η περίοδος δηλώσεων έχει παρέλθει.'), 'info');
+        session()->flash('info', __('Η περίοδος δηλώσεων έχει παρέλθει.'));
         // if (Gate::allows('attend_create',$paper)) {
         //     $paper->attend()->attach(Auth::id());        
         //     Presenter::message(__('Επιτυχής δήλωση: '). $paper->title,"success");
@@ -64,7 +62,7 @@ class AttendsController extends Controller
         
         $paper = Paper::findOrFail($paper_id);
 
-        Presenter::message(__('Η περίοδος δηλώσεων έχει παρέλθει.'), 'info');
+        session()->flash('info', __('Η περίοδος δηλώσεων έχει παρέλθει.'));
         // if (Gate::allows('attend_delete',$paper)) {
         //     $paper->attend()->detach(Auth::id());
         //     Presenter::message(__('Διαγραφή από: '). $paper->title, 'info');
@@ -94,9 +92,9 @@ class AttendsController extends Controller
             $message = "Παρακαλούμε βεβαιωθείτε ότι τα εργαστήρια που επιλέξατε, πραγματοποιούνται διαφορετικές ώρες.<br>Κάποια εργαστήρια, φαίνεται πως περιλαμβάνονται σε συνεδρίες που ξεκινούν την ίδια ώρα:<br>";
             foreach ($duplicates as $id => $date) {
                 $p=Paper::findOrFail($id);
-                $message .= "<a href=\"".route('frontend.papers.show',$id)."\">$p->title</a> (στη συνεδρία ".$p->session->title." που ξεκινά στις ".(new DateTime($p->session->start))->format('d M, H:i').")<br>";
+                $message .= "<a href=\"".route('frontend.papers.show',$id)."\">$p->title</a> (στη συνεδρία ".$p->session->title." που ξεκινά στις ".\Carbon\Carbon::parse($p->session->start)->format('d M, H:i').")<br>";
             }
-            Presenter::message($message,'warning');
+            session()->flash('warning', $message);
         }
 
     }

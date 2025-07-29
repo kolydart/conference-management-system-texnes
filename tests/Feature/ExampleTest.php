@@ -16,7 +16,9 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        // Skip this test - root route has gateweb dependencies causing 500 errors
-        $this->markTestSkipped('Root route has gateweb dependencies - will be fixed in Phase 2');
+        $this->seed_default_data();
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
     }
 }

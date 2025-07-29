@@ -1,10 +1,8 @@
 <?php
 
-use gateweb\common\Presenter;
-
 $factory->define(App\User::class, function (Faker\Generator $faker) {
 	$email = $faker->safeEmail;
-	$password = Presenter::before($email,'@');
+	$password = substr($email, 0, strpos($email, '@')); // Replace Presenter::before with PHP substr
     return [
         "name" => $faker->name,
         "email" => $email,
