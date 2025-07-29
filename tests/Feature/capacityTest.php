@@ -15,7 +15,8 @@ class capacityTest extends TestCase
 	use \Illuminate\Foundation\Testing\DatabaseTransactions;
 
 	public function createPaper(){
-		return factory(Paper::class,1)->create(['type'=>'Εργαστήριο','session_id'=>factory(Session::class)->create(['room_id'=>factory(Room::class)->create()])])->first();
+		$this->seed_default_data();
+		return factory(Paper::class,1)->create(['type'=>'Εργαστήριο','session_id'=>factory(Session::class)->create()])->first();
 	}
 
 	/** @test */
