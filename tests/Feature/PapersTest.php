@@ -19,9 +19,10 @@ class PapersTest extends TestCase
     /** @test */
     public function user_can_index_model(){
 
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Paper::class, 5)->create();
+        $instance = \App\Paper::factory()->count(5)->create();
 
         $response = $this->get(route("$this->route_path.index"));
         $response->assertSessionHasNoErrors();
@@ -34,7 +35,7 @@ class PapersTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Paper::class)->create();
+        $instance = \App\Paper::factory()->create();
 
         $response = $this->get(route("$this->route_path.show", $instance));
         $response->assertSessionHasNoErrors();
@@ -47,7 +48,7 @@ class PapersTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Paper::class)->make();
+        $instance = \App\Paper::factory()->make();
 
         $this->assertDatabaseCount($this->table, 0);
         $response = $this->post(route("$this->route_path.store"), $instance->toArray());
@@ -61,7 +62,7 @@ class PapersTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Paper::class)->create();
+        $instance = \App\Paper::factory()->create();
 
         $response = $this->get(route("$this->route_path.edit", $instance));
         $response->assertSessionHasNoErrors();
@@ -74,7 +75,7 @@ class PapersTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Paper::class)->create();
+        $instance = \App\Paper::factory()->create();
         $updateData = $instance->toArray();
         
         $response = $this->put(route("$this->route_path.update", $instance), $updateData);
@@ -92,7 +93,7 @@ class PapersTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Paper::class)->create();
+        $instance = \App\Paper::factory()->create();
 
         $response = $this->delete(route("$this->route_path.destroy", $instance));
 

@@ -16,7 +16,7 @@ class capacityTest extends TestCase
 
 	public function createPaper(){
 		$this->seed_default_data();
-		return factory(Paper::class,1)->create(['type'=>'Εργαστήριο','session_id'=>factory(Session::class)->create()])->first();
+		return Paper::factory()->create(['type'=>'Εργαστήριο','session_id'=>Session::factory()->create()]);
 	}
 
 	/** @test */

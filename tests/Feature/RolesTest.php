@@ -21,7 +21,7 @@ class RolesTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Role::class, 5)->create();
+        $instance = \App\Role::factory()->count(5)->create();
 
         $response = $this->get(route("$this->route_path.index"));
         $response->assertSessionHasNoErrors();
@@ -34,7 +34,7 @@ class RolesTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Role::class)->create();
+        $instance = \App\Role::factory()->create();
 
         $response = $this->get(route("$this->route_path.show", $instance));
         $response->assertSessionHasNoErrors();
@@ -47,7 +47,7 @@ class RolesTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Role::class)->make();
+        $instance = \App\Role::factory()->make();
 
         $initialCount = \App\Role::count(); // Account for seeded roles
         $response = $this->post(route("$this->route_path.store"), $instance->toArray());
@@ -61,7 +61,7 @@ class RolesTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Role::class)->create();
+        $instance = \App\Role::factory()->create();
 
         $response = $this->get(route("$this->route_path.edit", $instance));
         $response->assertSessionHasNoErrors();
@@ -74,7 +74,7 @@ class RolesTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Role::class)->create();
+        $instance = \App\Role::factory()->create();
         $updateData = $instance->toArray();
         
         $response = $this->put(route("$this->route_path.update", $instance), $updateData);
@@ -91,7 +91,7 @@ class RolesTest extends TestCase
 
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Role::class)->create();
+        $instance = \App\Role::factory()->create();
 
         $response = $this->delete(route("$this->route_path.destroy", $instance));
 

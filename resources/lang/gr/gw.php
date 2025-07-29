@@ -1,9 +1,10 @@
 <?php
-return array_merge(gateweb\common\presenter\Language::get_map('el'),[
-	'papers'=>[
-		'fields'=>[
-			'reviewed' => 'Κρίσεις'
-		]
-	],
 
-	]);
+return [
+    'home' => 'Αρχική',
+    'papers' => [
+        'fields' => [
+            'reviewed' => 'Κρίσεις'
+        ]
+    ],
+];

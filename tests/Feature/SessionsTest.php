@@ -22,7 +22,7 @@ class SessionsTest extends TestCase
         $this->seed_default_data();
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Session::class, 5)->create();
+        $instance = \App\Session::factory()->count(5)->create();
 
         $response = $this->get(route("$this->route_path.index"));
         $response->assertSessionHasNoErrors();
@@ -36,7 +36,7 @@ class SessionsTest extends TestCase
         $this->seed_default_data();
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Session::class)->create();
+        $instance = \App\Session::factory()->create();
 
         $response = $this->get(route("$this->route_path.show", $instance));
         $response->assertSessionHasNoErrors();
@@ -50,7 +50,7 @@ class SessionsTest extends TestCase
         $this->seed_default_data();
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Session::class)->make();
+        $instance = \App\Session::factory()->make();
 
         $this->assertDatabaseCount($this->table, 0);
         $response = $this->post(route("$this->route_path.store"), $instance->toArray());
@@ -65,7 +65,7 @@ class SessionsTest extends TestCase
         $this->seed_default_data();
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Session::class)->create();
+        $instance = \App\Session::factory()->create();
 
         $response = $this->get(route("$this->route_path.edit", $instance));
         $response->assertSessionHasNoErrors();
@@ -79,7 +79,7 @@ class SessionsTest extends TestCase
         $this->seed_default_data();
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Session::class)->create();
+        $instance = \App\Session::factory()->create();
         $updateData = $instance->toArray();
         
         $response = $this->put(route("$this->route_path.update", $instance), $updateData);
@@ -97,7 +97,7 @@ class SessionsTest extends TestCase
         $this->seed_default_data();
         $user = $this->login_user($this->role);
 
-        $instance = factory(\App\Session::class)->create();
+        $instance = \App\Session::factory()->create();
 
         $response = $this->delete(route("$this->route_path.destroy", $instance));
 

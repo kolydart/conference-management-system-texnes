@@ -81,7 +81,7 @@ class RoomsTest extends TestCase
 
         $this->assertDatabaseHas($this->table, [
             'id' => $instance->id,
-            'name' => $updateData['name']
+            'title' => $updateData['title']
         ]);
         $response->assertSessionHasNoErrors();
     }
