@@ -184,7 +184,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class,
+        LaravelLux\Html\HtmlServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         #UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
@@ -252,8 +252,8 @@ return [
          * Package Aliases
          */
         'Image'        => Intervention\Image\Facades\Image::class,
-        'Form'         => Collective\Html\FormFacade::class,
-        'Html'         => Collective\Html\HtmlFacade::class,
+        'Form'         => LaravelLux\Html\FormFacade::class,
+        'Html'         => LaravelLux\Html\HtmlFacade::class,
         
     ],
 

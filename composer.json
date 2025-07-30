@@ -11,19 +11,20 @@
         "fideloper/proxy": "^4.4",
         "intervention/image": "^2.5",
         "jedrzej/searchable": "dev-master",
+        "kolydart/common": "^0.5.0",
+        "kolydart/laravel": "^0.20.0",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
-        "laravelcollective/html": "^6.2",
+        "laravellux/html": "^6.0",
         "sentry/sentry-laravel": "^2.0",
-        "setasign/fpdi-tfpdf": "^2.3",
         "spatie/laravel-activitylog": "^3.17",
         "spatie/laravel-medialibrary": "^9.0",
         "unisharp/laravel-filemanager": "^2.0",
         "yajra/laravel-datatables-oracle": "^9.0"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.6",
+        "barryvdh/laravel-debugbar": "^3.7",
         "barryvdh/laravel-ide-helper": "^2.8",
         "facade/ignition": "^2.0",
         "laravel/dusk": "^6.0",
@@ -77,6 +78,7 @@
         "optimize-autoloader": true,
         "allow-plugins": {
             "kylekatarnls/update-helper": true,
+            "php-http/discovery": true,
             "symfony/thanks": true
         }
     },
