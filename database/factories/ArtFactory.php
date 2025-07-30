@@ -1,7 +1,28 @@
 <?php
 
-$factory->define(App\Art::class, function (Faker\Generator $faker) {
-    return [
-        "title" => $faker->word,
-    ];
-});
+namespace Database\Factories;
+
+use App\Art;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class ArtFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Art::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            "title" => $this->faker->word,
+        ];
+    }
+}

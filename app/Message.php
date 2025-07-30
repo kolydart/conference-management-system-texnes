@@ -3,6 +3,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
@@ -19,7 +20,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 */
 class Message extends Model
 {
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = ['name', 'email', 'title', 'body', 'user_id', 'page_id', 'paper_id'];
     protected $hidden = [];

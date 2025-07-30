@@ -12,6 +12,6 @@ class AvailabilitySeed extends Seeder
      */
     public function run()
     {
-        factory(Availability::class,10)->create();
+        Availability::factory()->count(10)->create();
     }
 }

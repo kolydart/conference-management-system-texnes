@@ -12,6 +12,6 @@ class ContentTagSeed extends Seeder
      */
     public function run()
     {
-        factory(ContentTag::class,20)->create();
+        ContentTag::factory()->count(20)->create();
     }
 }

@@ -45,7 +45,7 @@ class ContentPageSeed extends Seeder
             \App\ContentPage::create($item);
         }
 
-        factory(ContentPage::class,40)->create()->each(function($page){
+        ContentPage::factory()->count(40)->create()->each(function($page){
             $page->category_id()->save(ContentCategory::all()->random());
             $page->tag_id()->saveMany(ContentTag::all()->random(3));
         });

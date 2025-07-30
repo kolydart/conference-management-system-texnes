@@ -12,7 +12,7 @@ class SessionsSeed extends Seeder
      */
     public function run()
     {
-        factory(Session::class,30)->create();
+        Session::factory()->count(30)->create();
 
         foreach (App\Paper::all() as $paper) {
         	$paper->update(['session_id'=> App\Session::all()->random()->id]);

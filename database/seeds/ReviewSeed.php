@@ -21,7 +21,7 @@ class ReviewSeed extends Seeder
                 })->get();
             foreach ($papers as $paper) {
                 if(rand(0, 1))
-                    factory(Review::class)->create(['paper_id'=>$paper->id, 'user_id'=>$user_id]);
+                    Review::factory()->create(['paper_id'=>$paper->id, 'user_id'=>$user_id]);
             }
         }
     }

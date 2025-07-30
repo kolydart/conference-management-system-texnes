@@ -1,8 +1,29 @@
 <?php
 
-$factory->define(App\Color::class, function (Faker\Generator $faker) {
-    return [
-        "title" => $faker->word,
-        "value" => $faker->hexcolor,
-    ];
-});
+namespace Database\Factories;
+
+use App\Color;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class ColorFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Color::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            "title" => $this->faker->word,
+            "value" => $this->faker->hexcolor,
+        ];
+    }
+}

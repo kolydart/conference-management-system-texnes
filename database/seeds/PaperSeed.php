@@ -4,6 +4,7 @@ use App\Art;
 use App\Paper;
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\App;
 
 class PaperSeed extends Seeder
 {
@@ -19,7 +20,7 @@ class PaperSeed extends Seeder
         /**
          * create papers & relate with arts & users
          */
-        factory(Paper::class,$count)->create()->each(function ($paper) {
+        Paper::factory()->count($count)->create()->each(function ($paper) {
             $arts = Art::all()->random(3); // pick three random
             $paper->art()->save($arts->splice(0, 1)->first()); // always get first
             foreach ($arts as $art) { // the rest: random

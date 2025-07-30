@@ -12,6 +12,6 @@ class ContentCategorySeed extends Seeder
      */
     public function run()
     {
-        factory(ContentCategory::class,10)->create();
+        ContentCategory::factory()->count(10)->create();
     }
 }

@@ -4,6 +4,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Availability
@@ -17,7 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 */
 class Availability extends Model
 {
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = ['start', 'end', 'notes', 'color_id', 'room_id'];
     protected $hidden = [];

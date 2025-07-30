@@ -5,6 +5,7 @@ use App\Availability;
 use App\Session;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Color
@@ -15,7 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 */
 class Color extends Model
 {
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = ['title', 'value'];
     protected $hidden = [];
