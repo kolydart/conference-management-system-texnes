@@ -27,8 +27,6 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        $user = \Auth::user();
-
         // Auth gates for: backend
         Gate::define('backend_access', function ($user) {
             return in_array($user->role_id, [1, 3, 4, 5]);

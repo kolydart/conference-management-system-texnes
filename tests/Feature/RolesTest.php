@@ -4,12 +4,24 @@ namespace Tests\Feature;
 
 use App\Role;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class RolesTest extends TestCase
 {
     use RefreshDatabase;
+
+    /**
+     * @var string plural lowercase kebab-case
+     * @example (users|papers); admin.(users|papers).index for User|Paper model
+     */
+    static $route_particle = 'roles';
+
+    /**
+     * @var string plural lowercase snake_case
+     * usually equal to self::$route_particle
+     * differs on multi-word models
+     */
+    static $view_particle = 'roles';
 
     var $Model = '\App\Role';
     var $table = 'roles';
@@ -19,10 +31,9 @@ class RolesTest extends TestCase
     /** @test */
     public function user_can_index_model(){
 
-        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
-        $instance = \App\Role::factory()->count(5)->create();
+        $instance = $this->Model::factory(5)->create();
 
         $response = $this->get(route("$this->route_path.index"));
         $response->assertSessionHasNoErrors();

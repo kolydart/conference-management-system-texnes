@@ -12,7 +12,7 @@ class Custom1539501849ApproveExistingUsers extends Migration
      */
     public function up()
     {
-        \App\User::where('approved', 0)->update(['approved' => 1]);
+        \DB::table('users')->where('approved', 0)->update(['approved' => 1]);
     }
 
     /**

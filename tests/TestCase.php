@@ -7,6 +7,7 @@ use App\Role;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Str;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -26,16 +27,61 @@ abstract class TestCase extends BaseTestCase
      */
     static $view_particle;
 
-    // Legacy methods for backward compatibility
-    function signin_as_manager(){
-        $user = User::factory()->create(['role_id' => 3, 'approved' => 1]);
+    /**
+     * Seed roles - no permissions system in this project, just roles
+     * Gates are hardcoded in AuthServiceProvider based on role_id
+     */
+    public function seed_permissions(): void
+    {
+        // For this project, we only need to seed roles since Gates are hardcoded
+        $this->seed_roles();
+    }
+
+    /**
+     * sign-in user
+     * @example $user = $this->login_user();
+     * @example $user = $this->login_user('Διαχειριστής');
+     */
+    public function login_user(string $role_title = 'Ακροατής', array $definition = []): User
+    {
+        $user = $this->create_user($role_title, $definition);
         $this->actingAs($user);
         return $user;
     }
 
-    function signin_as_atendee(){
-        $user = User::factory()->create(['role_id' => 7, 'approved' => 1]);
-        $this->actingAs($user);
+    /**
+     * create user
+     * @example $user = $this->create_user('Διαχειριστής');
+     */
+    public function create_user(string $role_title = 'Ακροατής', array $definition = []): User
+    {
+        $this->seed_permissions();
+        
+        $role = Role::where('title', $role_title)->first();
+        if (!$role) {
+            // Fallback to default attendee role
+            $role = Role::find(7);
+        }
+
+        // Ensure user is approved by default for tests  
+        $userData = array_merge(['role_id' => $role->id, 'approved' => 1], $definition);
+        
+        // Create user without factory defaults to ensure our role_id is used
+        $faker = \Faker\Factory::create();
+        $user = new User();
+        $user->fill($userData);
+        $user->name = $userData['name'] ?? $faker->name;
+        $user->email = $userData['email'] ?? $faker->safeEmail;
+        $user->password = $userData['password'] ?? 'password';
+        $user->phone = $userData['phone'] ?? $faker->phoneNumber;
+        $user->attribute = $userData['attribute'] ?? 'Test User';
+        $user->checkin = $userData['checkin'] ?? 'Checked-in';
+        $user->remember_token = $userData['remember_token'] ?? Str::random(10);
+        $user->save();
+
+        // Note: This project doesn't use role()->sync() - roles are assigned via role_id
+        // Gates are automatically available via AuthServiceProvider based on role_id
+
         return $user;
     }
 
@@ -57,60 +103,25 @@ abstract class TestCase extends BaseTestCase
         ];
 
         foreach ($roles as $role) {
-            Role::create($role);
+            Role::firstOrCreate(['id' => $role['id']], $role);
         }
     }
 
-    /**
-     * sign-in user
-     * @example $user = $this->login_user();
-     * @example $user = $this->login_user('Διαχειριστής');
-     */
-    public function login_user(string $role_title = 'Ακροατής', array $definition = []): User
-    {
-        $user = $this->create_user($role_title, $definition);
-        $this->actingAs($user);
-        return $user;
-    }
-
-    /**
-     * create user
-     * @example $user = $this->create_user('Διαχειριστής');
-     */
-    public function create_user(string $role_title = 'Ακροατής', array $definition = []): User
-    {
-        $this->seed_roles();
-        
-        $role = Role::where('title', $role_title)->first();
-        if (!$role) {
-            // Fallback to default attendee role
-            $role = Role::find(7);
-        }
-
-        // Ensure user is approved by default for tests
-        $userData = array_merge(['role_id' => $role->id, 'approved' => 1], $definition);
-        
-        $user = User::factory()->create($userData);
-
-        return $user;
-    }
-
-    /**
-     * Seed default data for testing - adapted to current seeders
-     */
+    /** consider running it once */
     public function seed_default_data(): void
     {
-        // Run existing seeders if they exist
+        // Use existing project seeders - adapted for conference management system
         try {
             Artisan::call('db:seed', ['--class' => 'RoleSeed']);
+            Artisan::call('db:seed', ['--class' => 'ColorSeed']);
+            Artisan::call('db:seed', ['--class' => 'RoomsSeed']);
+            // Only seed essential data for tests, not full data
         } catch (\Exception $e) {
-            // Fallback to manual seeding if seeder doesn't exist
+            // Fallback to manual seeding if seeders don't exist
             $this->seed_roles();
+            $this->seed_colors();
+            $this->seed_rooms();
         }
-        
-        // Seed required data for factories
-        $this->seed_colors();
-        $this->seed_rooms();
     }
 
     /**
@@ -164,7 +175,7 @@ abstract class TestCase extends BaseTestCase
     }
 
     /**
-     * Helper for soft delete assertion in Laravel 5.6
+     * Helper for soft delete assertion
      */
     public function assertModelSoftDeleted($model)
     {
@@ -182,5 +193,18 @@ abstract class TestCase extends BaseTestCase
                 $model->getKeyName() => $model->getKey(),
             ]);
         }
+    }
+
+    // Legacy methods for backward compatibility
+    function signin_as_manager(){
+        $user = User::factory()->create(['role_id' => 3, 'approved' => 1]);
+        $this->actingAs($user);
+        return $user;
+    }
+
+    function signin_as_atendee(){
+        $user = User::factory()->create(['role_id' => 7, 'approved' => 1]);
+        $this->actingAs($user);
+        return $user;
     }
 }

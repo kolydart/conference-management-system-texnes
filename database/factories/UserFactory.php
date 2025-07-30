@@ -31,7 +31,14 @@ class UserFactory extends Factory
             'email' => $email,
             'checkin' => $this->faker->randomElement(['Checked-in', 'Αbsent']),
             'password' => $password,
-            'role_id' => Role::all()->random()->id,
+            'role_id' => function() {
+                // Try to find an existing role, create one if none exist
+                $role = Role::first();
+                if (!$role) {
+                    $role = Role::create(['id' => 1, 'title' => 'Test Role']);
+                }
+                return $role->id;
+            },
             'remember_token' => $password,
             'phone' => $this->faker->phoneNumber,
             'attribute' => $this->faker->randomElement([
