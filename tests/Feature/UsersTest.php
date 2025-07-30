@@ -19,6 +19,7 @@ class UsersTest extends TestCase
     /** @test */
     public function user_can_index_model(){
 
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         $instance = \App\User::factory()->count(5)->create();
@@ -32,6 +33,7 @@ class UsersTest extends TestCase
     /** @test */
     public function user_can_view_a_model(){
 
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         $instance = \App\User::factory()->create();
@@ -45,6 +47,7 @@ class UsersTest extends TestCase
     /** @test */
     public function user_can_store_a_model(){
 
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         $instance = \App\User::factory()->make();
@@ -59,6 +62,7 @@ class UsersTest extends TestCase
     /** @test */
     public function user_can_edit_a_model(){
 
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         $instance = \App\User::factory()->create();
@@ -72,6 +76,7 @@ class UsersTest extends TestCase
     /** @test */
     public function user_can_update_a_model(){
 
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         $instance = \App\User::factory()->create();
@@ -90,14 +95,19 @@ class UsersTest extends TestCase
     /** @test */
     public function user_can_delete_a_model(){
 
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         $instance = \App\User::factory()->create();
 
         $response = $this->delete(route("$this->route_path.destroy", $instance));
 
-        $this->assertModelSoftDeleted($instance);
-
         $response->assertSessionHasNoErrors();
+        // Check response status for debugging
+        if ($response->getStatusCode() !== 302 && $response->getStatusCode() !== 200) {
+            $this->fail("Delete request failed with status: " . $response->getStatusCode() . " Response: " . $response->getContent());
+        }
+
+        $this->assertModelSoftDeleted($instance);
     }
 }

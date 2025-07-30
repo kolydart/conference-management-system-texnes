@@ -28,13 +28,13 @@ abstract class TestCase extends BaseTestCase
 
     // Legacy methods for backward compatibility
     function signin_as_manager(){
-        $user = User::factory()->create(['role_id' => 3]);
+        $user = User::factory()->create(['role_id' => 3, 'approved' => 1]);
         $this->actingAs($user);
         return $user;
     }
 
     function signin_as_atendee(){
-        $user = User::factory()->create(['role_id' => 7]);
+        $user = User::factory()->create(['role_id' => 7, 'approved' => 1]);
         $this->actingAs($user);
         return $user;
     }
@@ -87,7 +87,8 @@ abstract class TestCase extends BaseTestCase
             $role = Role::find(7);
         }
 
-        $userData = array_merge(['role_id' => $role->id], $definition);
+        // Ensure user is approved by default for tests
+        $userData = array_merge(['role_id' => $role->id, 'approved' => 1], $definition);
         
         $user = User::factory()->create($userData);
 

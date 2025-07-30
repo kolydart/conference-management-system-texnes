@@ -23,6 +23,8 @@ class aclTest extends TestCase
     /** @test */
     public function backend_requires_privileged_user(){
         
+        $this->seed_default_data();
+        
         // Test with manager role (Greek: Συντονιστής)
         $this->login_user('Συντονιστής');
         $this->get('/admin/home')->assertStatus(200);
@@ -30,8 +32,8 @@ class aclTest extends TestCase
 
         // Test with attendee role (Greek: Ακροατής)
         $this->login_user('Ακροατής');
-        $this->get('/admin/home')->assertStatus(302)->getTargetUrl(route('frontend.home'));
-        $this->get('/admin/papers')->assertStatus(302)->getTargetUrl(route('frontend.home'));
+        $this->get('/admin/home')->assertStatus(302);
+        $this->get('/admin/papers')->assertStatus(302);
     }
 
 }

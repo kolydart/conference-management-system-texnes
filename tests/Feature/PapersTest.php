@@ -33,6 +33,7 @@ class PapersTest extends TestCase
     /** @test */
     public function user_can_view_a_model(){
 
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         $instance = \App\Paper::factory()->create();
@@ -46,6 +47,7 @@ class PapersTest extends TestCase
     /** @test */
     public function user_can_store_a_model(){
 
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         $instance = \App\Paper::factory()->make();
@@ -60,6 +62,7 @@ class PapersTest extends TestCase
     /** @test */
     public function user_can_edit_a_model(){
 
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         $instance = \App\Paper::factory()->create();
@@ -73,6 +76,7 @@ class PapersTest extends TestCase
     /** @test */
     public function user_can_update_a_model(){
 
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         $instance = \App\Paper::factory()->create();
@@ -91,6 +95,7 @@ class PapersTest extends TestCase
     /** @test */
     public function user_can_delete_a_model(){
 
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         $instance = \App\Paper::factory()->create();
