@@ -181,8 +181,8 @@
                         </td>
                         <td field-key='type'>{{ $attend->type }}</td>
                         <td field-key='duration'>{{ $attend->duration }}</td>
-                        <td field-key='date'>{{ (new gateweb\common\DateTime($attend->session->start))->format('D, d M') }}</td>
-                        <td field-key='session'><a href="{{route('admin.sessions.show',$attend->session->id)}}">{{ $attend->session->title }}</a> <span class="text-secondary text-muted">[ <i class="fa fa-clock"></i> {{(new gateweb\common\DateTime($attend->session->start))->format('H:i')}}]</span></td>
+                        <td field-key='date'>{{ \Carbon\Carbon::parse($attend->session->start)->format('D, d M') }}</td>
+                        <td field-key='session'><a href="{{route('admin.sessions.show',$attend->session->id)}}">{{ $attend->session->title }}</a> <span class="text-secondary text-muted">[ <i class="fa fa-clock"></i> {{ \Carbon\Carbon::parse($attend->session->start)->format('H:i') }}]</span></td>
                         <td field-key='name'>{{ $attend->name }}</td>
                         <td field-key='attribute'>{{ $attend->attribute }}</td>
                         <td field-key='status'>{{ $attend->status }}</td>

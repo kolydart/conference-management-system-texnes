@@ -3,8 +3,8 @@
 
 @section('content')
     <h3 class="page-title"><i class="fa fa-newspaper"></i> 
-        @if ((new gateweb\common\Router())->get_var('type',false,'raw'))
-            {{(new gateweb\common\Router())->get_var('type',false,'raw')}}
+        @if (request()->get('type'))
+            {{ request()->get('type') }}
         @else
             @lang('Εισηγήσεις/Εργαστήρια')
         @endif 

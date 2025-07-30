@@ -16,7 +16,7 @@
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
-        "laravellux/html": "^6.0",
+        "laravellux/html": "^7.1",
         "sentry/sentry-laravel": "^2.0",
         "spatie/laravel-activitylog": "^3.17",
         "spatie/laravel-medialibrary": "^9.0",

@@ -59,7 +59,7 @@
                             <th>@lang('quickadmin.papers.fields.session')</th>
                             <td field-key='session'>
                                 @if ($paper->session)
-                                    <a href="{{route('frontend.sessions.show',$paper->session->id)}}">{{ $paper->session->title or '' }}</a> [ <i class="fa fa-clock"></i> {{(new gateweb\common\DateTime($paper->session->start))->format('H:i')}}]    
+                                    <a href="{{route('frontend.sessions.show',$paper->session->id)}}">{{ $paper->session->title or '' }}</a> [ <i class="fa fa-clock"></i> {{ \Carbon\Carbon::parse($paper->session->start)->format('H:i') }}]    
                                 @endif
                             </td>
                         </tr>
@@ -75,7 +75,7 @@
                             <th>@lang('Ημερομηνία')</th>
                             <td field-key='date'>
                                 @if ($paper->session)
-                                    {{ (new gateweb\common\DateTime($paper->session->start))->format('l, d M Y') }}
+                                    {{ \Carbon\Carbon::parse($paper->session->start)->format('l, d M Y') }}
                                 @endif
                             </td>
                         </tr>

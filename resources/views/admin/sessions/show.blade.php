@@ -33,12 +33,12 @@
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.sessions.fields.duration')</th>
-                            <td field-key='duration'>{{ (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
+                            <td field-key='duration'>{{ \Carbon\Carbon::createFromFormat('H:i:s', $session->duration)->diffInMinutes(\Carbon\Carbon::createFromFormat('H:i:s', '00:00:00')) }}'</td>
                         </tr>
                         <tr>
                         <tr>
                             <th>@lang('Κενό-Πλεόνασμα')</th>
-                            <td field-key='remains'>{{ $session->papers->pluck('duration')->sum() - (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
+                            <td field-key='remains'>{{ $session->papers->pluck('duration')->sum() - \Carbon\Carbon::createFromFormat('H:i:s', $session->duration)->diffInMinutes(\Carbon\Carbon::createFromFormat('H:i:s', '00:00:00')) }}'</td>
                         </tr>                        
                             <th>@lang('quickadmin.sessions.fields.chair')</th>
                             <td field-key='chair'>{{ $session->chair }}</td>

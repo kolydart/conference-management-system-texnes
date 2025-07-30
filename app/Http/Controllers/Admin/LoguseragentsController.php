@@ -9,7 +9,6 @@ use App\Loguseragent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Yajra\DataTables\DataTables;
-use gateweb\common\Presenter;
 
 class LoguseragentsController extends Controller
 {

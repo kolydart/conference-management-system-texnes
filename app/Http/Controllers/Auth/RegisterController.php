@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Validator;
-use gateweb\common\Presenter;
 
 class RegisterController extends Controller
 {
@@ -79,7 +78,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'role_id' => config('quickadmin.default_role_id'),
-            'phone' => (new \gateweb\common\Router())->sanitize($data['phone'],'decimal'),
+            'phone' => preg_replace('/[^0-9]/', '', $data['phone']),
             'attribute' => $data['attribute']
         ]);
     }

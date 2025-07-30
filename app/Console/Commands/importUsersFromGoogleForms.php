@@ -5,9 +5,6 @@ namespace App\Console\Commands;
 use App\Message;
 use App\User;
 use Illuminate\Console\Command;
-use gateweb\common\DateTime;
-use gateweb\common\Mailer;
-use gateweb\common\Presenter;
 
 class importUsersFromGoogleForms extends Command
 {

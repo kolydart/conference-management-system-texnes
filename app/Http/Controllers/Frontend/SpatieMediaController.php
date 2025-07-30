@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Frontend;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use gateweb\common\Presenter;
 
 class SpatieMediaController extends Controller
 {

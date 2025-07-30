@@ -34,12 +34,12 @@
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.sessions.fields.start')</th>
-                            <td field-key='start'>{{ (new gateweb\common\DateTime($session->start))->format('l, d M, H:i') }}</td>
+                            <td field-key='start'>{{ \Carbon\Carbon::parse($session->start)->format('l, d M, H:i') }}</td>
                             
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.sessions.fields.duration')</th>
-                            <td field-key='duration'>{{ (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
+                            <td field-key='duration'>{{ \Carbon\Carbon::createFromFormat('H:i:s', $session->duration)->diffInMinutes(\Carbon\Carbon::createFromFormat('H:i:s', '00:00:00')) }}'</td>
                         </tr>
                         <tr>                        
                             <th>@lang('quickadmin.sessions.fields.chair')</th>

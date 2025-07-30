@@ -43,16 +43,9 @@ class mailPdfVolunteers extends Command
      */
     public function handle()
     {
-
-        $users = [
-            ["id" => 1, "name" => "Όνομα Επώνυμο", "email" => "email@example.com"],
-        ];
-
-        $i = 1;
-        /**
-         * prepare message
-         */
-        $message = ContentPage::where('alias',$this->argument('alias'))->firstOrFail();
+        $this->error('PDF functionality has been disabled. The setasign/fpdi-tfpdf package was abandoned and removed.');
+        $this->error('Please implement an alternative PDF generation solution if needed.');
+        return 1;
         
         /**
          * foreach

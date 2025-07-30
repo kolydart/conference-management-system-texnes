@@ -1,4 +1,4 @@
-@extends((gateweb\common\Presenter::before(\Route::currentRouteName(),'.') == 'admin')?'layouts.app':'frontend.app')
+@extends((\Illuminate\Support\Str::before(\Route::currentRouteName(),'.') == 'admin')?'layouts.app':'frontend.app')
 
 
 @section('content')
@@ -10,7 +10,7 @@
       <div class="col-md-6">
         <h3 class="page-title">@lang('Calendar')</h3>        
       </div>
-      @if (gateweb\common\Presenter::before(\Route::currentRouteName(),'.') == 'admin')
+      @if (\Illuminate\Support\Str::before(\Route::currentRouteName(),'.') == 'admin')
         <div class="col-md-6 text-right">
           <a href="javascript:jQuery('#calendar').fullCalendar('option', 'filterResourcesWithEvents', !jQuery('#calendar').fullCalendar('option', 'filterResourcesWithEvents'));" class="btn btn-default pull-right">@lang('Show/hide unused Rooms')</a>
           

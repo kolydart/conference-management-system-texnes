@@ -24,13 +24,13 @@ class ActivitylogsController extends Controller
         }
 
 
-        
+
         if (request()->ajax()) {
             $query = Activitylog::query();
             $query->with('user');
             $query->with('paper');
             $template = 'actionsTemplate';
-            
+
             $query->select([
                 'activity_log.id',
                 'activity_log.log_name',
@@ -56,7 +56,7 @@ class ActivitylogsController extends Controller
                 return view($template, compact('row', 'gateKey', 'routeKey'));
             });
             $table->editColumn('created_at', function ($row) {
-                return $row->created_at ? (new \gateweb\common\DateTime($row->created_at))->set_timezone_athens()->sql() : '';
+                return $row->created_at ? \Carbon\Carbon::parse($row->created_at)->setTimezone('Europe/Athens')->toDateTimeString() : '';
             });
             $table->editColumn('log_name', function ($row) {
                 return $row->log_name ? $row->log_name : '';
@@ -69,7 +69,7 @@ class ActivitylogsController extends Controller
                     return $row->user ? $row->user->name : '';
                 elseif($row->causer_type == 'App\Paper')
                     return $row->paper ? $row->paper->name : '';
-                else 
+                else
                     return '';
             });
             $table->editColumn('description', function ($row) {

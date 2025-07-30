@@ -10,7 +10,6 @@ use App\Paper;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-use gateweb\common\Presenter;
 
 class PapersController extends Controller
 {

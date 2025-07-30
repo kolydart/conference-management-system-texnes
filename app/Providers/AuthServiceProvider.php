@@ -6,7 +6,6 @@ use App\Role;
 use App\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
-use gateweb\common\Presenter;
 
 class AuthServiceProvider extends ServiceProvider
 {

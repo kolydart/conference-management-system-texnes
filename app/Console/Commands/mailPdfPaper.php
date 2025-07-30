@@ -47,10 +47,9 @@ class mailPdfPaper extends Command
      */
     public function handle()
     {
-        if($this->option('id'))
-            $papers = Paper::accepted()->where('id',$this->option('id'))->get();
-        else
-            $papers = Paper::accepted()->where('session_id','>',1)->get();
+        $this->error('PDF functionality has been disabled. The setasign/fpdi-tfpdf package was abandoned and removed.');
+        $this->error('Please implement an alternative PDF generation solution if needed.');
+        return 1;
 
         $i = 1;
         /**

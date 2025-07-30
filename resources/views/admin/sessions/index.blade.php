@@ -62,9 +62,9 @@
                                 <td field-key='title'><a href="{{route('admin.sessions.show',$session->id)}}">{{$session->title }}</a></td>
                                 <td field-key='room'>{{ $session->room->title or '' }}</td>
                                 <td field-key='start'>{{ $session->start }}</td>
-                                <td field-key='duration'>{{ (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
+                                <td field-key='duration'>{{ \Carbon\Carbon::createFromFormat('H:i:s', $session->duration)->diffInMinutes(\Carbon\Carbon::createFromFormat('H:i:s', '00:00:00')) }}'</td>
                                 <td field-key='papers'>{{ $session->papers->count() }}</td>
-                                <td field-key='remains'>{{ $session->papers->pluck('duration')->sum() - (new gateweb\common\DateTime($session->duration))->get_timeAsDuration('minutes') }}'</td>
+                                <td field-key='remains'>{{ $session->papers->pluck('duration')->sum() - \Carbon\Carbon::createFromFormat('H:i:s', $session->duration)->diffInMinutes(\Carbon\Carbon::createFromFormat('H:i:s', '00:00:00')) }}'</td>
                                 <td field-key='color'>{{ $session->color->title or ''}}</td>
                                 <td field-key='chair'>{{ $session->chair or ''}}</td>
                                 @if( request('show_deleted') == 1 )

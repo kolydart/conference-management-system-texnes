@@ -28,13 +28,13 @@
                                 <td field-key='type'><a href="{{route('frontend.papers.index',['type'=> $paper->type ])}}">{{ $paper->type }}</a></td>
                                 <td field-key='date'>
                                     @if ($paper->session)
-                                        {{ (new gateweb\common\DateTime($paper->session->start))->format('d M') }}
+                                        {{ \Carbon\Carbon::parse($paper->session->start)->format('d M') }}
                                     @endif
                                 </td>
                                 
                                 <td field-key='session'>
                                     @if ($paper->session)
-                                        <a href="{{route('frontend.sessions.show',$paper->session->id)}}">{{ "S". $paper->session->id.". ".$paper->session->title }}</a> <span class="text-secondary"><i class="fa fa-clock"></i> {{(new gateweb\common\DateTime($paper->session->start))->format('H:i')}}</span>
+                                        <a href="{{route('frontend.sessions.show',$paper->session->id)}}">{{ "S". $paper->session->id.". ".$paper->session->title }}</a> <span class="text-secondary"><i class="fa fa-clock"></i> {{ \Carbon\Carbon::parse($paper->session->start)->format('H:i') }}</span>
                                     @endif
                                 </td>
                                 <td field-key='room'>
