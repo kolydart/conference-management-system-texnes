@@ -63,7 +63,9 @@
             "@php artisan key:generate"
         ],
         "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate"
+        ],
+        "post-update-cmd-dev": [
             "@php artisan ide-helper:generate",
             "@php artisan ide-helper:models --nowrite"
         ],
