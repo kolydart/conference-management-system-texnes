@@ -80,7 +80,7 @@ class LoguseragentsController extends Controller
                 return $row->item_id ? $row->item_id : '';
             });
             $table->editColumn('ipv6', function ($row) {
-                return $row->ipv6 ? Presenter::convert_hex2ip($row->ipv6) : '';
+                return $row->ipv6 ? inet_ntop(hex2bin($row->ipv6)) : '';
             });
             $table->editColumn('uri', function ($row) {
                 return $row->uri ? $row->uri : '';

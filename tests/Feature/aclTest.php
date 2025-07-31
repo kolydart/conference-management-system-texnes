@@ -16,15 +16,15 @@ class aclTest extends TestCase
 
     /** @test */
     public function access_to_root_is_allowed(){
-        // Skip this test - root route has gateweb dependencies causing 500 errors
-        $this->markTestSkipped('Root route has gateweb dependencies - will be fixed in Phase 2');
+        $response = $this->get('/');
+        $response->assertSuccessful();
     }
 
     /** @test */
     public function backend_requires_privileged_user(){
-        
+
         $this->seed_default_data();
-        
+
         // Test with manager role
         $this->login_user('Manager');
         $this->get('/admin/home')->assertStatus(200);

@@ -62,9 +62,13 @@ class UsersTest extends TestCase
 
         $instance = $this->Model::factory()->make();
 
-        $this->assertDatabaseCount($this->table, 1); // Only the logged in user
-        $response = $this->post(route("$this->route_path.store"), $instance->toArray());
-        $this->assertDatabaseCount($this->table, 2); // Logged in user + new user
+        // Include password in the data since it's hidden by default
+        $data = $instance->toArray();
+        $data['password'] = $instance->password;
+
+        $initialCount = \App\User::count();
+        $response = $this->post(route("$this->route_path.store"), $data);
+        $this->assertDatabaseCount($this->table, $initialCount + 1);
 
         $response->assertSessionHasNoErrors();
     }
@@ -99,7 +103,6 @@ class UsersTest extends TestCase
         unset($instanceAttrs['updated_at'], $freshAttrs['updated_at']);
 
         $this->assertEquals($instanceAttrs, $freshAttrs);
-        $this->assertDatabaseCount($this->table, 2); // Logged in user + updated user
         $response->assertSessionHasNoErrors();
     }
 

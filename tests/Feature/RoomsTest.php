@@ -52,9 +52,9 @@ class RoomsTest extends TestCase
 
         $instance = \App\Room::factory()->make();
 
-        $this->assertDatabaseCount($this->table, 0);
+        $initialCount = \App\Room::count();
         $response = $this->post(route("$this->route_path.store"), $instance->toArray());
-        $this->assertDatabaseCount($this->table, 1);
+        $this->assertDatabaseCount($this->table, $initialCount + 1);
 
         $response->assertSessionHasNoErrors();
     }
