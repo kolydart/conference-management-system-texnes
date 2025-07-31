@@ -56,7 +56,7 @@ abstract class TestCase extends BaseTestCase
     public function create_user(string $role_title = 'Admin', array $definition = []): User
     {
         $this->seed_permissions();
-        
+
         if ($role_title === 'Admin') {
             $role = Role::find(1);
         } else {
@@ -72,20 +72,12 @@ abstract class TestCase extends BaseTestCase
             $role = Role::create(['id' => 1, 'title' => 'Admin']);
         }
 
-        // Ensure user is approved by default for tests  
+        // Ensure user is approved by default for tests
         $userData = array_merge(['role_id' => $role->id, 'approved' => 1], $definition);
-        
-        // Create user without factory defaults to ensure our role_id is used
-        $faker = \Faker\Factory::create();
-        $user = new User();
-        $user->fill($userData);
-        $user->name = $userData['name'] ?? $faker->name;
-        $user->email = $userData['email'] ?? $faker->safeEmail;
-        $user->password = $userData['password'] ?? 'password';
-        $user->phone = $userData['phone'] ?? $faker->phoneNumber;
-        $user->attribute = $userData['attribute'] ?? 'Test User';
-        $user->checkin = $userData['checkin'] ?? 'Checked-in';
-        $user->remember_token = $userData['remember_token'] ?? Str::random(10);
+
+        // Create user using factory but force our role_id to override the closure
+        $user = User::factory()->make($userData);
+        $user->role_id = $role->id; // Explicitly set role_id to override factory closure
         $user->save();
 
         // Note: This project doesn't use role()->sync() - roles are assigned via role_id
@@ -95,25 +87,12 @@ abstract class TestCase extends BaseTestCase
     }
 
     /**
-     * Seed basic roles for testing
+     * Seed basic roles for testing using the RoleSeed
      */
     public function seed_roles(): void
     {
-        $roles = [
-            ['id' => 1, 'title' => 'Admin'],
-            ['id' => 3, 'title' => 'Manager'],
-            ['id' => 4, 'title' => 'Organizing Committee'],
-            ['id' => 5, 'title' => 'Scientific Committee'],
-            ['id' => 6, 'title' => 'Author'],
-            ['id' => 7, 'title' => 'Attendee'],
-            ['id' => 8, 'title' => 'Secretary'],
-            ['id' => 9, 'title' => 'Volunteer'],
-            ['id' => 10, 'title' => 'Proceedings Editors'],
-        ];
-
-        foreach ($roles as $role) {
-            Role::firstOrCreate(['id' => $role['id']], $role);
-        }
+        $seeder = new \RoleSeed();
+        $seeder->run();
     }
 
     /** consider running it once */
@@ -121,7 +100,7 @@ abstract class TestCase extends BaseTestCase
     {
         // Always seed permissions first
         $this->seed_permissions();
-        
+
         // Use existing project seeders - adapted for conference management system
         try {
             Artisan::call('db:seed', ['--class' => 'ColorSeed']);
@@ -192,7 +171,7 @@ abstract class TestCase extends BaseTestCase
         // Check if model uses soft deletes
         $modelClass = get_class($model);
         $usesSoftDeletes = in_array('Illuminate\Database\Eloquent\SoftDeletes', class_uses_recursive($modelClass));
-        
+
         if ($usesSoftDeletes) {
             $this->assertSoftDeleted($model->getTable(), [
                 $model->getKeyName() => $model->getKey(),
