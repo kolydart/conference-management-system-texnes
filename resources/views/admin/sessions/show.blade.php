@@ -23,7 +23,7 @@
                             <th>@lang('quickadmin.sessions.fields.room')</th>
                             <td field-key='room'>
                                 @if (isset($session->room))
-                                    <a href="{{route('admin.rooms.show',$session->room->id)}}">{{ $session->room->title or '' }}</a>
+                                    <a href="{{route('admin.rooms.show',$session?->room->id)}}">{{ $session?->room->title or '' }}</a>
                                 @endif
                             </td>
                         </tr>
@@ -39,7 +39,7 @@
                         <tr>
                             <th>@lang('Κενό-Πλεόνασμα')</th>
                             <td field-key='remains'>{{ $session->papers->pluck('duration')->sum() - \Carbon\Carbon::createFromFormat('H:i:s', $session->duration)->diffInMinutes(\Carbon\Carbon::createFromFormat('H:i:s', '00:00:00')) }}'</td>
-                        </tr>                        
+                        </tr>
                             <th>@lang('quickadmin.sessions.fields.chair')</th>
                             <td field-key='chair'>{{ $session->chair }}</td>
                         </tr>
@@ -50,15 +50,15 @@
                     </table>
                 </div>
             </div><!-- Nav tabs -->
-<a href="{{route('admin.sessions.edit',$session->id)}}" class="btn btn-info">@lang('quickadmin.qa_edit')</a> <br><br>           
+<a href="{{route('admin.sessions.edit',$session->id)}}" class="btn btn-info">@lang('quickadmin.qa_edit')</a> <br><br>
 <ul class="nav nav-tabs" role="tablist">
-    
+
 <li role="presentation" class="active"><a href="#papers" aria-controls="papers" role="tab" data-toggle="tab">Προτάσεις</a></li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-    
+
 <div role="tabpanel" class="tab-pane active" id="papers">
 <table class="table table-bordered table-striped {{ count($papers) > 0 ? 'datatable' : '' }}">
     <thead>
@@ -170,18 +170,18 @@
             moment.updateLocale('{{ App::getLocale() }}', {
                 week: { dow: 1 } // Monday is the first day of the week
             });
-            
+
             $('.datetime').datetimepicker({
                 format: "{{ config('app.datetime_format_moment') }}",
                 locale: "{{ App::getLocale() }}",
                 sideBySide: true,
             });
-            
+
             $('.timepicker').datetimepicker({
                 format: "{{ config('app.time_format_moment') }}",
             });
-            
+
         });
     </script>
-            
+
 @stop

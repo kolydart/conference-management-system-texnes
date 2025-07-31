@@ -6,7 +6,7 @@
     @can('session_create')
     <p>
         <a href="{{ route('admin.sessions.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
-        
+
     </p>
     @endcan
 
@@ -49,7 +49,7 @@
                         @endif
                     </tr>
                 </thead>
-                
+
                 <tbody>
                     @if (count($sessions) > 0)
                         @foreach ($sessions as $session)
@@ -60,7 +60,7 @@
 
                                 <td field-key='id'>S{{ $session->id }}</td>
                                 <td field-key='title'><a href="{{route('admin.sessions.show',$session->id)}}">{{$session->title }}</a></td>
-                                <td field-key='room'>{{ $session->room->title or '' }}</td>
+                                <td field-key='room'>{{ $session?->room->title or '' }}</td>
                                 <td field-key='start'>{{ $session->start }}</td>
                                 <td field-key='duration'>{{ \Carbon\Carbon::createFromFormat('H:i:s', $session->duration)->diffInMinutes(\Carbon\Carbon::createFromFormat('H:i:s', '00:00:00')) }}'</td>
                                 <td field-key='papers'>{{ $session->papers->count() }}</td>
@@ -120,7 +120,7 @@
     </div>
 @stop
 
-@section('javascript') 
+@section('javascript')
     <script>
         @can('session_delete')
             @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('admin.sessions.mass_destroy') }}'; @endif

@@ -6,7 +6,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <span class="badge badge-dark">@lang('quickadmin.qa_view')</span>
-        </div>        
+        </div>
 
         <div class="panel-body">
             <div class="row">
@@ -23,25 +23,25 @@
                             <th>@lang('quickadmin.sessions.fields.room')</th>
                             <td field-key='room'>
                                 @if (isset($session->room))
-                                    <a href="{{route('frontend.rooms.show',$session->room->id)}}">{{ $session->room->title or '' }}</a>
+                                    <a href="{{route('frontend.rooms.show',$session?->room->id)}}">{{ $session?->room->title or '' }}</a>
                                 @endif
                             </td>
                         </tr>
                         <tr>
                             <th>@lang('Τύπος')</th>
                             <td field-key='color'>{{ $session->color->title or '' }}</td>
-                            
+
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.sessions.fields.start')</th>
                             <td field-key='start'>{{ \Carbon\Carbon::parse($session->start)->format('l, d M, H:i') }}</td>
-                            
+
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.sessions.fields.duration')</th>
                             <td field-key='duration'>{{ \Carbon\Carbon::createFromFormat('H:i:s', $session->duration)->diffInMinutes(\Carbon\Carbon::createFromFormat('H:i:s', '00:00:00')) }}'</td>
                         </tr>
-                        <tr>                        
+                        <tr>
                             <th>@lang('quickadmin.sessions.fields.chair')</th>
                             <td field-key='chair'>{{ $session->chair }}</td>
                         </tr>

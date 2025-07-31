@@ -22,14 +22,14 @@
                         <th></th>
                     </tr>
                 </thead>
-                
+
                 <tbody>
                     @if (count($sessions) > 0)
                         @foreach ($sessions as $session)
                             <tr data-entry-id="{{ $session->id }}">
                                 <td field-key='id'>S{{ $session->id }}</td>
                                 <td field-key='title'><a href="{{route('frontend.sessions.show',$session->id)}}">{{$session->title }}</a></td>
-                                <td field-key='room'>{{ $session->room->title or '' }}</td>
+                                <td field-key='room'>{{ $session?->room->title or '' }}</td>
                                 <td field-key='color'>{{ $session->color->title or '' }}</td>
                                 <td field-key='start'>{{ \Carbon\Carbon::parse($session->start)->format('d M, H:i') }}</td>
                                 <td field-key='duration'>{{ \Carbon\Carbon::createFromFormat('H:i:s', $session->duration)->diffInMinutes(\Carbon\Carbon::createFromFormat('H:i:s', '00:00:00')) }}'</td>

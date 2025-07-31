@@ -38,14 +38,14 @@
     {{-- Χάρτες - πρόσβαση: http://texnes-ellinikosxoleio.uoa.gr/xartes-prosbash.html --}}
             <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
-    
+
 <li role="presentation" class="active"><a href="#sessions" aria-controls="sessions" role="tab" data-toggle="tab">Συνεδρίες</a></li>
 <li role="presentation" class=""><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">Διαθεσιμότητα αιθουσών</a></li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-    
+
 <div role="tabpanel" class="tab-pane active" id="sessions">
 <table class="table table-bordered table-striped {{ count($sessions) > 0 ? 'datatable' : '' }}">
     <thead>
@@ -67,7 +67,7 @@
             @foreach ($sessions as $session)
                 <tr data-entry-id="{{ $session->id }}">
                     <td field-key='title'><a href="{{route('admin.sessions.show',$session->id)}}">{{ "S". $session->id.". ".$session->title }}</a></td>
-                                <td field-key='room'>{{ $session->room->title or '' }}</td>
+                                <td field-key='room'>{{ $session?->room->title or '' }}</td>
                                 <td field-key='start'>{{ $session->start }}</td>
                                 <td field-key='duration'>{{ $session->duration }}</td>
                                 @if( request('show_deleted') == 1 )

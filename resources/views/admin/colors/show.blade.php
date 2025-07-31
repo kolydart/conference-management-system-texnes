@@ -24,14 +24,14 @@
                 </div>
             </div><!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
-    
+
 <li role="presentation" class="active"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">Διαθεσιμότητα αιθουσών</a></li>
 <li role="presentation" class=""><a href="#sessions" aria-controls="sessions" role="tab" data-toggle="tab">Συνεδρίες</a></li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-    
+
 <div role="tabpanel" class="tab-pane active" id="availability">
 <table class="table table-bordered table-striped {{ count($availabilities) > 0 ? 'datatable' : '' }}">
     <thead>
@@ -129,7 +129,7 @@
             @foreach ($sessions as $session)
                 <tr data-entry-id="{{ $session->id }}">
                     <td field-key='title'>{{ $session->title }}</td>
-                                <td field-key='room'>{{ $session->room->title or '' }}</td>
+                                <td field-key='room'>{{ $session?->room->title or '' }}</td>
                                 <td field-key='start'>{{ $session->start }}</td>
                                 <td field-key='duration'>{{ $session->duration }}</td>
                                 @if( request('show_deleted') == 1 )
