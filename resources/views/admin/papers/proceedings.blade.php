@@ -6,7 +6,7 @@
     @can('paper_create')
     <p>
         <a href="{{ route('admin.papers.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
-        
+
     </p>
     @endcan
 
@@ -47,7 +47,7 @@
                         @endif
                     </tr>
                 </thead>
-                
+
                 <tbody>
                     @if (count($papers) > 0)
                         @foreach ($papers as $paper)
@@ -70,7 +70,7 @@
                                         <span class="label label-info label-many">{{ $singleArt->title }}</span>
                                     @endforeach
                                 </td>
-                                <td field-key='user'>{{ $paper->user->name or '' }}</td>
+                                <td field-key='user'>{{ $paper?->user?->name or '' }}</td>
                                 <td field-key='proceedings_content'>@if ($paper->fullpapers->count()) <span class="text-success" style="font-size: 1.2em">✓</span>@endif</td>
                                 <td field-key='lab_approved'>@if ($paper->lab_approved) <span class="text-success" style="font-size: 1.2em">✔︎</span>@endif</td>
                                 @if( request('show_deleted') == 1 )
@@ -126,7 +126,7 @@
     </div>
 @stop
 
-@section('javascript') 
+@section('javascript')
     <script>
         @can('paper_delete')
             @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('admin.papers.mass_destroy') }}'; @endif
