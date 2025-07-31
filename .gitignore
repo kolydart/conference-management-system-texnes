@@ -20,3 +20,4 @@ composer.lock
 /public/google*.html
 /documentation/
 /lock/tmp_sql/export.sql/storage/debugbar/
+.phpunit.cache/test-results
