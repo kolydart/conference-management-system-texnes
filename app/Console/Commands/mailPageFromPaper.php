@@ -97,7 +97,7 @@ class mailPageFromPaper extends Command
                 ]);
             }else{
                 $this->error("ERROR: could not send message to user $user->id");
-                Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error());
+                \App\Helpers\MailHelper::sendErrorNotification("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error(), "Page From Paper Mailer");
             }
         }
 

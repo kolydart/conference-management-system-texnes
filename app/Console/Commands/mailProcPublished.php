@@ -85,7 +85,7 @@ class mailProcPublished extends Command
                 ]);
             }else{
                 $this->error("ERROR: could not send message to $email");
-                Presenter::mail("Error in mailer. bMOYvCehIn7zQNgp.".$mailer->get_error());
+                \App\Helpers\MailHelper::sendErrorNotification("Error in mailer. bMOYvCehIn7zQNgp.".$mailer->get_error(), "Published Proceedings Mailer");
             }
 
             sleep(3);

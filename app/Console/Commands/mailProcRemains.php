@@ -131,7 +131,7 @@ class mailProcRemains extends Command
                 ]);
             }else{
                 $this->error("ERROR: could not send message to user $user->id");
-                Presenter::mail("Error in mailer. bMOYvCehIn7zQNgp.".$mailer->get_error());
+                \App\Helpers\MailHelper::sendErrorNotification("Error in mailer. bMOYvCehIn7zQNgp.".$mailer->get_error(), "Remaining Proceedings Mailer");
             }
         }
 

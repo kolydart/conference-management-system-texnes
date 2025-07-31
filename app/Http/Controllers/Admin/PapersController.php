@@ -245,7 +245,7 @@ $fullpapers = \App\Fullpaper::where('paper_id', $id)->get();$reviews = \App\Revi
             return abort(401);
         }
         $paper = Paper::findOrFail($id);
-        $paper->deletePreservingMedia();
+        $paper->delete(); // Use regular delete for proper soft delete functionality
 
         return redirect()->route('admin.papers.index');
     }
@@ -264,7 +264,7 @@ $fullpapers = \App\Fullpaper::where('paper_id', $id)->get();$reviews = \App\Revi
             $entries = Paper::whereIn('id', $request->input('ids'))->get();
 
             foreach ($entries as $entry) {
-                $entry->deletePreservingMedia();
+                $entry->delete(); // Use regular delete for proper soft delete functionality
             }
         }
     }
@@ -317,9 +317,9 @@ $fullpapers = \App\Fullpaper::where('paper_id', $id)->get();$reviews = \App\Revi
 
         if (Gate::allows('attend_delete_backend',[$paper,$attendee])) {
             $paper->attend()->detach($user_id);
-            Presenter::message(__('Διαγραφή '.$attendee->name.' από '). $paper->title, 'info');
+            flash()->message(__('Διαγραφή '.$attendee->name.' από '). $paper->title, 'info');
         } else {
-            Presenter::message(__('You are not authorized for this action'),"error");
+            flash()->message(__('You are not authorized for this action'),"error");
         }
 
         activity()

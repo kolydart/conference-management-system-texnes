@@ -16,7 +16,7 @@ class SpatieMediaController extends Controller
     {
         /** check valid signature */
         if (! $request->hasValidSignature()) {
-            Presenter::message("Δεν έχετε δικαιώματα επεξεργασίας στο μέσο.","warning");
+            flash()->message("Δεν έχετε δικαιώματα επεξεργασίας στο μέσο.","warning");
             return abort(401);
         }
 

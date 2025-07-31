@@ -13,7 +13,7 @@ class RoomsTest extends TestCase
 
     var $Model = '\App\Room';
     var $table = 'rooms';
-    var $role = 'Διαχειριστής';
+    var $role = 'Admin';
     var $route_path = "admin.rooms";
 
     /** @test */

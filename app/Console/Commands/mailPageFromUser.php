@@ -99,7 +99,7 @@ class mailPageFromUser extends Command
             }else{
                 $this->error("ERROR: could not send message to user $user->id. ");
                 // Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error());
-                Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.");
+                \App\Helpers\MailHelper::sendErrorNotification("Error in mailer. kBSaSOfrFchbehAa.", "Page From User Mailer");
             }
         // sleep(30);
 

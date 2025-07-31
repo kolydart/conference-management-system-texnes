@@ -40,9 +40,9 @@ abstract class TestCase extends BaseTestCase
     /**
      * sign-in user
      * @example $user = $this->login_user();
-     * @example $user = $this->login_user('Διαχειριστής');
+     * @example $user = $this->login_user('Admin');
      */
-    public function login_user(string $role_title = 'Ακροατής', array $definition = []): User
+    public function login_user(string $role_title = 'Admin', array $definition = []): User
     {
         $user = $this->create_user($role_title, $definition);
         $this->actingAs($user);
@@ -51,16 +51,25 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * create user
-     * @example $user = $this->create_user('Διαχειριστής');
+     * @example $user = $this->create_user('Admin');
      */
-    public function create_user(string $role_title = 'Ακροατής', array $definition = []): User
+    public function create_user(string $role_title = 'Admin', array $definition = []): User
     {
         $this->seed_permissions();
         
-        $role = Role::where('title', $role_title)->first();
+        if ($role_title === 'Admin') {
+            $role = Role::find(1);
+        } else {
+            $role = Role::where('title', $role_title)->first();
+            if (!$role) {
+                // Fallback to Admin role
+                $role = Role::find(1);
+            }
+        }
+
+        // Ensure role exists, create if needed
         if (!$role) {
-            // Fallback to default attendee role
-            $role = Role::find(7);
+            $role = Role::create(['id' => 1, 'title' => 'Admin']);
         }
 
         // Ensure user is approved by default for tests  
@@ -91,15 +100,15 @@ abstract class TestCase extends BaseTestCase
     public function seed_roles(): void
     {
         $roles = [
-            ['id' => 1, 'title' => 'Διαχειριστής'],
-            ['id' => 3, 'title' => 'Συντονιστής'],
-            ['id' => 4, 'title' => 'Οργανωτική Επιτροπή'],
-            ['id' => 5, 'title' => 'Επιστημονική Επιτροπή'],
-            ['id' => 6, 'title' => 'Συγγραφέας'],
-            ['id' => 7, 'title' => 'Ακροατής'],
-            ['id' => 8, 'title' => 'Γραμματεία'],
-            ['id' => 9, 'title' => 'Εθελοντής'],
-            ['id' => 10, 'title' => 'Επιμελητές Πρακτικών'],
+            ['id' => 1, 'title' => 'Admin'],
+            ['id' => 3, 'title' => 'Manager'],
+            ['id' => 4, 'title' => 'Organizing Committee'],
+            ['id' => 5, 'title' => 'Scientific Committee'],
+            ['id' => 6, 'title' => 'Author'],
+            ['id' => 7, 'title' => 'Attendee'],
+            ['id' => 8, 'title' => 'Secretary'],
+            ['id' => 9, 'title' => 'Volunteer'],
+            ['id' => 10, 'title' => 'Proceedings Editors'],
         ];
 
         foreach ($roles as $role) {
@@ -110,15 +119,16 @@ abstract class TestCase extends BaseTestCase
     /** consider running it once */
     public function seed_default_data(): void
     {
+        // Always seed permissions first
+        $this->seed_permissions();
+        
         // Use existing project seeders - adapted for conference management system
         try {
-            Artisan::call('db:seed', ['--class' => 'RoleSeed']);
             Artisan::call('db:seed', ['--class' => 'ColorSeed']);
             Artisan::call('db:seed', ['--class' => 'RoomsSeed']);
             // Only seed essential data for tests, not full data
         } catch (\Exception $e) {
             // Fallback to manual seeding if seeders don't exist
-            $this->seed_roles();
             $this->seed_colors();
             $this->seed_rooms();
         }
@@ -130,9 +140,9 @@ abstract class TestCase extends BaseTestCase
     public function seed_colors(): void
     {
         if (!\App\Color::count()) {
-            \App\Color::create(['name' => 'Blue', 'value' => '#0000FF']);
-            \App\Color::create(['name' => 'Red', 'value' => '#FF0000']);
-            \App\Color::create(['name' => 'Green', 'value' => '#00FF00']);
+            \App\Color::create(['title' => 'Blue', 'value' => '#0000FF']);
+            \App\Color::create(['title' => 'Red', 'value' => '#FF0000']);
+            \App\Color::create(['title' => 'Green', 'value' => '#00FF00']);
         }
     }
 
@@ -142,9 +152,9 @@ abstract class TestCase extends BaseTestCase
     public function seed_rooms(): void
     {
         if (!\App\Room::count()) {
-            \App\Room::create(['name' => 'Room A', 'capacity' => 50]);
-            \App\Room::create(['name' => 'Room B', 'capacity' => 30]);
-            \App\Room::create(['name' => 'Room C', 'capacity' => 20]);
+            \App\Room::create(['title' => 'Room A', 'capacity' => 50]);
+            \App\Room::create(['title' => 'Room B', 'capacity' => 30]);
+            \App\Room::create(['title' => 'Room C', 'capacity' => 20]);
         }
     }
 

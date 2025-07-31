@@ -82,7 +82,7 @@ class mailPdfPaper extends Command
             $body = "<p>Προς: $name<br>Email: $email</p>";
             $body .= $message->page_text;
 
-            $type=Presenter::before($paper->type,':');
+            $type = explode(':', $paper->type)[0];
 
             /**
              * prepare pdf attachment
@@ -136,7 +136,7 @@ class mailPdfPaper extends Command
             }else{
                 $this->error("ERROR: could not send message to user $paper->id. ");
                 // Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error());
-                Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.");
+                \App\Helpers\MailHelper::sendErrorNotification("Error in mailer. kBSaSOfrFchbehAa.", "PDF Paper Mailer");
             }
             
             \File::delete($attachment_path);

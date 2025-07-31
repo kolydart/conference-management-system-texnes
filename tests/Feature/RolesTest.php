@@ -25,12 +25,12 @@ class RolesTest extends TestCase
 
     var $Model = '\App\Role';
     var $table = 'roles';
-    var $role = 'Διαχειριστής';
+    var $role = 'Admin';
     var $route_path = "admin.roles";
 
     /** @test */
     public function user_can_index_model(){
-
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         $instance = $this->Model::factory(5)->create();

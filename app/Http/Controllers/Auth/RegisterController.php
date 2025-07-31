@@ -72,7 +72,7 @@ class RegisterController extends Controller
         $inform = $data; unset($inform['password']); unset($inform['password_confirmation']); unset($inform['_token']);
         // Presenter::mail(Presenter::dd($inform),'registered user in conference');
 
-        Presenter::message( __('Συνδεθήκατε με επιτυχία! Μπορείτε να δηλώσετε τα εργαστήρια που επιθυμείτε να παρακολουθήσετε. Δείτε τις σχετικές <a href="/page/faq#register">οδηγίες</a>.'),'success');
+        flash()->message( __('Συνδεθήκατε με επιτυχία! Μπορείτε να δηλώσετε τα εργαστήρια που επιθυμείτε να παρακολουθήσετε. Δείτε τις σχετικές <a href="/page/faq#register">οδηγίες</a>.'),'success');
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

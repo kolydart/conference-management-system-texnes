@@ -86,7 +86,7 @@ class UsersController extends Controller
 
             // $table->addColumn('weak_password', '&nbsp;');
             // $table->editColumn('weak_password', function ($row) {
-            //     return (Hash::check(Presenter::before($row->email,'@'), $row->password))?1:'';
+            //     return (Hash::check(explode('@', $row->email)[0], $row->password))?1:'';
             // });
             
             $table->rawColumns(['actions','massDelete']);

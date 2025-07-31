@@ -51,6 +51,9 @@ class PaperFactory extends Factory
             'informed' => $this->faker->randomElement(['Unaware', 'Informed']),
             'order' => $this->faker->randomNumber(2),
             'capacity' => $this->faker->randomNumber(2),
+            // Optional relationships - can be overridden in tests
+            'user_id' => null,
+            'session_id' => null,
         ];
     }
 }

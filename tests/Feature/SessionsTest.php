@@ -13,7 +13,7 @@ class SessionsTest extends TestCase
 
     var $Model = '\App\Session';
     var $table = 'sessions';
-    var $role = 'Διαχειριστής';
+    var $role = 'Admin';
     var $route_path = "admin.sessions";
 
     /** @test */

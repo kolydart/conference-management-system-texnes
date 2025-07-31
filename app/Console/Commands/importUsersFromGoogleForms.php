@@ -42,7 +42,16 @@ class importUsersFromGoogleForms extends Command
         /**
          * array from csv path given in terminal
          */
-        $array = Presenter::import_csv_to_array($this->argument('csv_path'));
+        // Simple CSV import replacement
+        $csvPath = $this->argument('csv_path');
+        $array = [];
+        if (($handle = fopen($csvPath, 'r')) !== FALSE) {
+            $header = fgetcsv($handle, 1000, ',');
+            while (($row = fgetcsv($handle, 1000, ',')) !== FALSE) {
+                $array[] = array_combine($header, $row);
+            }
+            fclose($handle);
+        }
 
         /**
          * iterator
@@ -122,7 +131,7 @@ class importUsersFromGoogleForms extends Command
                 ]);                
             }else{
                 $this->error("ERROR: could not send message to user $user->id");
-                Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error());
+                \App\Helpers\MailHelper::sendErrorNotification("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error(), "Google Forms Import");
             }
         }
     }

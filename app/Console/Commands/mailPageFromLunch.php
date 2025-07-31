@@ -104,7 +104,7 @@ class mailPageFromLunch extends Command
             }else{
                 $this->error("ERROR: could not send message to lunch $lunch->id. ");
                 // Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.".$mailer->get_error());
-                Presenter::mail("Error in mailer. kBSaSOfrFchbehAa.");
+                \App\Helpers\MailHelper::sendErrorNotification("Error in mailer. kBSaSOfrFchbehAa.", "Lunch Page Mailer");
             }
         // sleep(30);
 

@@ -25,13 +25,13 @@ class aclTest extends TestCase
         
         $this->seed_default_data();
         
-        // Test with manager role (Greek: Συντονιστής)
-        $this->login_user('Συντονιστής');
+        // Test with manager role
+        $this->login_user('Manager');
         $this->get('/admin/home')->assertStatus(200);
         $this->get('/admin/papers')->assertStatus(200);
 
-        // Test with attendee role (Greek: Ακροατής)
-        $this->login_user('Ακροατής');
+        // Test with attendee role
+        $this->login_user('Attendee');
         $this->get('/admin/home')->assertStatus(302);
         $this->get('/admin/papers')->assertStatus(302);
     }

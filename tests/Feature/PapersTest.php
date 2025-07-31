@@ -25,23 +25,26 @@ class PapersTest extends TestCase
 
     var $Model = '\App\Paper';
     var $table = 'papers';
-    var $role = 'Διαχειριστής';
+    var $role = 'Admin';
     var $route_path = "admin.papers";
 
     /** @test */
     public function user_can_index_model(){
-
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
-
+        
         // Create dependencies first - Session factory needs Room and Color
-        \App\Room::factory(2)->create();
-        \App\Color::factory(2)->create();
-        \App\Session::factory(2)->create();
+        $rooms = \App\Room::factory(2)->create();
+        $colors = \App\Color::factory(2)->create();
+        $session = \App\Session::factory()->create([
+            'room_id' => $rooms->first()->id,
+            'color_id' => $colors->first()->id,
+        ]);
         
         // Create papers with proper relationships
         $instance = $this->Model::factory(5)->create([
             'user_id' => $user->id, // Associate with the logged-in user
-            'session_id' => \App\Session::first()->id, // Associate with a session
+            'session_id' => $session->id, // Associate with a session
         ]);
 
         $response = $this->get(route("$this->route_path.index"));
@@ -52,44 +55,44 @@ class PapersTest extends TestCase
 
     /** @test */
     public function user_can_view_a_model(){
-
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         // Create dependencies first - Session factory needs Room and Color
-        \App\Room::factory(2)->create();
-        \App\Color::factory(2)->create();
-        \App\Session::factory(2)->create();
+        $rooms = \App\Room::factory(2)->create();
+        $colors = \App\Color::factory(2)->create();
+        $session = \App\Session::factory()->create([
+            'room_id' => $rooms->first()->id,
+            'color_id' => $colors->first()->id,
+        ]);
         
         $instance = $this->Model::factory()->create([
             'user_id' => $user->id,
-            'session_id' => \App\Session::first()->id,
+            'session_id' => $session->id,
         ]);
 
         $response = $this->get(route("$this->route_path.show", $instance));
         $response->assertSessionHasNoErrors();
-        
-        // Debug redirect issue
-        if ($response->getStatusCode() === 302) {
-            $this->fail("User role: {$user->role_id}, User approved: {$user->approved}, Redirected to: " . $response->headers->get('Location'));
-        }
-        
         $response->assertSuccessful();
 
     }
 
     /** @test */
     public function user_can_store_a_model(){
-
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         // Create dependencies
-        \App\Room::factory(2)->create();
-        \App\Color::factory(2)->create();
-        \App\Session::factory(2)->create();
+        $rooms = \App\Room::factory(2)->create();
+        $colors = \App\Color::factory(2)->create();
+        $session = \App\Session::factory()->create([
+            'room_id' => $rooms->first()->id,
+            'color_id' => $colors->first()->id,
+        ]);
         
         $instance = $this->Model::factory()->make([
             'user_id' => $user->id,
-            'session_id' => \App\Session::first()->id,
+            'session_id' => $session->id,
         ]);
 
         $this->assertDatabaseCount($this->table, 0);
@@ -101,17 +104,20 @@ class PapersTest extends TestCase
 
     /** @test */
     public function user_can_edit_a_model(){
-
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         // Create dependencies
-        \App\Room::factory(2)->create();
-        \App\Color::factory(2)->create();
-        \App\Session::factory(2)->create();
+        $rooms = \App\Room::factory(2)->create();
+        $colors = \App\Color::factory(2)->create();
+        $session = \App\Session::factory()->create([
+            'room_id' => $rooms->first()->id,
+            'color_id' => $colors->first()->id,
+        ]);
         
         $instance = $this->Model::factory()->create([
             'user_id' => $user->id,
-            'session_id' => \App\Session::first()->id,
+            'session_id' => $session->id,
         ]);
 
         $response = $this->get(route("$this->route_path.edit", $instance));
@@ -122,17 +128,20 @@ class PapersTest extends TestCase
 
     /** @test */
     public function user_can_update_a_model(){
-
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         // Create dependencies
-        \App\Room::factory(2)->create();
-        \App\Color::factory(2)->create();
-        \App\Session::factory(2)->create();
+        $rooms = \App\Room::factory(2)->create();
+        $colors = \App\Color::factory(2)->create();
+        $session = \App\Session::factory()->create([
+            'room_id' => $rooms->first()->id,
+            'color_id' => $colors->first()->id,
+        ]);
         
         $instance = $this->Model::factory()->create([
             'user_id' => $user->id,
-            'session_id' => \App\Session::first()->id,
+            'session_id' => $session->id,
         ]);
 
         $response = $this->put(route("$this->route_path.update", $instance), $instance->toArray());
@@ -151,17 +160,20 @@ class PapersTest extends TestCase
 
     /** @test */
     public function user_can_delete_a_model(){
-
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
         // Create dependencies
-        \App\Room::factory(2)->create();
-        \App\Color::factory(2)->create();
-        \App\Session::factory(2)->create();
+        $rooms = \App\Room::factory(2)->create();
+        $colors = \App\Color::factory(2)->create();
+        $session = \App\Session::factory()->create([
+            'room_id' => $rooms->first()->id,
+            'color_id' => $colors->first()->id,
+        ]);
         
         $instance = $this->Model::factory()->create([
             'user_id' => $user->id,
-            'session_id' => \App\Session::first()->id,
+            'session_id' => $session->id,
         ]);
 
         $response = $this->delete(route("$this->route_path.destroy", $instance));

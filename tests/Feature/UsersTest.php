@@ -25,26 +25,16 @@ class UsersTest extends TestCase
 
     var $Model = '\App\User';
     var $table = 'users';
-    var $role = 'Διαχειριστής';
+    var $role = 'Admin';
     var $route_path = "admin.users";
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->seed_permissions(); // Always ensure roles exist for all tests
-        // Debug: Check what roles were created
-        $roles = \App\Role::all();
-        if ($roles->isEmpty()) {
-            throw new \Exception("No roles were created during seeding!");
-        }
-    }
 
     /** @test */
     public function user_can_index_model(){
-
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
-        $instance = $this->Model::factory(5)->create(['role_id' => 1, 'approved' => 1]);
+        $instance = $this->Model::factory(5)->create();
 
         $response = $this->get(route("$this->route_path.index"));
         $response->assertSessionHasNoErrors();
@@ -54,10 +44,10 @@ class UsersTest extends TestCase
 
     /** @test */
     public function user_can_view_a_model(){
-
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
-        $instance = $this->Model::factory()->create(['role_id' => 1, 'approved' => 1]);
+        $instance = $this->Model::factory()->create();
 
         $response = $this->get(route("$this->route_path.show", $instance));
         $response->assertSessionHasNoErrors();
@@ -67,10 +57,10 @@ class UsersTest extends TestCase
 
     /** @test */
     public function user_can_store_a_model(){
-
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
-        $instance = $this->Model::factory()->make(['role_id' => 1, 'approved' => 1]);
+        $instance = $this->Model::factory()->make();
 
         $this->assertDatabaseCount($this->table, 1); // Only the logged in user
         $response = $this->post(route("$this->route_path.store"), $instance->toArray());
@@ -81,10 +71,10 @@ class UsersTest extends TestCase
 
     /** @test */
     public function user_can_edit_a_model(){
-
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
-        $instance = $this->Model::factory()->create(['role_id' => 1, 'approved' => 1]);
+        $instance = $this->Model::factory()->create();
 
         $response = $this->get(route("$this->route_path.edit", $instance));
         $response->assertSessionHasNoErrors();
@@ -94,10 +84,10 @@ class UsersTest extends TestCase
 
     /** @test */
     public function user_can_update_a_model(){
-
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
-        $instance = $this->Model::factory()->create(['role_id' => 1, 'approved' => 1]);
+        $instance = $this->Model::factory()->create();
 
         $response = $this->put(route("$this->route_path.update", $instance), $instance->toArray());
 
@@ -115,14 +105,14 @@ class UsersTest extends TestCase
 
     /** @test */
     public function user_can_delete_a_model(){
-
+        $this->seed_default_data();
         $user = $this->login_user($this->role);
 
-        $instance = $this->Model::factory()->create(['role_id' => 1, 'approved' => 1]);
+        $instance = $this->Model::factory()->create();
 
         $response = $this->delete(route("$this->route_path.destroy", $instance));
 
-        $this->assertModelMissing($instance);
+        $this->assertDatabaseMissing($this->table, ['id' => $instance->id]);
 
         $response->assertSessionHasNoErrors();
     }

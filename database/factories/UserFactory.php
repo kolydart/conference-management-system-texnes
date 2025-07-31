@@ -3,9 +3,7 @@
 namespace Database\Factories;
 
 use App\User;
-use App\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class UserFactory extends Factory
 {
@@ -32,10 +30,14 @@ class UserFactory extends Factory
             'checkin' => $this->faker->randomElement(['Checked-in', 'Αbsent']),
             'password' => $password,
             'role_id' => function() {
-                // Try to find an existing role, create one if none exist
-                $role = Role::first();
+                // Always ensure we get a valid role - prefer Admin (id=1), fallback to any existing role
+                $role = \App\Role::find(1);
                 if (!$role) {
-                    $role = Role::create(['id' => 1, 'title' => 'Test Role']);
+                    $role = \App\Role::first(); // Get any existing role
+                    if (!$role) {
+                        // Create Admin role if no roles exist
+                        $role = \App\Role::create(['id' => 1, 'title' => 'Admin']);
+                    }
                 }
                 return $role->id;
             },

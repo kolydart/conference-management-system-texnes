@@ -43,7 +43,7 @@ class AuthServiceProvider extends ServiceProvider
             $capacity = $paper->capacity();
             if(
                 Gate::denies('attend_delete',$paper)
-                && Presenter::left($paper->type,10) == 'Εργαστήριο'
+                && substr($paper->type, 0, 10) == 'Εργαστήριο'
                 && $paper->attend()->count() < $capacity
                 && $user->attend()->count() < $max_user_attends
             ){
