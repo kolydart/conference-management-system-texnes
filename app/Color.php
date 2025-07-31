@@ -6,6 +6,7 @@ use App\Session;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Activitylog\LogOptions;
 
 /**
  * Class Color
@@ -23,8 +24,12 @@ class Color extends Model
     
     use \Spatie\Activitylog\Traits\LogsActivity;
 
-    protected static $logFillable = true;
-    protected static $logOnlyDirty = true;
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable()
+            ->logOnlyDirty();
+    }
     
     public function sessions(){
         if(request('show_deleted') == 1)

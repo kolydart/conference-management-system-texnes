@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
 /**
  * Class Art
@@ -16,15 +17,19 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class Art extends Model
 {
 	use HasFactory, LogsActivity;
-	/** log dirty fillable */
-	protected static $logFillable = true;	    
-	protected static $logOnlyDirty = true;
     public $table = "arts";
 
     use SoftDeletes;
 
     protected $fillable = ['title'];
     protected $hidden = [];
+    
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable()
+            ->logOnlyDirty();
+    }
     
     
     public function papers()

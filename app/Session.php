@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\LogOptions;
 
 /**
  * Class Session
@@ -21,13 +22,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Session extends Model
 {
     use HasFactory, \Spatie\Activitylog\Traits\LogsActivity;
-    protected static $logFillable = true;       
-    protected static $logOnlyDirty = true;
 
     use SoftDeletes;
 
     protected $fillable = ['title', 'start', 'duration', 'chair', 'room_id', 'color_id'];
     protected $hidden = [];
+    
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable()
+            ->logOnlyDirty();
+    }
     
     
 

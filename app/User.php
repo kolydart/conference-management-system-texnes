@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
 /**
  * Class User
@@ -27,9 +28,13 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class User extends Authenticatable
 {
     use HasFactory, LogsActivity;
-    /** log dirty fillable */
-    protected static $logFillable = true;       
-    protected static $logOnlyDirty = true;          
+    
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable()
+            ->logOnlyDirty();
+    }          
 
     use Notifiable;
     protected $fillable = ['name', 'email', 'checkin', 'phone', 'attribute', 'password', 'remember_token', 'approved', 'role_id'];

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
 /**
  * Class Fullpaper
@@ -18,15 +19,19 @@ use Spatie\Activitylog\Traits\LogsActivity;
 */
 class Fullpaper extends Model implements HasMedia
 {
-    use HasFactory, LogsActivity;
-    /** log dirty fillable */
-    protected static $logFillable = true;       
-    protected static $logOnlyDirty = true;          
+    use HasFactory, LogsActivity;          
 
     use SoftDeletes, InteractsWithMedia;
 
     protected $fillable = ['description', 'paper_id'];
     protected $hidden = [];
+    
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable()
+            ->logOnlyDirty();
+    }
     
     /**
      *  Setup model event hooks

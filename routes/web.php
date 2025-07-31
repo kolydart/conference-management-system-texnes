@@ -11,17 +11,17 @@ Route::post('logout', 'Auth\LoginController@logout')->name('auth.logout');
 
 // Change Password Routes...
 Route::get('change_password', 'Auth\ChangePasswordController@showChangePasswordForm')->name('auth.change_password');
-Route::patch('change_password', 'Auth\ChangePasswordController@changePassword')->name('auth.change_password');
+Route::patch('change_password', 'Auth\ChangePasswordController@changePassword')->name('auth.change_password.store');
 
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('auth.password.reset');
-Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('auth.password.reset');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('auth.password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.password.update');
 
 // Registration Routes..
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('auth.register');
-Route::post('register', 'Auth\RegisterController@register')->name('auth.register');
+Route::post('register', 'Auth\RegisterController@register')->name('auth.register.store');
 
 // Admin
 Route::group(['middleware' => ['backend','auth','approved'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
@@ -103,7 +103,7 @@ Route::group(['middleware' => ['backend','auth','approved'], 'prefix' => 'admin'
 Route::get('/', 'Frontend\HomeController@index')->name('frontend.home');
 
 Route::get('/contact', 'Frontend\HomeController@contact')->name('frontend.contact');
-Route::post('/contact', 'Frontend\HomeController@contact')->name('frontend.contact');
+Route::post('/contact', 'Frontend\HomeController@contact')->name('frontend.contact.store');
 
 Route::get('arts', 'Frontend\ArtsController@index')->name('frontend.arts.index');
 Route::get('arts/{id}', 'Frontend\ArtsController@show')->name('frontend.arts.show');

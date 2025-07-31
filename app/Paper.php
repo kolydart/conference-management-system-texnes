@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jedrzej\Searchable\SearchableTrait;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\HasMedia;
 
@@ -44,15 +45,19 @@ use Spatie\MediaLibrary\HasMedia;
 */
 class Paper extends Model implements HasMedia
 {
-    use HasFactory, LogsActivity;
-    /** log dirty fillable */
-    protected static $logFillable = true;       
-    protected static $logOnlyDirty = true;          
+    use HasFactory, LogsActivity;          
 
     use SoftDeletes, InteractsWithMedia;
 
     protected $fillable = ['title', 'type', 'duration', 'name', 'email', 'attribute', 'phone', 'abstract', 'bio', 'status', 'informed', 'order', 'capacity', 'objectives', 'materials', 'description', 'age', 'evaluation', 'video', 'bibliography', 'keywords', 'lab_approved', 'user_id', 'session_id'];
     protected $hidden = [];
+    
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable()
+            ->logOnlyDirty();
+    }
     
     use SearchableTrait;
     public $searchable = ['type'];

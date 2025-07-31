@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
 /**
  * Class Review
@@ -17,15 +18,19 @@ use Spatie\Activitylog\Traits\LogsActivity;
 */
 class Review extends Model
 {
-    use HasFactory, LogsActivity;
-    /** log dirty fillable */
-    protected static $logFillable = true;       
-    protected static $logOnlyDirty = true;          
+    use HasFactory, LogsActivity;          
 
     use SoftDeletes;
 
     protected $fillable = ['review', 'comment', 'user_id', 'paper_id'];
     protected $hidden = [];
+    
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable()
+            ->logOnlyDirty();
+    }
     
     
 

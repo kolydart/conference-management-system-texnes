@@ -6,6 +6,7 @@ use App\Session;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\LogOptions;
 
 /**
  * Class Room
@@ -20,13 +21,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Room extends Model
 {
     use HasFactory, \Spatie\Activitylog\Traits\LogsActivity;
-    protected static $logFillable = true;       
-    protected static $logOnlyDirty = true;
 
     use SoftDeletes;
 
     protected $fillable = ['title', 'description', 'type', 'wifi', 'capacity'];
     protected $hidden = [];
+    
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable()
+            ->logOnlyDirty();
+    }
     
     
 

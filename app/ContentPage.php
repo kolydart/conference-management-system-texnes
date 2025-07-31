@@ -4,6 +4,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
 /**
  * Class ContentPage
@@ -17,14 +18,17 @@ use Spatie\Activitylog\Traits\LogsActivity;
 */
 class ContentPage extends Model
 {
-   use HasFactory, LogsActivity;
-    /** log dirty fillable */
-   protected static $logFillable = true;       
-   protected static $logOnlyDirty = true;          
+   use HasFactory, LogsActivity;          
 
     protected $fillable = ['title', 'alias', 'page_text', 'excerpt', 'featured_image'];
     protected $hidden = [];
     
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable()
+            ->logOnlyDirty();
+    }
     
     
     public function category_id()

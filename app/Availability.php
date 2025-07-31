@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Activitylog\LogOptions;
 
 /**
  * Class Availability
@@ -23,9 +24,14 @@ class Availability extends Model
     protected $fillable = ['start', 'end', 'notes', 'color_id', 'room_id'];
     protected $hidden = [];
 
-    use \Spatie\Activitylog\Traits\LogsActivity;
-    protected static $logFillable = true;       
-    protected static $logOnlyDirty = true;    
+    use \Spatie\Activitylog\Traits\LogsActivity;    
+    
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable()
+            ->logOnlyDirty();
+    }
     
     
 
