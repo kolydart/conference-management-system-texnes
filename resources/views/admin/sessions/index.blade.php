@@ -64,7 +64,7 @@
                                 <td field-key='start'>{{ $session->start }}</td>
                                 <td field-key='duration'>{{ \Carbon\Carbon::createFromFormat('H:i:s', $session->duration)->diffInMinutes(\Carbon\Carbon::createFromFormat('H:i:s', '00:00:00')) }}'</td>
                                 <td field-key='papers'>{{ $session->papers->count() }}</td>
-                                <td field-key='remains'>{{ $session->papers->pluck('duration')->sum() - \Carbon\Carbon::createFromFormat('H:i:s', $session->duration)->diffInMinutes(\Carbon\Carbon::createFromFormat('H:i:s', '00:00:00')) }}'</td>
+                                <td field-key='remains'>{{ $session->papers->pluck('duration')->filter(function($duration) { return is_numeric($duration); })->sum() - \Carbon\Carbon::createFromFormat('H:i:s', $session->duration)->diffInMinutes(\Carbon\Carbon::createFromFormat('H:i:s', '00:00:00')) }}'</td>
                                 <td field-key='color'>{{ $session->color->title or ''}}</td>
                                 <td field-key='chair'>{{ $session->chair or ''}}</td>
                                 @if( request('show_deleted') == 1 )
