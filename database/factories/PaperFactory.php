@@ -51,6 +51,8 @@ class PaperFactory extends Factory
             'informed' => $this->faker->randomElement(['Unaware', 'Informed']),
             'order' => $this->faker->randomNumber(2),
             'capacity' => $this->faker->randomNumber(2),
+            'age' => $this->faker->randomElement(['18-25', '26-35', '36-45', '46-55', '56-65', '65+']),
+            'keywords' => $this->faker->words(3, true),
             // Optional relationships - can be overridden in tests
             'user_id' => null,
             'session_id' => null,
