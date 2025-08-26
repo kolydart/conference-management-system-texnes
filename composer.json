@@ -25,11 +25,12 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",
         "barryvdh/laravel-ide-helper": "^2.8",
-        "spatie/laravel-ignition": "^2.0",
+        "laravel/boost": "^1.0",
         "laravel/dusk": "^7.0",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^7.0",
         "phpunit/phpunit": "^10.0",
+        "spatie/laravel-ignition": "^2.0",
         "symfony/thanks": "^1.0"
     },
     "autoload": {
