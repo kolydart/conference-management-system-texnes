@@ -19,5 +19,6 @@ composer.lock
 /storage/export
 /public/google*.html
 /documentation/
-/lock/tmp_sql/export.sql/storage/debugbar/
+/lock/tmp_sql/export.sql
+/lock/export.sql
 .phpunit.cache/test-results
