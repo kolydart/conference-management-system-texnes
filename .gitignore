@@ -14,7 +14,6 @@ npm-debug.log
 yarn-error.log
 .env
 .phpstorm.meta.php
-composer.lock
 /storage/debugbar
 /storage/export
 /public/google*.html
