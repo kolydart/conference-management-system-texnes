@@ -8,15 +8,33 @@ Recipe source: `~/Files_Folder/38903.frameworks/docs/laravel-dusk-smoke-install.
 
 ## What it covers
 
-`tests/Browser/SmokeTest.php` has 5 `#[Test]` methods:
+`tests/Browser/SmokeTest.php` has 6 `#[Test]` methods:
 
 | Method | Routes crawled |
 |---|---|
-| `admin_index_routes_smoke_pass`  | `admin.*.index` |
-| `admin_show_routes_smoke_pass`   | `admin.*.show` (first record id substituted) |
-| `admin_edit_routes_smoke_pass`   | `admin.*.edit` (first record id substituted) |
-| `admin_create_routes_smoke_pass` | `admin.*.create` |
-| `frontend_routes_smoke_pass`     | `frontend.*` (parameterless) |
+| `admin_index_routes_smoke_pass`    | `admin.*.index` |
+| `admin_show_routes_smoke_pass`     | `admin.*.show` (first record id substituted) |
+| `admin_edit_routes_smoke_pass`     | `admin.*.edit` (first record id substituted) |
+| `admin_create_routes_smoke_pass`   | `admin.*.create` |
+| `frontend_routes_smoke_pass`       | `frontend.*` (parameterless) |
+| `frontend_show_routes_smoke_pass`  | `frontend.*.show` (per-route record substituted) |
+
+### Frontend show routes (`frontend_show_routes_smoke_pass`)
+
+Each frontend `*.show` controller applies its own lookup constraints, so the
+route parameter is resolved per route by `resolveFrontendUri()` to a record that
+actually renders (rather than 404/403-ing on the generic "first record by id"):
+
+| Route | Param | Record picked |
+|---|---|---|
+| `frontend.arts.show`     | `{id}`    | first `Art` |
+| `frontend.rooms.show`    | `{id}`    | first `Room` |
+| `frontend.sessions.show` | `{id}`    | first `Session` |
+| `frontend.papers.show`   | `{id}`    | first **`accepted()`** `Paper` (the controller scopes its `findOrFail`) |
+| `frontend.pages.show`    | `{alias}` | first `ContentPage` in the **public category (id 2)**, substituting its `alias` (not id) — others `abort(403)` |
+
+Any future `frontend.*.show` route with no explicit resolver falls back to the
+generic first-record-by-id substitution.
 
 For each route it loads the page, waits ~1.2s for JS, then fails on: an unexpected
 browser `alert()`, any SEVERE console error, or a rendered `.alert-danger`. Failures

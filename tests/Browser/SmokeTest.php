@@ -209,6 +209,37 @@ class SmokeTest extends DuskTestCase
         );
     }
 
+    #[Test]
+    public function frontend_show_routes_smoke_pass(): void
+    {
+        $routes = $this->discoverRoutes(fn ($name) => Str::is('frontend.*.show', $name), allowParameters: true);
+
+        if ($routes->isEmpty()) {
+            $this->markTestSkipped('No frontend *.show routes discovered.');
+        }
+
+        $failures = [];
+
+        $this->browse(function (Browser $browser) use ($routes, &$failures) {
+            foreach ($routes as $route) {
+                $uri = $this->resolveFrontendUri($route);
+                if ($uri === null) {
+                    continue;
+                }
+
+                $error = $this->visitUri($browser, $route->getName(), $uri);
+                if ($error !== null) {
+                    $failures[] = $error;
+                }
+            }
+        });
+
+        $this->assertEmpty(
+            $failures,
+            count($failures)." frontend show route(s) failed:\n\n".implode("\n\n", $failures)
+        );
+    }
+
     protected function discoverRoutes(callable $nameMatcher, bool $allowParameters = false): \Illuminate\Support\Collection
     {
         return collect(Route::getRoutes())
@@ -250,6 +281,56 @@ class SmokeTest extends DuskTestCase
         }
 
         $uri = preg_replace('/\{[^}]+\}/', (string) $record->getKey(), $route->uri(), 1);
+
+        return '/'.ltrim($uri, '/');
+    }
+
+    /**
+     * Resolve a parametrized frontend *.show route URI.
+     *
+     * Unlike admin show routes (uniform {id} → first record), each frontend
+     * controller applies its own lookup constraints (query scopes, non-id keys,
+     * visibility gates), so the substitution value is resolved per route to a
+     * record that actually renders the page rather than 404/403-ing.
+     *
+     * Returns null when no suitable record exists (skip, not failure).
+     */
+    protected function resolveFrontendUri(RoutingRoute $route): ?string
+    {
+        $name = $route->getName();
+
+        // Per-route resolvers for controllers whose lookup is not the generic
+        // "first record by id": each returns the value to substitute into the
+        // single route parameter, or null when no suitable record exists.
+        $resolvers = [
+            // Paper@show is scoped to accepted() (findOrFail) — a non-accepted
+            // paper 404s, so pick an accepted one.
+            'frontend.papers.show' => fn () => optional(\App\Paper::accepted()->first())->getKey(),
+            // ContentPage@show looks up by {alias} (not id) and only renders
+            // pages in the public category (id 2); others abort(403).
+            'frontend.pages.show' => fn () => optional(
+                \App\ContentPage::whereHas('category_id', fn ($q) => $q->where('content_categories.id', 2))->first()
+            )->alias,
+            // Arts/Rooms/Sessions@show resolve the first record by id.
+            'frontend.arts.show' => fn () => optional(\App\Art::first())->getKey(),
+            'frontend.rooms.show' => fn () => optional(\App\Room::first())->getKey(),
+            'frontend.sessions.show' => fn () => optional(\App\Session::first())->getKey(),
+        ];
+
+        // Any new frontend *.show route falls back to generic id substitution.
+        if (! isset($resolvers[$name])) {
+            return $this->resolveUri($route);
+        }
+
+        $value = $resolvers[$name]();
+
+        if ($value === null) {
+            fwrite(STDOUT, "  → {$name} ({$route->uri()}) ... skipped (no suitable record)\n");
+
+            return null;
+        }
+
+        $uri = preg_replace('/\{[^}]+\}/', (string) $value, $route->uri(), 1);
 
         return '/'.ltrim($uri, '/');
     }
