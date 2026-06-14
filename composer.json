@@ -14,7 +14,7 @@
         "intervention/image": "^2.5",
         "jedrzej/searchable": "dev-master",
         "kolydart/common": "^0.5.0",
-        "kolydart/laravel": "@dev",
+        "kolydart/laravel": "dev-master",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.9",
         "laravel/ui": "^4.5",
@@ -69,7 +69,9 @@
         ],
         "post-update-cmd-dev": [
             "@php artisan ide-helper:generate",
-            "@php artisan ide-helper:models --nowrite"
+            "@php artisan ide-helper:models --nowrite",
+            "if [ ! -L vendor/kolydart/laravel ] ; then rm -rf vendor/kolydart/laravel && ln -s ../../../kolydart-laravel vendor/kolydart/laravel; fi",
+            "if [ ! -L vendor/kolydart/common ] ; then rm -rf vendor/kolydart/common && ln -s ../../../kolydart-common vendor/kolydart/common; fi"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",

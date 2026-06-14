@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fda14bfa5e6ad05ddd0b035a15f6e08a",
+    "content-hash": "84c9f0b72933bbc97aaa14812a0e756a",
     "packages": [
         {
             "name": "brick/math",
@@ -1703,10 +1703,16 @@
         {
             "name": "kolydart/laravel",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kolydart/laravel.git",
+                "reference": "0e144554006d3cdb8b09233850bed4a2fe6bb84c"
+            },
             "dist": {
-                "type": "path",
-                "url": "/Users/kolydart/myDocuments/Code/kolydart-laravel",
-                "reference": "301cd88f8492381b51194395fcb4dca78e0a7141"
+                "type": "zip",
+                "url": "https://api.github.com/repos/kolydart/laravel/zipball/0e144554006d3cdb8b09233850bed4a2fe6bb84c",
+                "reference": "0e144554006d3cdb8b09233850bed4a2fe6bb84c",
+                "shasum": ""
             },
             "require": {
                 "php": ">=7.4"
@@ -1724,6 +1730,7 @@
             "suggest": {
                 "doctrine/dbal": "Required to generate ERDs."
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1741,16 +1748,7 @@
                     "Kolydart\\Laravel\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Kolydart\\Laravel\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1760,10 +1758,11 @@
                 }
             ],
             "description": "A collection of laravel helper classes",
-            "transport-options": {
-                "symlink": true,
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/kolydart/laravel/issues",
+                "source": "https://github.com/kolydart/laravel/tree/master"
+            },
+            "time": "2026-06-14T18:16:26+00:00"
         },
         {
             "name": "laravel/framework",
