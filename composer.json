@@ -14,27 +14,27 @@
         "intervention/image": "^2.5",
         "jedrzej/searchable": "dev-master",
         "kolydart/common": "^0.5.0",
-        "kolydart/laravel": "^0.20.0",
-        "laravel/framework": "^10.0",
-        "laravel/tinker": "^2.5",
-        "laravel/ui": "^4.0",
+        "kolydart/laravel": "@dev",
+        "laravel/framework": "^12.0",
+        "laravel/tinker": "^2.9",
+        "laravel/ui": "^4.5",
         "laravellux/html": "^7.1",
-        "sentry/sentry-laravel": "^3.0",
-        "spatie/laravel-activitylog": "^4.0",
-        "spatie/laravel-medialibrary": "^10.0",
-        "unisharp/laravel-filemanager": "^2.0",
-        "yajra/laravel-datatables-oracle": "^10.0"
+        "sentry/sentry-laravel": "^4.0",
+        "spatie/laravel-activitylog": "^4.8",
+        "spatie/laravel-medialibrary": "^11.0",
+        "unisharp/laravel-filemanager": "^2.9",
+        "yajra/laravel-datatables-oracle": "^12.0"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.7",
-        "barryvdh/laravel-ide-helper": "^2.8",
+        "barryvdh/laravel-debugbar": "^3.10",
+        "barryvdh/laravel-ide-helper": "^3.0",
         "laravel/boost": "^1.0",
-        "laravel/dusk": "^7.0",
+        "laravel/dusk": "^8.0",
         "mockery/mockery": "^1.4.2",
-        "nunomaduro/collision": "^7.0",
-        "phpunit/phpunit": "^10.0",
+        "nunomaduro/collision": "^8.1",
+        "phpunit/phpunit": "^11.5",
         "roave/security-advisories": "dev-latest",
-        "spatie/laravel-ignition": "^2.0",
+        "spatie/laravel-ignition": "^2.4",
         "symfony/thanks": "^1.0"
     },
     "autoload": {
@@ -69,7 +69,9 @@
         ],
         "post-update-cmd-dev": [
             "@php artisan ide-helper:generate",
-            "@php artisan ide-helper:models --nowrite"
+            "@php artisan ide-helper:models --nowrite",
+            "if [ ! -L vendor/kolydart/laravel ] ; then rm -rf vendor/kolydart/laravel && ln -s ../../../kolydart-laravel vendor/kolydart/laravel; fi",
+            "if [ ! -L vendor/kolydart/common ] ; then rm -rf vendor/kolydart/common && ln -s ../../../kolydart-common vendor/kolydart/common; fi"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
