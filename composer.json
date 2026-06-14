@@ -1,11 +1,14 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "doctrine/dbal": "^3.0",
         "fakerphp/faker": "^1.9.1",
         "intervention/image": "^2.5",
@@ -39,8 +42,7 @@
             "database/seeds",
             "database/factories"
         ],
-        "exclude-from-classmap":[
-        ],
+        "exclude-from-classmap": [],
         "psr-4": {
             "App\\": "app/"
         }
@@ -52,8 +54,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-            ]
+            "dont-discover": []
         }
     },
     "scripts": {

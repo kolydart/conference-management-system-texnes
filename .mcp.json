@@ -1,11 +1,20 @@
 {
     "mcpServers": {
         "laravel-boost": {
-            "command": "/opt/local/bin/php8.2",
+            "command": "/usr/local/bin/cphp",
             "args": [
                 "./artisan",
                 "boost:mcp"
             ]
+        },
+        "herd": {
+            "command": "/usr/local/bin/cphp",
+            "args": [
+                "/Applications/Herd.app/Contents/Resources/herd-mcp.phar"
+            ],
+            "env": {
+                "SITE_PATH": "/Users/kolydart/myDocuments/Code/l_conference-management-system"
+            }
         }
     }
 }
