@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         cacheDirectory=".phpunit.cache"
+         backupGlobals="false">
+  <testsuites>
+    <testsuite name="Browser">
+      <directory suffix="Test.php">./tests/Browser</directory>
+    </testsuite>
+  </testsuites>
+  <php>
+    <!--
+      APP_ENV=dusk.local so Laravel loads .env.dusk.local (live Herd vhost + dev DB).
+      Unlike phpunit.xml, the session/cache drivers are NOT forced to "array":
+      Dusk drives a real browser, so the served app needs a persistent (file)
+      session for loginAs() to carry across HTTP requests.
+    -->
+    <env name="APP_ENV" value="dusk.local"/>
+    <env name="QUEUE_CONNECTION" value="sync"/>
+    <env name="MAIL_MAILER" value="array"/>
+  </php>
+</phpunit>

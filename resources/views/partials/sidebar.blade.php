@@ -149,12 +149,15 @@
                     </li>@endcan
                     
                     @can('availability_access')
+                    @if(Route::has('admin.availabilities.index'))
                     <li>
                         <a href="{{ route('admin.availabilities.index') }}">
                             <i class="fa fa-calendar-times-o"></i>
                             <span>@lang('quickadmin.availability.title')</span>
                         </a>
-                    </li>@endcan
+                    </li>
+                    @endif
+                    @endcan
                     
                     @can('color_access')
                     <li>

@@ -82,7 +82,9 @@
                                 @else
                                 <td>
                                     @can('availability_view')
+                                    @if(Route::has('admin.availabilities.show'))
                                     <a href="{{ route('admin.availabilities.show',[$availability->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    @endif
                                     @endcan
                                     @can('availability_edit')
                                     <a href="{{ route('admin.availabilities.edit',[$availability->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>

@@ -67,7 +67,8 @@ Route::group(['middleware' => ['backend','auth','approved'], 'prefix' => 'admin'
     Route::post('lunches_mass_destroy', ['uses' => 'Admin\LunchesController@massDestroy', 'as' => 'lunches.mass_destroy']);
     Route::post('lunches_restore/{id}', ['uses' => 'Admin\LunchesController@restore', 'as' => 'lunches.restore']);
     Route::delete('lunches_perma_del/{id}', ['uses' => 'Admin\LunchesController@perma_del', 'as' => 'lunches.perma_del']);
-    Route::resource('availabilities', 'Admin\AvailabilitiesController');
+    // index/show disabled: views read null relations (broken pages); use create/edit only
+    Route::resource('availabilities', 'Admin\AvailabilitiesController')->except(['index', 'show']);
     Route::post('availabilities_mass_destroy', ['uses' => 'Admin\AvailabilitiesController@massDestroy', 'as' => 'availabilities.mass_destroy']);
     Route::post('availabilities_restore/{id}', ['uses' => 'Admin\AvailabilitiesController@restore', 'as' => 'availabilities.restore']);
     Route::delete('availabilities_perma_del/{id}', ['uses' => 'Admin\AvailabilitiesController@perma_del', 'as' => 'availabilities.perma_del']);
@@ -81,9 +82,11 @@ Route::group(['middleware' => ['backend','auth','approved'], 'prefix' => 'admin'
     Route::delete('messages_perma_del/{id}', ['uses' => 'Admin\MessagesController@perma_del', 'as' => 'messages.perma_del']);
     Route::resource('roles', 'Admin\RolesController');
     Route::post('roles_mass_destroy', ['uses' => 'Admin\RolesController@massDestroy', 'as' => 'roles.mass_destroy']);
-    Route::resource('activitylogs', 'Admin\ActivitylogsController');
+    // create/store disabled: log viewer, controller has no create()/store()
+    Route::resource('activitylogs', 'Admin\ActivitylogsController')->except(['create', 'store']);
     Route::post('activitylogs_mass_destroy', ['uses' => 'Admin\ActivitylogsController@massDestroy', 'as' => 'activitylogs.mass_destroy']);
-    Route::resource('loguseragents', 'Admin\LoguseragentsController');
+    // create/store disabled: log viewer, controller has no create()/store()
+    Route::resource('loguseragents', 'Admin\LoguseragentsController')->except(['create', 'store']);
     Route::post('loguseragents_mass_destroy', ['uses' => 'Admin\LoguseragentsController@massDestroy', 'as' => 'loguseragents.mass_destroy']);
     Route::post('/spatie/media/upload', 'Admin\SpatieMediaController@create')->name('media.upload');
     Route::post('/spatie/media/remove', 'Admin\SpatieMediaController@destroy')->name('media.remove');

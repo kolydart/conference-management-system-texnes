@@ -51,7 +51,7 @@
                                     <a href="{{ route('admin.papers.show',[$message->paper->id]) }}" >{{ $message->paper->title or '' }}</a>
                                 @endif
                             </td>
-                            <td field-key='paper'>{{ $message->paper->title or '' }}</td>
+                            <td field-key='paper'>{{ $message->paper?->title }}</td>
                         </tr>
                         <tr>
                             <th>@lang('created_at')</th>
