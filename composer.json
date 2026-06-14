@@ -69,9 +69,7 @@
         ],
         "post-update-cmd-dev": [
             "@php artisan ide-helper:generate",
-            "@php artisan ide-helper:models --nowrite",
-            "if [ ! -L vendor/kolydart/laravel ] ; then rm -rf vendor/kolydart/laravel && ln -s ../../../kolydart-laravel vendor/kolydart/laravel; fi",
-            "if [ ! -L vendor/kolydart/common ] ; then rm -rf vendor/kolydart/common && ln -s ../../../kolydart-common vendor/kolydart/common; fi"
+            "@php artisan ide-helper:models --nowrite"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
