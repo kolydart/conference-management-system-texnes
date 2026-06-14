@@ -16,6 +16,7 @@ yarn-error.log
 .phpstorm.meta.php
 /storage/debugbar
 /storage/export
+/storage/logs
 /public/google*.html
 /documentation/
 /lock/tmp_sql/export.sql
