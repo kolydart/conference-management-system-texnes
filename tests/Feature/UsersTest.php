@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class UsersTest extends TestCase
@@ -29,7 +30,7 @@ class UsersTest extends TestCase
     var $route_path = "admin.users";
 
 
-    /** @test */
+    #[Test]
     public function user_can_index_model(){
         $this->seed_default_data();
         $user = $this->login_user($this->role);
@@ -42,7 +43,7 @@ class UsersTest extends TestCase
 
     }
 
-    /** @test */
+    #[Test]
     public function user_can_view_a_model(){
         $this->seed_default_data();
         $user = $this->login_user($this->role);
@@ -55,7 +56,7 @@ class UsersTest extends TestCase
 
     }
 
-    /** @test */
+    #[Test]
     public function user_can_store_a_model(){
         $this->seed_default_data();
         $user = $this->login_user($this->role);
@@ -73,7 +74,7 @@ class UsersTest extends TestCase
         $response->assertSessionHasNoErrors();
     }
 
-    /** @test */
+    #[Test]
     public function user_can_edit_a_model(){
         $this->seed_default_data();
         $user = $this->login_user($this->role);
@@ -86,7 +87,7 @@ class UsersTest extends TestCase
 
     }
 
-    /** @test */
+    #[Test]
     public function user_can_update_a_model(){
         $this->seed_default_data();
         $user = $this->login_user($this->role);
@@ -106,7 +107,7 @@ class UsersTest extends TestCase
         $response->assertSessionHasNoErrors();
     }
 
-    /** @test */
+    #[Test]
     public function user_can_delete_a_model(){
         $this->seed_default_data();
         $user = $this->login_user($this->role);

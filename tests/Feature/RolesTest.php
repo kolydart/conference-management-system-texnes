@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Role;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class RolesTest extends TestCase
@@ -28,7 +29,7 @@ class RolesTest extends TestCase
     var $role = 'Admin';
     var $route_path = "admin.roles";
 
-    /** @test */
+    #[Test]
     public function user_can_index_model(){
         $this->seed_default_data();
         $user = $this->login_user($this->role);
@@ -41,7 +42,7 @@ class RolesTest extends TestCase
 
     }
 
-    /** @test */
+    #[Test]
     public function user_can_view_a_model(){
 
         $this->seed_default_data();
@@ -55,7 +56,7 @@ class RolesTest extends TestCase
 
     }
 
-    /** @test */
+    #[Test]
     public function user_can_store_a_model(){
 
         $this->seed_default_data();
@@ -70,7 +71,7 @@ class RolesTest extends TestCase
         $response->assertSessionHasNoErrors();
     }
 
-    /** @test */
+    #[Test]
     public function user_can_edit_a_model(){
 
         $this->seed_default_data();
@@ -84,7 +85,7 @@ class RolesTest extends TestCase
 
     }
 
-    /** @test */
+    #[Test]
     public function user_can_update_a_model(){
 
         $this->seed_default_data();
@@ -102,7 +103,7 @@ class RolesTest extends TestCase
         $response->assertSessionHasNoErrors();
     }
 
-    /** @test */
+    #[Test]
     public function user_can_delete_a_model(){
 
         $this->seed_default_data();

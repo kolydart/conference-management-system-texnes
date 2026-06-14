@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Paper;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class PapersTest extends TestCase
@@ -26,7 +27,7 @@ class PapersTest extends TestCase
     var $role = 'Admin';
     var $route_path = "admin.papers";
 
-    /** @test */
+    #[Test]
     public function user_can_index_model(){
         $user = $this->login_user($this->role);
 
@@ -50,7 +51,7 @@ class PapersTest extends TestCase
 
     }
 
-    /** @test */
+    #[Test]
     public function user_can_view_a_model(){
         $user = $this->login_user($this->role);
 
@@ -73,7 +74,7 @@ class PapersTest extends TestCase
 
     }
 
-    /** @test */
+    #[Test]
     public function user_can_store_a_model(){
         $user = $this->login_user($this->role);
 
@@ -103,7 +104,7 @@ class PapersTest extends TestCase
         $response->assertSessionHasNoErrors();
     }
 
-    /** @test */
+    #[Test]
     public function user_can_edit_a_model(){
         $user = $this->login_user($this->role);
 
@@ -126,7 +127,7 @@ class PapersTest extends TestCase
 
     }
 
-    /** @test */
+    #[Test]
     public function user_can_update_a_model(){
         $user = $this->login_user($this->role);
 
@@ -163,7 +164,7 @@ class PapersTest extends TestCase
         $response->assertSessionHasNoErrors();
     }
 
-    /** @test */
+    #[Test]
     public function user_can_delete_a_model(){
         $user = $this->login_user($this->role);
 

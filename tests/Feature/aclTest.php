@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithFaker;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class aclTest extends TestCase
@@ -14,13 +15,13 @@ class aclTest extends TestCase
     use DatabaseTransactions;
 
 
-    /** @test */
+    #[Test]
     public function access_to_root_is_allowed(){
         $response = $this->get('/');
         $response->assertSuccessful();
     }
 
-    /** @test */
+    #[Test]
     public function backend_requires_privileged_user(){
 
         $this->seed_default_data();

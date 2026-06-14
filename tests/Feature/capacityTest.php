@@ -7,6 +7,7 @@ use App\Room;
 use App\Session;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class capacityTest extends TestCase
@@ -19,7 +20,7 @@ class capacityTest extends TestCase
 		return Paper::factory()->create(['type'=>'Εργαστήριο','session_id'=>Session::factory()->create()]);
 	}
 
-	/** @test */
+	#[Test]
 	public function which_capacity_is_min(){
 		$paper = $this->createPaper();
 
@@ -34,7 +35,7 @@ class capacityTest extends TestCase
 
 	}
 
-	/** @test */
+	#[Test]
 	public function empty_capacity_is_ignored(){
 		$paper = $this->createPaper();
 
