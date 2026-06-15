@@ -22,3 +22,4 @@ yarn-error.log
 /lock/tmp_sql/export.sql
 /lock/export.sql
 .phpunit.cache/test-results
+/composer.lock
